@@ -2,11 +2,6 @@
 
 ## :gear: setup
 side note: after cloning repository in VS Code, type the following in the terminal. Only need to do this once after repo is cloned.
-```shell
-cp .env.example .env
-```
-
-AND
 
 ```shell
 npm i
@@ -26,4 +21,22 @@ npm run dev
 
 npm run build
 # THIS 'RUNS THE BUILD' ONCE. IF NEW CODE IS SAVED, YOU MUST USE 'npm run build' AGAIN TO SEE UPDATES MADE
+```
+## building components
+
+- Add a new file inside the `components` directory and rename it to a `nameOfFile.jsx`
+- Inside of the `component`, import `React` at the top.
+
+```shell
+
+import React from 'react';
+
+function FUNCTION() {
+  return (
+    <div>
+      content here
+    </div>
+  )
+}
+
 ```
