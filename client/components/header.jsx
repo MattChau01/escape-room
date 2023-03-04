@@ -18,14 +18,15 @@ export default function Header() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            style={{ cursor: 'pointer' }}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{ fontFamily: 'tilt warp, cursive', fontSize: '1.25rem' }} >
             Escape Rooms
           </Typography>
-          <Button color="inherit">Sign Up</Button>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" style={{ cursor: 'pointer' }}>Sign Up</Button>
+          <Button color="inherit" style={{ cursor: 'pointer' }}>Login</Button>
         </Toolbar>
       </AppBar>
     </Box>
