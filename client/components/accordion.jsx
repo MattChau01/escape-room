@@ -1,15 +1,5 @@
 import React from 'react';
 
-// MUI Accordion:
-
-// BASIC ACCORDION
-// import Accordion from '@mui/material/Accordion';
-// import AccordionSummary from '@mui/material/AccordionSummary';
-// import AccordionDetails from '@mui/material/AccordionDetails';
-// import Typography from '@mui/material/Typography';
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
-// COLLAPSABLE ACCORDION
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
@@ -17,90 +7,6 @@ import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 
-// export default function Accordion(props) {
-//   return (
-//     <div>ACCORDION WILL BE PLACED HERE</div>
-//   );
-// }
-
-// BASIC ACCORDION
-// export default function HomeAccordion() {
-//   return (
-//     <div className='home-accordion' >
-
-//       <div>
-//         {/* This will be a tutorial for new users */}
-//         <Accordion>
-//           <AccordionSummary
-//             expandIcon={<ExpandMoreIcon />}
-//             aria-controls="panel2a-content"
-//             id="panel2a-header"
-//           >
-//             <Typography>How to use this site?</Typography>
-//           </AccordionSummary>
-//           <AccordionDetails>
-//             <Typography>
-//               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-//               malesuada lacus ex, sit amet blandit leo lobortis eget.
-//             </Typography>
-//           </AccordionDetails>
-//         </Accordion>
-
-//         <Accordion>
-//           <AccordionSummary
-//             expandIcon={<ExpandMoreIcon />}
-//             aria-controls="panel2a-content"
-//             id="panel2a-header"
-//           >
-//             <Typography>What is an escape room?</Typography>
-//           </AccordionSummary>
-//           <AccordionDetails>
-//             <Typography>
-//               An escape room is a game in which a team of players discover clues,
-//               solve puzzles, and accomplish tasks in one or more
-//               rooms in order to accomplish a specific goal in a limited amount of time. The goal is
-//               often to escape from the site of the game. <a href='https://en.wikipedia.org/wiki/Escape_room'>Learn more here!</a>
-//             </Typography>
-//           </AccordionDetails>
-//         </Accordion>
-
-//         <Accordion>
-//           <AccordionSummary
-//             expandIcon={<ExpandMoreIcon />}
-//             aria-controls="panel1a-content"
-//             id="panel1a-header"
-//           >
-//             <Typography>About Us</Typography>
-//           </AccordionSummary>
-//           <AccordionDetails>
-//             <Typography>
-//               This page was created out of a hobby for escape rooms! Hopefully it&apos;ll become yours too!
-//             </Typography>
-//           </AccordionDetails>
-//         </Accordion>
-
-//         <Accordion>
-//           <AccordionSummary
-//             expandIcon={<ExpandMoreIcon />}
-//             aria-controls="panel2a-content"
-//             id="panel2a-header"
-//           >
-//             <Typography>Contact Us</Typography>
-//           </AccordionSummary>
-//           <AccordionDetails>
-//             <Typography>
-//               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-//               malesuada lacus ex, sit amet blandit leo lobortis eget.
-//             </Typography>
-//           </AccordionDetails>
-//         </Accordion>
-//       </div>
-
-//     </div>
-//   );
-// }
-
-// COLLAPSABLE ACCORDION
 const Accordion = styled(props => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -145,7 +51,7 @@ export default function HomeAccordion() {
   };
 
   return (
-    <div className='home-accordion'>
+    <div className='mt-5' >
 
       <div>
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -155,11 +61,10 @@ export default function HomeAccordion() {
           <AccordionDetails>
             <Typography>
 
-              <p>An escape room is a game in which a team of players discover clues,
-                solve puzzles, and accomplish tasks in one or more
-                rooms in order to accomplish a specific goal in a limited amount of time. The goal is
-                often to escape from the site of the game.</p>
-              <p><a href='https://en.wikipedia.org/wiki/Escape_room'>Learn more here!</a></p>
+              An escape room is a game in which a team of players discover clues,
+              solve puzzles, and accomplish tasks in one or more
+              rooms in order to accomplish a specific goal in a limited amount of time. The goal is
+              often to escape from the site of the game. <a href='https://en.wikipedia.org/wiki/Escape_room'>Learn more here!</a>
 
             </Typography>
           </AccordionDetails>
@@ -188,8 +93,8 @@ export default function HomeAccordion() {
           <AccordionDetails>
             <Typography>
 
-              <p>This site was created out of a hobby for escape rooms. Hopefully it can be yours too!</p>
-              <p>There are many types and themes of escape rooms out there, find your first room here!</p>
+              This site was created out of a hobby for escape rooms. Hopefully it can be yours too!
+              There are many types and themes of escape rooms out there, find your first room here!
 
             </Typography>
           </AccordionDetails>
