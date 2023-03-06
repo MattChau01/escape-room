@@ -3,7 +3,7 @@ import React from 'react';
 export default function SearchBar(props) {
   return (
     <div className='mt-4'>
-      <div className='d-flex justify-content-center align-items-center' style={{ fontWeight: '600', fontSize: '1.5rem' }}>
+      <div className='d-flex justify-content-center align-items-center' style={{ fontFamily: 'tilt warp, cursive', fontSize: '1.25rem' }}>
         Find a room near you!
       </div>
       <div className='mt-3 d-flex justify-content-center align-items-center'>
