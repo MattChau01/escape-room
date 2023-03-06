@@ -2,7 +2,9 @@ import React from 'react';
 // import HelloWorld from '../components/hello-world';
 import Header from '../components/header';
 import SearchBar from '../components/search-bar';
-import Gmaps from '../components/google-maps';
+
+// GOOGLE MAPS COMPONENT BELOW (MAP VIEW)
+// import Gmaps from '../components/google-maps';
 import HomeAccordion from '../components/accordion';
 
 export default function Home(props) {
@@ -11,7 +13,7 @@ export default function Home(props) {
       {/* <HelloWorld /> */}
       <Header />
       <SearchBar />
-      <Gmaps />
+      {/* <Gmaps /> */}
       <HomeAccordion />
     </div>
   );
