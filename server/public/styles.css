@@ -11,22 +11,12 @@
   width: 14rem;
 }
 
-.left-arrow {
+.carousel-arrows {
   margin-top: 8.5rem;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border: none;
   cursor: pointer;
-
-  /* margin-right: 0.3rem; */
-}
-
-.right-arrow {
-  margin-top: 8.5rem;
-  font-weight: 600;
-  font-size: 2rem;
-  border: none;
-  cursor: pointer;
-
-  /* margin-left: 0.1rem; */
+  color: black;
+  background-color: transparent;
 }
