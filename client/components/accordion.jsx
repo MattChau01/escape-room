@@ -51,7 +51,7 @@ export default function HomeAccordion() {
   };
 
   return (
-    <div className='mt-5' >
+    <div className='mt-4' >
 
       <div>
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
