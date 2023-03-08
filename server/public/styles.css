@@ -2,3 +2,21 @@
   position: fixed;
   bottom: 0;
 }
+
+.home-carousel {
+  margin: 0 30px auto;
+}
+
+.home-carousel-img {
+  width: 14rem;
+}
+
+.left-arrow {
+  margin-top: 8rem;
+  margin-right: 1.2rem;
+}
+
+.right-arrow {
+  margin-top: 8rem;
+  margin-left: 1rem;
+}

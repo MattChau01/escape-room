@@ -16,10 +16,27 @@ const images = [
 export default function Carousel(props) {
   // console.log('images: ', images[0].img);
   return (
-    <div className='mt-3 d-flex justify-content-center'>
-      {/* <img src={images[0].img} alt='img1' /> */}
-      <img src={images[0].img} alt='imageOne' style={{ width: '180px' }}/>
-      {/* TEST */}
+    <div className='mt-3 d-flex justify-content-center align-items-center'>
+      {/* <img src={images[0].img} alt='imageOne' style={{ width: '180px' }}/> */}
+      <div className='row'>
+        <div >
+          <div className='left-arrow'>
+            <div style={{ fontWeight: 600, fontSize: '25px' }}>
+              &lt;
+            </div>
+          </div>
+        </div>
+        <div className='home-carousel'>
+          <img src={images[0].img} className='home-carousel-img' />
+        </div>
+        <div>
+          <div className='right-arrow'>
+            <div style={{ fontWeight: 600, fontSize: '25px' }}>
+              &gt;
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
