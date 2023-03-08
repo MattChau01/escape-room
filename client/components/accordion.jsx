@@ -51,7 +51,7 @@ export default function HomeAccordion() {
   };
 
   return (
-    <div className='mt-5' >
+    <div className='mt-4' >
 
       <div>
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -75,7 +75,7 @@ export default function HomeAccordion() {
             <Typography>How to use this site?</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
+            <Typography style={{ color: 'red' }} >
 
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
               malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor

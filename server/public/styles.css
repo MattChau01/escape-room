@@ -2,3 +2,21 @@
   position: fixed;
   bottom: 0;
 }
+
+.home-carousel {
+  margin: 0 30px auto;
+}
+
+.home-carousel-img {
+  width: 14rem;
+}
+
+.carousel-arrows {
+  margin-top: 8.5rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  color: black;
+  background-color: transparent;
+}
