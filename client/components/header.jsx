@@ -57,7 +57,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-const drawerWidth = 250;
+const drawerWidth = 240;
 
 function Header(props) {
   const { window } = props;
@@ -92,12 +92,42 @@ function Header(props) {
             </ListItemButton>
           </ListItem>
         ))} */}
-        <i className="fa-solid fa-circle-info mx-2"><a className='mx-2'>About Us</a></i>
+        <div className='text-center my-5' style={{
+          overflow: 'hidden'
+        }}>
+          <div className='row my-4'>
+            <div className='col-2'>
+              <i className="fa-solid fa-shop mx-2 mt-2" style={{ fontSize: '1rem' }} />
+            </div>
+            <div className='col'>
+              <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }}>Vendors</a>
+            </div>
+          </div>
+          <div className='row my-4'>
+            <div className='col-2'>
+              <i className="fa-solid fa-user mx-2 mt-2" style={{ fontSize: '1rem' }} />
+            </div>
+            <div className='col'>
+              <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }}>Participants</a>
+            </div>
+          </div>
+          <div className='row my-4'>
+            <div className='col-2'>
+              <i className="fa-solid fa-circle-info mx-2 mt-2" style={{ fontSize: '1rem' }} />
+            </div>
+            <div className='col'>
+              <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }}>About Us</a>
+            </div>
+          </div>
+        </div>
+        {/* <i className="fa-solid fa-store mx-2 icon"><a className='mx-2' style={{ cursor: 'pointer' }}>Vendors</a></i>
+        <i className="fa-solid fa-user mx-2 icon"><a className='mx-2' style={{ cursor: 'pointer' }}>Participants</a></i>
+        <i className="fa-solid fa-circle-info mx-2 icon"><a className='mx-2' style={{ cursor: 'pointer' }}>About Us</a></i> */}
         {/* <a className='mx-2'>About Us</a> */}
       </List>
       <Divider />
-      {/* <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+      <List>
+        {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -106,8 +136,19 @@ function Header(props) {
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
-        ))}
-      </List> */}
+        ))} */}
+        <div className='d-flex justify-content-center align-items-center'>
+          <div style={{
+            position: 'fixed',
+            bottom: 0
+          }}>
+            <div className='text-center'>
+              <i className="fa-brands fa-github" style={{ fontSize: '1.5rem', cursor: 'pointer' }}/>
+            </div>
+            <p>Howdy inspectors!</p>
+          </div>
+        </div>
+      </List>
     </div>
   );
 
