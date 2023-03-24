@@ -51,7 +51,7 @@ export default function HomeAccordion() {
   };
 
   return (
-    <div className='mt-4' >
+    <div className='mt-4 accordion' >
 
       <div>
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -64,7 +64,7 @@ export default function HomeAccordion() {
               An escape room is a game in which a team of players discover clues,
               solve puzzles, and accomplish tasks in one or more
               rooms in order to accomplish a specific goal in a limited amount of time. The goal is
-              often to escape from the site of the game. <a href='https://en.wikipedia.org/wiki/Escape_room'>Learn more here!</a>
+              often to escape from the site of the game. <a href='https://en.wikipedia.org/wiki/Escape_room' target="_blank" rel="noreferrer">Learn more here!</a>
 
             </Typography>
           </AccordionDetails>

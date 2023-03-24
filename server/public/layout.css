@@ -1,0 +1,6 @@
+@media (min-width: 500px) {
+  .accordion {
+    position: fixed;
+    bottom: 0;
+  }
+}
