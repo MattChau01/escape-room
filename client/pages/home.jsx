@@ -28,21 +28,43 @@ export default function Home(props) {
       <Carousel images={images}/>
       <div className='d-flex justify-content-center mt-3'>
         <div>
-          <p>
+          <p style={{
+            fontSize: '1.10rem'
+          }}>
             Click one of the following if you are a:
           </p>
         </div>
       </div>
-      <div className='d-flex justify-content-center'>
+      <div className='d-flex justify-content-center align-items'>
         <div className='row mt-3'>
-          <div>
-            <button>Participant</button>
+          <div style={{
+            backgroundColor: '#1976D2',
+            color: '#fff',
+            borderRadius: '5rem',
+            width: '7rem',
+            textAlign: 'center',
+            paddingTop: '.25rem',
+            cursor: 'pointer'
+          }}>
+            <a style={{
+              fontSize: '1.25rem'
+            }} >Participant</a>
           </div>
           <div className='mx-5'>
             <p>OR</p>
           </div>
-          <div>
-            <button>Vendor</button>
+          <div style={{
+            backgroundColor: '#1976D2',
+            color: '#fff',
+            borderRadius: '5rem',
+            width: '7rem',
+            textAlign: 'center',
+            paddingTop: '.25rem',
+            cursor: 'pointer'
+          }}>
+            <a style={{
+              fontSize: '1.25rem'
+            }} >Vendor</a>
           </div>
         </div>
       </div>
