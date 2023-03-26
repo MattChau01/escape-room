@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../components/header';
-import SearchBar from '../components/search-bar';
 import HomeAccordion from '../components/accordion';
 import Carousel from '../components/carousel';
 import imgOne from '../../server/public/room-images/img-1.png';
@@ -21,8 +20,32 @@ export default function Home(props) {
   return (
     <div>
       <Header />
-      <SearchBar />
+      <div className='mt-4'>
+        <div className='d-flex justify-content-center align-items-center' style={{ fontFamily: 'tilt warp, cursive', fontSize: '1.25rem' }}>
+          <p className='text-center'>Sign up today and <br /> find a room near you!</p>
+        </div>
+      </div>
       <Carousel images={images}/>
+      <div className='d-flex justify-content-center mt-3'>
+        <div>
+          <p>
+            Click one of the following if you are a:
+          </p>
+        </div>
+      </div>
+      <div className='d-flex justify-content-center'>
+        <div className='row mt-3'>
+          <div>
+            <button>Participant</button>
+          </div>
+          <div className='mx-5'>
+            <p>OR</p>
+          </div>
+          <div>
+            <button>Vendor</button>
+          </div>
+        </div>
+      </div>
       <HomeAccordion />
     </div>
   );

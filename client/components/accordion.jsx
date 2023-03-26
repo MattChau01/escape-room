@@ -51,7 +51,7 @@ export default function HomeAccordion() {
   };
 
   return (
-    <div className='mt-4' >
+    <div className='mt-5 accordion' >
 
       <div>
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -61,10 +61,10 @@ export default function HomeAccordion() {
           <AccordionDetails>
             <Typography>
 
-              An escape room is a game in which a team of players discover clues,
-              solve puzzles, and accomplish tasks in one or more
-              rooms in order to accomplish a specific goal in a limited amount of time. The goal is
-              often to escape from the site of the game. <a href='https://en.wikipedia.org/wiki/Escape_room'>Learn more here!</a>
+              <p>An escape room is a game in which a team of players discover clues,
+                solve puzzles, and accomplish tasks in one or more
+                rooms in order to accomplish a specific goal in a limited amount of time. The goal is
+                often to escape from the site of the game. <a href='https://en.wikipedia.org/wiki/Escape_room' target="_blank" rel="noreferrer">Learn more here!</a></p>
 
             </Typography>
           </AccordionDetails>
@@ -77,10 +77,10 @@ export default function HomeAccordion() {
           <AccordionDetails>
             <Typography style={{ color: 'red' }} >
 
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-              malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-              sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-              sit amet blandit leo lobortis eget.
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                sit amet blandit leo lobortis eget.</p>
 
             </Typography>
           </AccordionDetails>
@@ -88,17 +88,50 @@ export default function HomeAccordion() {
 
         <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
           <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
+            <Typography>Do you own an escape room?</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+
+              <p>If you are a vendor and would like to add your room as a listing on this site, take a look at our
+                guide on how to make your room available!</p>
+
+              <p>Click on this link to get started!</p>
+
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+          <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
+            <Typography>Looking to book your first escape room?</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+
+              <p>
+                If you are looking to book your first room, it is recommended to first decide the theme you are looking for.
+                You can use this website as a catalog to browse and learn more about current listings!
+              </p>
+
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+          <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
             <Typography>About Us</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
 
-              This site was created out of a hobby for escape rooms. Hopefully it can be yours too!
-              There are many types and themes of escape rooms out there, find your first room here!
+              <p>This site was created out of a hobby for escape rooms. Hopefully it can be yours too!
+                There are many types and themes of escape rooms out there, find your first room here!</p>
 
             </Typography>
           </AccordionDetails>
         </Accordion>
+
       </div>
 
     </div>
