@@ -1,58 +1,11 @@
 import React from 'react';
-// import AppBar from '@mui/material/AppBar';
-// import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
-// import Typography from '@mui/material/Typography';
-// import Button from '@mui/material/Button';
-// import IconButton from '@mui/material/IconButton';
-// import MenuIcon from '@mui/icons-material/Menu';
-
-// // TEST
-// // import DrawerComp from '../components/drawer';
-
-// export default function Header() {
-
-//   return (
-//     <Box sx={{ flexGrow: 1 }}>
-//       <AppBar position="static">
-//         <Toolbar style={{ height: '7rem' }}>
-//           <IconButton
-//             size="large"
-//             edge="start"
-//             color="inherit"
-//             aria-label="menu"
-//             sx={{ mr: 2 }}
-//             style={{ cursor: 'pointer' }}>
-//             {/* On click listener here */}
-//             <MenuIcon />
-//           </IconButton>
-//           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{ fontFamily: 'tilt warp, cursive', fontSize: '1.25rem' }} >
-//             Escape Rooms
-//           </Typography>
-//           <Button color="inherit" style={{ cursor: 'pointer' }} >Sign Up</Button>
-//           <Button color="inherit" style={{ cursor: 'pointer' }}>Login</Button>
-//         </Toolbar>
-//       </AppBar>
-//     </Box>
-//   );
-// }
-
-// TEST HERE
-
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
-// import ListItem from '@mui/material/ListItem';
-// import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
-// import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -69,33 +22,12 @@ function Header(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
       <Divider />
       <List>
-        {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))} */}
-        {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))} */}
         <div className='text-center my-5' style={{
           overflow: 'hidden'
         }}>
-          <div className='row my-4'>
+          <div className='row my-2'>
             <div className='col-2'>
               <i className="fa-solid fa-shop mx-2 mt-2" style={{ fontSize: '1rem' }} />
             </div>
@@ -103,7 +35,7 @@ function Header(props) {
               <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }}>Vendors</a>
             </div>
           </div>
-          <div className='row my-4'>
+          <div className='row my-2'>
             <div className='col-2'>
               <i className="fa-solid fa-user mx-2 mt-2" style={{ fontSize: '1rem' }} />
             </div>
@@ -111,7 +43,7 @@ function Header(props) {
               <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }}>Participants</a>
             </div>
           </div>
-          <div className='row my-4'>
+          <div className='row my-2'>
             <div className='col-2'>
               <i className="fa-solid fa-circle-info mx-2 mt-2" style={{ fontSize: '1rem' }} />
             </div>
@@ -120,30 +52,16 @@ function Header(props) {
             </div>
           </div>
         </div>
-        {/* <i className="fa-solid fa-store mx-2 icon"><a className='mx-2' style={{ cursor: 'pointer' }}>Vendors</a></i>
-        <i className="fa-solid fa-user mx-2 icon"><a className='mx-2' style={{ cursor: 'pointer' }}>Participants</a></i>
-        <i className="fa-solid fa-circle-info mx-2 icon"><a className='mx-2' style={{ cursor: 'pointer' }}>About Us</a></i> */}
-        {/* <a className='mx-2'>About Us</a> */}
       </List>
       <Divider />
       <List>
-        {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))} */}
         <div className='d-flex justify-content-center align-items-center'>
           <div style={{
             position: 'fixed',
             bottom: 0
           }}>
             <div className='text-center'>
-              <i className="fa-brands fa-github" style={{ fontSize: '1.5rem', cursor: 'pointer' }}/>
+              <i className="fa-brands fa-github" style={{ fontSize: '1.5rem' }} />
             </div>
             <p>Howdy inspectors!</p>
           </div>
@@ -157,14 +75,7 @@ function Header(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar
-      // position="fixed"
-      // sx={{
-      //   width: { sm: `calc(100% - ${drawerWidth}px)` },
-      //   ml: { sm: `${drawerWidth}px` }
-      // }}
-        className='drawer'
-      >
+      <AppBar className='drawer'>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -173,47 +84,30 @@ function Header(props) {
             onClick={handleDrawerToggle}
             style={{
               outline: 'none'
-            }}
-          // sx={{ mr: 2, display: { sm: 'none' } }}
-          >
+            }} >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Escape Room
+          <Typography variant="h5" noWrap component="div">
+            ESC Room Finder
           </Typography>
         </Toolbar>
       </AppBar>
       <Box
         component="nav"
-        // sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
-      >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        aria-label="mailbox folders">
         <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true // Better open performance on mobile.
+            keepMounted: true
           }}
           sx={{
-            // display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
-          }}
-        >
+          }}>
           {drawer}
         </Drawer>
-        {/* <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
-          }}
-          open
-        >
-          {drawer}
-        </Drawer> */}
       </Box>
       <Box
         component="main">
@@ -222,13 +116,5 @@ function Header(props) {
     </Box>
   );
 }
-
-Header.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func
-};
 
 export default Header;
