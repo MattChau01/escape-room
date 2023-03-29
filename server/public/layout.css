@@ -1,0 +1,17 @@
+@media screen and (max-width: 400px) {
+  .vsignup {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .vsignup {
+    width: 28rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .vsignup {
+    width: 50rem;
+  }
+}

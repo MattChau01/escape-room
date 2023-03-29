@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './pages/home';
 import ParseRoute from '../client/lib/parse-route';
+import VendorSignup from '../client/pages/vendor-signup';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,9 +27,11 @@ export default class App extends React.Component {
         <Home />
       );
     }
-    // if (path === '#vendor-signup') {
-
-    // }
+    if (path === 'vendor-signup') {
+      return (
+        <VendorSignup />
+      );
+    }
   }
 
   render() {

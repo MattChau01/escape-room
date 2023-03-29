@@ -1,4 +1,5 @@
 import React from 'react';
+// import React, { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,7 +9,8 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
+// import ParseRoute from '../lib/parse-route';
 
 const drawerWidth = 240;
 
@@ -19,6 +21,25 @@ function Header(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  // hashroute:
+
+  // const [redirectHome] = React.useState('#');
+
+  // useEffect(() => {
+
+  //   console.log('current hash: ',
+  //     ParseRoute(window.location.hash)
+  //   );
+
+  // });
+
+  // console.log('current hash: ', redirectHome);
+
+  // function HomePage() {
+  //   console.log('home');
+  //   window.location.hash = '#';
+  // }
 
   const drawer = (
     <div>
@@ -87,9 +108,15 @@ function Header(props) {
             }} >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h5" noWrap component="div">
+
+          <a style={{
+            fontSize: '1.5rem',
+            fontWeight: 600
+            // cursor: 'pointer'
+          }} >
             ESC Room Finder
-          </Typography>
+          </a>
+
         </Toolbar>
       </AppBar>
       <Box
