@@ -26,6 +26,9 @@ export default class App extends React.Component {
         <Home />
       );
     }
+    // if (path === '#vendor-signup') {
+
+    // }
   }
 
   render() {

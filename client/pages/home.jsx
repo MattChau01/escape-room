@@ -22,6 +22,12 @@ export default class Home extends React.Component {
     this.state = {
       route: null
     };
+    this.vendorButton = this.vendorButton.bind(this);
+  }
+
+  vendorButton(event) {
+    // console.log('vendor here');
+    window.location.hash = '#vendor-signup';
   }
 
   render() {
@@ -75,7 +81,7 @@ export default class Home extends React.Component {
             }}>
               <a style={{
                 fontSize: '1.25rem'
-              }} >Vendor</a>
+              }} onClick={this.vendorButton} >Vendor</a>
             </div>
           </div>
         </div>
