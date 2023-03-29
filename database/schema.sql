@@ -12,7 +12,8 @@ CREATE TABLE "public"."vendorAccount" (
 	"hashedPassword" TEXT NOT NULL,
 	"firstName" TEXT NOT NULL,
 	"lastName" TEXT NOT NULL,
-	"createdAt" TIMESTAMP NOT NULL
+	"createdAt" timestamptz(6) NOT NULL DEFAULT now(),
+	CONSTRAINT "vendorAccount_pk" PRIMARY KEY ("userId")
 ) WITH (
   OIDS=FALSE
 );
