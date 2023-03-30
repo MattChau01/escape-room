@@ -16,6 +16,7 @@ class VendorSignup extends React.Component {
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleFirstName(event) {
@@ -71,11 +72,15 @@ class VendorSignup extends React.Component {
     );
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
     return (
       <>
         <Header />
-        <div className='d-flex justify-content-center mt-3 text-center'>
+        <div className='d-flex justify-content-center mt-4 text-center'>
           <p style={{
             fontSize: '1.4rem'
           }}>
@@ -84,8 +89,8 @@ class VendorSignup extends React.Component {
         </div>
         <div className='d-flex justify-content-center mt-1'>
           {/* component for vendor sign up */}
-          <form autoComplete='off' className='vsignup-c'>
-            <label className='d-flex justify-content-center mt-5'
+          <form autoComplete='off' className='vsignup-c' onSubmit={this.handleSubmit} >
+            <label className='d-flex justify-content-center mt-4'
             style={{
               fontSize: '1.25rem',
               fontWeight: 600,
@@ -94,7 +99,7 @@ class VendorSignup extends React.Component {
               Vendor Sign Up
             </label>
             <div className='d-flex justify-content-center'>
-              <div className='mt-3'>
+              <div className='mt-2'>
 
                 {/* <label htmlFor='firstName' className='row mt-3'>
                   First Name:
@@ -116,27 +121,27 @@ class VendorSignup extends React.Component {
                 </label>
                 <input className='vsignup-input' name='passwordConfirm' id='passwordConfirm' type='text' value={this.state.passwordConfirmed} onChange={this.handlePasswordConfirm} /> */}
 
-                <label htmlFor='firstName' className='row mt-4'>
+                <label htmlFor='firstName' className='row mt-3'>
                   {/* First Name: */}
                   <input className='vsignup-input' name='firstName' id='firstName' type='text' placeholder='First Name' value={this.state.firstName} onChange={this.handleFirstName} />
                 </label>
 
-                <label htmlFor='lastName' className='row mt-4'>
+                <label htmlFor='lastName' className='row mt-3'>
                   {/* Last Name: */}
                   <input className='vsignup-input' name='lastName' id='lastName' type='text' placeholder='Last Name' value={this.state.lastName} onChange={this.handleLastName} />
                 </label>
 
-                <label htmlFor='username' className='row mt-4'>
+                <label htmlFor='username' className='row mt-3'>
                   {/* Password: */}
                   <input className='vsignup-input' name='username' id='username' type='text' placeholder='Username' value={this.state.username} onChange={this.handleUsername} />
                 </label>
 
-                <label htmlFor='password' className='row mt-4'>
+                <label htmlFor='password' className='row mt-3'>
                   {/* Password: */}
                   <input className='vsignup-input' name='password' id='password' type='password' placeholder='Password' value={this.state.password} onChange={this.handlePassword} />
                 </label>
 
-                <label htmlFor='passwordConfirm' className='row mt-4'>
+                <label htmlFor='passwordConfirm' className='row mt-3'>
                   {/* Re-enter Password (must match): */}
                   <input className='vsignup-input' name='passwordConfirm' id='passwordConfirm' type='password' placeholder='Re-enter Password' value={this.state.passwordConfirmed} onChange={this.handlePasswordConfirm} />
                 </label>
@@ -146,6 +151,11 @@ class VendorSignup extends React.Component {
                   {
                     this.verifyPasswords()
                   }
+                </div>
+
+                {/* button */}
+                <div className='text-center mt-3'>
+                  <button className='register'>Register</button>
                 </div>
               </div>
             </div>
