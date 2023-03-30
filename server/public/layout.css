@@ -2,32 +2,16 @@
   .vsignup-c {
     width: 90%;
   }
-
-  /* .vsignup {
-    width: 70%;
-  } */
 }
 
 @media screen and (min-width: 500px) {
   .vsignup-c {
     width: 28rem;
   }
-
-  /* .vsignup {
-    width: 20rem;
-  } */
-
-  /* .vsignup-input {
-
-  } */
 }
 
 @media screen and (min-width: 1000px) {
   .vsignup-c {
     width: 40rem;
   }
-
-  /* .vsignup {
-    width: 35rem;
-  } */
 }
