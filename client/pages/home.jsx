@@ -70,7 +70,7 @@ export default class Home extends React.Component {
             <div className='mx-5'>
               <p>OR</p>
             </div>
-            <div style={{
+            <div className='v-sign-up' style={{
               backgroundColor: '#1976D2',
               color: '#fff',
               borderRadius: '5rem',
@@ -78,10 +78,10 @@ export default class Home extends React.Component {
               textAlign: 'center',
               paddingTop: '.25rem',
               cursor: 'pointer'
-            }}>
+            }} onClick={this.vendorButton}>
               <a style={{
                 fontSize: '1.25rem'
-              }} onClick={this.vendorButton} >Vendor</a>
+              }}>Vendor</a>
             </div>
           </div>
         </div>

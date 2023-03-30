@@ -57,7 +57,8 @@
   border-radius: 5rem;
 }
 
-.register:active {
+.register:active,
+.v-sign-up:active {
   position: relative;
   bottom: 0.2rem;
 }

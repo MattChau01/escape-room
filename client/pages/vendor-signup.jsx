@@ -19,6 +19,7 @@ class VendorSignup extends React.Component {
     this.handlePassword = this.handlePassword.bind(this);
     this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.homePage = this.homePage.bind(this);
   }
 
   handleFirstName(event) {
@@ -97,6 +98,10 @@ class VendorSignup extends React.Component {
     );
   }
 
+  homePage() {
+    window.location.hash = '#';
+  }
+
   handleSubmit(event) {
     // event.preventDefault();
     // console.log('SUBMITTED');
@@ -141,6 +146,7 @@ class VendorSignup extends React.Component {
             password: '',
             passwordConfirmed: ''
           });
+          window.location.hash = 'vendor-success';
         });
 
     } else if ((this.state.password === this.state.passwordConfirmed) &&
@@ -253,11 +259,17 @@ class VendorSignup extends React.Component {
 
                 {/* button */}
                 <div className='text-center mt-3'>
-                  <button className='register'>Register</button>
+                  <button className='register' style={{ cursor: 'pointer' }}>Register</button>
                 </div>
               </div>
             </div>
           </form>
+        </div>
+        <div className='d-flex justify-content-center mt-5 mb-3'>
+          {/* <p>TEST</p> */}
+          <a style={{
+            cursor: 'pointer'
+          }} onClick={this.homePage} >Back to home page</a>
         </div>
       </>
     );
