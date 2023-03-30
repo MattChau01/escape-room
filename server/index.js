@@ -23,7 +23,6 @@ app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
 });
 
-// POST REQUEST
 app.post('/api/vendorAccount', (req, res, next) => {
   const { firstName, lastName, username, password } = req.body;
 
@@ -31,7 +30,6 @@ app.post('/api/vendorAccount', (req, res, next) => {
     throw new ClientError(400, 'Invalid Inputs');
   } else {
 
-    // hash password
     argon2
       .hash(password)
       .then(hashedPassword => {
