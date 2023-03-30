@@ -41,12 +41,34 @@ class VendorSignup extends React.Component {
     this.setState({
       password: event.target.value
     });
+
+    // console.log('password: ', this.state.password);
+
   }
 
   handlePasswordConfirm(event) {
     this.setState({
       passwordConfirmed: event.target.value
     });
+
+    // console.log('passwordConfirmed: ', this.state.passwordConfirmed);
+
+  }
+
+  verifyPasswords(event) {
+    if (this.state.passwordConfirmed === this.state.password && this.state.password !== '' && this.state.passwordConfirmed !== '') {
+      // console.log('PASSWORDS MATCH');
+      return (
+        <div style={{ color: 'green' }}>
+          <i className="fa-solid fa-check" style={{ color: '#31c427', fontSize: '1.8rem' }} />
+        </div>
+      );
+    }
+    return (
+      <div style={{ color: 'red' }}>
+        Make sure passwords match!
+      </div>
+    );
   }
 
   render() {
@@ -111,16 +133,20 @@ class VendorSignup extends React.Component {
 
                 <label htmlFor='password' className='row mt-4'>
                   {/* Password: */}
-                  <input className='vsignup-input' name='password' id='password' type='text' placeholder='Password' value={this.state.password} onChange={this.handlePassword} />
+                  <input className='vsignup-input' name='password' id='password' type='password' placeholder='Password' value={this.state.password} onChange={this.handlePassword} />
                 </label>
 
                 <label htmlFor='passwordConfirm' className='row mt-4'>
                   {/* Re-enter Password (must match): */}
-                  <input className='vsignup-input' name='passwordConfirm' id='passwordConfirm' type='text' placeholder='Re-enter Password' value={this.state.passwordConfirmed} onChange={this.handlePasswordConfirm} />
+                  <input className='vsignup-input' name='passwordConfirm' id='passwordConfirm' type='password' placeholder='Re-enter Password' value={this.state.passwordConfirmed} onChange={this.handlePasswordConfirm} />
                 </label>
 
                 {/* conditionally render button when passwords match */}
-
+                <div className='text-center mt-3'>
+                  {
+                    this.verifyPasswords()
+                  }
+                </div>
               </div>
             </div>
           </form>
