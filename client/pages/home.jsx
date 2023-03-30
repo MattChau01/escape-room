@@ -26,13 +26,10 @@ export default class Home extends React.Component {
   }
 
   vendorButton(event) {
-    // console.log('vendor here');
     window.location.hash = 'vendor-signup';
   }
 
   render() {
-
-    // console.log('window hash: ', window.location.hash);
 
     return (
       <div>

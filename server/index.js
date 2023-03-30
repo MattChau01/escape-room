@@ -45,8 +45,6 @@ app.post('/api/vendorAccount', (req, res, next) => {
 
         db.query(sql, params)
           .then(result => {
-            // console.log('RESULTS ROWS: ', result.rows);
-
             res.status(200).json(result.rows[0]);
           })
           .catch(err => next(err));

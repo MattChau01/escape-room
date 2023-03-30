@@ -23,9 +23,6 @@ class VendorSignup extends React.Component {
   }
 
   handleFirstName(event) {
-    // console.log('change');
-
-    // console.log('this.state.firstName: ', this.state.firstName.length);
 
     this.setState({
       firstName: event.target.value
@@ -49,8 +46,6 @@ class VendorSignup extends React.Component {
       password: event.target.value
     });
 
-    // console.log('password: ', this.state.password);
-
   }
 
   handlePasswordConfirm(event) {
@@ -58,13 +53,10 @@ class VendorSignup extends React.Component {
       passwordConfirmed: event.target.value
     });
 
-    // console.log('passwordConfirmed: ', this.state.passwordConfirmed);
-
   }
 
   verifyUsername(event) {
     if (this.state.username.length >= 3) {
-      // console.log('PASSWORDS MATCH');
       return (
         <div style={{ color: '#00FF00', height: '2rem' }}>
           <i className="fa-solid fa-check" style={{ color: '#31c427', fontSize: '1.65rem' }} />
@@ -82,7 +74,6 @@ class VendorSignup extends React.Component {
 
   verifyPasswords(event) {
     if (this.state.passwordConfirmed === this.state.password && this.state.password !== '' && this.state.passwordConfirmed !== '') {
-      // console.log('PASSWORDS MATCH');
       return (
         <div style={{ color: '#00FF00', height: '2rem' }}>
           <i className="fa-solid fa-check" style={{ color: '#31c427', fontSize: '1.65rem' }} />
@@ -104,7 +95,6 @@ class VendorSignup extends React.Component {
 
   handleSubmit(event) {
     // event.preventDefault();
-    // console.log('SUBMITTED');
 
     if (this.state.password === this.state.passwordConfirmed &&
       this.state.firstName.length >= 3 &&
@@ -118,7 +108,6 @@ class VendorSignup extends React.Component {
       this.state.password !== '' &&
       this.state.passwordConfirmed !== '') {
 
-      // console.log('yes');
       event.preventDefault();
 
       const reqObj = {};
@@ -138,7 +127,6 @@ class VendorSignup extends React.Component {
       fetch('api/vendorAccount', req)
         .then(res => res.json())
         .then(data => {
-          // console.log('data: ', data);
           this.setState({
             firstName: '',
             lastName: '',
@@ -161,7 +149,6 @@ class VendorSignup extends React.Component {
       this.state.password === '' ||
       this.state.passwordConfirmed === '')) {
 
-      // console.log('no');
       event.preventDefault();
       return false;
 
@@ -173,7 +160,6 @@ class VendorSignup extends React.Component {
 
     } else {
 
-      // console.log('no');
       event.preventDefault();
       return false;
 

@@ -28,16 +28,12 @@ function Header(props) {
 
   // useEffect(() => {
 
-  //   console.log('current hash: ',
   //     ParseRoute(window.location.hash)
   //   );
 
   // });
 
-  // console.log('current hash: ', redirectHome);
-
   // function HomePage() {
-  //   console.log('home');
   //   window.location.hash = '#';
   // }
 
