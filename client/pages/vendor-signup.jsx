@@ -7,12 +7,13 @@ class VendorSignup extends React.Component {
     this.state = {
       firstName: '',
       lastName: '',
-      userName: '',
+      username: '',
       password: '',
       passwordConfirmed: ''
     };
     this.handleFirstName = this.handleFirstName.bind(this);
     this.handleLastName = this.handleLastName.bind(this);
+    this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this);
   }
@@ -27,6 +28,12 @@ class VendorSignup extends React.Component {
   handleLastName(event) {
     this.setState({
       lastName: event.target.value
+    });
+  }
+
+  handleUsername(event) {
+    this.setState({
+      username: event.target.value
     });
   }
 
@@ -48,36 +55,74 @@ class VendorSignup extends React.Component {
         <Header />
         <div className='d-flex justify-content-center mt-3 text-center'>
           <p style={{
-            fontSize: '1.5rem'
+            fontSize: '1.4rem'
           }}>
             Sign up to add your listing to our catalog!
           </p>
         </div>
         <div className='d-flex justify-content-center mt-1'>
           {/* component for vendor sign up */}
-          <form autoComplete='off' className='vsignup'>
-            <label className='d-flex justify-content-center mt-3'
+          <form autoComplete='off' className='vsignup-c'>
+            <label className='d-flex justify-content-center mt-5'
             style={{
-              fontSize: '1.25rem'
-            }} >
+              fontSize: '1.25rem',
+              fontWeight: 600,
+              color: '#5A5A5A'
+            }}>
               Vendor Sign Up
             </label>
-            <label htmlFor='firstName'>
-              First Name:
-              <input name='firstName' type='text' value={this.state.firstName} onChange={this.handleFirstName} className='mx-2'/>
-            </label>
-            <label htmlFor='lastName'>
-              Last Name:
-              <input name='lastName' type='text' value={this.state.lastName} onChange={this.handleLastName} className='mx-2' />
-            </label>
-            <label htmlFor='password'>
-              Password:
-              <input name='password' type='text' value={this.state.password} onChange={this.handlePassword} className='mx-2' />
-            </label>
-            <label htmlFor='passwordConfirm'>
-              Confirm Password:
-              <input name='passwordConfirm' type='text' value={this.state.passwordConfirmed} onChange={this.handlePasswordConfirm} className='mx-2' />
-            </label>
+            <div className='d-flex justify-content-center'>
+              <div className='mt-3'>
+
+                {/* <label htmlFor='firstName' className='row mt-3'>
+                  First Name:
+                </label>
+                <input className='vsignup-input' name='firstName' id='firstName' type='text' value={this.state.firstName} onChange={this.handleFirstName} />
+
+                <label htmlFor='lastName' className='row mt-3'>
+                  Last Name:
+                </label>
+                <input className='vsignup-input' name='lastName' id='lastName' type='text' value={this.state.lastName} onChange={this.handleLastName} />
+
+                <label htmlFor='password' className='row mt-3'>
+                  Password:
+                </label>
+                <input className='vsignup-input' name='password' id='password' type='text' value={this.state.password} onChange={this.handlePassword} />
+
+                <label htmlFor='passwordConfirm' className='row mt-3'>
+                  Re-enter Password (must match):
+                </label>
+                <input className='vsignup-input' name='passwordConfirm' id='passwordConfirm' type='text' value={this.state.passwordConfirmed} onChange={this.handlePasswordConfirm} /> */}
+
+                <label htmlFor='firstName' className='row mt-4'>
+                  {/* First Name: */}
+                  <input className='vsignup-input' name='firstName' id='firstName' type='text' placeholder='First Name' value={this.state.firstName} onChange={this.handleFirstName} />
+                </label>
+
+                <label htmlFor='lastName' className='row mt-4'>
+                  {/* Last Name: */}
+                  <input className='vsignup-input' name='lastName' id='lastName' type='text' placeholder='Last Name' value={this.state.lastName} onChange={this.handleLastName} />
+                </label>
+
+                <label htmlFor='username' className='row mt-4'>
+                  {/* Password: */}
+                  <input className='vsignup-input' name='username' id='username' type='text' placeholder='Username' value={this.state.username} onChange={this.handleUsername} />
+                </label>
+
+                <label htmlFor='password' className='row mt-4'>
+                  {/* Password: */}
+                  <input className='vsignup-input' name='password' id='password' type='text' placeholder='Password' value={this.state.password} onChange={this.handlePassword} />
+                </label>
+
+                <label htmlFor='passwordConfirm' className='row mt-4'>
+                  {/* Re-enter Password (must match): */}
+                  <input className='vsignup-input' name='passwordConfirm' id='passwordConfirm' type='text' placeholder='Re-enter Password' value={this.state.passwordConfirmed} onChange={this.handlePasswordConfirm} />
+                </label>
+
+                {/* conditionally render button when passwords match */}
+
+              </div>
+            </div>
           </form>
         </div>
       </>

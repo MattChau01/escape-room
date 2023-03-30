@@ -132,7 +132,8 @@ function Header(props) {
           }}
           sx={{
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
-          }}>
+          }}
+          >
           {drawer}
         </Drawer>
       </Box>

@@ -20,7 +20,25 @@
   font-size: 1rem;
 }
 
-.vsignup {
+.vsignup-b {
+  background-color: black;
+}
+
+.vsignup-c {
   background-color: #ececec;
   height: 70vh;
+}
+
+.vsignup-input {
+  color: #5a5a5a;
+  width: 20rem;
+  border-radius: 5rem;
+  outline: none;
+  border: none;
+  height: 2.8rem;
+  padding-left: 2rem;
+}
+
+.vsignup-input:focus::placeholder {
+  color: transparent;
 }
