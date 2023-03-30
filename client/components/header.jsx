@@ -8,7 +8,6 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 
 const drawerWidth = 240;
 
@@ -87,9 +86,14 @@ function Header(props) {
             }} >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h5" noWrap component="div">
+
+          <a style={{
+            fontSize: '1.5rem',
+            fontWeight: 600
+          }} >
             ESC Room Finder
-          </Typography>
+          </a>
+
         </Toolbar>
       </AppBar>
       <Box
@@ -105,7 +109,8 @@ function Header(props) {
           }}
           sx={{
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
-          }}>
+          }}
+          >
           {drawer}
         </Drawer>
       </Box>

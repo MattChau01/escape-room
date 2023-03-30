@@ -19,3 +19,46 @@
 .icon {
   font-size: 1rem;
 }
+
+.vsignup-b {
+  background-color: black;
+}
+
+.vsignup-c {
+  background-color: #ececec;
+  height: 35rem;
+}
+
+.vsignup-input {
+  color: #5a5a5a;
+  width: 20rem;
+  border-radius: 5rem;
+  outline: none;
+  border: none;
+  height: 2.8rem;
+  padding-left: 2rem;
+}
+
+.vsignup-input:focus::placeholder {
+  color: transparent;
+}
+
+.register {
+  color: #fff;
+  font-size: 1.2rem;
+  width: 10rem;
+  height: 2rem;
+  background-color: #046290;
+  border-style: none;
+  border-radius: 5rem;
+}
+
+.register:active,
+.v-sign-up:active {
+  position: relative;
+  bottom: 0.2rem;
+}
+
+.register:focus {
+  outline: none;
+}
