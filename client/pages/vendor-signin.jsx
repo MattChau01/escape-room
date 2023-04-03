@@ -8,10 +8,16 @@ export default class VendorSignin extends React.Component {
       username: '',
       password: ''
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   homePage() {
     window.location.hash = '#';
+  }
+
+  handleSubmit(event) {
+    // console.log('Submitted!');
+    event.preventDefault();
   }
 
   render() {
@@ -30,7 +36,7 @@ export default class VendorSignin extends React.Component {
           </p>
         </div>
         <div className='d-flex justify-content-center mt-1'>
-          <form autoComplete='off' className='vsignin-c' >
+          <form autoComplete='off' className='vsignin-c' onSubmit={this.handleSubmit}>
             <label className='d-flex justify-content-center mt-5'
               style={{
                 fontSize: '1.25rem',
@@ -51,8 +57,9 @@ export default class VendorSignin extends React.Component {
                 </label>
 
                 <div className='text-center mt-5'>
-                  <button className='register' style={{ cursor: 'pointer' }}>Sign In</button>
+                  <button className='register' style={{ cursor: 'pointer' }} >Sign In</button>
                 </div>
+
               </div>
             </div>
           </form>
