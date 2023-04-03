@@ -33,7 +33,7 @@ export default class Home extends React.Component {
 
     return (
       <div>
-        <Header />
+        <Header vendorSignin={this.props.vendorSignin} />
         <div className='mt-4'>
           <div className='d-flex justify-content-center align-items-center' style={{ fontFamily: 'tilt warp, cursive', fontSize: '1.25rem' }}>
             <p className='text-center'>Sign up today and <br /> find a room near you!</p>

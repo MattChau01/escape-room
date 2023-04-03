@@ -1,7 +1,11 @@
 import React from 'react';
 import Header from '../components/header';
 
-export default function VSuccess(props) {
+export default function VendorSuccess(props) {
+
+  function vendorSignIn() {
+    window.location.hash = 'vendor-signin';
+  }
 
   function returnHome() {
     window.location.hash = '#';
@@ -9,7 +13,7 @@ export default function VSuccess(props) {
 
   return (
     <div>
-      <Header />
+      <Header vendorSignin={props.vendorSignin} />
       <div className='d-flex flex-column mt-5'>
         <div className='row justify-content-center'>
           <h2>
@@ -22,7 +26,7 @@ export default function VSuccess(props) {
           </h5>
         </div>
         <div className='row justify-content-center'>
-          <a style={{ cursor: 'pointer' }}>
+          <a className='signin' style={{ cursor: 'pointer' }} onClick={vendorSignIn} >
             Vendor sign in
           </a>
         </div>

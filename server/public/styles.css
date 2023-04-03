@@ -54,9 +54,10 @@
 }
 
 .register:active,
-.v-sign-up:active {
+.v-sign-up:active,
+.signin:active {
   position: relative;
-  bottom: 0.2rem;
+  bottom: 0.4rem;
 }
 
 .register:focus {

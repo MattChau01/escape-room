@@ -2,7 +2,11 @@ import React from 'react';
 import Home from './pages/home';
 import ParseRoute from '../client/lib/parse-route';
 import VendorSignup from '../client/pages/vendor-signup';
-import VSuccess from '../client/pages/vendor-success';
+import VendorSuccess from '../client/pages/vendor-success';
+import VendorSignin from '../client/pages/vendor-signin';
+
+// TEST
+// import Header from './components/header';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -11,6 +15,7 @@ export default class App extends React.Component {
       route: ParseRoute(window.location.hash)
     };
     this.currentPage = this.currentPage.bind(this);
+    this.vendorSignin = this.vendorSignin.bind(this);
   }
 
   componentDidMount() {
@@ -21,21 +26,36 @@ export default class App extends React.Component {
     });
   }
 
+  // Test hash change
+  vendorSignin() {
+    // console.log('vendor signin');
+    window.location.hash = 'vendor-signin';
+  }
+
   currentPage() {
+
+    // test
+    // <Header vendorSignin={this.vendorSignIn} />;
+
     const { path } = this.state.route;
     if (path === '') {
       return (
-        <Home />
+        <Home vendorSignin={this.vendorSignin} />
       );
     }
     if (path === 'vendor-signup') {
       return (
-        <VendorSignup />
+        <VendorSignup vendorSignin={this.vendorSignin} />
       );
     }
     if (path === 'vendor-success') {
       return (
-        <VSuccess />
+        <VendorSuccess vendorSignin={this.vendorSignin} />
+      );
+    }
+    if (path === 'vendor-signin') {
+      return (
+        <VendorSignin vendorSignin={this.vendorSignin} />
       );
     }
   }
