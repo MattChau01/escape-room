@@ -20,16 +20,23 @@
   font-size: 1rem;
 }
 
-.vsignup-b {
+/* .vsignup-b {
   background-color: black;
-}
+} */
 
 .vsignup-c {
   background-color: #ececec;
   height: 35rem;
 }
 
-.vsignup-input {
+.vsignin-c {
+  background-color: #ececec;
+  width: 23rem;
+  height: 25rem;
+}
+
+.vsignup-input,
+.vsignin-input {
   color: #5a5a5a;
   width: 20rem;
   border-radius: 5rem;
@@ -39,7 +46,8 @@
   padding-left: 2rem;
 }
 
-.vsignup-input:focus::placeholder {
+.vsignup-input:focus::placeholder,
+.vsignin-input:focus::placeholder {
   color: transparent;
 }
 
