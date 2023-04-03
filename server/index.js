@@ -1,10 +1,10 @@
 require('dotenv/config');
-const express = require('express');
-const staticMiddleware = require('./static-middleware');
-const errorMiddleware = require('./error-middleware');
-const ClientError = require('./client-error');
-const pg = require('pg');
 const argon2 = require('argon2');
+const ClientError = require('./client-error');
+const errorMiddleware = require('./error-middleware');
+const express = require('express');
+const pg = require('pg');
+const staticMiddleware = require('./static-middleware');
 
 const db = new pg.Pool({
   connectionString: `${process.env.DATABASE_URL}`,
@@ -23,7 +23,7 @@ app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
 });
 
-app.post('/api/vendorAccount', (req, res, next) => {
+app.post('/api/vendorAccount/signup', (req, res, next) => {
   const { firstName, lastName, username, password } = req.body;
 
   if (!firstName || !lastName || !username || !password) {
