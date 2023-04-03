@@ -56,6 +56,17 @@ app.post('/api/vendorAccount/signup', (req, res, next) => {
 
 });
 
+// sign in
+
+app.post('/api/vendorAccount/signin', (res, req, next) => {
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    throw new ClientError(401, 'Invalid input');
+  }
+
+});
+
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {
