@@ -50,9 +50,9 @@ export default class VendorSignin extends React.Component {
                   <input className='vsignin-input' name='password' id='password' type='password' placeholder='Password' value={this.state.password} />
                 </label>
 
-                {/* <div className='text-center mt-3'>
-                  <button className='register' style={{ cursor: 'pointer' }}>Sign</button>
-                </div> */}
+                <div className='text-center mt-5'>
+                  <button className='register' style={{ cursor: 'pointer' }}>Sign In</button>
+                </div>
               </div>
             </div>
           </form>
