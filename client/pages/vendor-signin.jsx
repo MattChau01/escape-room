@@ -9,10 +9,24 @@ export default class VendorSignin extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUsername = this.handleUsername.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
   }
 
   homePage() {
     window.location.hash = '#';
+  }
+
+  handleUsername(event) {
+    this.setState({
+      username: event.target.value
+    });
+  }
+
+  handlePassword(event) {
+    this.setState({
+      password: event.target.value
+    });
   }
 
   handleSubmit(event) {
@@ -49,11 +63,11 @@ export default class VendorSignin extends React.Component {
               <div className='mt-4'>
 
                 <label htmlFor='username' className='row mt-3'>
-                  <input className='vsignin-input' name='username' id='username' type='text' placeholder='Username' value={this.state.username} />
+                  <input className='vsignin-input' name='username' id='username' type='text' placeholder='Username' value={this.state.username} onChange={this.handleUsername}/>
                 </label>
 
                 <label htmlFor='password' className='row mt-3'>
-                  <input className='vsignin-input' name='password' id='password' type='password' placeholder='Password' value={this.state.password} />
+                  <input className='vsignin-input' name='password' id='password' type='password' placeholder='Password' value={this.state.password} onChange={this.handlePassword}/>
                 </label>
 
                 <div className='text-center mt-5'>
