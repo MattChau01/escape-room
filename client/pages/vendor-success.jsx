@@ -3,9 +3,9 @@ import Header from '../components/header';
 
 export default function VendorSuccess(props) {
 
-  function vendorSignIn() {
-    window.location.hash = 'vendor-signin';
-  }
+  // function vendorSignIn() {
+  //   window.location.hash = 'vendor-signin';
+  // }
 
   function returnHome() {
     window.location.hash = '#';
@@ -13,7 +13,7 @@ export default function VendorSuccess(props) {
 
   return (
     <div>
-      <Header vendorSignin={props.vendorSignin} />
+      <Header routeVSignin={props.routeVSignin} />
       <div className='d-flex flex-column mt-5'>
         <div className='row justify-content-center'>
           <h2>
@@ -26,7 +26,7 @@ export default function VendorSuccess(props) {
           </h5>
         </div>
         <div className='row justify-content-center'>
-          <a className='signin' style={{ cursor: 'pointer' }} onClick={vendorSignIn} >
+          <a className='signin' style={{ cursor: 'pointer' }} onClick={props.routeVSignin} >
             Vendor sign in
           </a>
         </div>

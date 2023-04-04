@@ -15,7 +15,7 @@ export default class App extends React.Component {
       route: ParseRoute(window.location.hash)
     };
     this.currentPage = this.currentPage.bind(this);
-    this.vendorSignin = this.vendorSignin.bind(this);
+    this.routeVSignin = this.routeVSignin.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +27,7 @@ export default class App extends React.Component {
   }
 
   // Test hash change
-  vendorSignin() {
+  routeVSignin() {
     // console.log('vendor signin');
     window.location.hash = 'vendor-signin';
   }
@@ -40,22 +40,22 @@ export default class App extends React.Component {
     const { path } = this.state.route;
     if (path === '') {
       return (
-        <Home vendorSignin={this.vendorSignin} />
+        <Home routeVSignin={this.routeVSignin} />
       );
     }
     if (path === 'vendor-signup') {
       return (
-        <VendorSignup vendorSignin={this.vendorSignin} />
+        <VendorSignup routeVSignin={this.routeVSignin} />
       );
     }
     if (path === 'vendor-success') {
       return (
-        <VendorSuccess vendorSignin={this.vendorSignin} />
+        <VendorSuccess routeVSignin={this.routeVSignin} />
       );
     }
     if (path === 'vendor-signin') {
       return (
-        <VendorSignin vendorSignin={this.vendorSignin} />
+        <VendorSignin routeVSignin={this.routeVSignin} />
       );
     }
   }
