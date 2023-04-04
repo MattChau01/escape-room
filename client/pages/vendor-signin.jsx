@@ -62,15 +62,26 @@ export default class VendorSignin extends React.Component {
 
       fetch('api/vendorAccount/signin', req)
         .then(res => res.json())
-        .then(data => {
-          this.setState({
-            username: '',
-            password: ''
-          });
+        .then(result => {
+          // console.log('result: ', result);
+          // console.log('result: ', result.user);
+          // console.log('result: ', result.token);
 
-          // Hash route here
+          // if (result.user && result.token)
 
-        });
+          // WORKING ON AUTHENTICATION HERE
+
+        })
+        // .then(data => {
+        //   this.setState({
+        //     username: '',
+        //     password: ''
+        //   });
+
+      //   // Hash route here
+
+        // })
+        .catch(err => console.error(err));
 
     }
 
@@ -102,7 +113,7 @@ export default class VendorSignin extends React.Component {
               Vendor Sign in
             </label>
             <div className='d-flex justify-content-center'>
-              <div className='mt-4'>
+              <div className='mt-3'>
 
                 <label htmlFor='username' className='row mt-3'>
                   <input className='vsignin-input' name='username' id='username' type='text' placeholder='Username' value={this.state.username} onChange={this.handleUsername}/>
@@ -112,7 +123,11 @@ export default class VendorSignin extends React.Component {
                   <input className='vsignin-input' name='password' id='password' type='password' placeholder='Password' value={this.state.password} onChange={this.handlePassword}/>
                 </label>
 
-                <div className='text-center mt-5'>
+                <div className='text-center mt-4'>
+                  &nbsp;
+                </div>
+
+                <div className='text-center mt-3'>
                   <button className='register' style={{ cursor: 'pointer' }} >Sign In</button>
                 </div>
 
