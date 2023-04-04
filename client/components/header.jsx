@@ -83,6 +83,7 @@ function Header(props) {
       <CssBaseline />
       <AppBar className='drawer'>
         <Toolbar>
+          {/* <div className='mx-2 my-2' style={{ backgroundColor: '#1976D2' }}> */}
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -101,6 +102,7 @@ function Header(props) {
             ESC Room Finder
           </a>
 
+          {/* </div> */}
         </Toolbar>
       </AppBar>
       <Box

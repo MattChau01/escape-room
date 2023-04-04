@@ -31,7 +31,49 @@ export default class VendorSignin extends React.Component {
 
   handleSubmit(event) {
     // console.log('Submitted!');
-    event.preventDefault();
+    // event.preventDefault();
+
+    if (this.state.username === '' &&
+      this.state.password === '' &&
+      this.state.username < 3 &&
+      this.state.password < 3) {
+
+      // console.log('Invalid inputs');
+      event.preventDefault();
+      return false;
+
+    } else {
+
+      // console.log('Submitted');
+
+      event.preventDefault();
+
+      const reqObj = {};
+      reqObj.username = this.state.username;
+      reqObj.password = this.state.password;
+
+      const req = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reqObj)
+      };
+
+      fetch('api/vendorAccount/signin', req)
+        .then(res => res.json())
+        .then(data => {
+          this.setState({
+            username: '',
+            password: ''
+          });
+
+          // Hash route here
+
+        });
+
+    }
+
   }
 
   render() {
