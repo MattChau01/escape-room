@@ -19,6 +19,8 @@ const jsonMiddleWare = express.json();
 
 app.use(staticMiddleware);
 app.use(jsonMiddleWare);
+// TEST
+// app.use(express.urlencoded());
 
 app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
@@ -58,8 +60,12 @@ app.post('/api/vendorAccount/signup', (req, res, next) => {
 });
 
 // sign in
+// app.use(jsonMiddleWare);
 
-app.post('/api/vendorAccount/signin', (res, req, next) => {
+app.post('/api/vendorAccount/signin', (req, res, next) => {
+
+  // console.log('req: ', req.body);
+
   const { username, password } = req.body;
 
   if (!username || !password) {
@@ -67,7 +73,7 @@ app.post('/api/vendorAccount/signin', (res, req, next) => {
   } else {
     const sql = `
       select "userId", "hashedPassword"
-      from "users"
+      from "vendorAccount"
       where "username" = $1
     `;
 
@@ -76,6 +82,8 @@ app.post('/api/vendorAccount/signin', (res, req, next) => {
     db.query(sql, params)
       .then(result => {
         const [user] = result.rows;
+
+        // console.log('user: ', user);
 
         if (!user) {
           throw new ClientError(401, 'Invalid login');
@@ -87,17 +95,24 @@ app.post('/api/vendorAccount/signin', (res, req, next) => {
           .then(isMatching => {
             if (!isMatching) {
               throw new ClientError(401, 'Invalid login');
+            } else {
+
+              const payload = { userId, username };
+              const token = jwt.sign(payload, process.env.TOKEN_SECRET);
+
+              res.json({
+                token,
+                user: payload
+              });
+
             }
 
-            const payload = { userId, username };
-            const token = jwt.sign(payload, process.env.TOKEN_SECRET);
-
-            res.json({
-              token,
-              user: payload
-            });
           });
-      });
+
+      })
+
+      .catch(err => next(err));
+
   }
 
 });
