@@ -64,10 +64,12 @@ export default class VendorSignin extends React.Component {
         .then(res => res.json())
         .then(result => {
           // console.log('result: ', result);
-          // console.log('result: ', result.user);
-          // console.log('result: ', result.token);
+          // console.log('result.user: ', result.user);
+          // console.log('result.token: ', result.token);
 
-          // if (result.user && result.token)
+          if (result.user && result.token) {
+            this.props.onSignIn(result);
+          }
 
           // WORKING ON AUTHENTICATION HERE
 
