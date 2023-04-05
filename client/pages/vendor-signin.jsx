@@ -75,9 +75,13 @@ export default class VendorSignin extends React.Component {
               username: '',
               password: ''
             });
+
+            window.location.hash = 'vendor-home';
+
           } else {
 
             // console.log('Invalid credentials');
+            return false;
             // alert('Invalid credentials. Refresh and please try again');
 
             // const invalidCreds = (

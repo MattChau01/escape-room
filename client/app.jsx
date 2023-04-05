@@ -5,6 +5,7 @@ import ParseRoute from '../client/lib/parse-route';
 import VendorSignup from '../client/pages/vendor-signup';
 import VendorSuccess from '../client/pages/vendor-success';
 import VendorSignin from '../client/pages/vendor-signin';
+import VendorHome from '../client/pages/vendor-home';
 
 // TEST
 // import Header from './components/header';
@@ -61,19 +62,28 @@ export default class App extends React.Component {
         <Home routeVSignin={this.routeVSignin} />
       );
     }
+
     if (path === 'vendor-signup') {
       return (
         <VendorSignup routeVSignin={this.routeVSignin} />
       );
     }
+
     if (path === 'vendor-success') {
       return (
         <VendorSuccess routeVSignin={this.routeVSignin} />
       );
     }
+
     if (path === 'vendor-signin') {
       return (
         <VendorSignin routeVSignin={this.routeVSignin} onSignIn={this.handleSignIn} />
+      );
+    }
+
+    if (path === 'vendor-home') {
+      return (
+        <VendorHome routeVSignin={this.routeVSignin} />
       );
     }
   }
