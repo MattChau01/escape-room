@@ -41,7 +41,6 @@ export default class App extends React.Component {
 
   // Test hash change
   routeVSignin() {
-    // console.log('vendor signin');
     window.location.hash = 'vendor-signin';
   }
 

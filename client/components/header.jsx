@@ -22,7 +22,6 @@ function Header(props) {
   };
 
   // function vendorSignin() {
-  //   console.log('vendor sign in');
   //   window.location.hash = 'vendor-signin';
   // }
 

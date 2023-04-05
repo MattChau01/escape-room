@@ -30,7 +30,6 @@ export default class VendorSignin extends React.Component {
   }
 
   handleSubmit(event) {
-    // console.log('Submitted!');
     // event.preventDefault();
 
     if (this.state.username === '' &&
@@ -38,13 +37,10 @@ export default class VendorSignin extends React.Component {
       this.state.username < 3 &&
       this.state.password < 3) {
 
-      // console.log('Invalid inputs');
       event.preventDefault();
       return false;
 
     } else {
-
-      // console.log('Submitted');
 
       event.preventDefault();
 
@@ -63,12 +59,8 @@ export default class VendorSignin extends React.Component {
       fetch('api/vendorAccount/signin', req)
         .then(res => res.json())
         .then(result => {
-          // console.log('result: ', result);
-          // console.log('result.user: ', result.user);
-          // console.log('result.token: ', result.token);
 
           if (result.user && result.token) {
-            // console.log('credentials approved');
             this.props.onSignIn(result);
 
             this.setState({
@@ -80,7 +72,6 @@ export default class VendorSignin extends React.Component {
 
           } else {
 
-            // console.log('Invalid credentials');
             return false;
             // alert('Invalid credentials. Refresh and please try again');
 
@@ -110,8 +101,6 @@ export default class VendorSignin extends React.Component {
 
         })
         // .then(data => {
-
-      //   console.log('data: ', data);
 
       //   this.setState({
       //     username: '',

@@ -64,8 +64,6 @@ app.post('/api/vendorAccount/signup', (req, res, next) => {
 
 app.post('/api/vendorAccount/signin', (req, res, next) => {
 
-  // console.log('req: ', req.body);
-
   const { username, password } = req.body;
 
   if (!username || !password) {
@@ -82,8 +80,6 @@ app.post('/api/vendorAccount/signin', (req, res, next) => {
     db.query(sql, params)
       .then(result => {
         const [user] = result.rows;
-
-        // console.log('user: ', user);
 
         if (!user) {
           throw new ClientError(401, 'Invalid login');
