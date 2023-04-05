@@ -68,17 +68,51 @@ export default class VendorSignin extends React.Component {
           // console.log('result.token: ', result.token);
 
           if (result.user && result.token) {
+            // console.log('credentials approved');
             this.props.onSignIn(result);
+
+            this.setState({
+              username: '',
+              password: ''
+            });
+          } else {
+
+            // console.log('Invalid credentials');
+            // alert('Invalid credentials. Refresh and please try again');
+
+            // const invalidCreds = (
+            //   <div>
+            //     Test
+            //   </div>
+            // );
           }
+
+          // this.setState({
+          //   username: '',
+          //   password: ''
+          // });
+
+          // CONDITIONALLY RENDER A SUCCESS / FAIL
+
+          // else {
+          //   const invalidCreds = (
+          //     <div>
+          //       Test
+          //     </div>
+          //   );
+          // }
 
           // WORKING ON AUTHENTICATION HERE
 
         })
         // .then(data => {
-        //   this.setState({
-        //     username: '',
-        //     password: ''
-        //   });
+
+      //   console.log('data: ', data);
+
+      //   this.setState({
+      //     username: '',
+      //     password: ''
+      //   });
 
       //   // Hash route here
 
@@ -104,7 +138,7 @@ export default class VendorSignin extends React.Component {
             Welcome back!
           </p>
         </div>
-        <div className='d-flex justify-content-center mt-1'>
+        <div className='d-flex justify-content-center mt-4'>
           <form autoComplete='off' className='vsignin-c' onSubmit={this.handleSubmit}>
             <label className='d-flex justify-content-center mt-5'
               style={{
@@ -125,11 +159,11 @@ export default class VendorSignin extends React.Component {
                   <input className='vsignin-input' name='password' id='password' type='password' placeholder='Password' value={this.state.password} onChange={this.handlePassword}/>
                 </label>
 
-                <div className='text-center mt-4'>
+                {/* <div className='text-center mt-4'>
                   &nbsp;
-                </div>
+                </div> */}
 
-                <div className='text-center mt-3'>
+                <div className='text-center mt-5'>
                   <button className='register' style={{ cursor: 'pointer' }} >Sign In</button>
                 </div>
 
