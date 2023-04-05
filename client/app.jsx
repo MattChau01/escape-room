@@ -1,16 +1,23 @@
 import React from 'react';
 import Home from './pages/home';
+import jwtDecode from 'jwt-decode';
 import ParseRoute from '../client/lib/parse-route';
 import VendorSignup from '../client/pages/vendor-signup';
-import VSuccess from '../client/pages/vendor-success';
+import VendorSuccess from '../client/pages/vendor-success';
+import VendorSignin from '../client/pages/vendor-signin';
+import VendorHome from '../client/pages/vendor-home';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      route: ParseRoute(window.location.hash)
+      route: ParseRoute(window.location.hash),
+      user: null,
+      isAuthorizing: true
     };
     this.currentPage = this.currentPage.bind(this);
+    this.routeVSignin = this.routeVSignin.bind(this);
+    this.handleSignIn = this.handleSignIn.bind(this);
   }
 
   componentDidMount() {
@@ -19,23 +26,56 @@ export default class App extends React.Component {
         route: ParseRoute(window.location.hash)
       });
     });
+
+    const token = window.localStorage.getItem('react-context-jwt');
+    const user = token ? jwtDecode(token) : null;
+    this.setState({
+      user,
+      isAuthorizing: false
+    });
+
+  }
+
+  routeVSignin() {
+    window.location.hash = 'vendor-signin';
+  }
+
+  handleSignIn(result) {
+    const { user, token } = result;
+    window.localStorage.setItem('react-context-jwt', token);
+    this.setState({ user });
   }
 
   currentPage() {
+
     const { path } = this.state.route;
     if (path === '') {
       return (
-        <Home />
+        <Home routeVSignin={this.routeVSignin} />
       );
     }
+
     if (path === 'vendor-signup') {
       return (
-        <VendorSignup />
+        <VendorSignup routeVSignin={this.routeVSignin} />
       );
     }
+
     if (path === 'vendor-success') {
       return (
-        <VSuccess />
+        <VendorSuccess routeVSignin={this.routeVSignin} />
+      );
+    }
+
+    if (path === 'vendor-signin') {
+      return (
+        <VendorSignin routeVSignin={this.routeVSignin} onSignIn={this.handleSignIn} />
+      );
+    }
+
+    if (path === 'vendor-home') {
+      return (
+        <VendorHome routeVSignin={this.routeVSignin} />
       );
     }
   }

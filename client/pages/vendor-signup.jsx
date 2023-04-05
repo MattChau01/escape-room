@@ -123,7 +123,7 @@ class VendorSignup extends React.Component {
         body: JSON.stringify(reqObj)
       };
 
-      fetch('api/vendorAccount', req)
+      fetch('api/vendorAccount/signup', req)
         .then(res => res.json())
         .then(data => {
           this.setState({
@@ -163,7 +163,7 @@ class VendorSignup extends React.Component {
 
     return (
       <>
-        <Header />
+        <Header vendorSignin={this.props.vendorSignin} />
         <div className='d-flex justify-content-center mt-4 text-center'>
           <p style={{
             fontSize: '1.4rem'
