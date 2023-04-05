@@ -21,10 +21,6 @@ function Header(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  // function vendorSignin() {
-  //   window.location.hash = 'vendor-signin';
-  // }
-
   const drawer = (
     <div>
       <Divider />

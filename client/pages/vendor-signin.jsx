@@ -30,7 +30,6 @@ export default class VendorSignin extends React.Component {
   }
 
   handleSubmit(event) {
-    // event.preventDefault();
 
     if (this.state.username === '' &&
       this.state.password === '' &&
@@ -61,69 +60,29 @@ export default class VendorSignin extends React.Component {
         .then(result => {
 
           if (result.user && result.token) {
-            this.props.onSignIn(result);
 
+            this.props.onSignIn(result);
             this.setState({
               username: '',
               password: ''
             });
-
             window.location.hash = 'vendor-home';
 
           } else {
 
             return false;
-            // alert('Invalid credentials. Refresh and please try again');
 
-            // const invalidCreds = (
-            //   <div>
-            //     Test
-            //   </div>
-            // );
           }
 
-          // this.setState({
-          //   username: '',
-          //   password: ''
-          // });
-
-          // CONDITIONALLY RENDER A SUCCESS / FAIL
-
-          // else {
-          //   const invalidCreds = (
-          //     <div>
-          //       Test
-          //     </div>
-          //   );
-          // }
-
-          // WORKING ON AUTHENTICATION HERE
-
         })
-        // .then(data => {
-
-      //   this.setState({
-      //     username: '',
-      //     password: ''
-      //   });
-
-      //   // Hash route here
-
-        // })
         .catch(err => console.error(err));
-
     }
-
   }
 
   render() {
     return (
       <>
         <Header />
-        {/* <div className='text-center'>
-          Sign in
-        </div> */}
-
         <div className='d-flex justify-content-center mt-4 text-center'>
           <p style={{
             fontSize: '1.4rem'
@@ -152,10 +111,6 @@ export default class VendorSignin extends React.Component {
                   <input className='vsignin-input' name='password' id='password' type='password' placeholder='Password' value={this.state.password} onChange={this.handlePassword}/>
                 </label>
 
-                {/* <div className='text-center mt-4'>
-                  &nbsp;
-                </div> */}
-
                 <div className='text-center mt-5'>
                   <button className='register' style={{ cursor: 'pointer' }} >Sign In</button>
                 </div>
@@ -173,76 +128,4 @@ export default class VendorSignin extends React.Component {
       </>
     );
   }
-
 }
-
-// export default function VendorSignin(props) {
-//   return (
-//     <>
-//       <Header vendorSignin={props.vendorSignin} />
-//       {/* <div className='text-center'>
-//         SIGN IN PAGE
-//       </div> */}
-
-//       {/* CREATING MOCK UP */}
-//       <div className='d-flex justify-content-center mt-4 text-center'>
-//         <p style={{
-//           fontSize: '1.4rem'
-//         }}>
-//           Sign up to add your listing to our catalog!
-//         </p>
-//       </div>
-//       <div className='d-flex justify-content-center mt-1'>
-//         <form autoComplete='off' className='vsignup-c' onSubmit={this.handleSubmit} >
-//           <label className='d-flex justify-content-center mt-4'
-//             style={{
-//               fontSize: '1.25rem',
-//               fontWeight: 600,
-//               color: '#5A5A5A'
-//             }}>
-//             Vendor Sign Up
-//           </label>
-//           <div className='d-flex justify-content-center'>
-//             <div className='mt-2'>
-
-//               <label htmlFor='firstName' className='row mt-3'>
-//                 <input className='vsignup-input' name='firstName' id='firstName' type='text' placeholder='First Name' value={this.state.firstName} onChange={this.handleFirstName} />
-//               </label>
-
-//               <label htmlFor='lastName' className='row mt-3'>
-//                 <input className='vsignup-input' name='lastName' id='lastName' type='text' placeholder='Last Name' value={this.state.lastName} onChange={this.handleLastName} />
-//               </label>
-
-//               <label htmlFor='username' className='row mt-3'>
-//                 <input className='vsignup-input' name='username' id='username' type='text' placeholder='Username' value={this.state.username} onChange={this.handleUsername} />
-//               </label>
-
-//               <label htmlFor='password' className='row mt-3'>
-//                 <input className='vsignup-input' name='password' id='password' type='password' placeholder='Password' value={this.state.password} onChange={this.handlePassword} />
-//               </label>
-
-//               <label htmlFor='passwordConfirm' className='row mt-3'>
-//                 <input className='vsignup-input' name='passwordConfirm' id='passwordConfirm' type='password' placeholder='Re-enter Password' value={this.state.passwordConfirmed} onChange={this.handlePasswordConfirm} />
-//               </label>
-
-//               <div className='text-center mt-3'>
-//                 {this.verifyUsername()}
-//                 {this.verifyPasswords()}
-//               </div>
-
-//               <div className='text-center mt-3'>
-//                 <button className='register' style={{ cursor: 'pointer' }}>Register</button>
-//               </div>
-//             </div>
-//           </div>
-//         </form>
-//       </div>
-//       <div className='d-flex justify-content-center mt-5 mb-3'>
-//         <a style={{
-//           cursor: 'pointer'
-//         }} onClick={this.homePage} >Back to home page</a>
-//       </div>
-
-//     </>
-//   );
-// }

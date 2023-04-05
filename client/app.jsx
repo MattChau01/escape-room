@@ -7,9 +7,6 @@ import VendorSuccess from '../client/pages/vendor-success';
 import VendorSignin from '../client/pages/vendor-signin';
 import VendorHome from '../client/pages/vendor-home';
 
-// TEST
-// import Header from './components/header';
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -39,7 +36,6 @@ export default class App extends React.Component {
 
   }
 
-  // Test hash change
   routeVSignin() {
     window.location.hash = 'vendor-signin';
   }
@@ -51,9 +47,6 @@ export default class App extends React.Component {
   }
 
   currentPage() {
-
-    // test
-    // <Header vendorSignin={this.vendorSignIn} />;
 
     const { path } = this.state.route;
     if (path === '') {

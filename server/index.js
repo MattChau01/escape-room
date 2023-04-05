@@ -19,8 +19,6 @@ const jsonMiddleWare = express.json();
 
 app.use(staticMiddleware);
 app.use(jsonMiddleWare);
-// TEST
-// app.use(express.urlencoded());
 
 app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
@@ -58,9 +56,6 @@ app.post('/api/vendorAccount/signup', (req, res, next) => {
   }
 
 });
-
-// sign in
-// app.use(jsonMiddleWare);
 
 app.post('/api/vendorAccount/signin', (req, res, next) => {
 
@@ -100,17 +95,11 @@ app.post('/api/vendorAccount/signin', (req, res, next) => {
                 token,
                 user: payload
               });
-
             }
-
           });
-
       })
-
       .catch(err => next(err));
-
   }
-
 });
 
 app.use(errorMiddleware);
