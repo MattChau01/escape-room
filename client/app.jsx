@@ -34,6 +34,9 @@ export default class App extends React.Component {
       isAuthorizing: false
     });
 
+    // authorizing?
+    // console.log('isAuthorizing? ', this.state.isAuthorizing);
+
   }
 
   routeVSignin() {
@@ -75,7 +78,7 @@ export default class App extends React.Component {
 
     if (path === 'vendor-home') {
       return (
-        <VendorHome routeVSignin={this.routeVSignin} />
+        <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} />
       );
     }
   }
