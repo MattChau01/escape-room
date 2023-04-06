@@ -26,7 +26,7 @@ export default function VendorSuccess(props) {
           </h5>
         </div>
         <div className='row justify-content-center'>
-          <a className='signin' style={{ cursor: 'pointer' }} onClick={props.routeVSignin} >
+          <a className='v-signin' style={{ cursor: 'pointer' }} onClick={props.routeVSignin} >
             Vendor sign in
           </a>
         </div>

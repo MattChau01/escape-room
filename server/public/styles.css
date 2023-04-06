@@ -59,7 +59,8 @@
 
 .register:active,
 .v-sign-up:active,
-.signin:active {
+.v-signout:active,
+.v-signin:active {
   position: relative;
   bottom: 0.4rem;
 }
