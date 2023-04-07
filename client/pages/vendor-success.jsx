@@ -3,10 +3,6 @@ import Header from '../components/header';
 
 export default function VendorSuccess(props) {
 
-  // function vendorSignIn() {
-  //   window.location.hash = 'vendor-signin';
-  // }
-
   function returnHome() {
     window.location.hash = '#';
   }
@@ -26,7 +22,7 @@ export default function VendorSuccess(props) {
           </h5>
         </div>
         <div className='row justify-content-center'>
-          <a className='signin' style={{ cursor: 'pointer' }} onClick={props.routeVSignin} >
+          <a className='v-signin' style={{ cursor: 'pointer' }} onClick={props.routeVSignin} >
             Vendor sign in
           </a>
         </div>

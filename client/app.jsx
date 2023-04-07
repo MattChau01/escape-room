@@ -18,6 +18,7 @@ export default class App extends React.Component {
     this.currentPage = this.currentPage.bind(this);
     this.routeVSignin = this.routeVSignin.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
+    this.handleSignOut = this.handleSignOut.bind(this);
   }
 
   componentDidMount() {
@@ -44,6 +45,14 @@ export default class App extends React.Component {
     const { user, token } = result;
     window.localStorage.setItem('react-context-jwt', token);
     this.setState({ user });
+  }
+
+  handleSignOut() {
+    window.localStorage.removeItem('react-context-jwt');
+    this.setState({
+      user: null
+    });
+    window.location.hash = 'vendor-signin';
   }
 
   currentPage() {
@@ -75,7 +84,7 @@ export default class App extends React.Component {
 
     if (path === 'vendor-home') {
       return (
-        <VendorHome routeVSignin={this.routeVSignin} />
+        <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user}/>
       );
     }
   }
