@@ -55,6 +55,10 @@ export default class App extends React.Component {
 
   handleSignOut() {
     // console.log('Logging out');
+    window.localStorage.removeItem('react-context-jwt');
+    this.setState({
+      user: null
+    });
   }
 
   currentPage() {
@@ -86,7 +90,7 @@ export default class App extends React.Component {
 
     if (path === 'vendor-home') {
       return (
-        <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} />
+        <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user}/>
       );
     }
   }
