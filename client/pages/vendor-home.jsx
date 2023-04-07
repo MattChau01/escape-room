@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../components/header';
-// import VendorSignOutModal from '../components/vendor-signout';
 
 export default class VendorHome extends React.Component {
   constructor(props) {
@@ -14,7 +13,6 @@ export default class VendorHome extends React.Component {
 
     return (
       <>
-        {/* <VendorSignOutModal /> */}
         <Header routeVSignin={this.props.routeVSignin}/>
         <div className='mt-5'>
           <div className='text-right mr-5 v-signout'>

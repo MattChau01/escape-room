@@ -3,10 +3,6 @@ import Header from '../components/header';
 
 export default function VendorSuccess(props) {
 
-  // function vendorSignIn() {
-  //   window.location.hash = 'vendor-signin';
-  // }
-
   function returnHome() {
     window.location.hash = '#';
   }
