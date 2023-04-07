@@ -18,6 +18,7 @@ export default class App extends React.Component {
     this.currentPage = this.currentPage.bind(this);
     this.routeVSignin = this.routeVSignin.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
+    this.handleSignOut = this.handleSignOut.bind(this);
   }
 
   componentDidMount() {
@@ -47,6 +48,10 @@ export default class App extends React.Component {
     const { user, token } = result;
     window.localStorage.setItem('react-context-jwt', token);
     this.setState({ user });
+  }
+
+  handleSignOut() {
+
   }
 
   currentPage() {
