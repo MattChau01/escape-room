@@ -22,9 +22,6 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-
-    // console.log('(app.jsx) isAuthorizing: ', this.state.isAuthorizing);
-
     window.addEventListener('hashchange', () => {
       this.setState({
         route: ParseRoute(window.location.hash)
@@ -37,9 +34,6 @@ export default class App extends React.Component {
       user,
       isAuthorizing: false
     });
-
-    // authorizing?
-    // console.log('isAuthorizing? ', this.state.isAuthorizing);
 
   }
 
@@ -54,7 +48,6 @@ export default class App extends React.Component {
   }
 
   handleSignOut() {
-    // console.log('Logging out');
     window.localStorage.removeItem('react-context-jwt');
     this.setState({
       user: null

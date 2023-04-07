@@ -12,11 +12,6 @@ export default class VendorHome extends React.Component {
 
   render() {
 
-    // console.log('vendor home page');
-    // console.log('(vendor-home) isAuthorizing: ', this.props.isAuthorizing);
-
-    // console.log('user in session: ', this.props.user);
-
     return (
       <>
         {/* <VendorSignOutModal /> */}
