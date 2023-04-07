@@ -13,7 +13,7 @@ export default class VendorHome extends React.Component {
   render() {
 
     // console.log('vendor home page');
-    // console.log('value of isAuthorizing: ', this.props.isAuthorizing);
+    // console.log('(vendor-home) isAuthorizing: ', this.props.isAuthorizing);
 
     return (
       <>
@@ -31,7 +31,7 @@ export default class VendorHome extends React.Component {
               cursor: 'pointer',
               outline: 'none',
               borderStyle: 'none'
-            }} >Sign out</button>
+            }} onClick={this.props.handleSignOut}>Sign out</button>
           </div>
           <div className='text-center mt-5'>
             LOGIN SUCCESSFUL!

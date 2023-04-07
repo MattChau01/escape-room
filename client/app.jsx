@@ -22,6 +22,9 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+
+    // console.log('(app.jsx) isAuthorizing: ', this.state.isAuthorizing);
+
     window.addEventListener('hashchange', () => {
       this.setState({
         route: ParseRoute(window.location.hash)
@@ -51,7 +54,7 @@ export default class App extends React.Component {
   }
 
   handleSignOut() {
-
+    // console.log('Logging out');
   }
 
   currentPage() {
@@ -83,7 +86,7 @@ export default class App extends React.Component {
 
     if (path === 'vendor-home') {
       return (
-        <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} />
+        <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} />
       );
     }
   }
