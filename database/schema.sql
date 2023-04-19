@@ -27,8 +27,8 @@ CREATE TABLE "public"."listings" (
 	"imageUrl" TEXT NOT NULL,
 	"createdAt" timestamptz(6) NOT NULL DEFAULT now(),
 	"address" TEXT NOT NULL,
-	"price" int NOT NULL,
-	"rangeOfPlayers" TEXT NOT NULL,
+	"price" INT NOT NULL,
+	"minimumPlayers" INT NOT NULL,
 	"difficulty" TEXT NOT NULL,
 	"timeLimit" int NOT NULL,
 	CONSTRAINT "listings_pk" PRIMARY KEY ("entryId")
