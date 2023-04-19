@@ -130,7 +130,7 @@ class VendorSignup extends React.Component {
         body: JSON.stringify(reqObj)
       };
 
-      fetch('api/vendorAccount/signup', req)
+      fetch('api/vendorAccounts/signup', req)
         .then(res => res.json())
         .then(data => {
           this.setState({

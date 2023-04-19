@@ -55,7 +55,7 @@ export default class VendorSignin extends React.Component {
         body: JSON.stringify(reqObj)
       };
 
-      fetch('api/vendorAccount/signin', req)
+      fetch('api/vendorAccounts/signin', req)
         .then(res => res.json())
         .then(result => {
 

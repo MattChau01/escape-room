@@ -24,7 +24,7 @@ app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
 });
 
-app.post('/api/vendorAccount/signup', (req, res, next) => {
+app.post('/api/vendorAccounts/signup', (req, res, next) => {
   const { firstName, lastName, username, password } = req.body;
 
   if (!firstName || !lastName || !username || !password) {
@@ -35,7 +35,7 @@ app.post('/api/vendorAccount/signup', (req, res, next) => {
       .hash(password)
       .then(hashedPassword => {
         const sql = `
-          insert into "vendorAccount" ("firstName", "lastName", "username", "hashedPassword")
+          insert into "vendorAccounts" ("firstName", "lastName", "username", "hashedPassword")
           values ($1, $2, $3, $4)
           returning *
         `;
@@ -57,7 +57,7 @@ app.post('/api/vendorAccount/signup', (req, res, next) => {
 
 });
 
-app.post('/api/vendorAccount/signin', (req, res, next) => {
+app.post('/api/vendorAccounts/signin', (req, res, next) => {
 
   const { username, password } = req.body;
 
@@ -66,7 +66,7 @@ app.post('/api/vendorAccount/signin', (req, res, next) => {
   } else {
     const sql = `
       select "userId", "hashedPassword"
-      from "vendorAccount"
+      from "vendorAccounts"
       where "username" = $1
     `;
 
