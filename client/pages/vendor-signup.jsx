@@ -20,6 +20,7 @@ class VendorSignup extends React.Component {
     this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.homePage = this.homePage.bind(this);
+    this.signInPage = this.signInPage.bind(this);
   }
 
   handleFirstName(event) {
@@ -91,6 +92,12 @@ class VendorSignup extends React.Component {
 
   homePage() {
     window.location.hash = '#';
+  }
+
+  signInPage() {
+    //  sign in
+    // alert('to sign in');
+    window.location.hash = 'vendor-signin';
   }
 
   handleSubmit(event) {
@@ -216,7 +223,13 @@ class VendorSignup extends React.Component {
             </div>
           </form>
         </div>
-        <div className='d-flex justify-content-center mt-5 mb-3'>
+        <div className='d-flex justify-content-center mt-3'>
+
+          {/* WORKING ON REDIRECT TO SIGN IN */}
+          <div>Already have an account? <a style={{ cursor: 'pointer' }} onClick={this.signInPage} > Click here</a></div>
+        </div>
+
+        <div className='d-flex justify-content-center mt-3'>
           <a style={{
             cursor: 'pointer'
           }} onClick={this.homePage} >Back to home page</a>
