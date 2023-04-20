@@ -6,6 +6,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const pg = require('pg');
 const staticMiddleware = require('./static-middleware');
+const authorizationMiddleware = require('./authorizationMiddleware');
 
 const db = new pg.Pool({
   connectionString: `${process.env.DATABASE_URL}`,
@@ -101,6 +102,9 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
       .catch(err => next(err));
   }
 });
+
+// AUTHENTICATION MIDDLEWARE: AFTER VENDOR WITH ACCOUNT SIGNS IN
+app.use(authorizationMiddleware);
 
 app.use(errorMiddleware);
 
