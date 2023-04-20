@@ -106,6 +106,38 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
 // AUTHENTICATION MIDDLEWARE: AFTER VENDOR WITH ACCOUNT SIGNS IN
 app.use(authorizationMiddleware);
 
+// MUST TEST THIS POST REQUEST
+app.post('/api/listings', (req, res, next) => {
+
+  const { userId } = req.user;
+
+  // console.log('userId: ', userId);
+
+  const { description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit } = req.body;
+
+  if (!description || !imageUrl || !address || !price || !minimumPlayers || !difficulty || !timeLimit) {
+    throw new ClientError(400, 'All fields are requried');
+  } else {
+
+    const sql = `
+      insert into "listings" ("userId", "description", "address", "price", "minimumPlayers", "difficulty", "timeLimit")
+      values ($1, $2, $3, $4, $5, $6, $7, $8)
+      returning *
+    `;
+
+    const params = [userId, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit];
+
+    db.query(sql, params)
+      .then(result => {
+        const listing = result.rows[0];
+        res.status(200).json(listing);
+      })
+      .catch(err => next(err));
+
+  }
+
+});
+
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {
