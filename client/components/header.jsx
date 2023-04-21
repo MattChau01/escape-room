@@ -12,6 +12,11 @@ import Toolbar from '@mui/material/Toolbar';
 const drawerWidth = 240;
 
 function Header(props) {
+
+  // function toHome() {
+  //   console.log('Home page');
+  // }
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -26,6 +31,16 @@ function Header(props) {
         <div className='text-center my-5' style={{
           overflow: 'hidden'
         }}>
+
+          <div className='row my-2'>
+            <div className='col-2'>
+              <i className="fa-solid fa-house mx-2 mt-2" style={{ fontSize: '1rem' }} />
+            </div>
+            <div className='col'>
+              <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }} onClick={props.toHome} >Home</a>
+            </div>
+          </div>
+
           <div className='row my-2'>
             <div className='col-2'>
               <i className="fa-solid fa-shop mx-2 mt-2" style={{ fontSize: '1rem' }} />
@@ -90,8 +105,9 @@ function Header(props) {
 
           <a style={{
             fontSize: '1.5rem',
-            fontWeight: 600
-          }} >
+            fontWeight: 600,
+            cursor: 'pointer'
+          }}>
             ESC Room Finder
           </a>
 

@@ -19,6 +19,7 @@ export default class App extends React.Component {
     this.routeVSignin = this.routeVSignin.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
+    this.toHome = this.toHome.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,11 @@ export default class App extends React.Component {
       isAuthorizing: false
     });
 
+  }
+
+  toHome() {
+    // console.log('Home page clicked');
+    window.location.hash = '#';
   }
 
   routeVSignin() {
@@ -60,31 +66,31 @@ export default class App extends React.Component {
     const { path } = this.state.route;
     if (path === '') {
       return (
-        <Home routeVSignin={this.routeVSignin} />
+        <Home routeVSignin={this.routeVSignin} toHome={this.toHome} />
       );
     }
 
     if (path === 'vendor-signup') {
       return (
-        <VendorSignup routeVSignin={this.routeVSignin} />
+        <VendorSignup routeVSignin={this.routeVSignin} toHome={this.toHome}/>
       );
     }
 
     if (path === 'vendor-success') {
       return (
-        <VendorSuccess routeVSignin={this.routeVSignin} />
+        <VendorSuccess routeVSignin={this.routeVSignin} toHome={this.toHome} />
       );
     }
 
     if (path === 'vendor-signin') {
       return (
-        <VendorSignin routeVSignin={this.routeVSignin} onSignIn={this.handleSignIn} />
+        <VendorSignin routeVSignin={this.routeVSignin} onSignIn={this.handleSignIn} toHome={this.toHome} />
       );
     }
 
     if (path === 'vendor-home') {
       return (
-        <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user}/>
+        <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user} toHome={this.toHome} />
       );
     }
   }

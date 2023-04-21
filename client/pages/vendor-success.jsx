@@ -9,7 +9,7 @@ export default function VendorSuccess(props) {
 
   return (
     <div>
-      <Header routeVSignin={props.routeVSignin} />
+      <Header routeVSignin={props.routeVSignin} toHome={props.toHome} />
       <div className='d-flex flex-column mt-5'>
         <div className='row justify-content-center'>
           <h2>

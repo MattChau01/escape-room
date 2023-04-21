@@ -111,11 +111,17 @@ app.post('/api/listings', (req, res, next) => {
 
   const { userId } = req.user;
 
+  const userIdNum = Number(userId);
+
   // console.log('userId: ', userId);
 
   const { description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit } = req.body;
 
-  if (!description || !imageUrl || !address || !price || !minimumPlayers || !difficulty || !timeLimit) {
+  const priceNum = Number(price);
+  const minimumPlayersNum = Number(minimumPlayers);
+  const timeLimitNum = Number(timeLimit);
+
+  if (!description || !imageUrl || !address || !priceNum || !minimumPlayersNum || !difficulty || !timeLimitNum) {
     throw new ClientError(400, 'All fields are requried');
   } else {
 
@@ -125,7 +131,7 @@ app.post('/api/listings', (req, res, next) => {
       returning *
     `;
 
-    const params = [userId, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit];
+    const params = [userIdNum, description, imageUrl, address, priceNum, minimumPlayersNum, difficulty, timeLimitNum];
 
     db.query(sql, params)
       .then(result => {
