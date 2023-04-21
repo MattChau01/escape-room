@@ -29,7 +29,12 @@ export default class VendorHome extends React.Component {
             }} onClick={this.props.handleSignOut}>Sign out</button>
           </div>
           <div className='text-center mt-5'>
-            LOGIN SUCCESSFUL!
+            {/* LOGIN SUCCESSFUL! */}
+
+            <div>
+              LOGIN PAGE
+            </div>
+
           </div>
         </div>
       </>

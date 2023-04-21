@@ -105,8 +105,7 @@ function Header(props) {
 
           <a style={{
             fontSize: '1.5rem',
-            fontWeight: 600,
-            cursor: 'pointer'
+            fontWeight: 600
           }}>
             ESC Room Finder
           </a>
