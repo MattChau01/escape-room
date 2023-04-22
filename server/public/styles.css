@@ -32,7 +32,8 @@
 }
 
 .vsignup-input,
-.vsignin-input {
+.vsignin-input,
+.new-listing-input {
   color: #5a5a5a;
   width: 20rem;
   border-radius: 5rem;

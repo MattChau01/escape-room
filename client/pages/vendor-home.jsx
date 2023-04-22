@@ -55,8 +55,13 @@ export default class VendorHome extends React.Component {
 
                     {/* WORKING ON FORM */}
 
-                    <label>
-                      <input type='text' />
+                    <label htmlFor='roomName'>
+                      <input className='new-listing-input' name='roomName' id='roomName' type='text' placeholder='Room Name' />
+                    </label>
+
+                    <label htmlFor='description'>
+                      {/* <input className='' name='description' id='description' type='textArea' placeholder='Description' /> */}
+                      <textarea className='' name='description' id='description' placeholder='Description' />
                     </label>
 
                   </div>
