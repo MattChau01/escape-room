@@ -68,3 +68,9 @@
 .register:focus {
   outline: none;
 }
+
+.new-listing {
+  background-color: #ececec;
+  width: 23rem;
+  height: 35rem;
+}

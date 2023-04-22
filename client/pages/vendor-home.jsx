@@ -28,11 +28,41 @@ export default class VendorHome extends React.Component {
               borderStyle: 'none'
             }} onClick={this.props.handleSignOut}>Sign out</button>
           </div>
-          <div className='text-center mt-5'>
-            {/* LOGIN SUCCESSFUL! */}
+          <div className='text-center mt-3'>
+            {/* HOME PAGE WILL RENDER A MESSAGE WHETHER THE CURRENT USER ALREADY MADE A LISTING OR NOT */}
+
+            <div className='d-flex justify-content-center text-center'>
+              <p style={{
+                fontSize: '1.4rem'
+              }}>
+                Create a new listing here:
+              </p>
+            </div>
 
             <div>
-              LOGIN PAGE
+              <div className='d-flex justify-content-center mt-4 mb-4'>
+                <form autoComplete='off' className='new-listing'>
+                  <label className='d-flex justify-content-center mt-5'
+                    style={{
+                      fontSize: '1.25rem',
+                      fontWeight: 600,
+                      color: '#5A5A5A'
+                    }}>
+                    New listing
+                  </label>
+
+                  <div>
+
+                    {/* WORKING ON FORM */}
+
+                    <label>
+                      <input type='text' />
+                    </label>
+
+                  </div>
+
+                </form>
+              </div>
             </div>
 
           </div>

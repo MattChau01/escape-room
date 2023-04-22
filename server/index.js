@@ -115,19 +115,19 @@ app.post('/api/listings', (req, res, next) => {
 
   // console.log('userId: ', userId);
 
-  const { description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit } = req.body;
+  const { roomName, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit } = req.body;
 
   const priceNum = Number(price);
   const minimumPlayersNum = Number(minimumPlayers);
   const timeLimitNum = Number(timeLimit);
 
-  if (!description || !imageUrl || !address || !priceNum || !minimumPlayersNum || !difficulty || !timeLimitNum) {
+  if (!roomName || !description || !imageUrl || !address || !priceNum || !minimumPlayersNum || !difficulty || !timeLimitNum) {
     throw new ClientError(400, 'All fields are requried');
   } else {
 
     const sql = `
-      insert into "listings" ("userId", "description", "address", "price", "minimumPlayers", "difficulty", "timeLimit")
-      values ($1, $2, $3, $4, $5, $6, $7, $8)
+      insert into "listings" ("userId", "roomName" "description", "address", "price", "minimumPlayers", "difficulty", "timeLimit")
+      values ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       returning *
     `;
 

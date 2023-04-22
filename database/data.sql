@@ -3,5 +3,5 @@ insert into "vendorAccounts"
 values ('TuneSquad', 'qwertyasdf', 'Michael', 'Jordan');
 
 insert into "listings"
-("userId", "description", "imageUrl", "address", "price", "minimumPlayers", "difficulty", "timeLimit")
-values ((select "userId" from "vendorAccounts" where "username" = 'TuneSquad'), 'new escape room', 'https://www.google.com/', '123 Candy Cane Lane', 40, 2, 'hard', 60);
+("userId", "roomName", "description", "imageUrl", "address", "price", "minimumPlayers", "difficulty", "timeLimit")
+values ((select "userId" from "vendorAccounts" where "username" = 'TuneSquad'), 'new escape room name here', 'description here', 'https://www.google.com/', '123 Candy Cane Lane', 40, 2, 'hard', 60);
