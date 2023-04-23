@@ -59,9 +59,33 @@ export default class VendorHome extends React.Component {
                       <input className='new-listing-input' name='roomName' id='roomName' type='text' placeholder='Room Name' />
                     </label>
 
+                    <label htmlFor='imageUrl'>
+                      <input className='new-listing-input' name='imageUrl' id='imageUrl' type='text' placeholder='Image link' />
+                    </label>
+
+                    <label htmlFor='address'>
+                      <input className='new-listing-input' name='address' id='address' type='text' placeholder='Address' />
+                    </label>
+
+                    <label htmlFor='price'>
+                      <input className='new-listing-input' name='price' id='price' type='text' placeholder='Price' />
+                    </label>
+
+                    <label htmlFor='minimumPlayers'>
+                      <input className='new-listing-input' name='minimumPlayers' id='minimumPlayers' type='text' placeholder='Minimum players' />
+                    </label>
+
+                    <label htmlFor='difficulty'>
+                      <input className='new-listing-input' name='difficulty' id='difficulty' type='text' placeholder='Difficulty' />
+                    </label>
+
+                    <label htmlFor='timeLimit'>
+                      <input className='new-listing-input' name='timeLimit' id='timeLimit' type='text' placeholder='Time limit' />
+                    </label>
+
                     <label htmlFor='description'>
                       {/* <input className='' name='description' id='description' type='textArea' placeholder='Description' /> */}
-                      <textarea className='' name='description' id='description' placeholder='Description' />
+                      <textarea className='new-listin-desc' name='description' id='description' placeholder='Description' />
                     </label>
 
                   </div>

@@ -43,6 +43,17 @@
   padding-left: 2rem;
 }
 
+.new-listin-desc {
+  color: #5a5a5a;
+  width: 20rem;
+  border-radius: 1rem;
+  outline: none;
+  border: none;
+  height: 2.8rem;
+  padding-top: 0.5rem;
+  padding-left: 2rem;
+}
+
 .vsignup-input:focus::placeholder,
 .vsignin-input:focus::placeholder {
   color: transparent;
@@ -73,5 +84,7 @@
 .new-listing {
   background-color: #ececec;
   width: 23rem;
-  height: 35rem;
+  height: 100%;
+
+  /* height: 35rem; */
 }
