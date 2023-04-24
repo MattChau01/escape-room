@@ -40,9 +40,9 @@ export default class VendorHome extends React.Component {
             </div>
 
             <div>
-              <div className='d-flex justify-content-center mt-4 mb-4'>
+              <div className='d-flex justify-content-center mt-3 mb-3'>
                 <form autoComplete='off' className='new-listing'>
-                  <label className='d-flex justify-content-center mt-5'
+                  <label className='d-flex justify-content-center mt-3'
                     style={{
                       fontSize: '1.25rem',
                       fontWeight: 600,
@@ -56,7 +56,7 @@ export default class VendorHome extends React.Component {
                     {/* WORKING ON FORM */}
 
                     <label htmlFor='roomName'>
-                      <input className='new-listing-input' name='roomName' id='roomName' type='text' placeholder='Room Name' />
+                      <input className='new-listing-input' name='roomName' id='roomName' type='text' placeholder='Room name' />
                     </label>
 
                     <label htmlFor='imageUrl'>
@@ -87,6 +87,10 @@ export default class VendorHome extends React.Component {
                       {/* <input className='' name='description' id='description' type='textArea' placeholder='Description' /> */}
                       <textarea className='new-listin-desc' name='description' id='description' placeholder='Description' />
                     </label>
+
+                    <div className='mb-4'>
+                      <button className='new-listing-submit' >Submit</button>
+                    </div>
 
                   </div>
 

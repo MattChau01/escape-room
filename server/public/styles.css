@@ -59,7 +59,8 @@
   color: transparent;
 }
 
-.register {
+.register,
+.new-listing-submit {
   color: #fff;
   font-size: 1.2rem;
   width: 10rem;
@@ -67,12 +68,14 @@
   background-color: #046290;
   border-style: none;
   border-radius: 5rem;
+  outline: none;
 }
 
 .register:active,
 .v-sign-up:active,
 .v-signout:active,
-.v-signin:active {
+.v-signin:active,
+.new-listing-submit:active {
   position: relative;
   bottom: 0.4rem;
 }
