@@ -69,6 +69,7 @@
   border-style: none;
   border-radius: 5rem;
   outline: none;
+  border: none;
 }
 
 .register:active,
@@ -80,7 +81,8 @@
   bottom: 0.4rem;
 }
 
-.register:focus {
+.register:focus,
+.new-listing-submit:focus {
   outline: none;
 }
 

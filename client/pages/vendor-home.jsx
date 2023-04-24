@@ -7,6 +7,12 @@ export default class VendorHome extends React.Component {
     this.state = {
       signOutClicked: false
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    // console.log('submitted!');
+    event.preventDefault();
   }
 
   render() {
@@ -41,7 +47,7 @@ export default class VendorHome extends React.Component {
 
             <div>
               <div className='d-flex justify-content-center mt-3 mb-3'>
-                <form autoComplete='off' className='new-listing'>
+                <form autoComplete='off' className='new-listing' onSubmit={this.handleSubmit}>
                   <label className='d-flex justify-content-center mt-3'
                     style={{
                       fontSize: '1.25rem',
