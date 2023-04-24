@@ -5,9 +5,46 @@ export default class VendorHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      signOutClicked: false
+      signOutClicked: false,
+      roomName: undefined,
+      imageUrl: undefined,
+      address: undefined,
+      price: undefined,
+      minimumPlayers: undefined,
+      difficulty: undefined,
+      timeLimit: undefined,
+      description: undefined
     };
+    this.roomName = this.roomName.bind(this);
+    this.imageLink = this.imageLink.bind(this);
+    this.address = this.address.bind(this);
+    this.price = this.price.bind(this);
+
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  roomName(event) {
+    this.setState({
+      roomName: event.target.value
+    });
+  }
+
+  imageLink(event) {
+    this.setState({
+      imageUrl: event.target.value
+    });
+  }
+
+  address(event) {
+    this.setState({
+      address: event.target.value
+    });
+  }
+
+  price(event) {
+    this.setState({
+      price: event.target.value
+    });
   }
 
   handleSubmit(event) {
@@ -16,6 +53,7 @@ export default class VendorHome extends React.Component {
   }
 
   render() {
+    // console.log('user: ', window.localStorage.getItem('react-context-jwt'));
 
     return (
       <>
@@ -62,19 +100,19 @@ export default class VendorHome extends React.Component {
                     {/* WORKING ON FORM */}
 
                     <label htmlFor='roomName'>
-                      <input className='new-listing-input' name='roomName' id='roomName' type='text' placeholder='Room name' />
+                      <input className='new-listing-input' name='roomName' id='roomName' type='text' placeholder='Room name' onChange={this.roomName} />
                     </label>
 
                     <label htmlFor='imageUrl'>
-                      <input className='new-listing-input' name='imageUrl' id='imageUrl' type='text' placeholder='Image link' />
+                      <input className='new-listing-input' name='imageUrl' id='imageUrl' type='text' placeholder='Image link' onChange={this.imageLink}/>
                     </label>
 
                     <label htmlFor='address'>
-                      <input className='new-listing-input' name='address' id='address' type='text' placeholder='Address' />
+                      <input className='new-listing-input' name='address' id='address' type='text' placeholder='Address' onChange={this.address} />
                     </label>
 
                     <label htmlFor='price'>
-                      <input className='new-listing-input' name='price' id='price' type='text' placeholder='Price' />
+                      <input className='new-listing-input' name='price' id='price' type='text' placeholder='Price' onChange={this.price} />
                     </label>
 
                     <label htmlFor='minimumPlayers'>
