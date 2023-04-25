@@ -11,10 +11,16 @@ export default class VendorSignin extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
+    this.homePage = this.homePage.bind(this);
+    this.newUser = this.newUser.bind(this);
   }
 
   homePage() {
     window.location.hash = '#';
+  }
+
+  newUser() {
+    window.location.hash = 'vendor-signup';
   }
 
   handleUsername(event) {
@@ -55,11 +61,13 @@ export default class VendorSignin extends React.Component {
         body: JSON.stringify(reqObj)
       };
 
-      fetch('api/vendorAccount/signin', req)
+      fetch('api/vendorAccounts/signin', req)
         .then(res => res.json())
         .then(result => {
 
           if (result.user && result.token) {
+
+            window.localStorage.setItem('userId', result.user.userId);
 
             this.props.onSignIn(result);
             this.setState({
@@ -82,7 +90,7 @@ export default class VendorSignin extends React.Component {
   render() {
     return (
       <>
-        <Header />
+        <Header routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
         <div className='d-flex justify-content-center mt-4 text-center'>
           <p style={{
             fontSize: '1.4rem'
@@ -119,7 +127,10 @@ export default class VendorSignin extends React.Component {
             </div>
           </form>
         </div>
-        <div className='d-flex justify-content-center mt-5 mb-3'>
+        <div className='d-flex justify-content-center mt-4'>
+          <div>Don&apos;t have an account yet? <a style={{ cursor: 'pointer' }} onClick={this.newUser}> Click here</a></div>
+        </div>
+        <div className='d-flex justify-content-center mt-4'>
           <a style={{
             cursor: 'pointer'
           }} onClick={this.homePage}>Back to home page</a>

@@ -6,6 +6,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const pg = require('pg');
 const staticMiddleware = require('./static-middleware');
+const authorizationMiddleware = require('./authorizationMiddleware');
 
 const db = new pg.Pool({
   connectionString: `${process.env.DATABASE_URL}`,
@@ -24,7 +25,7 @@ app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
 });
 
-app.post('/api/vendorAccount/signup', (req, res, next) => {
+app.post('/api/vendorAccounts/signup', (req, res, next) => {
   const { firstName, lastName, username, password } = req.body;
 
   if (!firstName || !lastName || !username || !password) {
@@ -35,7 +36,7 @@ app.post('/api/vendorAccount/signup', (req, res, next) => {
       .hash(password)
       .then(hashedPassword => {
         const sql = `
-          insert into "vendorAccount" ("firstName", "lastName", "username", "hashedPassword")
+          insert into "vendorAccounts" ("firstName", "lastName", "username", "hashedPassword")
           values ($1, $2, $3, $4)
           returning *
         `;
@@ -57,7 +58,7 @@ app.post('/api/vendorAccount/signup', (req, res, next) => {
 
 });
 
-app.post('/api/vendorAccount/signin', (req, res, next) => {
+app.post('/api/vendorAccounts/signin', (req, res, next) => {
 
   const { username, password } = req.body;
 
@@ -66,7 +67,7 @@ app.post('/api/vendorAccount/signin', (req, res, next) => {
   } else {
     const sql = `
       select "userId", "hashedPassword"
-      from "vendorAccount"
+      from "vendorAccounts"
       where "username" = $1
     `;
 
@@ -100,6 +101,40 @@ app.post('/api/vendorAccount/signin', (req, res, next) => {
       })
       .catch(err => next(err));
   }
+});
+
+app.use(authorizationMiddleware);
+
+app.post('/api/listings', (req, res, next) => {
+
+  const { userId, roomName, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit } = req.body;
+
+  const userIdNum = Number(userId);
+  const priceNum = Number(price);
+  const minimumPlayersNum = Number(minimumPlayers);
+  const timeLimitNum = Number(timeLimit);
+
+  if (!userId || !roomName || !description || !imageUrl || !address || !price || !minimumPlayers || !difficulty || !timeLimit) {
+    throw new ClientError(400, 'All fields are requried');
+  } else {
+
+    const sql = `
+      insert into "listings" ("userId", "roomName", "description", "imageUrl", "address", "price", "minimumPlayers", "difficulty", "timeLimit")
+      values ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      returning *
+    `;
+
+    const params = [userIdNum, roomName, description, imageUrl, address, priceNum, minimumPlayersNum, difficulty, timeLimitNum];
+
+    db.query(sql, params)
+      .then(result => {
+        const listing = result.rows[0];
+        res.status(200).json(listing);
+      })
+      .catch(err => next(err));
+
+  }
+
 });
 
 app.use(errorMiddleware);

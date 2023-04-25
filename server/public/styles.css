@@ -32,7 +32,8 @@
 }
 
 .vsignup-input,
-.vsignin-input {
+.vsignin-input,
+.new-listing-input {
   color: #5a5a5a;
   width: 20rem;
   border-radius: 5rem;
@@ -42,12 +43,27 @@
   padding-left: 2rem;
 }
 
+.new-listin-desc {
+  color: #5a5a5a;
+  width: 20rem;
+  border-radius: 1rem;
+  outline: none;
+  border: none;
+  height: 2.8rem;
+  padding-top: 0.5rem;
+  padding-left: 2rem;
+}
+
 .vsignup-input:focus::placeholder,
 .vsignin-input:focus::placeholder {
   color: transparent;
 }
 
-.register {
+.register,
+.new-listing-submit,
+.v-signin,
+.v-signup,
+.home {
   color: #fff;
   font-size: 1.2rem;
   width: 10rem;
@@ -55,16 +71,26 @@
   background-color: #046290;
   border-style: none;
   border-radius: 5rem;
+  outline: none;
+  border: none;
 }
 
-.register:active,
-.v-sign-up:active,
-.v-signout:active,
-.v-signin:active {
+:is(.register,
+.v-sign-up,
+.v-signout,
+.v-signin,
+.new-listing-submit):active {
   position: relative;
   bottom: 0.4rem;
 }
 
-.register:focus {
+.register:focus,
+.new-listing-submit:focus {
   outline: none;
+}
+
+.new-listing {
+  background-color: #ececec;
+  width: 23rem;
+  height: 100%;
 }

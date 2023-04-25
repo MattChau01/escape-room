@@ -1,11 +1,12 @@
 import React from 'react';
 import Home from './pages/home';
 import jwtDecode from 'jwt-decode';
-import ParseRoute from '../client/lib/parse-route';
-import VendorSignup from '../client/pages/vendor-signup';
-import VendorSuccess from '../client/pages/vendor-success';
-import VendorSignin from '../client/pages/vendor-signin';
-import VendorHome from '../client/pages/vendor-home';
+import ParseRoute from './lib/parse-route';
+import VendorSignup from './pages/vendor-signup';
+import VendorSuccess from './pages/vendor-success';
+import VendorSignin from './pages/vendor-signin';
+import VendorHome from './pages/vendor-home';
+import TokenRequired from './pages/token-required';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -19,6 +20,8 @@ export default class App extends React.Component {
     this.routeVSignin = this.routeVSignin.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
+    this.toHome = this.toHome.bind(this);
+    this.routeVSignup = this.routeVSignup.bind(this);
   }
 
   componentDidMount() {
@@ -37,6 +40,14 @@ export default class App extends React.Component {
 
   }
 
+  toHome() {
+    window.location.hash = '#';
+  }
+
+  routeVSignup() {
+    window.location.hash = 'vendor-signup';
+  }
+
   routeVSignin() {
     window.location.hash = 'vendor-signin';
   }
@@ -49,6 +60,7 @@ export default class App extends React.Component {
 
   handleSignOut() {
     window.localStorage.removeItem('react-context-jwt');
+    window.localStorage.removeItem('userId');
     this.setState({
       user: null
     });
@@ -60,31 +72,36 @@ export default class App extends React.Component {
     const { path } = this.state.route;
     if (path === '') {
       return (
-        <Home routeVSignin={this.routeVSignin} />
+        <Home routeVSignin={this.routeVSignin} toHome={this.toHome} />
       );
     }
 
     if (path === 'vendor-signup') {
       return (
-        <VendorSignup routeVSignin={this.routeVSignin} />
+        <VendorSignup routeVSignin={this.routeVSignin} toHome={this.toHome}/>
       );
     }
 
     if (path === 'vendor-success') {
       return (
-        <VendorSuccess routeVSignin={this.routeVSignin} />
+        <VendorSuccess routeVSignin={this.routeVSignin} toHome={this.toHome} />
       );
     }
 
     if (path === 'vendor-signin') {
       return (
-        <VendorSignin routeVSignin={this.routeVSignin} onSignIn={this.handleSignIn} />
+        <VendorSignin routeVSignin={this.routeVSignin} onSignIn={this.handleSignIn} toHome={this.toHome} />
       );
     }
 
-    if (path === 'vendor-home') {
+    if (path === 'vendor-home' && (window.localStorage.getItem('react-context-jwt') !== null)) {
+
       return (
-        <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user}/>
+        <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user} toHome={this.toHome} />
+      );
+    } else if (path === 'vendor-home' && (window.localStorage.getItem('react-context-jwt') === null)) {
+      return (
+        <TokenRequired routeVSignin={this.routeVSignin} toHome={this.toHome} routeVSignup={this.routeVSignup} />
       );
     }
   }
