@@ -27,7 +27,6 @@ export default class VendorHome extends React.Component {
   }
 
   roomName(event) {
-    // console.log('roomName: ', this.state.roomName);
 
     this.setState({
       roomName: event.target.value
@@ -77,18 +76,14 @@ export default class VendorHome extends React.Component {
   }
 
   handleSubmit(event) {
-    // console.log('submitted!');
     // event.preventDefault();
 
     if (this.state.roomName === '' || this.state.imageUrl === '' || this.state.address === '' || this.state.price === '' || this.state.minimumPlayers === '' || this.state.difficulty === '' || this.state.timeLimit === '' || this.state.description === '') {
       event.preventDefault();
-      // console.log('invalid inputs');
       return false;
     } else {
 
       event.preventDefault();
-
-      // console.log('submitted');
 
       const reqObj = {};
 
@@ -116,11 +111,6 @@ export default class VendorHome extends React.Component {
       fetch('/api/listings', req)
         .then(res => res.json())
         .then(result => {
-          // console.log('result: ', result);
-          // console.log('result.user: ', result.user);
-          // console.log('result.token: ', result.token);
-
-          console.log('new listing add successfully!'); //eslint-disable-line
 
         })
         .catch(err => console.error(err));
@@ -130,8 +120,6 @@ export default class VendorHome extends React.Component {
   }
 
   render() {
-    // console.log('user: ', window.localStorage.getItem('UserId'));
-    // console.log('userId: ', this.props.userId);
 
     return (
       <>

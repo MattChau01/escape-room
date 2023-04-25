@@ -111,7 +111,6 @@ app.post('/api/listings', (req, res, next) => {
 
   // const { userId } = req.user;
   // const userIdNum = Number(userId);
-  // console.log('userId: ', userId);
 
   const { userId, roomName, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit } = req.body;
 

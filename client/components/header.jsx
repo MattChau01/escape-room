@@ -13,10 +13,6 @@ const drawerWidth = 240;
 
 function Header(props) {
 
-  // function toHome() {
-  //   console.log('Home page');
-  // }
-
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
