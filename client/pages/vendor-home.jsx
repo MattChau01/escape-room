@@ -76,7 +76,6 @@ export default class VendorHome extends React.Component {
   }
 
   handleSubmit(event) {
-    // event.preventDefault();
 
     if (this.state.roomName === '' || this.state.imageUrl === '' || this.state.address === '' || this.state.price === '' || this.state.minimumPlayers === '' || this.state.difficulty === '' || this.state.timeLimit === '' || this.state.description === '') {
       event.preventDefault();
@@ -87,8 +86,6 @@ export default class VendorHome extends React.Component {
 
       const reqObj = {};
 
-      // TEST
-      // reqObj.userId = 1;
       reqObj.userId = window.localStorage.getItem('userId');
       reqObj.roomName = this.state.roomName;
       reqObj.imageUrl = this.state.imageUrl;
@@ -163,8 +160,6 @@ export default class VendorHome extends React.Component {
 
                   <div>
 
-                    {/* WORKING ON FORM */}
-
                     <label htmlFor='roomName'>
                       <input className='new-listing-input' name='roomName' id='roomName' type='text' placeholder='Room name' value={this.state.roomName} onChange={this.roomName} />
                     </label>
@@ -194,7 +189,6 @@ export default class VendorHome extends React.Component {
                     </label>
 
                     <label htmlFor='description'>
-                      {/* <input className='' name='description' id='description' type='textArea' placeholder='Description' /> */}
                       <textarea className='new-listin-desc' name='description' id='description' placeholder='Description' value={this.state.description} onChange={this.description}/>
                     </label>
 

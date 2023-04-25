@@ -95,8 +95,6 @@ class VendorSignup extends React.Component {
   }
 
   signInPage() {
-    //  sign in
-    // alert('to sign in');
     window.location.hash = 'vendor-signin';
   }
 
@@ -225,7 +223,6 @@ class VendorSignup extends React.Component {
         </div>
         <div className='d-flex justify-content-center mt-3'>
 
-          {/* WORKING ON REDIRECT TO SIGN IN */}
           <div>Already have an account? <a style={{ cursor: 'pointer' }} onClick={this.signInPage} > Click here</a></div>
         </div>
 

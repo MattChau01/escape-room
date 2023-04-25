@@ -103,14 +103,9 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
   }
 });
 
-// AUTHENTICATION MIDDLEWARE: AFTER VENDOR WITH ACCOUNT SIGNS IN
 app.use(authorizationMiddleware);
 
-// MUST TEST THIS POST REQUEST
 app.post('/api/listings', (req, res, next) => {
-
-  // const { userId } = req.user;
-  // const userIdNum = Number(userId);
 
   const { userId, roomName, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit } = req.body;
 

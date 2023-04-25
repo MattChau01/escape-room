@@ -96,8 +96,6 @@ export default class App extends React.Component {
 
     if (path === 'vendor-home' && (window.localStorage.getItem('react-context-jwt') !== null)) {
 
-      // WILL NEED TO REQUIRE A TOKEN FOR THIS PAGE
-
       return (
         <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user} toHome={this.toHome} />
       );
