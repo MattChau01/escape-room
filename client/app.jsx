@@ -21,6 +21,7 @@ export default class App extends React.Component {
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
     this.toHome = this.toHome.bind(this);
+    this.routeVSignup = this.routeVSignup.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +43,10 @@ export default class App extends React.Component {
   toHome() {
     // console.log('Home page clicked');
     window.location.hash = '#';
+  }
+
+  routeVSignup() {
+    window.location.hash = 'vendor-signup';
   }
 
   routeVSignin() {
@@ -100,7 +105,7 @@ export default class App extends React.Component {
     } else if (path === 'vendor-home' && (window.localStorage.getItem('react-context-jwt') === null)) {
       // console.log('token is required'); //eslint-disable-line
       return (
-        <TokenRequired />
+        <TokenRequired routeVSignin={this.routeVSignin} toHome={this.toHome} routeVSignup={this.routeVSignup} />
       );
     }
   }

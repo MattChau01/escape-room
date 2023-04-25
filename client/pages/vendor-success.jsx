@@ -3,27 +3,23 @@ import Header from '../components/header';
 
 export default function VendorSuccess(props) {
 
-  function returnHome() {
-    window.location.hash = '#';
-  }
-
   return (
-    <div>
+    <div style={{ overflowX: 'hidden' }}>
       <Header routeVSignin={props.routeVSignin} toHome={props.toHome} />
       <div className='d-flex flex-column mt-5'>
         <div className='row justify-content-center'>
           <h2>
-            Registration complete!
+            Registration Complete!
           </h2>
         </div>
         <div className='row justify-content-center mt-5'>
           <h5>
-            To sign in, click here:
+            Click here to sign in:
           </h5>
         </div>
-        <div className='row justify-content-center'>
-          <a className='v-signin' style={{ cursor: 'pointer' }} onClick={props.routeVSignin} >
-            Vendor sign in
+        <div className='row justify-content-center text-center'>
+          <a className='v-signin' style={{ cursor: 'pointer', color: '#fff' }} onClick={props.routeVSignin} >
+            Vendor Sign In
           </a>
         </div>
 
@@ -32,9 +28,9 @@ export default function VendorSuccess(props) {
             Click here to return to home page:
           </h5>
         </div>
-        <div className='row justify-content-center'>
-          <a style={{ cursor: 'pointer' }} onClick={returnHome} >
-            Home page
+        <div className='row justify-content-center text-center'>
+          <a className='home' style={{ cursor: 'pointer', color: '#fff' }} onClick={props.toHome} >
+            Home Page
           </a>
         </div>
 

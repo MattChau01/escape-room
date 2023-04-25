@@ -60,7 +60,10 @@
 }
 
 .register,
-.new-listing-submit {
+.new-listing-submit,
+.v-signin,
+.v-signup,
+.home {
   color: #fff;
   font-size: 1.2rem;
   width: 10rem;
