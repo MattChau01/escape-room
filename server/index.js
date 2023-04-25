@@ -109,29 +109,28 @@ app.use(authorizationMiddleware);
 // MUST TEST THIS POST REQUEST
 app.post('/api/listings', (req, res, next) => {
 
-  const { userId } = req.user;
-
-  const userIdNum = Number(userId);
-
+  // const { userId } = req.user;
+  // const userIdNum = Number(userId);
   // console.log('userId: ', userId);
 
-  const { roomName, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit } = req.body;
+  const { userId, roomName, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit } = req.body;
 
+  const userIdNum = Number(userId);
   const priceNum = Number(price);
   const minimumPlayersNum = Number(minimumPlayers);
   const timeLimitNum = Number(timeLimit);
 
-  if (!roomName || !description || !imageUrl || !address || !priceNum || !minimumPlayersNum || !difficulty || !timeLimitNum) {
+  if (!userId || !roomName || !description || !imageUrl || !address || !price || !minimumPlayers || !difficulty || !timeLimit) {
     throw new ClientError(400, 'All fields are requried');
   } else {
 
     const sql = `
-      insert into "listings" ("userId", "roomName" "description", "address", "price", "minimumPlayers", "difficulty", "timeLimit")
+      insert into "listings" ("userId", "roomName", "description", "imageUrl", "address", "price", "minimumPlayers", "difficulty", "timeLimit")
       values ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       returning *
     `;
 
-    const params = [userIdNum, description, imageUrl, address, priceNum, minimumPlayersNum, difficulty, timeLimitNum];
+    const params = [userIdNum, roomName, description, imageUrl, address, priceNum, minimumPlayersNum, difficulty, timeLimitNum];
 
     db.query(sql, params)
       .then(result => {

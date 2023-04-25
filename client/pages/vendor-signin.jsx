@@ -65,7 +65,11 @@ export default class VendorSignin extends React.Component {
         .then(res => res.json())
         .then(result => {
 
+          // console.log(result.user.userId);
+
           if (result.user && result.token) {
+
+            window.localStorage.setItem('userId', result.user.userId);
 
             this.props.onSignIn(result);
             this.setState({

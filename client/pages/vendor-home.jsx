@@ -78,11 +78,64 @@ export default class VendorHome extends React.Component {
 
   handleSubmit(event) {
     // console.log('submitted!');
-    event.preventDefault();
+    // event.preventDefault();
+
+    if (this.state.roomName === '' || this.state.imageUrl === '' || this.state.address === '' || this.state.price === '' || this.state.minimumPlayers === '' || this.state.difficulty === '' || this.state.timeLimit === '' || this.state.description === '') {
+      event.preventDefault();
+      // console.log('invalid inputs');
+      return false;
+    } else {
+
+      event.preventDefault();
+
+      // console.log('submitted');
+
+      const reqObj = {};
+
+      // TEST
+      reqObj.userId = 1;
+      // reqObj.user = window.localStorage.getItem();
+      reqObj.roomName = this.state.roomName;
+      reqObj.imageUrl = this.state.imageUrl;
+      reqObj.address = this.state.address;
+      reqObj.price = this.state.price;
+      reqObj.minimumPlayers = this.state.minimumPlayers;
+      reqObj.difficulty = this.state.difficulty;
+      reqObj.timeLimit = this.state.timeLimit;
+      reqObj.description = this.state.description;
+
+      const req = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-access-token': window.localStorage.getItem('Token')
+        },
+        body: JSON.stringify(reqObj)
+      };
+
+      fetch('/api/listings', (req))
+        .then(res => res.json())
+        .then(result => {
+          // console.log('result: ', result);
+          // console.log('result.user: ', result.user);
+          // console.log('result.token: ', result.token);
+
+          if (result.user && result.token) {
+            // console.log('user logged in!');
+          } else {
+            // console.log('no token');
+          }
+
+        })
+        .catch(err => console.error(err));
+
+    }
+
   }
 
   render() {
-    // console.log('user: ', window.localStorage.getItem('react-context-jwt'));
+    // console.log('user: ', window.localStorage.getItem('UserId'));
+    // console.log('userId: ', this.props.userId);
 
     return (
       <>
@@ -162,7 +215,7 @@ export default class VendorHome extends React.Component {
                     </label>
 
                     <div className='mb-4'>
-                      <button className='new-listing-submit' style={{
+                      <button className='new-listing-submit' type='submit' style={{
                         cursor: 'pointer'
                       }}>Submit</button>
                     </div>
