@@ -72,11 +72,20 @@
   border: none;
 }
 
-.register:active,
+/* .register:active,
 .v-sign-up:active,
 .v-signout:active,
 .v-signin:active,
 .new-listing-submit:active {
+  position: relative;
+  bottom: 0.4rem;
+} */
+
+:is(.register,
+.v-sign-up,
+.v-signout,
+.v-signin,
+.new-listing-submit):active {
   position: relative;
   bottom: 0.4rem;
 }

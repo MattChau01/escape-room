@@ -6,24 +6,29 @@ export default class VendorHome extends React.Component {
     super(props);
     this.state = {
       signOutClicked: false,
-      roomName: undefined,
-      imageUrl: undefined,
-      address: undefined,
-      price: undefined,
-      minimumPlayers: undefined,
-      difficulty: undefined,
-      timeLimit: undefined,
-      description: undefined
+      roomName: '',
+      imageUrl: '',
+      address: '',
+      price: '',
+      minimumPlayers: '',
+      difficulty: '',
+      timeLimit: '',
+      description: ''
     };
     this.roomName = this.roomName.bind(this);
     this.imageLink = this.imageLink.bind(this);
     this.address = this.address.bind(this);
     this.price = this.price.bind(this);
-
+    this.minimumPlayers = this.minimumPlayers.bind(this);
+    this.difficulty = this.difficulty.bind(this);
+    this.timeLimit = this.timeLimit.bind(this);
+    this.description = this.description.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   roomName(event) {
+    // console.log('roomName: ', this.state.roomName);
+
     this.setState({
       roomName: event.target.value
     });
@@ -44,6 +49,30 @@ export default class VendorHome extends React.Component {
   price(event) {
     this.setState({
       price: event.target.value
+    });
+  }
+
+  minimumPlayers(event) {
+    this.setState({
+      minimumPlayers: event.target.value
+    });
+  }
+
+  difficulty(event) {
+    this.setState({
+      difficulty: event.target.value
+    });
+  }
+
+  timeLimit(event) {
+    this.setState({
+      timeLimit: event.target.value
+    });
+  }
+
+  description(event) {
+    this.setState({
+      description: event.target.value
     });
   }
 
@@ -100,40 +129,42 @@ export default class VendorHome extends React.Component {
                     {/* WORKING ON FORM */}
 
                     <label htmlFor='roomName'>
-                      <input className='new-listing-input' name='roomName' id='roomName' type='text' placeholder='Room name' onChange={this.roomName} />
+                      <input className='new-listing-input' name='roomName' id='roomName' type='text' placeholder='Room name' value={this.state.roomName} onChange={this.roomName} />
                     </label>
 
                     <label htmlFor='imageUrl'>
-                      <input className='new-listing-input' name='imageUrl' id='imageUrl' type='text' placeholder='Image link' onChange={this.imageLink}/>
+                      <input className='new-listing-input' name='imageUrl' id='imageUrl' type='text' placeholder='Image link' value={this.state.imageUrl} onChange={this.imageLink}/>
                     </label>
 
                     <label htmlFor='address'>
-                      <input className='new-listing-input' name='address' id='address' type='text' placeholder='Address' onChange={this.address} />
+                      <input className='new-listing-input' name='address' id='address' type='text' placeholder='Address' value={this.state.address} onChange={this.address} />
                     </label>
 
                     <label htmlFor='price'>
-                      <input className='new-listing-input' name='price' id='price' type='text' placeholder='Price' onChange={this.price} />
+                      <input className='new-listing-input' name='price' id='price' type='text' placeholder='Price' value={this.state.price} onChange={this.price} />
                     </label>
 
                     <label htmlFor='minimumPlayers'>
-                      <input className='new-listing-input' name='minimumPlayers' id='minimumPlayers' type='text' placeholder='Minimum players' />
+                      <input className='new-listing-input' name='minimumPlayers' id='minimumPlayers' type='text' placeholder='Minimum players' value={this.state.minimumPlayers} onChange={this.minimumPlayers} />
                     </label>
 
                     <label htmlFor='difficulty'>
-                      <input className='new-listing-input' name='difficulty' id='difficulty' type='text' placeholder='Difficulty' />
+                      <input className='new-listing-input' name='difficulty' id='difficulty' type='text' placeholder='Difficulty' value={this.state.difficulty} onChange={this.difficulty}/>
                     </label>
 
                     <label htmlFor='timeLimit'>
-                      <input className='new-listing-input' name='timeLimit' id='timeLimit' type='text' placeholder='Time limit' />
+                      <input className='new-listing-input' name='timeLimit' id='timeLimit' type='text' placeholder='Time limit' value={this.state.timeLimit} onChange={this.timeLimit}/>
                     </label>
 
                     <label htmlFor='description'>
                       {/* <input className='' name='description' id='description' type='textArea' placeholder='Description' /> */}
-                      <textarea className='new-listin-desc' name='description' id='description' placeholder='Description' />
+                      <textarea className='new-listin-desc' name='description' id='description' placeholder='Description' value={this.state.description} onChange={this.description}/>
                     </label>
 
                     <div className='mb-4'>
-                      <button className='new-listing-submit' >Submit</button>
+                      <button className='new-listing-submit' style={{
+                        cursor: 'pointer'
+                      }}>Submit</button>
                     </div>
 
                   </div>
