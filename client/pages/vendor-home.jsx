@@ -93,8 +93,8 @@ export default class VendorHome extends React.Component {
       const reqObj = {};
 
       // TEST
-      reqObj.userId = 1;
-      // reqObj.user = window.localStorage.getItem();
+      // reqObj.userId = 1;
+      reqObj.userId = window.localStorage.getItem('userId');
       reqObj.roomName = this.state.roomName;
       reqObj.imageUrl = this.state.imageUrl;
       reqObj.address = this.state.address;
@@ -108,23 +108,19 @@ export default class VendorHome extends React.Component {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-access-token': window.localStorage.getItem('Token')
+          'x-access-token': window.localStorage.getItem('react-context-jwt')
         },
         body: JSON.stringify(reqObj)
       };
 
-      fetch('/api/listings', (req))
+      fetch('/api/listings', req)
         .then(res => res.json())
         .then(result => {
           // console.log('result: ', result);
           // console.log('result.user: ', result.user);
           // console.log('result.token: ', result.token);
 
-          if (result.user && result.token) {
-            // console.log('user logged in!');
-          } else {
-            // console.log('no token');
-          }
+          console.log('new listing add successfully!'); //eslint-disable-line
 
         })
         .catch(err => console.error(err));

@@ -55,6 +55,7 @@ export default class App extends React.Component {
 
   handleSignOut() {
     window.localStorage.removeItem('react-context-jwt');
+    window.localStorage.removeItem('userId');
     this.setState({
       user: null
     });
