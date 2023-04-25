@@ -1,11 +1,12 @@
 import React from 'react';
 import Home from './pages/home';
 import jwtDecode from 'jwt-decode';
-import ParseRoute from '../client/lib/parse-route';
-import VendorSignup from '../client/pages/vendor-signup';
-import VendorSuccess from '../client/pages/vendor-success';
-import VendorSignin from '../client/pages/vendor-signin';
-import VendorHome from '../client/pages/vendor-home';
+import ParseRoute from './lib/parse-route';
+import VendorSignup from './pages/vendor-signup';
+import VendorSuccess from './pages/vendor-success';
+import VendorSignin from './pages/vendor-signin';
+import VendorHome from './pages/vendor-home';
+import TokenRequired from './pages/token-required';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -89,12 +90,17 @@ export default class App extends React.Component {
       );
     }
 
-    if (path === 'vendor-home') {
+    if (path === 'vendor-home' && (window.localStorage.getItem('react-context-jwt') !== null)) {
 
       // WILL NEED TO REQUIRE A TOKEN FOR THIS PAGE
 
       return (
         <VendorHome routeVSignin={this.routeVSignin} isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user} toHome={this.toHome} />
+      );
+    } else if (path === 'vendor-home' && (window.localStorage.getItem('react-context-jwt') === null)) {
+      // console.log('token is required'); //eslint-disable-line
+      return (
+        <TokenRequired />
       );
     }
   }
