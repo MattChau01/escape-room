@@ -22,25 +22,25 @@ export default class Home extends React.Component {
     this.state = {
       route: null
     };
-    this.participantButton = this.participantButton.bind(this);
-    this.vendorButton = this.vendorButton.bind(this);
+    // this.participantButton = this.participantButton.bind(this);
+    // this.vendorButton = this.vendorButton.bind(this);
   }
 
-  participantButton() {
-    // console.log('Participants click here!');
-    window.location.hash = 'participants';
-  }
+  // participantButton() {
+  //   // console.log('Participants click here!');
+  //   window.location.hash = 'participants';
+  // }
 
-  vendorButton() {
-    window.location.hash = 'vendor-signup';
-  }
+  // vendorButton() {
+  //   window.location.hash = 'vendor-signup';
+  // }
 
   render() {
     // console.log('home');
 
     return (
       <div>
-        <Header participantButton={this.participantButton} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
+        <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
         <div className='mt-4'>
           <div className='d-flex justify-content-center align-items-center' style={{ fontFamily: 'tilt warp, cursive', fontSize: '1.25rem' }}>
             <p className='text-center'>Sign up today and <br /> find a room near you!</p>
@@ -66,7 +66,7 @@ export default class Home extends React.Component {
               textAlign: 'center',
               paddingTop: '.25rem',
               cursor: 'pointer'
-            }} onClick={this.participantButton}>
+            }} onClick={this.props.participants}>
               <a style={{
                 fontSize: '1.25rem'
               }}>Participant</a>
@@ -82,7 +82,7 @@ export default class Home extends React.Component {
               textAlign: 'center',
               paddingTop: '.25rem',
               cursor: 'pointer'
-            }} onClick={this.vendorButton}>
+            }} onClick={this.props.routeVSignup}>
               <a style={{
                 fontSize: '1.25rem'
               }}>Vendor</a>

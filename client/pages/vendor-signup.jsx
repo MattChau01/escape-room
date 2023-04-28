@@ -168,7 +168,7 @@ class VendorSignup extends React.Component {
 
     return (
       <>
-        <Header vendorSignin={this.props.vendorSignin} toHome={this.props.toHome} />
+        <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
         <div className='d-flex justify-content-center mt-4 text-center'>
           <p style={{
             fontSize: '1.4rem'

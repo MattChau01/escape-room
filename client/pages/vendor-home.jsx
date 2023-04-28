@@ -120,7 +120,7 @@ export default class VendorHome extends React.Component {
 
     return (
       <>
-        <Header routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
+        <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
         <div className='mt-5'>
           <div className='text-right mr-5 v-signout'>
             <button style={{

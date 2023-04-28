@@ -50,7 +50,7 @@ function Header(props) {
               <i className="fa-solid fa-user mx-2 mt-2" style={{ fontSize: '1rem' }} />
             </div>
             <div className='col'>
-              <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }} onClick={props.participantButton} >Participants</a>
+              <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }} onClick={props.participants} >Participants</a>
             </div>
           </div>
           <div className='row my-2'>
