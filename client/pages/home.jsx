@@ -22,18 +22,25 @@ export default class Home extends React.Component {
     this.state = {
       route: null
     };
+    this.participantButton = this.participantButton.bind(this);
     this.vendorButton = this.vendorButton.bind(this);
   }
 
-  vendorButton(event) {
+  participantButton() {
+    // console.log('Participants click here!');
+    window.location.hash = 'participants';
+  }
+
+  vendorButton() {
     window.location.hash = 'vendor-signup';
   }
 
   render() {
+    // console.log('home');
 
     return (
       <div>
-        <Header routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
+        <Header participantButton={this.participantButton} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
         <div className='mt-4'>
           <div className='d-flex justify-content-center align-items-center' style={{ fontFamily: 'tilt warp, cursive', fontSize: '1.25rem' }}>
             <p className='text-center'>Sign up today and <br /> find a room near you!</p>
@@ -51,7 +58,7 @@ export default class Home extends React.Component {
         </div>
         <div className='d-flex justify-content-center align-items'>
           <div className='row mt-3'>
-            <div style={{
+            <div className='viewer' style={{
               backgroundColor: '#1976D2',
               color: '#fff',
               borderRadius: '5rem',
@@ -59,10 +66,10 @@ export default class Home extends React.Component {
               textAlign: 'center',
               paddingTop: '.25rem',
               cursor: 'pointer'
-            }}>
+            }} onClick={this.participantButton}>
               <a style={{
                 fontSize: '1.25rem'
-              }} >Participant</a>
+              }}>Participant</a>
             </div>
             <div className='mx-5'>
               <p>OR</p>

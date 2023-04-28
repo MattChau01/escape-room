@@ -76,6 +76,7 @@
 }
 
 :is(.register,
+.viewer,
 .v-sign-up,
 .v-signout,
 .v-signin,

@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './pages/home';
 import jwtDecode from 'jwt-decode';
 import ParseRoute from './lib/parse-route';
+import CatalogPage from './pages/catalog';
 import VendorSignup from './pages/vendor-signup';
 import VendorSuccess from './pages/vendor-success';
 import VendorSignin from './pages/vendor-signin';
@@ -68,11 +69,18 @@ export default class App extends React.Component {
   }
 
   currentPage() {
+    // participants
 
     const { path } = this.state.route;
     if (path === '') {
       return (
         <Home routeVSignin={this.routeVSignin} toHome={this.toHome} />
+      );
+    }
+
+    if (path === 'participants') {
+      return (
+        <CatalogPage routeVSignin={this.routeVSignin} toHome={this.toHome} />
       );
     }
 
