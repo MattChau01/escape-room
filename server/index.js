@@ -25,6 +25,25 @@ app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
 });
 
+// GET REQUEST FOR ALL DATA
+
+app.get('/api/listings', (req, res, next) => {
+
+  const sql = `
+    select *
+    from "listings"
+  `;
+
+  db.query(sql)
+    .then(result => {
+      const listings = result.rows;
+      // console.log('listings: ', listings);
+      return listings;
+    })
+    .catch(err => next(err));
+
+});
+
 app.post('/api/vendorAccounts/signup', (req, res, next) => {
   const { firstName, lastName, username, password } = req.body;
 
