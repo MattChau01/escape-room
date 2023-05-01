@@ -188,6 +188,11 @@ export default class VendorHome extends React.Component {
                       <input className='new-listing-input' name='timeLimit' id='timeLimit' type='text' placeholder='Time limit' value={this.state.timeLimit} onChange={this.timeLimit}/>
                     </label>
 
+                    {/* INPUT FIELD FOR PHONE NUMBER */}
+                    <label htmlFor='phoneNumber'>
+                      <input className='new-listing-input' name='phoneNumber' id='phoneNumber' type='text' placeholder='Phone number' value={this.state.phoneNumber} onChange={this.phoneNumber} />
+                    </label>
+
                     <label htmlFor='description'>
                       <textarea className='new-listin-desc' name='description' id='description' placeholder='Description' value={this.state.description} onChange={this.description}/>
                     </label>
