@@ -23,6 +23,7 @@ CREATE TABLE "public"."vendorAccounts" (
 CREATE TABLE "public"."listings" (
 	"entryId" serial NOT NULL,
 	"userId" int NOT NULL,
+  "phoneNumber" varchar NOT NULL,
   "roomName" TEXT NOT NULL,
 	"description" TEXT NOT NULL,
 	"imageUrl" TEXT NOT NULL,
