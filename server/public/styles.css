@@ -95,3 +95,9 @@
   width: 23rem;
   height: 100%;
 }
+
+.catalog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
