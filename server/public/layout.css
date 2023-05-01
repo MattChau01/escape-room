@@ -12,9 +12,12 @@
 
 /* ATTEMPTING TO CREATE 2 COLUMNS */
 @media screen and (min-width: 800px) {
-  .catalog-container {
-    columns: 2 auto;
-  }
+  /* .catalog-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+  } */
 }
 
 @media screen and (min-width: 1000px) {
