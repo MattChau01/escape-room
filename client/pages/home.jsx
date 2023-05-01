@@ -22,17 +22,7 @@ export default class Home extends React.Component {
     this.state = {
       route: null
     };
-    // this.participantButton = this.participantButton.bind(this);
-    // this.vendorButton = this.vendorButton.bind(this);
   }
-
-  // participantButton() {
-  //   window.location.hash = 'participants';
-  // }
-
-  // vendorButton() {
-  //   window.location.hash = 'vendor-signup';
-  // }
 
   render() {
 

@@ -5,7 +5,7 @@ export default function RoomDetails(props) {
     <div className='text-center'>
       ROOM DETAILS
       <div>
-        {/* {props.item.entryId} */}
+        {props.item.entryId}
       </div>
     </div>
   );

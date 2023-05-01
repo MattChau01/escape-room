@@ -5,7 +5,6 @@ export default class VendorHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // signOutClicked: false,
       roomName: '',
       imageUrl: '',
       address: '',
@@ -157,7 +156,6 @@ export default class VendorHome extends React.Component {
             }} onClick={this.props.handleSignOut}>Sign out</button>
           </div>
           <div className='text-center mt-3'>
-            {/* HOME PAGE WILL RENDER A MESSAGE WHETHER THE CURRENT USER ALREADY MADE A LISTING OR NOT */}
 
             <div className='d-flex justify-content-center text-center'>
               <p style={{
@@ -209,7 +207,6 @@ export default class VendorHome extends React.Component {
                       <input className='new-listing-input' name='timeLimit' id='timeLimit' type='text' placeholder='Time limit' value={this.state.timeLimit} onChange={this.timeLimit}/>
                     </label>
 
-                    {/* INPUT FIELD FOR PHONE NUMBER */}
                     <label htmlFor='phoneNumber'>
                       <input className='new-listing-input' name='phoneNumber' id='phoneNumber' type='text' placeholder='Phone number' value={this.state.phoneNumber} onChange={this.phoneNumber} />
                     </label>

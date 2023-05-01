@@ -8,7 +8,6 @@ import VendorSuccess from './pages/vendor-success';
 import VendorSignin from './pages/vendor-signin';
 import VendorHome from './pages/vendor-home';
 import TokenRequired from './pages/token-required';
-// import RoomDetails from './pages/room-details';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -17,8 +16,6 @@ export default class App extends React.Component {
       route: ParseRoute(window.location.hash),
       user: null,
       isAuthorizing: true
-      // TEST FETCH
-      // listings: []
     };
     this.currentPage = this.currentPage.bind(this);
     this.routeVSignin = this.routeVSignin.bind(this);
@@ -42,17 +39,6 @@ export default class App extends React.Component {
       user,
       isAuthorizing: false
     });
-
-    // TEST GET REQUEST
-    // fetch('/api/listings')
-    //   .then(res => res.json())
-    //   .then(listings => {
-    //     // console.log('list of listings: ', listings);
-    //     this.setState({
-    //       listings
-    //     });
-    //   })
-    //   .catch(err => console.error(err));
 
   }
 
@@ -88,7 +74,6 @@ export default class App extends React.Component {
   }
 
   currentPage() {
-    // participants
 
     const { path } = this.state.route;
     if (path === '') {
@@ -98,7 +83,6 @@ export default class App extends React.Component {
     }
 
     if (path === 'participants') {
-      // console.log('test');
       return (
         <CatalogPage participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
       );
@@ -115,18 +99,6 @@ export default class App extends React.Component {
         <VendorSuccess participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
       );
     }
-
-    // if (path === 'vendor-signin') {
-    //   return (
-    //     <VendorSignin onSignIn={this.handleSignIn} participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
-    //   );
-    // } else if (path === 'vendor-signin' && (window.localStorage.getItem('react-context-jwt') !== null)) {
-    //   return (
-    //     <VendorHome isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user} participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
-    //   );
-    // }
-
-    // RENDERS VENDOR HOME PAGE IF USER HAS TOKEN, OR ELSE IT WILL RENDER THE SIGN IN PAGE.
 
     if (path === 'vendor-signin' && (window.localStorage.getItem('react-context-jwt') !== null)) {
       return (
@@ -148,13 +120,6 @@ export default class App extends React.Component {
         <TokenRequired participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} routeVSignup={this.routeVSignup} />
       );
     }
-
-    // if (path === 'catalog') {
-    //   // console.log('hash: ', this.state.route);
-    //   return (
-    //     <RoomDetails item={this.props.item}/>
-    //   );
-    // }
 
   }
 

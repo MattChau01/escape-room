@@ -25,8 +25,6 @@ app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
 });
 
-// GET REQUEST FOR ALL DATA
-
 app.get('/api/listings', (req, res, next) => {
 
   const sql = `
@@ -36,8 +34,6 @@ app.get('/api/listings', (req, res, next) => {
 
   db.query(sql)
     .then(result => {
-      // const listings = result.rows;
-      // return listings;
 
       res.json(result.rows);
 
@@ -124,7 +120,6 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
   }
 });
 
-// COMMENTING OUT FOR TEST
 app.use(authorizationMiddleware);
 
 app.post('/api/listings', (req, res, next) => {
