@@ -101,7 +101,23 @@ export default class App extends React.Component {
       );
     }
 
-    if (path === 'vendor-signin') {
+    // if (path === 'vendor-signin') {
+    //   return (
+    //     <VendorSignin onSignIn={this.handleSignIn} participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
+    //   );
+    // } else if (path === 'vendor-signin' && (window.localStorage.getItem('react-context-jwt') !== null)) {
+    //   return (
+    //     <VendorHome isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user} participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
+    //   );
+    // }
+
+    // RENDERS VENDOR HOME PAGE IF USER HAS TOKEN, OR ELSE IT WILL RENDER THE SIGN IN PAGE.
+
+    if (path === 'vendor-signin' && (window.localStorage.getItem('react-context-jwt') !== null)) {
+      return (
+        <VendorHome isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user} participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
+      );
+    } else if (path === 'vendor-signin' && (window.localStorage.getItem('react-context-jwt') === null)) {
       return (
         <VendorSignin onSignIn={this.handleSignIn} participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
       );

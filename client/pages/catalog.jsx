@@ -8,9 +8,13 @@ export default class CatalogPage extends React.Component {
     };
   }
 
+  componentDidMount() {
+    // console.log('CATALOG PAGE');
+  }
+
   render() {
     return (
-      <div className='text-center'>
+      <div className='text-center mt-5'>
         TEST
       </div>
     );
