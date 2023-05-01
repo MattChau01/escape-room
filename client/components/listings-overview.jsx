@@ -1,6 +1,11 @@
 import React from 'react';
 
 export default function ListingsOverview(props) {
+
+  function roomDetails() {
+    window.location.hash = `catalog?roomId=${props.item.entryId}`;
+  }
+
   return (
     <div key={props.item.entryId} className='catalog-container'>
       {/* TEST STYLING, NOT PERMANENT */}
@@ -13,12 +18,14 @@ export default function ListingsOverview(props) {
         <div>
           {/* {item.entryId} */}
           <div className='row justify-content-center py-2'>
-            <h5 className='room-name' style={{
+            <a className='room-name' style={{
+              color: '#000',
+              fontSize: '1.25rem',
               fontWeight: 600,
               cursor: 'pointer'
-            }}>
+            }} onClick={roomDetails}>
               {props.item.roomName}
-            </h5>
+            </a>
           </div>
           <div className='row justify-content-center'>
             <img src={props.item.imageUrl} style={{ width: '8rem', height: '10rem', objectFit: 'cover' }} />

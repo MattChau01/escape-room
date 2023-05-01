@@ -6,15 +6,17 @@ export default class CatalogPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listings: []
+      listings: [],
+      roomNumber: undefined
     };
-    // this.fetchListings = this.fetchListings.bind(this);
+    // this.fetchListing = this.fetchListing.bind(this);
   }
 
-  // fetchListings() {
+  // fetchListing(event) {
   //   console.log('TEST ');
-
+  //   console.log('target: ', props.item.entryId);
   //   console.log('state in function: ', this.state.listings);
+  //   console.log('e: ', event.target.value);
 
   // }
 
@@ -47,6 +49,9 @@ export default class CatalogPage extends React.Component {
 
         <div className='text-center mt-3'>
 
+          {/* TESTING BUTTON */}
+          {/* <p style={{ cursor: 'pointer' }} onClick={this.fetchListing}>TEST</p> */}
+
           {/* TRY MAPPING */}
           <div className='mt-3 mb-3'>
 
@@ -58,7 +63,7 @@ export default class CatalogPage extends React.Component {
               console.log('item: ', item); //eslint-disable-line
               return (
 
-                <ListingsOverview key={item.entryId} item={item}/>
+                <ListingsOverview key={item.entryId} item={item} />
 
               );
             })}

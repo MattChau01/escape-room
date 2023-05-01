@@ -84,6 +84,7 @@ export default class App extends React.Component {
     }
 
     if (path === 'participants') {
+      // console.log('test');
       return (
         <CatalogPage participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
       );

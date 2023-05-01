@@ -87,8 +87,14 @@
 }
 
 .register:focus,
-.new-listing-submit:focus {
+.new-listing-submit:focus,
+.room-name:focus {
   outline: none;
+}
+
+.room-name:hover {
+  outline: none;
+  text-decoration: none;
 }
 
 .new-listing {
