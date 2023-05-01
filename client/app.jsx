@@ -8,6 +8,7 @@ import VendorSuccess from './pages/vendor-success';
 import VendorSignin from './pages/vendor-signin';
 import VendorHome from './pages/vendor-home';
 import TokenRequired from './pages/token-required';
+// import RoomDetails from './pages/room-details';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,8 @@ export default class App extends React.Component {
       route: ParseRoute(window.location.hash),
       user: null,
       isAuthorizing: true
+      // TEST FETCH
+      // listings: []
     };
     this.currentPage = this.currentPage.bind(this);
     this.routeVSignin = this.routeVSignin.bind(this);
@@ -39,6 +42,17 @@ export default class App extends React.Component {
       user,
       isAuthorizing: false
     });
+
+    // TEST GET REQUEST
+    // fetch('/api/listings')
+    //   .then(res => res.json())
+    //   .then(listings => {
+    //     // console.log('list of listings: ', listings);
+    //     this.setState({
+    //       listings
+    //     });
+    //   })
+    //   .catch(err => console.error(err));
 
   }
 
@@ -134,6 +148,14 @@ export default class App extends React.Component {
         <TokenRequired participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} routeVSignup={this.routeVSignup} />
       );
     }
+
+    // if (path === 'catalog') {
+    //   // console.log('hash: ', this.state.route);
+    //   return (
+    //     <RoomDetails item={this.props.item}/>
+    //   );
+    // }
+
   }
 
   render() {

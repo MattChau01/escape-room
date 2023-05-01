@@ -1,9 +1,15 @@
 import React from 'react';
+// TEST
+// import RoomDetails from '../pages/room-details';
+// import App from '../app';
 
 export default function ListingsOverview(props) {
 
   function roomDetails() {
     window.location.hash = `catalog?roomId=${props.item.entryId}`;
+    // <RoomDetails item={props.item} />;
+    // console.log('test: ', props.item);
+    // <App item={props.item} />;
   }
 
   return (
