@@ -5,7 +5,7 @@ export default class VendorHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      signOutClicked: false,
+      // signOutClicked: false,
       roomName: '',
       imageUrl: '',
       address: '',
@@ -13,6 +13,7 @@ export default class VendorHome extends React.Component {
       minimumPlayers: '',
       difficulty: '',
       timeLimit: '',
+      phoneNumber: '',
       description: ''
     };
     this.roomName = this.roomName.bind(this);
@@ -22,6 +23,7 @@ export default class VendorHome extends React.Component {
     this.minimumPlayers = this.minimumPlayers.bind(this);
     this.difficulty = this.difficulty.bind(this);
     this.timeLimit = this.timeLimit.bind(this);
+    this.phoneNumber = this.phoneNumber.bind(this);
     this.description = this.description.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -69,6 +71,12 @@ export default class VendorHome extends React.Component {
     });
   }
 
+  phoneNumber(event) {
+    this.setState({
+      phoneNumber: event.target.value
+    });
+  }
+
   description(event) {
     this.setState({
       description: event.target.value
@@ -94,6 +102,7 @@ export default class VendorHome extends React.Component {
       reqObj.minimumPlayers = this.state.minimumPlayers;
       reqObj.difficulty = this.state.difficulty;
       reqObj.timeLimit = this.state.timeLimit;
+      reqObj.phoneNumber = this.state.phoneNumber;
       reqObj.description = this.state.description;
 
       const req = {
@@ -108,6 +117,20 @@ export default class VendorHome extends React.Component {
       fetch('/api/listings', req)
         .then(res => res.json())
         .then(result => {
+
+          // console.log('result: ', result);
+
+          this.setState({
+            roomName: '',
+            imageUrl: '',
+            address: '',
+            price: '',
+            minimumPlayers: '',
+            difficulty: '',
+            timeLimit: '',
+            phoneNumber: '',
+            description: ''
+          });
 
         })
         .catch(err => console.error(err));
