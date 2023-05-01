@@ -7,24 +7,30 @@ export default function ListingsOverview(props) {
       <div className='mt-3' style={{
         backgroundColor: '#ececec',
         width: '18rem',
-        height: '16rem'
+        height: '17rem'
       }}>
 
         <div>
           {/* {item.entryId} */}
-          <h5 className='row justify-content-center py-2'>
-            {props.item.roomName}
-          </h5>
-          <img src={props.item.imageUrl} style={{ width: '8rem', height: '10rem', objectFit: 'cover' }} />
-          <div className='row py-2'>
+          <div className='row justify-content-center py-2'>
+            <h5 className='room-name' style={{
+              fontWeight: 600,
+              cursor: 'pointer'
+            }}>
+              {props.item.roomName}
+            </h5>
+          </div>
+          <div className='row justify-content-center'>
+            <img src={props.item.imageUrl} style={{ width: '8rem', height: '10rem', objectFit: 'cover' }} />
+          </div>
+          <div className='row py-3'>
 
             <div className='col'>
-              {/* ADD HASH ROUTING ACCORDING TO THE ENTRY ITEM */}
-              Learn more
+              {props.item.difficulty}
             </div>
 
             <div className='col'>
-              Price here
+              ${Number(props.item.price)} /person
             </div>
 
           </div>

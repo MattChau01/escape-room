@@ -86,7 +86,7 @@ function Header(props) {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar className='drawer'>
-        <Toolbar>
+        <Toolbar style={{ backgroundColor: '#046290' }}>
           {/* <div className='mx-2 my-2' style={{ backgroundColor: '#1976D2' }}> */}
           <IconButton
             color="inherit"

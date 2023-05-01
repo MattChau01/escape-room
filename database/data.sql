@@ -13,7 +13,7 @@ values (
   '123 Candy Cane Lane',
   40,
   2,
-  'hard',
+  'easy',
   60,
   '7141231234');
 
@@ -28,7 +28,7 @@ values (
   '123 Candy Cane Lane',
   40,
   2,
-  'hard',
+  'medium',
   60,
   '8543216548');
 

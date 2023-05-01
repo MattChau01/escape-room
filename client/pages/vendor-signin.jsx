@@ -92,11 +92,14 @@ export default class VendorSignin extends React.Component {
       <>
         <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
         <div className='d-flex justify-content-center mt-4 text-center'>
-          <p style={{
+          {/* <p style={{
             fontSize: '1.4rem'
           }}>
             Welcome back!
-          </p>
+          </p> */}
+          <h4>
+            Welcome back!
+          </h4>
         </div>
         <div className='d-flex justify-content-center mt-4'>
           <form autoComplete='off' className='vsignin-c' onSubmit={this.handleSubmit}>

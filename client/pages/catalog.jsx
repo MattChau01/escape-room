@@ -50,6 +50,10 @@ export default class CatalogPage extends React.Component {
           {/* TRY MAPPING */}
           <div className='mt-3 mb-3'>
 
+            <h5>
+              Click on the room name to learn more!
+            </h5>
+
             {this.state.listings.map(item => {
               console.log('item: ', item); //eslint-disable-line
               return (

@@ -80,7 +80,8 @@
 .v-sign-up,
 .v-signout,
 .v-signin,
-.new-listing-submit):active {
+.new-listing-submit,
+.room-name):active {
   position: relative;
   bottom: 0.4rem;
 }
