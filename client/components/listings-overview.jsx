@@ -8,7 +8,6 @@ export default function ListingsOverview(props) {
   function roomDetails() {
     window.location.hash = `catalog?roomId=${props.item.entryId}`;
     // <RoomDetails item={props.item} />;
-    // console.log('test: ', props.item);
     // <App item={props.item} />;
   }
 

@@ -27,7 +27,6 @@ export default class Home extends React.Component {
   }
 
   // participantButton() {
-  //   // console.log('Participants click here!');
   //   window.location.hash = 'participants';
   // }
 
@@ -36,7 +35,6 @@ export default class Home extends React.Component {
   // }
 
   render() {
-    // console.log('home');
 
     return (
       <div>

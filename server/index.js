@@ -37,7 +37,6 @@ app.get('/api/listings', (req, res, next) => {
   db.query(sql)
     .then(result => {
       // const listings = result.rows;
-      // console.log('listings: ', listings);
       // return listings;
 
       res.json(result.rows);

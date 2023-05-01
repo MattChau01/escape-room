@@ -118,8 +118,6 @@ export default class VendorHome extends React.Component {
         .then(res => res.json())
         .then(result => {
 
-          // console.log('result: ', result);
-
           this.setState({
             roomName: '',
             imageUrl: '',
