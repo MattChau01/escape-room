@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from '../components/header';
+import ListingsOverview from '../components/listings-overview';
 
 export default class CatalogPage extends React.Component {
   constructor(props) {
@@ -38,54 +40,27 @@ export default class CatalogPage extends React.Component {
 
   render() {
     return (
-      <div className='text-center mt-5'>
-        TEST
+      <div>
 
-        {/* TRY MAPPING */}
-        <div className='mt-3 mb-3'>
+        {/* HEADER */}
+        <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
 
-          {
+        <div className='text-center mt-3'>
 
-          this.state.listings.map(item => {
-            console.log('item: ', item); //eslint-disable-line
-            return (
-              <div key={item.entryId} className='catalog-container'>
-                {/* TEST STYLING, NOT PERMANENT */}
-                <div className='mt-3' style={{
-                  backgroundColor: '#ececec',
-                  width: '18rem',
-                  height: '16rem'
-                }}>
+          {/* TRY MAPPING */}
+          <div className='mt-3 mb-3'>
 
-                  <div>
-                    {/* {item.entryId} */}
-                    <h5 className='row justify-content-center py-2'>
-                      {item.roomName}
-                    </h5>
-                    <img src={item.imageUrl} style={{ width: '8rem', height: '10rem', objectFit: 'cover' }}/>
-                    <div className='row py-2'>
+            {this.state.listings.map(item => {
+              console.log('item: ', item); //eslint-disable-line
+              return (
 
-                      <div className='col'>
-                        {/* ADD HASH ROUTING ACCORDING TO THE ENTRY ITEM */}
-                        Learn more
-                      </div>
+                <ListingsOverview key={item.entryId} item={item}/>
 
-                      <div className='col'>
-                        Price here
-                      </div>
+              );
+            })}
 
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            );
-          })
-
-        }
-
+          </div>
         </div>
-
       </div>
     );
   }
