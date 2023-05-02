@@ -25,6 +25,23 @@ app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
 });
 
+app.get('/api/listings', (req, res, next) => {
+
+  const sql = `
+    select *
+    from "listings"
+  `;
+
+  db.query(sql)
+    .then(result => {
+
+      res.json(result.rows);
+
+    })
+    .catch(err => next(err));
+
+});
+
 app.post('/api/vendorAccounts/signup', (req, res, next) => {
   const { firstName, lastName, username, password } = req.body;
 
@@ -107,24 +124,24 @@ app.use(authorizationMiddleware);
 
 app.post('/api/listings', (req, res, next) => {
 
-  const { userId, roomName, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit } = req.body;
+  const { userId, roomName, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit, phoneNumber } = req.body;
 
   const userIdNum = Number(userId);
   const priceNum = Number(price);
   const minimumPlayersNum = Number(minimumPlayers);
   const timeLimitNum = Number(timeLimit);
 
-  if (!userId || !roomName || !description || !imageUrl || !address || !price || !minimumPlayers || !difficulty || !timeLimit) {
+  if (!userId || !roomName || !description || !imageUrl || !address || !price || !minimumPlayers || !difficulty || !timeLimit || !phoneNumber) {
     throw new ClientError(400, 'All fields are requried');
   } else {
 
     const sql = `
-      insert into "listings" ("userId", "roomName", "description", "imageUrl", "address", "price", "minimumPlayers", "difficulty", "timeLimit")
-      values ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      insert into "listings" ("userId", "roomName", "description", "imageUrl", "address", "price", "minimumPlayers", "difficulty", "timeLimit", "phoneNumber")
+      values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
       returning *
     `;
 
-    const params = [userIdNum, roomName, description, imageUrl, address, priceNum, minimumPlayersNum, difficulty, timeLimitNum];
+    const params = [userIdNum, roomName, description, imageUrl, address, priceNum, minimumPlayersNum, difficulty, timeLimitNum, phoneNumber];
 
     db.query(sql, params)
       .then(result => {

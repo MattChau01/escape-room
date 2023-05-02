@@ -5,7 +5,6 @@ export default class VendorHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      signOutClicked: false,
       roomName: '',
       imageUrl: '',
       address: '',
@@ -13,6 +12,7 @@ export default class VendorHome extends React.Component {
       minimumPlayers: '',
       difficulty: '',
       timeLimit: '',
+      phoneNumber: '',
       description: ''
     };
     this.roomName = this.roomName.bind(this);
@@ -22,6 +22,7 @@ export default class VendorHome extends React.Component {
     this.minimumPlayers = this.minimumPlayers.bind(this);
     this.difficulty = this.difficulty.bind(this);
     this.timeLimit = this.timeLimit.bind(this);
+    this.phoneNumber = this.phoneNumber.bind(this);
     this.description = this.description.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -69,6 +70,12 @@ export default class VendorHome extends React.Component {
     });
   }
 
+  phoneNumber(event) {
+    this.setState({
+      phoneNumber: event.target.value
+    });
+  }
+
   description(event) {
     this.setState({
       description: event.target.value
@@ -94,6 +101,7 @@ export default class VendorHome extends React.Component {
       reqObj.minimumPlayers = this.state.minimumPlayers;
       reqObj.difficulty = this.state.difficulty;
       reqObj.timeLimit = this.state.timeLimit;
+      reqObj.phoneNumber = this.state.phoneNumber;
       reqObj.description = this.state.description;
 
       const req = {
@@ -109,6 +117,18 @@ export default class VendorHome extends React.Component {
         .then(res => res.json())
         .then(result => {
 
+          this.setState({
+            roomName: '',
+            imageUrl: '',
+            address: '',
+            price: '',
+            minimumPlayers: '',
+            difficulty: '',
+            timeLimit: '',
+            phoneNumber: '',
+            description: ''
+          });
+
         })
         .catch(err => console.error(err));
 
@@ -120,7 +140,7 @@ export default class VendorHome extends React.Component {
 
     return (
       <>
-        <Header routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
+        <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
         <div className='mt-5'>
           <div className='text-right mr-5 v-signout'>
             <button style={{
@@ -136,7 +156,6 @@ export default class VendorHome extends React.Component {
             }} onClick={this.props.handleSignOut}>Sign out</button>
           </div>
           <div className='text-center mt-3'>
-            {/* HOME PAGE WILL RENDER A MESSAGE WHETHER THE CURRENT USER ALREADY MADE A LISTING OR NOT */}
 
             <div className='d-flex justify-content-center text-center'>
               <p style={{
@@ -186,6 +205,10 @@ export default class VendorHome extends React.Component {
 
                     <label htmlFor='timeLimit'>
                       <input className='new-listing-input' name='timeLimit' id='timeLimit' type='text' placeholder='Time limit' value={this.state.timeLimit} onChange={this.timeLimit}/>
+                    </label>
+
+                    <label htmlFor='phoneNumber'>
+                      <input className='new-listing-input' name='phoneNumber' id='phoneNumber' type='text' placeholder='Phone number' value={this.state.phoneNumber} onChange={this.phoneNumber} />
                     </label>
 
                     <label htmlFor='description'>

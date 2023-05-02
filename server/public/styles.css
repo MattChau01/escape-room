@@ -76,21 +76,35 @@
 }
 
 :is(.register,
+.viewer,
 .v-sign-up,
 .v-signout,
 .v-signin,
-.new-listing-submit):active {
+.new-listing-submit,
+.room-name):active {
   position: relative;
   bottom: 0.4rem;
 }
 
 .register:focus,
-.new-listing-submit:focus {
+.new-listing-submit:focus,
+.room-name:focus {
   outline: none;
+}
+
+.room-name:hover {
+  outline: none;
+  text-decoration: none;
 }
 
 .new-listing {
   background-color: #ececec;
   width: 23rem;
   height: 100%;
+}
+
+.catalog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
