@@ -12,7 +12,14 @@ export default class CatalogPage extends React.Component {
 
   componentDidMount() {
 
-    fetch('/api/listings')
+    const req = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    fetch('/api/listings', req)
       .then(res => res.json())
       .then(listings => {
         this.setState({
