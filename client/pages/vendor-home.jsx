@@ -27,6 +27,16 @@ export default class VendorHome extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    console.log('component did mount'); //eslint-disable-line
+
+    if (window.localStorage.getItem('react-context-jwt') !== null) {
+      console.log('User logged in!'); //eslint-disable-line
+    } else {
+      console.log('Token required!'); //eslint-disable-line
+    }
+  }
+
   roomName(event) {
 
     this.setState({
