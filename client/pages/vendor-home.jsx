@@ -27,6 +27,8 @@ export default class VendorHome extends React.Component {
     this.phoneNumber = this.phoneNumber.bind(this);
     this.description = this.description.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.openForm = this.openForm.bind(this);
+    this.closeForm = this.closeForm.bind(this);
   }
 
   componentDidMount() {
@@ -94,6 +96,21 @@ export default class VendorHome extends React.Component {
     });
   }
 
+  openForm(event) {
+    event.preventDefault();
+    this.setState({
+      newListingButton: true
+    });
+    // console.log('button clicked');
+  }
+
+  closeForm(event) {
+    event.preventDefault();
+    this.setState({
+      newListingButton: false
+    });
+  }
+
   handleSubmit(event) {
 
     if (this.state.roomName === '' || this.state.imageUrl === '' || this.state.address === '' || this.state.price === '' || this.state.minimumPlayers === '' || this.state.difficulty === '' || this.state.timeLimit === '' || this.state.description === '') {
@@ -138,7 +155,8 @@ export default class VendorHome extends React.Component {
             difficulty: '',
             timeLimit: '',
             phoneNumber: '',
-            description: ''
+            description: '',
+            newListingButton: false
           });
 
         })
@@ -149,6 +167,7 @@ export default class VendorHome extends React.Component {
   }
 
   render() {
+    // console.log('state: ', this.state.newListingButton);
 
     return (
       <>
@@ -170,13 +189,58 @@ export default class VendorHome extends React.Component {
             cursor: 'pointer',
             outline: 'none',
             borderStyle: 'none'
-          }} onClick={this.handleSignOut}>Sign out</button>
+          }} onClick={this.props.handleSignOut}>Sign out</button>
         </div>
         <div className='text-center'>
           {/* CURRENT USERS LISTINGS WILL RENDER HERE (IF ANY) */}
-          VENDOR HOME
+          Your listings here:
         </div>
-        <div className='d-flex justify-content-center mt-3 add-listing'>
+        {/* CONDITIONALLY RENDER FORM HERE */}
+        {
+          (this.state.newListingButton === true)
+            ? <ListingForm
+              handleSubmit={this.handleSubmit}
+              roomName={this.state.roomName}
+              roomNameChange={this.roomName}
+              imageUrl={this.state.imageUrl}
+              imageUrlChange={this.imageLink}
+              address={this.state.address}
+              addressChange={this.address}
+              price={this.state.price}
+              priceChange={this.price}
+              minimumPlayers={this.state.minimumPlayers}
+              minimumPlayersChange={this.minimumPlayers}
+              difficulty={this.state.difficulty}
+              difficultyChange={this.difficulty}
+              timeLimit={this.state.timeLimit}
+              timeLimitChange={this.timeLimit}
+              phoneNumber={this.state.phoneNumber}
+              phoneNumberChange={this.phoneNumber}
+              description={this.state.description}
+              descriptionChange={this.description}
+              closeForm={this.closeForm} />
+            : (
+              <div className='text-center'>
+                STATE IS FALSE
+                <div className='d-flex justify-content-center mt-3 add-listing'>
+                  <button style={{
+                    backgroundColor: '#1976D2',
+                    color: '#fff',
+                    borderRadius: '5rem',
+                    width: '7rem',
+                    textAlign: 'center',
+                    paddingTop: '.25rem',
+                    cursor: 'pointer',
+                    outline: 'none',
+                    borderStyle: 'none'
+                  }} onClick={this.openForm}>
+                    Add a listing
+                  </button>
+                </div>
+              </div>
+              )
+        }
+        {/* <div className='d-flex justify-content-center mt-3 add-listing'>
           <button style={{
             backgroundColor: '#1976D2',
             color: '#fff',
@@ -187,11 +251,10 @@ export default class VendorHome extends React.Component {
             cursor: 'pointer',
             outline: 'none',
             borderStyle: 'none'
-          }}>
-            {/* ADD ONCHANGE EVENT HERE */}
+          }} onClick={this.listingButton}>
             Add a listing
           </button>
-        </div>
+        </div> */}
         {/* <ListingForm
           handleSubmit={this.handleSubmit}
           roomName={this.state.roomName}

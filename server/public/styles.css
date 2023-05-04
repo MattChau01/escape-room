@@ -82,6 +82,7 @@
 .v-signin,
 .add-listing,
 .new-listing-submit,
+.close-form,
 .room-name):active {
   position: relative;
   bottom: 0.4rem;

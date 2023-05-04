@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ListingForm(props) {
   return (
-    <div className='mt-5'>
+    <div className='mt-3'>
       {/* <div className='text-right mr-5 v-signout'>
         <button style={{
           backgroundColor: '#1976D2',
@@ -86,6 +86,20 @@ export default function ListingForm(props) {
 
             </form>
           </div>
+        </div>
+
+        <div className='mb-4'>
+          <button className='close-form' style={{
+            backgroundColor: '#1976D2',
+            color: '#fff',
+            borderRadius: '5rem',
+            width: '7rem',
+            textAlign: 'center',
+            paddingTop: '.25rem',
+            cursor: 'pointer',
+            outline: 'none',
+            borderStyle: 'none'
+          }} onClick={props.closeForm} >Close form</button>
         </div>
 
       </div>
