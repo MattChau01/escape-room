@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/header';
-import ListingForm from '../components/new-listing-form';
+import ListingForm from '../components/new-listing-form'; //eslint-disable-line
 
 export default class VendorHome extends React.Component {
   constructor(props) {
@@ -14,7 +14,8 @@ export default class VendorHome extends React.Component {
       difficulty: '',
       timeLimit: '',
       phoneNumber: '',
-      description: ''
+      description: '',
+      newListingButton: false
     };
     this.roomName = this.roomName.bind(this);
     this.imageLink = this.imageLink.bind(this);
@@ -171,7 +172,27 @@ export default class VendorHome extends React.Component {
             borderStyle: 'none'
           }} onClick={this.handleSignOut}>Sign out</button>
         </div>
-        <ListingForm
+        <div className='text-center'>
+          {/* CURRENT USERS LISTINGS WILL RENDER HERE (IF ANY) */}
+          VENDOR HOME
+        </div>
+        <div className='d-flex justify-content-center mt-3 add-listing'>
+          <button style={{
+            backgroundColor: '#1976D2',
+            color: '#fff',
+            borderRadius: '5rem',
+            width: '7rem',
+            textAlign: 'center',
+            paddingTop: '.25rem',
+            cursor: 'pointer',
+            outline: 'none',
+            borderStyle: 'none'
+          }}>
+            {/* ADD ONCHANGE EVENT HERE */}
+            Add a listing
+          </button>
+        </div>
+        {/* <ListingForm
           handleSubmit={this.handleSubmit}
           roomName={this.state.roomName}
           roomNameChange={this.roomName}
@@ -190,7 +211,7 @@ export default class VendorHome extends React.Component {
           phoneNumber={this.state.phoneNumber}
           phoneNumberChange={this.phoneNumber}
           description={this.state.description}
-          descriptionChange={this.description}/>
+          descriptionChange={this.description}/> */}
       </>
     );
   }
