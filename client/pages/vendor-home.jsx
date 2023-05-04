@@ -155,8 +155,21 @@ export default class VendorHome extends React.Component {
           participants={this.props.participants}
           routeVSignin={this.props.routeVSignin}
           toHome={this.props.toHome} />
-        <div>
+        {/* <div>
           VENDOR HOME SCREEN HERE
+        </div> */}
+        <div className='text-right mt-5 mr-5 v-signout'>
+          <button style={{
+            backgroundColor: '#1976D2',
+            color: '#fff',
+            borderRadius: '5rem',
+            width: '7rem',
+            textAlign: 'center',
+            paddingTop: '.25rem',
+            cursor: 'pointer',
+            outline: 'none',
+            borderStyle: 'none'
+          }} onClick={this.handleSignOut}>Sign out</button>
         </div>
         <ListingForm
           handleSubmit={this.handleSubmit}

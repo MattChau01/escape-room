@@ -3,7 +3,7 @@ import React from 'react';
 export default function ListingForm(props) {
   return (
     <div className='mt-5'>
-      <div className='text-right mr-5 v-signout'>
+      {/* <div className='text-right mr-5 v-signout'>
         <button style={{
           backgroundColor: '#1976D2',
           color: '#fff',
@@ -15,7 +15,7 @@ export default function ListingForm(props) {
           outline: 'none',
           borderStyle: 'none'
         }} onClick={props.handleSignOut}>Sign out</button>
-      </div>
+      </div> */}
       <div className='text-center mt-3'>
 
         <div className='d-flex justify-content-center text-center'>
