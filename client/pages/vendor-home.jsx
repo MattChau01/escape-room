@@ -33,12 +33,13 @@ export default class VendorHome extends React.Component {
 
   componentDidMount() {
     console.log('component did mount'); //eslint-disable-line
+    console.log('userId: ', window.localStorage.getItem('userId')); //eslint-disable-line
 
-    if (window.localStorage.getItem('react-context-jwt') !== null) {
-      console.log('User logged in!'); //eslint-disable-line
-    } else {
-      console.log('Token required!'); //eslint-disable-line
-    }
+    // if (window.localStorage.getItem('react-context-jwt') !== null) {
+    //   console.log('User logged in!'); //eslint-disable-line
+    // } else {
+    //   console.log('Token required!'); //eslint-disable-line
+    // }
   }
 
   roomName(event) {
@@ -78,11 +79,28 @@ export default class VendorHome extends React.Component {
     });
   }
 
+  // MAY BE REPLACING WITH CLICK EVENT
+  // difficulty(event) {
+  //   this.setState({
+  //     difficulty: event.target.value
+  //   });
+  // }
+
   timeLimit(event) {
     this.setState({
       timeLimit: event.target.value
     });
   }
+
+  // formatPhoneNumber(num) {
+  //   if (!num) return num;
+  //   const number = num.replace(/[^\d]/g, '');
+  //   const numberLength = number.length;
+  //   if (numberLength < 4) return number;
+  //   if (numberLength < 7) {
+  //     return `(${number.slice(0, 3)}) ${number.slice(3, 6)}-${number.slice(6, 10)} `;
+  //   }
+  // }
 
   phoneNumber(event) {
     this.setState({
@@ -178,7 +196,7 @@ export default class VendorHome extends React.Component {
         {/* <div>
           VENDOR HOME SCREEN HERE
         </div> */}
-        <div className='text-right mt-5 mr-5 v-signout'>
+        <div className='text-right mt-3 mr-2 v-signout'>
           <button style={{
             backgroundColor: '#1976D2',
             color: '#fff',
@@ -191,7 +209,7 @@ export default class VendorHome extends React.Component {
             borderStyle: 'none'
           }} onClick={this.props.handleSignOut}>Sign out</button>
         </div>
-        <div className='text-center'>
+        <div className='text-center mt-5'>
           {/* CURRENT USERS LISTINGS WILL RENDER HERE (IF ANY) */}
           Your listings here:
         </div>
@@ -220,14 +238,14 @@ export default class VendorHome extends React.Component {
               descriptionChange={this.description}
               closeForm={this.closeForm} />
             : (
-              <div className='text-center'>
-                STATE IS FALSE
+              <div className='text-center mt-2'>
+                We&apos;re currently working on fetching your items
                 <div className='d-flex justify-content-center mt-3 add-listing'>
                   <button style={{
                     backgroundColor: '#1976D2',
                     color: '#fff',
                     borderRadius: '5rem',
-                    width: '7rem',
+                    width: '7.5rem',
                     textAlign: 'center',
                     paddingTop: '.25rem',
                     cursor: 'pointer',

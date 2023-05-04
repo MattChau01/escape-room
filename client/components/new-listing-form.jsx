@@ -53,23 +53,33 @@ export default function ListingForm(props) {
                 </label>
 
                 <label htmlFor='price'>
-                  <input className='new-listing-input' name='price' id='price' type='text' placeholder='Price' value={props.price} onChange={props.priceChange} />
+                  <input className='new-listing-input' name='price' id='price' type='text' placeholder='Price ($ per person)' value={props.price} onChange={props.priceChange} maxLength={3} pattern='[0-9]*' />
                 </label>
 
                 <label htmlFor='minimumPlayers'>
-                  <input className='new-listing-input' name='minimumPlayers' id='minimumPlayers' type='text' placeholder='Minimum players' value={props.minimumPlayers} onChange={props.minimumPlayersChange} />
+                  <input className='new-listing-input' name='minimumPlayers' id='minimumPlayers' type='text' placeholder='Minimum players' value={props.minimumPlayers} onChange={props.minimumPlayersChange} maxLength={2}/>
                 </label>
 
                 <label htmlFor='difficulty'>
-                  <input className='new-listing-input' name='difficulty' id='difficulty' type='text' placeholder='Difficulty' value={props.difficulty} onChange={props.difficultyChange} />
+                  <select required className='dropdown' name='difficulty' id='difficulty' onClick={props.difficultyChange}>
+                    <option value=''>Select a difficulty here</option>
+                    <option value='Easy'>Easy</option>
+                    <option value='Medium'>Medium</option>
+                    <option value='Hard'>Hard</option>
+                  </select>
                 </label>
+
+                {/* <label htmlFor='difficulty'>
+                  <input className='new-listing-input' name='difficulty' id='difficulty' type='text' placeholder='Difficulty' value={props.difficulty} onChange={props.difficultyChange} />
+                </label> */}
 
                 <label htmlFor='timeLimit'>
-                  <input className='new-listing-input' name='timeLimit' id='timeLimit' type='text' placeholder='Time limit' value={props.timeLimit} onChange={props.timeLimitChange} />
+                  <input className='new-listing-input' name='timeLimit' id='timeLimit' type='text' placeholder='Time limit (minutes)' value={props.timeLimit} onChange={props.timeLimitChange} />
                 </label>
 
+                {/* WORKING ON PHONE NUM INPUT */}
                 <label htmlFor='phoneNumber'>
-                  <input className='new-listing-input' name='phoneNumber' id='phoneNumber' type='text' placeholder='Phone number' value={props.phoneNumber} onChange={props.phoneNumberChange} />
+                  <input className='new-listing-input' name='phoneNumber' id='phoneNumber' type='text' placeholder='Phone number' value={props.phoneNumber} onChange={props.phoneNumberChange} maxLength={10} />
                 </label>
 
                 <label htmlFor='description'>
@@ -88,7 +98,7 @@ export default function ListingForm(props) {
           </div>
         </div>
 
-        <div className='mb-4'>
+        <div className='mt-5 mb-5'>
           <button className='close-form' style={{
             backgroundColor: '#1976D2',
             color: '#fff',
