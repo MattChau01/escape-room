@@ -42,8 +42,6 @@ app.get('/api/listings', (req, res, next) => {
 
 });
 
-// WORKING ON LISTINGS MADE BY CURRENT USER
-
 app.post('/api/vendorAccounts/signup', (req, res, next) => {
   const { firstName, lastName, username, password } = req.body;
 

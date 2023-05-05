@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/header';
-import ListingForm from '../components/new-listing-form'; //eslint-disable-line
+import ListingForm from '../components/new-listing-form';
 
 export default class VendorHome extends React.Component {
   constructor(props) {
@@ -29,16 +29,7 @@ export default class VendorHome extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openForm = this.openForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
-    // TEST FORMAT
-    // this.formatPhoneNumber = this.formatPhoneNumber.bind(this);
   }
-
-  // componentDidMount() {
-
-  // if (window.localStorage.getItem('react-context-jwt') !== null) {
-  // } else {
-  // }
-  // }
 
   roomName(event) {
 
@@ -77,31 +68,11 @@ export default class VendorHome extends React.Component {
     });
   }
 
-  // MAY BE REPLACING WITH CLICK EVENT
-  // difficulty(event) {
-  //   this.setState({
-  //     difficulty: event.target.value
-  //   });
-  // }
-
   timeLimit(event) {
     this.setState({
       timeLimit: event.target.value
     });
   }
-
-  // formatPhoneNumber(num) {
-  //   if (!num) return num;
-  //   const number = num.replace(/[^\d]/g, '');
-  //   const numberLength = number.length;
-  //   if (numberLength < 4) return number;
-  //   if (numberLength < 7) {
-  //     // return `(${number.slice(0, 3)}) ${number.slice(3, 5)}-${number.slice(5, 9)} `;
-  //     return (
-  //       `(${number.slice(0, 3)}) ${number.slice(3, 5)} - ${number.slice(5, 9)}`
-  //     );
-  //   }
-  // }
 
   phoneNumber(event) {
 
@@ -115,9 +86,6 @@ export default class VendorHome extends React.Component {
       });
     }
 
-    // this.setState({
-    //   phoneNumber: event.target.value
-    // });
   }
 
   description(event) {
@@ -203,9 +171,6 @@ export default class VendorHome extends React.Component {
           participants={this.props.participants}
           routeVSignin={this.props.routeVSignin}
           toHome={this.props.toHome} />
-        {/* <div>
-          VENDOR HOME SCREEN HERE
-        </div> */}
         <div className='text-right mt-2 mr-2 v-signout'>
           <button style={{
             backgroundColor: '#1976D2',
@@ -220,7 +185,6 @@ export default class VendorHome extends React.Component {
           }} onClick={this.props.handleSignOut}>Sign out</button>
         </div>
 
-        {/* CONDITIONALLY RENDER FORM HERE */}
         {
           (this.state.newListingButton === true)
             ? <ListingForm
@@ -274,41 +238,6 @@ export default class VendorHome extends React.Component {
               </div>
               )
         }
-        {/* <div className='d-flex justify-content-center mt-3 add-listing'>
-          <button style={{
-            backgroundColor: '#1976D2',
-            color: '#fff',
-            borderRadius: '5rem',
-            width: '7rem',
-            textAlign: 'center',
-            paddingTop: '.25rem',
-            cursor: 'pointer',
-            outline: 'none',
-            borderStyle: 'none'
-          }} onClick={this.listingButton}>
-            Add a listing
-          </button>
-        </div> */}
-        {/* <ListingForm
-          handleSubmit={this.handleSubmit}
-          roomName={this.state.roomName}
-          roomNameChange={this.roomName}
-          imageUrl={this.state.imageUrl}
-          imageUrlChange={this.imageLink}
-          address={this.state.address}
-          addressChange={this.address}
-          price={this.state.price}
-          priceChange={this.price}
-          minimumPlayers={this.state.minimumPlayers}
-          minimumPlayersChange={this.minimumPlayers}
-          difficulty={this.state.difficulty}
-          difficultyChange={this.difficulty}
-          timeLimit={this.state.timeLimit}
-          timeLimitChange={this.timeLimit}
-          phoneNumber={this.state.phoneNumber}
-          phoneNumberChange={this.phoneNumber}
-          description={this.state.description}
-          descriptionChange={this.description}/> */}
       </>
     );
   }
