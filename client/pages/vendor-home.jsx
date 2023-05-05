@@ -33,16 +33,12 @@ export default class VendorHome extends React.Component {
     // this.formatPhoneNumber = this.formatPhoneNumber.bind(this);
   }
 
-  componentDidMount() {
-    console.log('component did mount'); //eslint-disable-line
-    console.log('userId: ', window.localStorage.getItem('userId')); //eslint-disable-line
+  // componentDidMount() {
 
-    // if (window.localStorage.getItem('react-context-jwt') !== null) {
-    //   console.log('User logged in!'); //eslint-disable-line
-    // } else {
-    //   console.log('Token required!'); //eslint-disable-line
-    // }
-  }
+  // if (window.localStorage.getItem('react-context-jwt') !== null) {
+  // } else {
+  // }
+  // }
 
   roomName(event) {
 
@@ -95,7 +91,6 @@ export default class VendorHome extends React.Component {
   }
 
   // formatPhoneNumber(num) {
-  //   // console.log('num: ', num);
   //   if (!num) return num;
   //   const number = num.replace(/[^\d]/g, '');
   //   const numberLength = number.length;
@@ -136,7 +131,6 @@ export default class VendorHome extends React.Component {
     this.setState({
       newListingButton: true
     });
-    // console.log('button clicked');
   }
 
   closeForm(event) {
@@ -202,7 +196,6 @@ export default class VendorHome extends React.Component {
   }
 
   render() {
-    // console.log('state: ', this.state.newListingButton);
 
     return (
       <>
