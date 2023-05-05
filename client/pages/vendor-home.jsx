@@ -171,18 +171,25 @@ export default class VendorHome extends React.Component {
           participants={this.props.participants}
           routeVSignin={this.props.routeVSignin}
           toHome={this.props.toHome} />
-        <div className='text-right mt-2 mr-2 v-signout'>
-          <button style={{
-            backgroundColor: '#1976D2',
-            color: '#fff',
-            borderRadius: '5rem',
-            width: '7rem',
-            textAlign: 'center',
-            paddingTop: '.25rem',
-            cursor: 'pointer',
-            outline: 'none',
-            borderStyle: 'none'
-          }} onClick={this.props.handleSignOut}>Sign out</button>
+
+        <div className='d-flex mt-2 v-signout'>
+          <div className='col mt-2 text-left'>
+            <h6>Current user: {window.localStorage.getItem('username')}</h6>
+          </div>
+          <div className='col-4 mr-2 text-right'>
+            <button style={{
+              backgroundColor: '#1976D2',
+              color: '#fff',
+              borderRadius: '5rem',
+              width: '7rem',
+              textAlign: 'center',
+              paddingTop: '.25rem',
+              cursor: 'pointer',
+              outline: 'none',
+              borderStyle: 'none'
+            }} onClick={this.props.handleSignOut}>Sign out</button>
+
+          </div>
         </div>
 
         {
