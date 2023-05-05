@@ -1,4 +1,5 @@
 import React from 'react';
+// import PhoneInput from 'react-phone-input-2';
 
 export default function ListingForm(props) {
   return (
@@ -78,6 +79,10 @@ export default function ListingForm(props) {
                 </label>
 
                 {/* WORKING ON PHONE NUM INPUT */}
+                {/* <label htmlFor='phoneNumber'>
+                  <input className='new-listing-input' name='phoneNumber' id='phoneNumber' type='text' placeholder='Phone number' value={props.phoneNumber} onChange={props.phoneNumberChange} maxLength={10} />
+                </label> */}
+
                 <label htmlFor='phoneNumber'>
                   <input className='new-listing-input' name='phoneNumber' id='phoneNumber' type='text' placeholder='Phone number' value={props.phoneNumber} onChange={props.phoneNumberChange} maxLength={10} />
                 </label>

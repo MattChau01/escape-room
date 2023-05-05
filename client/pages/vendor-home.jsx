@@ -29,6 +29,8 @@ export default class VendorHome extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openForm = this.openForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
+    // TEST FORMAT
+    // this.formatPhoneNumber = this.formatPhoneNumber.bind(this);
   }
 
   componentDidMount() {
@@ -93,19 +95,34 @@ export default class VendorHome extends React.Component {
   }
 
   // formatPhoneNumber(num) {
+  //   // console.log('num: ', num);
   //   if (!num) return num;
   //   const number = num.replace(/[^\d]/g, '');
   //   const numberLength = number.length;
   //   if (numberLength < 4) return number;
   //   if (numberLength < 7) {
-  //     return `(${number.slice(0, 3)}) ${number.slice(3, 6)}-${number.slice(6, 10)} `;
+  //     // return `(${number.slice(0, 3)}) ${number.slice(3, 5)}-${number.slice(5, 9)} `;
+  //     return (
+  //       `(${number.slice(0, 3)}) ${number.slice(3, 5)} - ${number.slice(5, 9)}`
+  //     );
   //   }
   // }
 
   phoneNumber(event) {
-    this.setState({
-      phoneNumber: event.target.value
-    });
+
+    const regex = /^[0-9\b]+$/;
+
+    const number = event.target.value;
+
+    if (number === '' || regex.test(number)) {
+      this.setState({
+        phoneNumber: event.target.value
+      });
+    }
+
+    // this.setState({
+    //   phoneNumber: event.target.value
+    // });
   }
 
   description(event) {
@@ -196,7 +213,7 @@ export default class VendorHome extends React.Component {
         {/* <div>
           VENDOR HOME SCREEN HERE
         </div> */}
-        <div className='text-right mt-3 mr-2 v-signout'>
+        <div className='text-right mt-2 mr-2 v-signout'>
           <button style={{
             backgroundColor: '#1976D2',
             color: '#fff',
@@ -209,10 +226,7 @@ export default class VendorHome extends React.Component {
             borderStyle: 'none'
           }} onClick={this.props.handleSignOut}>Sign out</button>
         </div>
-        <div className='text-center mt-5'>
-          {/* CURRENT USERS LISTINGS WILL RENDER HERE (IF ANY) */}
-          Your listings here:
-        </div>
+
         {/* CONDITIONALLY RENDER FORM HERE */}
         {
           (this.state.newListingButton === true)
@@ -236,24 +250,33 @@ export default class VendorHome extends React.Component {
               phoneNumberChange={this.phoneNumber}
               description={this.state.description}
               descriptionChange={this.description}
-              closeForm={this.closeForm} />
+              closeForm={this.closeForm}
+              formatPhoneNumber={this.formatPhoneNumber}
+               />
             : (
-              <div className='text-center mt-2'>
-                We&apos;re currently working on fetching your items
-                <div className='d-flex justify-content-center mt-3 add-listing'>
-                  <button style={{
-                    backgroundColor: '#1976D2',
-                    color: '#fff',
-                    borderRadius: '5rem',
-                    width: '7.5rem',
-                    textAlign: 'center',
-                    paddingTop: '.25rem',
-                    cursor: 'pointer',
-                    outline: 'none',
-                    borderStyle: 'none'
-                  }} onClick={this.openForm}>
-                    Add a listing
-                  </button>
+              <div>
+                <div className='text-center mt-5' style={{
+                  fontSize: '1.4rem'
+                }}>
+                  Your listings here:
+                </div>
+                <div className='text-center mt-2'>
+                  We&apos;re currently working on fetching your items
+                  <div className='d-flex justify-content-center mt-3 add-listing'>
+                    <button style={{
+                      backgroundColor: '#1976D2',
+                      color: '#fff',
+                      borderRadius: '5rem',
+                      width: '7.5rem',
+                      textAlign: 'center',
+                      paddingTop: '.25rem',
+                      cursor: 'pointer',
+                      outline: 'none',
+                      borderStyle: 'none'
+                    }} onClick={this.openForm}>
+                      Add a listing
+                    </button>
+                  </div>
                 </div>
               </div>
               )
