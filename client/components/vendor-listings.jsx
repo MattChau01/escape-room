@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function VendorListings(props) {
+
+  const [listings, setListings] = useState({}); //eslint-disable-line
+
+  console.log('listing empty object: ', listings); //eslint-disable-line
 
   useEffect(() => {
     // console.log('useEffect here');
@@ -13,8 +17,8 @@ export default function VendorListings(props) {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(reqObj)
+      }
+      // body: JSON.stringify(reqObj)
     };
 
     fetch('/api/listings/vendor', req)

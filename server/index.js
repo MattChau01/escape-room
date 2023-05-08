@@ -157,9 +157,10 @@ app.post('/api/listings', (req, res, next) => {
 
 // GET REQUEST FOR VENDOR SIDE
 
-app.get('/api/listings/vendor', (req, res, next) => {
+app.get('/api/listings/vendor/:userId', (req, res, next) => {
 
-  const { userId } = req.body;
+  const userId = req.params.userId;
+  // console.log('user:', userId);
 
   const userIdNum = Number(userId);
 
