@@ -21,11 +21,11 @@ const jsonMiddleWare = express.json();
 app.use(staticMiddleware);
 app.use(jsonMiddleWare);
 
-app.get('/api/hello', (req, res) => {
-  res.json({ hello: 'world' });
-});
+// app.get('/api/hello', (req, res) => {
+//   res.json({ hello: 'world' });
+// });
 
-app.get('/api/listings', (req, res, next) => {
+app.get('/api/listings/catalog', (req, res, next) => {
 
   const sql = `
     select *
@@ -120,6 +120,7 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
   }
 });
 
+// COMMENT OUT FOR TEST
 app.use(authorizationMiddleware);
 
 app.post('/api/listings', (req, res, next) => {
@@ -147,6 +148,37 @@ app.post('/api/listings', (req, res, next) => {
       .then(result => {
         const listing = result.rows[0];
         res.status(200).json(listing);
+      })
+      .catch(err => next(err));
+
+  }
+
+});
+
+// GET REQUEST FOR VENDOR SIDE
+
+app.get('/api/listings/vendor', (req, res, next) => {
+
+  const { userId } = req.body;
+
+  const userIdNum = Number(userId);
+
+  if (!userId) {
+    throw new ClientError(400, 'Invalid input');
+  } else {
+    const sql = `
+    select *
+    from "listings"
+    where "userId" = $1
+  `;
+
+    const params = [userIdNum];
+
+    db.query(sql, params)
+      .then(result => {
+        const vendorListing = result.rows;
+        // console.log('result: ', vendorListing);
+        res.json(vendorListing);
       })
       .catch(err => next(err));
 

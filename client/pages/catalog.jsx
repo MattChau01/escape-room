@@ -19,7 +19,7 @@ export default class CatalogPage extends React.Component {
       }
     };
 
-    fetch('/api/listings', req)
+    fetch('/api/listings/catalog', req)
       .then(res => res.json())
       .then(listings => {
         this.setState({
