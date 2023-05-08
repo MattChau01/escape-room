@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/header';
 import ListingForm from '../components/new-listing-form';
+import VendorListings from '../components/vendor-listings';
 
 export default class VendorHome extends React.Component {
   constructor(props) {
@@ -225,7 +226,8 @@ export default class VendorHome extends React.Component {
                   Your listings here:
                 </div>
                 <div className='text-center mt-2'>
-                  We&apos;re currently working on fetching your items
+                  {/* We&apos;re currently working on fetching your items */}
+                  <VendorListings />
                   <div className='d-flex justify-content-center mt-3 add-listing'>
                     <button style={{
                       backgroundColor: '#1976D2',
