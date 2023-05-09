@@ -21,10 +21,6 @@ const jsonMiddleWare = express.json();
 app.use(staticMiddleware);
 app.use(jsonMiddleWare);
 
-// app.get('/api/hello', (req, res) => {
-//   res.json({ hello: 'world' });
-// });
-
 app.get('/api/listings/catalog', (req, res, next) => {
 
   const sql = `
@@ -120,7 +116,6 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
   }
 });
 
-// COMMENT OUT FOR TEST
 app.use(authorizationMiddleware);
 
 app.post('/api/listings', (req, res, next) => {
@@ -155,11 +150,7 @@ app.post('/api/listings', (req, res, next) => {
 
 });
 
-// GET REQUEST FOR VENDOR SIDE
-
 app.get('/api/listings/vendor/:userId', (req, res, next) => {
-
-  // TEST
 
   const userId = req.params.userId;
 
