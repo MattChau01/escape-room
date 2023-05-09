@@ -143,7 +143,6 @@ export default class VendorHome extends React.Component {
       fetch('/api/listings', req)
         .then(res => res.json())
         .then(result => {
-          // console.log('result: ', result);
 
           this.setState({
             roomName: '',

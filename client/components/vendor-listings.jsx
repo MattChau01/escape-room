@@ -6,17 +6,11 @@ import React from 'react';
 //   const [userId] = useState(window.localStorage.getItem('userId'));
 //   const [listings, setListings] = useState([]);
 
-//   // console.log('listing empty object: ', listings); //eslint-disable-line
-
 //   useEffect(() => {
-//     // console.log('useEffect here');
-//     // console.log('userId: ', userId); //eslint-disable-line
 
 //     if (userId === null) {
-//       // console.log('no token!');
 //       return false;
 //     } else {
-//       // console.log('token present');
 
 //       const req = {
 //         // method: 'GET',
@@ -30,7 +24,6 @@ import React from 'react';
 //       fetch(`/api/listings/vendor/${userId}`, req)
 //         .then(res => res.json())
 //         .then(data => {
-//           console.log('listings: ', data);
 //           setListings(data);
 //         })
 //         .catch(err => console.error(err));
@@ -38,8 +31,6 @@ import React from 'react';
 //     }
 
 //   });
-
-//   // console.log('listings after fetch: ', listings);
 
 //   return (
 //     <div>
@@ -59,8 +50,6 @@ export default class VendorListings extends React.Component {
   }
 
   componentDidMount() {
-    // console.log('comp did mount');
-    console.log('state:userId: ', this.state.userId);  //eslint-disable-line
 
     const req = {
       // method: 'GET',
@@ -74,8 +63,7 @@ export default class VendorListings extends React.Component {
     fetch(`/api/listings/vendor/${this.state.userId}`, req)
       .then(res => res.json())
       .then(data => {
-        console.log('listings: ', data); //eslint-disable-line
-        // setListings(data);
+
         this.setState({
           listings: data
         });
@@ -88,7 +76,6 @@ export default class VendorListings extends React.Component {
     return (
       <div>
         {/* TEST HERE */}
-        {/* {console.log(this.state.listings)} */}
 
         {
           (this.state.listings.length === 0)

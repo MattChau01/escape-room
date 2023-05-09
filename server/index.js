@@ -160,10 +160,8 @@ app.post('/api/listings', (req, res, next) => {
 app.get('/api/listings/vendor/:userId', (req, res, next) => {
 
   // TEST
-  // console.log('user: ', req.user);
 
   const userId = req.params.userId;
-  // console.log('user:', userId);
 
   const userIdNum = Number(userId);
 
@@ -181,7 +179,6 @@ app.get('/api/listings/vendor/:userId', (req, res, next) => {
     db.query(sql, params)
       .then(result => {
         const vendorListing = result.rows;
-        // console.log('result: ', vendorListing);
         res.json(vendorListing);
       })
       .catch(err => next(err));
