@@ -76,6 +76,9 @@ export default class VendorListings extends React.Component {
       .then(data => {
         console.log('listings: ', data); //eslint-disable-line
         // setListings(data);
+        this.setState({
+          listings: data
+        });
       })
       .catch(err => console.error(err));
 
@@ -84,7 +87,16 @@ export default class VendorListings extends React.Component {
   render() {
     return (
       <div>
-        LIST OF POSTINGS
+        {/* TEST HERE */}
+        {/* {console.log(this.state.listings)} */}
+
+        {this.state.listings.map(item => {
+          return (
+            <div key={item.entryId}>
+              {item.roomName}
+            </div>
+          );
+        })}
       </div>
     );
   }
