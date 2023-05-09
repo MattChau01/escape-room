@@ -178,7 +178,7 @@ export default class VendorHome extends React.Component {
           <div className='col mt-2 text-left'>
             <h6>Current user: {window.localStorage.getItem('username')}</h6>
           </div>
-          <div className='col-4 text-right v-signout'>
+          <div className='col-4 mr-2 text-right v-signout'>
             <button style={{
               backgroundColor: '#1976D2',
               color: '#fff',
