@@ -136,9 +136,11 @@ export default class VendorListings extends React.Component {
                         </div>
 
                         {/* EDIT BUTTON WILL GO HERE */}
-                        {/* <div className='justify-content-center'>
-                          <i className="fa-regular fa-pen-to-square" />
-                        </div> */}
+                        <div className='justify-content-center'>
+                          <i style={{
+                            cursor: 'pointer'
+                          }} className="fa-regular fa-pen-to-square" />
+                        </div>
 
                       </div>
 
