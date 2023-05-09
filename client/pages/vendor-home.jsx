@@ -135,7 +135,7 @@ export default class VendorHome extends React.Component {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-access-token': window.localStorage.getItem('react-context-jwt')
+          'x-access-token': window.localStorage.getItem('Token')
         },
         body: JSON.stringify(reqObj)
       };
@@ -143,6 +143,7 @@ export default class VendorHome extends React.Component {
       fetch('/api/listings', req)
         .then(res => res.json())
         .then(result => {
+          // console.log('result: ', result);
 
           this.setState({
             roomName: '',
@@ -173,11 +174,11 @@ export default class VendorHome extends React.Component {
           routeVSignin={this.props.routeVSignin}
           toHome={this.props.toHome} />
 
-        <div className='d-flex mt-2 v-signout'>
+        <div className='d-flex mt-2'>
           <div className='col mt-2 text-left'>
             <h6>Current user: {window.localStorage.getItem('username')}</h6>
           </div>
-          <div className='col-4 mr-2 text-right'>
+          <div className='col-4 text-right v-signout'>
             <button style={{
               backgroundColor: '#1976D2',
               color: '#fff',

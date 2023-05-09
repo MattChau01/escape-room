@@ -159,6 +159,9 @@ app.post('/api/listings', (req, res, next) => {
 
 app.get('/api/listings/vendor/:userId', (req, res, next) => {
 
+  // TEST
+  // console.log('user: ', req.user);
+
   const userId = req.params.userId;
   // console.log('user:', userId);
 
