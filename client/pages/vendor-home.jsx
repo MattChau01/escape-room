@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/header';
 import ListingForm from '../components/new-listing-form';
+import VendorListings from '../components/vendor-listings';
 
 export default class VendorHome extends React.Component {
   constructor(props) {
@@ -134,7 +135,7 @@ export default class VendorHome extends React.Component {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-access-token': window.localStorage.getItem('react-context-jwt')
+          'x-access-token': window.localStorage.getItem('Token')
         },
         body: JSON.stringify(reqObj)
       };
@@ -172,11 +173,11 @@ export default class VendorHome extends React.Component {
           routeVSignin={this.props.routeVSignin}
           toHome={this.props.toHome} />
 
-        <div className='d-flex mt-2 v-signout'>
+        <div className='d-flex mt-2'>
           <div className='col mt-2 text-left'>
             <h6>Current user: {window.localStorage.getItem('username')}</h6>
           </div>
-          <div className='col-4 mr-2 text-right'>
+          <div className='col-4 mr-2 text-right v-signout'>
             <button style={{
               backgroundColor: '#1976D2',
               color: '#fff',
@@ -225,8 +226,8 @@ export default class VendorHome extends React.Component {
                   Your listings here:
                 </div>
                 <div className='text-center mt-2'>
-                  We&apos;re currently working on fetching your items
-                  <div className='d-flex justify-content-center mt-3 add-listing'>
+                  <VendorListings />
+                  <div className='d-flex justify-content-center mt-3 mb-3 add-listing'>
                     <button style={{
                       backgroundColor: '#1976D2',
                       color: '#fff',

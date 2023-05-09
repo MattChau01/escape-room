@@ -10,7 +10,7 @@ export default function ListingsOverview(props) {
     <div key={props.item.entryId} className='catalog-container'>
       <div className='mt-3' style={{
         backgroundColor: '#ececec',
-        width: '18rem',
+        width: '20rem',
         height: '17rem'
       }}>
 

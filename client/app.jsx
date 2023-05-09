@@ -33,7 +33,7 @@ export default class App extends React.Component {
       });
     });
 
-    const token = window.localStorage.getItem('react-context-jwt');
+    const token = window.localStorage.getItem('Token');
     const user = token ? jwtDecode(token) : null;
     this.setState({
       user,
@@ -60,12 +60,12 @@ export default class App extends React.Component {
 
   handleSignIn(result) {
     const { user, token } = result;
-    window.localStorage.setItem('react-context-jwt', token);
+    window.localStorage.setItem('Token', token);
     this.setState({ user });
   }
 
   handleSignOut() {
-    window.localStorage.removeItem('react-context-jwt');
+    window.localStorage.removeItem('Token');
     window.localStorage.removeItem('userId');
     this.setState({
       user: null
@@ -100,20 +100,20 @@ export default class App extends React.Component {
       );
     }
 
-    if (path === 'vendor-signin' && (window.localStorage.getItem('react-context-jwt') !== null)) {
+    if (path === 'vendor-signin' && (window.localStorage.getItem('Token') !== null)) {
       window.location.hash = 'vendor-home';
-    } else if (path === 'vendor-signin' && (window.localStorage.getItem('react-context-jwt') === null)) {
+    } else if (path === 'vendor-signin' && (window.localStorage.getItem('Token') === null)) {
       return (
         <VendorSignin onSignIn={this.handleSignIn} participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
       );
     }
 
-    if (path === 'vendor-home' && (window.localStorage.getItem('react-context-jwt') !== null)) {
+    if (path === 'vendor-home' && (window.localStorage.getItem('Token') !== null)) {
 
       return (
         <VendorHome isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user} participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
       );
-    } else if (path === 'vendor-home' && (window.localStorage.getItem('react-context-jwt') === null)) {
+    } else if (path === 'vendor-home' && (window.localStorage.getItem('Token') === null)) {
       return (
         <TokenRequired participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} routeVSignup={this.routeVSignup} />
       );
