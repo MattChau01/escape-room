@@ -229,7 +229,7 @@ export default class VendorHome extends React.Component {
                 <div className='text-center mt-2'>
                   {/* We&apos;re currently working on fetching your items */}
                   <VendorListings />
-                  <div className='d-flex justify-content-center mt-3 add-listing'>
+                  <div className='d-flex justify-content-center mt-3 mb-3 add-listing'>
                     <button style={{
                       backgroundColor: '#1976D2',
                       color: '#fff',
