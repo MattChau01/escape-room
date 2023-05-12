@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function ListingsOverview(props) {
+
+  const [hash, setHash] = useState(window.location.hash);
+
+  useEffect(() => {
+
+    setHash(`catalog?roomId=${props.item.entryId}`);
+    console.log('hash: ', hash); //eslint-disable-line
+
+  }, [props]);
+
+  // console.log('hash: ', hash.slice(1));
 
   function roomDetails() {
     window.location.hash = `catalog?roomId=${props.item.entryId}`;
@@ -8,9 +19,22 @@ export default function ListingsOverview(props) {
 
   return (
     <div key={props.item.entryId} className='catalog-container'>
+
+      {/* {
+        (hash === `catalog?roomId=${props.item.entryId}`)
+        ?
+        (
+
+        )
+        :
+        (
+
+        )
+      } */}
+
       <div className='mt-3' style={{
         backgroundColor: '#ececec',
-        width: '20rem',
+        width: '21.25rem',
         height: '17rem'
       }}>
 

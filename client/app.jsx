@@ -8,6 +8,7 @@ import VendorSuccess from './pages/vendor-success';
 import VendorSignin from './pages/vendor-signin';
 import VendorHome from './pages/vendor-home';
 import TokenRequired from './pages/token-required';
+// import RoomDetails from './pages/room-details';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -88,6 +89,16 @@ export default class App extends React.Component {
       );
     }
 
+    if (path === 'catalog') {
+      return (
+      // <RoomDetails />
+
+        <div>
+          TEST
+        </div>
+      );
+    }
+
     if (path === 'vendor-signup') {
       return (
         <VendorSignup participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
@@ -122,6 +133,8 @@ export default class App extends React.Component {
   }
 
   render() {
+
+    // console.log('route: ', this.state.route);
 
     return (
       <div>
