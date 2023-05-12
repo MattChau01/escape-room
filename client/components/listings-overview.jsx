@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+// import React, { useEffect, useState } from 'react';
 
 export default function ListingsOverview(props) {
 
-  const [hash, setHash] = useState(window.location.hash);
+  // const [hash, setHash] = useState(window.location.hash);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    setHash(`catalog?roomId=${props.item.entryId}`);
-    console.log('hash: ', hash); //eslint-disable-line
+  //   setHash(`catalog?roomId=${props.item.entryId}`);
+  //   console.log('hash: ', hash); //eslint-disable-line
 
-  }, [props]);
+  // }, [props]);
 
   // console.log('hash: ', hash.slice(1));
 
