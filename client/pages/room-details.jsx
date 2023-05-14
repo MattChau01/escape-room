@@ -1,5 +1,6 @@
 // import React from 'react';
 import React, { useState } from 'react';
+import Header from '../components/header';
 
 export default function RoomDetails(props) {
 
@@ -7,14 +8,18 @@ export default function RoomDetails(props) {
 
   console.log('props.listings: ', props.listings); //eslint-disable-line
   console.log('current prop: ', props.listings.entryId); //eslint-disable-line
+  console.log('route: ', window.location.hash.slice()); //eslint-disable-line
 
   return (
-    <div className='text-center'>
+    <>
+      <Header participants={props.participants} routeVSignin={props.routeVSignin} toHome={props.toHome} />
+      <div className='text-center mt-3'>
 
-      ROOM DETAILS
-      <div>
-        {props.listings.entryId}
+        ROOM DETAILS
+        <div>
+          {/* {props.listings.entryId} */}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
