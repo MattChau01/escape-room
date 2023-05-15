@@ -96,6 +96,9 @@ export default class App extends React.Component {
 
   currentPage() {
 
+    // console.log('route: ', this.state.route);
+    // console.log('roomId: ', this.state.roomId);
+
     const { path } = this.state.route;
     if (path === '') {
       return (
@@ -152,7 +155,7 @@ export default class App extends React.Component {
   render() {
 
     // console.log('route: ', this.state.route);
-    // console.log('roomId: ', this.state.roomId);
+    // console.log('roomId: ', this.state.roomId.path);
 
     return (
       <div>
