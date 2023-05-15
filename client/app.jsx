@@ -9,6 +9,8 @@ import VendorSignin from './pages/vendor-signin';
 import VendorHome from './pages/vendor-home';
 import TokenRequired from './pages/token-required';
 import RoomDetails from './pages/room-details';
+// TEST
+// import ParseRoomDetails from './lib/parse-room-details';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,6 +20,7 @@ export default class App extends React.Component {
       user: null,
       isAuthorizing: true,
       listings: []
+      // roomId: ParseRoomDetails(window.location.hash)
     };
     this.currentPage = this.currentPage.bind(this);
     this.routeVSignin = this.routeVSignin.bind(this);
@@ -149,6 +152,7 @@ export default class App extends React.Component {
   render() {
 
     // console.log('route: ', this.state.route);
+    // console.log('roomId: ', this.state.roomId);
 
     return (
       <div>
