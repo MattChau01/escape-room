@@ -19,8 +19,9 @@ export default class App extends React.Component {
       route: ParseRoute(window.location.hash),
       user: null,
       isAuthorizing: true,
-      listings: []
-      // roomId: ParseRoomDetails(window.location.hash)
+      listings: [],
+      // currentListing: null
+      roomId: null
     };
     this.currentPage = this.currentPage.bind(this);
     this.routeVSignin = this.routeVSignin.bind(this);
@@ -29,6 +30,7 @@ export default class App extends React.Component {
     this.toHome = this.toHome.bind(this);
     this.participants = this.participants.bind(this);
     this.routeVSignup = this.routeVSignup.bind(this);
+    // this.currentListing = this.currentListing.bind(this);
   }
 
   componentDidMount() {
@@ -94,6 +96,15 @@ export default class App extends React.Component {
     window.location.hash = 'vendor-signin';
   }
 
+  // currentListing() {
+  //   // console.log('room id: ', this.state.roomId);
+  //   this.setState({
+  //     roomId: ParseRoomDetails(window.location.hash)
+  //   });
+
+  //   console.log('roomid: ', this.state.roomId);
+  // }
+
   currentPage() {
 
     // console.log('route: ', this.state.route);
@@ -108,11 +119,19 @@ export default class App extends React.Component {
 
     if (path === 'participants') {
       return (
-        <CatalogPage participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
+        <CatalogPage participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings}
+        // currentListing={this.currentListing}
+        />
       );
     }
 
     if (path === 'catalog') {
+      // TEST
+      // console.log('parser: ', ParseRoomDetails(window.location.hash));
+
+      // console.log('roomId: ', this.state.roomId);
+      // this.currentListing();
+
       return (
         <RoomDetails participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
 

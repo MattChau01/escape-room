@@ -14,8 +14,12 @@ export default function ListingsOverview(props) {
 
   // console.log('hash: ', hash.slice(1));
 
+  // const [currentListing, setCurrentListing] = useState('');
+
   function roomDetails() {
     window.location.hash = `catalog?roomId=${props.item.entryId}`;
+    // props.currentListing();
+    // setCurrentListing(setCurrentListing);
   }
 
   return (

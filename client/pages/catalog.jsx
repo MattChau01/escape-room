@@ -47,7 +47,9 @@ export default class CatalogPage extends React.Component {
             {this.props.listings.map(item => {
               return (
 
-                <ListingsOverview key={item.entryId} item={item} />
+                <ListingsOverview key={item.entryId} item={item}
+                //  currentListing={this.props.currentListing}
+                  />
 
               );
             })}
