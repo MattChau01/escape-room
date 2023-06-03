@@ -20,7 +20,7 @@ export default class App extends React.Component {
       user: null,
       isAuthorizing: true,
       listings: [],
-      // currentListing: null
+      // currentListing: null,
       roomId: null
     };
     this.currentPage = this.currentPage.bind(this);
@@ -128,9 +128,17 @@ export default class App extends React.Component {
     if (path === 'catalog') {
       // TEST
       // console.log('parser: ', ParseRoomDetails(window.location.hash));
+      // this.setState({
+      //   currentListing: ParseRoomDetails(window.location.hash)
+      // });
 
       // console.log('roomId: ', this.state.roomId);
       // this.currentListing();
+      // console.log('listings in app.jsx: ', this.state.listings);
+
+      // this.currentListing();
+
+      // console.log('current listing: ', this.state.currentListing);
 
       return (
         <RoomDetails participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
