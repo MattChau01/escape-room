@@ -106,36 +106,47 @@ export default class RoomDetails extends React.Component {
     return (
       <>
         <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
-        <div className='text-center mt-3'>
-
+        <div className='mt-3'>
+          {/* d-flex justify-content-center text-center */}
           <div>
-
             {/* poster and name */}
+            <div className='d-flex flex-column'>
 
-            <div>
-              <div className='justify-content-center' style={{
+              <div style={{
                 color: '#000',
                 fontSize: '1.25rem',
                 fontWeight: 600
                 // width: '8rem'
-              }}>
+              }} className='row justify-content-center'>
                 {/* {this.state.listings[this.state.currentListing].roomName} */}
                 {/* TEST */}
                 {currentRoom.roomName}
               </div>
-              <div className='justify-content-center mt-2'>
+
+              <div className='row justify-content-center mt-2'>
                 {/* <img src={this.state.listings[this.state.currentListing].imageUrl} style={{ width: '15rem', height: '18rem', objectFit: 'cover' }} /> */}
                 {/* TEST */}
                 <img src={currentRoom.imageUrl} style={{ width: '15rem', height: '18rem', objectFit: 'cover' }} />
+                {/* {currentRoom.description} */}
               </div>
 
-              <div className='mt-3' style={{ width: '10rem' }}>
-                <div className='justify-content-center'>
+              <div style={{ width: '15rem' }}>
+                <div className='text-center'>
                   {/* {this.state.listings[this.state.currentListing].description} */}
                   {/* TEST */}
                   {currentRoom.description}
                 </div>
               </div>
+
+              {/*
+
+              <div style={{ width: '15rem' }}>
+                <div className=''>
+                  {this.state.listings[this.state.currentListing].description}
+                  {currentRoom.description}
+                </div>
+              </div>
+              */}
 
             </div>
 

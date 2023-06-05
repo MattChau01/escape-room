@@ -148,6 +148,15 @@ export default class App extends React.Component {
 
       // console.log('current listing: ', this.state.currentListing);
 
+      // if (!this.state.listings) {
+      //   return null;
+      // } else {
+      //   return (
+      //     <RoomDetails participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
+
+      //   );
+      // }
+
       return (
         <RoomDetails participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
 
