@@ -63,6 +63,8 @@ export default class App extends React.Component {
       })
       .catch(err => console.error(err));
 
+    // console.log('listings in app.jsx: ', this.state.listings);
+
   }
 
   toHome() {
@@ -118,6 +120,9 @@ export default class App extends React.Component {
     }
 
     if (path === 'participants') {
+
+      // console.log('listings in app.jsx: ', this.state.listings);
+
       return (
         <CatalogPage participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings}
         // currentListing={this.currentListing}
@@ -126,6 +131,9 @@ export default class App extends React.Component {
     }
 
     if (path === 'catalog') {
+
+      // console.log('this.state.listings: ', this.state.listings);
+
       // TEST
       // console.log('parser: ', ParseRoomDetails(window.location.hash));
       // this.setState({

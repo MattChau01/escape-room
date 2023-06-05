@@ -77,14 +77,32 @@ export default class RoomDetails extends React.Component {
     this.state = {
       listings: this.props.listings,
       currentListing: ParseRoomDetails(window.location.hash)
+      // roomName: this.state.listings[this.state.currentListing].roomName
     };
   }
 
-  // componentDidMount() {
-  //   this.props.currentListing();
-  // }
+  componentDidUpdate(prevProps) {
+    if (prevProps.listings !== this.props.listings) {
+      this.setState({
+        listings: this.props.listings
+      });
+    }
+  }
 
   render() {
+
+    // TEST BELOW
+
+    const { listings, currentListing } = this.state;
+
+    if (!listings || !listings[currentListing]) {
+      return <div>Loading...</div>; // Add a loading state or error handling here
+    }
+
+    const currentRoom = listings[currentListing];
+
+    // TEST ABOVE
+
     return (
       <>
         <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
@@ -93,6 +111,7 @@ export default class RoomDetails extends React.Component {
           <div>
 
             {/* poster and name */}
+
             <div>
               <div className='justify-content-center' style={{
                 color: '#000',
@@ -100,15 +119,21 @@ export default class RoomDetails extends React.Component {
                 fontWeight: 600
                 // width: '8rem'
               }}>
-                {this.state.listings[this.state.currentListing].roomName}
+                {/* {this.state.listings[this.state.currentListing].roomName} */}
+                {/* TEST */}
+                {currentRoom.roomName}
               </div>
               <div className='justify-content-center mt-2'>
-                <img src={this.state.listings[this.state.currentListing].imageUrl} style={{ width: '15rem', height: '18rem', objectFit: 'cover' }} />
+                {/* <img src={this.state.listings[this.state.currentListing].imageUrl} style={{ width: '15rem', height: '18rem', objectFit: 'cover' }} /> */}
+                {/* TEST */}
+                <img src={currentRoom.imageUrl} style={{ width: '15rem', height: '18rem', objectFit: 'cover' }} />
               </div>
 
               <div className='mt-3' style={{ width: '10rem' }}>
                 <div className='justify-content-center'>
-                  {this.state.listings[this.state.currentListing].description}
+                  {/* {this.state.listings[this.state.currentListing].description} */}
+                  {/* TEST */}
+                  {currentRoom.description}
                 </div>
               </div>
 
