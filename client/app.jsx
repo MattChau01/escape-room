@@ -8,6 +8,7 @@ import VendorSuccess from './pages/vendor-success';
 import VendorSignin from './pages/vendor-signin';
 import VendorHome from './pages/vendor-home';
 import TokenRequired from './pages/token-required';
+import RoomDetails from './pages/room-details';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -15,7 +16,9 @@ export default class App extends React.Component {
     this.state = {
       route: ParseRoute(window.location.hash),
       user: null,
-      isAuthorizing: true
+      isAuthorizing: true,
+      listings: [],
+      roomId: null
     };
     this.currentPage = this.currentPage.bind(this);
     this.routeVSignin = this.routeVSignin.bind(this);
@@ -39,6 +42,22 @@ export default class App extends React.Component {
       user,
       isAuthorizing: false
     });
+
+    const req = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    fetch('/api/listings/catalog', req)
+      .then(res => res.json())
+      .then(listings => {
+        this.setState({
+          listings
+        });
+      })
+      .catch(err => console.error(err));
 
   }
 
@@ -83,8 +102,17 @@ export default class App extends React.Component {
     }
 
     if (path === 'participants') {
+
       return (
-        <CatalogPage participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
+        <CatalogPage participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
+      );
+    }
+
+    if (path === 'catalog') {
+
+      return (
+        <RoomDetails participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
+
       );
     }
 
@@ -122,7 +150,6 @@ export default class App extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         {this.currentPage()}

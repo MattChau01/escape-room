@@ -6,28 +6,8 @@ export default class CatalogPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listings: []
+      listings: null
     };
-  }
-
-  componentDidMount() {
-
-    const req = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
-
-    fetch('/api/listings/catalog', req)
-      .then(res => res.json())
-      .then(listings => {
-        this.setState({
-          listings
-        });
-      })
-      .catch(err => console.error(err));
-
   }
 
   render() {
@@ -44,10 +24,10 @@ export default class CatalogPage extends React.Component {
               Click on the room name to learn more!
             </h5>
 
-            {this.state.listings.map(item => {
+            {this.props.listings.map(item => {
               return (
 
-                <ListingsOverview key={item.entryId} item={item} />
+                <ListingsOverview key={item.entryId} item={item}/>
 
               );
             })}

@@ -8,9 +8,10 @@ export default function ListingsOverview(props) {
 
   return (
     <div key={props.item.entryId} className='catalog-container'>
+
       <div className='mt-3' style={{
         backgroundColor: '#ececec',
-        width: '20rem',
+        width: '21.25rem',
         height: '17rem'
       }}>
 
