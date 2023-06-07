@@ -106,9 +106,9 @@ export default class RoomDetails extends React.Component {
     return (
       <>
         <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
-        <div>
-          <div className='d-flex flex-column'>
+        <div className='container'>
 
+          <div className='row justify-content-center'>
             <div className='mt-3'>
               <div style={{
                 color: '#000',
@@ -119,58 +119,70 @@ export default class RoomDetails extends React.Component {
                 {currentRoom.roomName}
               </div>
             </div>
+          </div>
 
-            <div className='mt-3'>
-              <div className='justify-content-center text-center'>
-                <img src={currentRoom.imageUrl} style={{ width: '15rem', height: '18rem', objectFit: 'cover' }} />
-              </div>
+          <div className='row mt-3 justify-content-center'>
+            <div className='text-center'>
+              <img src={currentRoom.imageUrl} className='rd-img' />
             </div>
+          </div>
 
-            <div className='mt-3'>
-              <div className='d-flex align-items-center justify-content-center text-center'>
-                <div style={{ width: '15rem' }}>
-                  {currentRoom.description}
+          <div className='rd-d'>
+
+            <div className='rd-1'>
+
+              <div className='mt-3 pt-5'>
+                <div className='d-flex align-items-center justify-content-center text-center'>
+                  <div style={{ width: '15rem' }}>
+                    {currentRoom.description}
+                  </div>
                 </div>
               </div>
+
             </div>
 
-            <div className='mt-3'>
-              <div className='justify-content-center text-center'>
-                <div>Price: ${Number(currentRoom.price)}/person</div>
-              </div>
-            </div>
+            <div className='rd-2'>
 
-            <div className='mt-3'>
-              <div className='justify-content-center text-center'>
-                <div>Minimum players: {Number(currentRoom.minimumPlayers)} players</div>
+              <div className='mt-5'>
+                <div className='justify-content-center text-center'>
+                  <div>Price: ${Number(currentRoom.price)}/person</div>
+                </div>
               </div>
-            </div>
 
-            <div className='mt-3'>
-              <div className='justify-content-center text-center'>
-                <div>Difficulty: {currentRoom.difficulty}</div>
+              <div className='mt-3'>
+                <div className='justify-content-center text-center'>
+                  <div>Minimum players: {Number(currentRoom.minimumPlayers)} players</div>
+                </div>
               </div>
-            </div>
 
-            <div className='mt-3'>
-              <div className='justify-content-center text-center'>
-                <div>Time limit: {Number(currentRoom.timeLimit)} minutes</div>
+              <div className='mt-3'>
+                <div className='justify-content-center text-center'>
+                  <div>Difficulty: {currentRoom.difficulty}</div>
+                </div>
               </div>
-            </div>
 
-            <div className='mt-3'>
-              <div className='justify-content-center text-center'>
-                <div>Address: {currentRoom.address}</div>
+              <div className='mt-3'>
+                <div className='justify-content-center text-center'>
+                  <div>Time limit: {Number(currentRoom.timeLimit)} minutes</div>
+                </div>
               </div>
-            </div>
 
-            <div className='mt-3 mb-3'>
-              <div className='justify-content-center text-center'>
-                <div>Phone Number: {Number(currentRoom.phoneNumber)}</div>
+              <div className='mt-3'>
+                <div className='justify-content-center text-center'>
+                  <div>Address: {currentRoom.address}</div>
+                </div>
               </div>
+
+              <div className='mt-3 mb-5 pb-4'>
+                <div className='justify-content-center text-center'>
+                  <div>Phone Number: {Number(currentRoom.phoneNumber)}</div>
+                </div>
+              </div>
+
             </div>
 
           </div>
+
         </div>
       </>
     );
