@@ -10,16 +10,6 @@
   }
 }
 
-/* @media screen and (min-width: 800px) {
-  .rd-1 {
-    flex-basis: calc(100%/2);
-  }
-
-  .rd-2 {
-    flex-basis: calc(100%/2);
-  }
-} */
-
 @media screen and (min-width: 1000px) {
   .vsignup-c {
     width: 40rem;

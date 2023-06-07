@@ -1,38 +1,13 @@
 import React from 'react';
-// import React, { useEffect, useState } from 'react';
 
 export default function ListingsOverview(props) {
 
-  // const [hash, setHash] = useState(window.location.hash);
-
-  // useEffect(() => {
-
-  //   setHash(`catalog?roomId=${props.item.entryId}`);
-
-  // }, [props]);
-
-  // const [currentListing, setCurrentListing] = useState('');
-
   function roomDetails() {
     window.location.hash = `catalog?roomId=${props.item.entryId}`;
-    // props.currentListing();
-    // setCurrentListing(setCurrentListing);
   }
 
   return (
     <div key={props.item.entryId} className='catalog-container'>
-
-      {/* {
-        (hash === `catalog?roomId=${props.item.entryId}`)
-        ?
-        (
-
-        )
-        :
-        (
-
-        )
-      } */}
 
       <div className='mt-3' style={{
         backgroundColor: '#ececec',

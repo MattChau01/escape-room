@@ -9,8 +9,6 @@ import VendorSignin from './pages/vendor-signin';
 import VendorHome from './pages/vendor-home';
 import TokenRequired from './pages/token-required';
 import RoomDetails from './pages/room-details';
-// TEST
-// import ParseRoomDetails from './lib/parse-room-details';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -20,7 +18,6 @@ export default class App extends React.Component {
       user: null,
       isAuthorizing: true,
       listings: [],
-      // currentListing: null,
       roomId: null
     };
     this.currentPage = this.currentPage.bind(this);
@@ -30,7 +27,6 @@ export default class App extends React.Component {
     this.toHome = this.toHome.bind(this);
     this.participants = this.participants.bind(this);
     this.routeVSignup = this.routeVSignup.bind(this);
-    // this.currentListing = this.currentListing.bind(this);
   }
 
   componentDidMount() {
@@ -96,13 +92,6 @@ export default class App extends React.Component {
     window.location.hash = 'vendor-signin';
   }
 
-  // currentListing() {
-  //   this.setState({
-  //     roomId: ParseRoomDetails(window.location.hash)
-  //   });
-
-  // }
-
   currentPage() {
 
     const { path } = this.state.route;
@@ -115,31 +104,11 @@ export default class App extends React.Component {
     if (path === 'participants') {
 
       return (
-        <CatalogPage participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings}
-        // currentListing={this.currentListing}
-        />
+        <CatalogPage participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
       );
     }
 
     if (path === 'catalog') {
-
-      // TEST
-      // this.setState({
-      //   currentListing: ParseRoomDetails(window.location.hash)
-      // });
-
-      // this.currentListing();
-
-      // this.currentListing();
-
-      // if (!this.state.listings) {
-      //   return null;
-      // } else {
-      //   return (
-      //     <RoomDetails participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
-
-      //   );
-      // }
 
       return (
         <RoomDetails participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
