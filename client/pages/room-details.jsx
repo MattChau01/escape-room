@@ -96,7 +96,7 @@ export default class RoomDetails extends React.Component {
     const { listings, currentListing } = this.state;
 
     if (!listings || !listings[currentListing]) {
-      return <div>Loading...</div>; // Add a loading state or error handling here
+      return <div className='text-center'>Loading...</div>; // Add a loading state or error handling here
     }
 
     const currentRoom = listings[currentListing];
@@ -106,52 +106,71 @@ export default class RoomDetails extends React.Component {
     return (
       <>
         <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
-        <div className='mt-3'>
-          {/* d-flex justify-content-center text-center */}
-          <div>
-            {/* poster and name */}
-            <div className='d-flex flex-column'>
+        <div>
+          <div className='d-flex flex-column'>
 
+            <div className='mt-3'>
               <div style={{
                 color: '#000',
                 fontSize: '1.25rem',
                 fontWeight: 600
                 // width: '8rem'
-              }} className='row justify-content-center'>
-                {/* {this.state.listings[this.state.currentListing].roomName} */}
-                {/* TEST */}
+              }} className='justify-content-center text-center'>
                 {currentRoom.roomName}
               </div>
+            </div>
 
-              <div className='row justify-content-center mt-2'>
-                {/* <img src={this.state.listings[this.state.currentListing].imageUrl} style={{ width: '15rem', height: '18rem', objectFit: 'cover' }} /> */}
-                {/* TEST */}
+            <div className='mt-3'>
+              <div className='justify-content-center text-center'>
                 <img src={currentRoom.imageUrl} style={{ width: '15rem', height: '18rem', objectFit: 'cover' }} />
-                {/* {currentRoom.description} */}
               </div>
+            </div>
 
-              <div style={{ width: '15rem' }}>
-                <div className='text-center'>
-                  {/* {this.state.listings[this.state.currentListing].description} */}
-                  {/* TEST */}
+            <div className='mt-3'>
+              <div className='d-flex align-items-center justify-content-center text-center'>
+                <div style={{ width: '15rem' }}>
                   {currentRoom.description}
                 </div>
               </div>
+            </div>
 
-              {/*
-
-              <div style={{ width: '15rem' }}>
-                <div className=''>
-                  {this.state.listings[this.state.currentListing].description}
-                  {currentRoom.description}
-                </div>
+            <div className='mt-3'>
+              <div className='justify-content-center text-center'>
+                <div>Price: ${Number(currentRoom.price)}/person</div>
               </div>
-              */}
+            </div>
 
+            <div className='mt-3'>
+              <div className='justify-content-center text-center'>
+                <div>Minimum players: {Number(currentRoom.minimumPlayers)} players</div>
+              </div>
+            </div>
+
+            <div className='mt-3'>
+              <div className='justify-content-center text-center'>
+                <div>Difficulty: {currentRoom.difficulty}</div>
+              </div>
+            </div>
+
+            <div className='mt-3'>
+              <div className='justify-content-center text-center'>
+                <div>Time limit: {Number(currentRoom.timeLimit)} minutes</div>
+              </div>
+            </div>
+
+            <div className='mt-3'>
+              <div className='justify-content-center text-center'>
+                <div>Address: {currentRoom.address}</div>
+              </div>
+            </div>
+
+            <div className='mt-3 mb-3'>
+              <div className='justify-content-center text-center'>
+                <div>Phone Number: {Number(currentRoom.phoneNumber)}</div>
+              </div>
             </div>
 
           </div>
-
         </div>
       </>
     );
