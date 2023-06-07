@@ -8,11 +8,8 @@ export default function ListingsOverview(props) {
   // useEffect(() => {
 
   //   setHash(`catalog?roomId=${props.item.entryId}`);
-  //   console.log('hash: ', hash); //eslint-disable-line
 
   // }, [props]);
-
-  // console.log('hash: ', hash.slice(1));
 
   // const [currentListing, setCurrentListing] = useState('');
 

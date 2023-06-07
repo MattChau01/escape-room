@@ -9,15 +9,8 @@ import ParseRoomDetails from '../lib/parse-room-details';
 //   // props.currentListing();
 
 //   const [roomId] = useState(ParseRoomDetails(window.location.hash));
-//   // console.log('roomId: ', roomId);
-
-//   // console.log('route: ', roomId);
 
 //   // const [listing] = useState(props.listings[0]); //eslint-disable-line
-
-//   // console.log('props.listings: ', props.listings);
-//   // console.log('current prop: ', props.listings.entryId); //eslint-disable-line
-//   // console.log('route: ', window.location.hash.slice()); //eslint-disable-line
 
 //   return (
 //     <>

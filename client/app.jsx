@@ -63,8 +63,6 @@ export default class App extends React.Component {
       })
       .catch(err => console.error(err));
 
-    // console.log('listings in app.jsx: ', this.state.listings);
-
   }
 
   toHome() {
@@ -99,18 +97,13 @@ export default class App extends React.Component {
   }
 
   // currentListing() {
-  //   // console.log('room id: ', this.state.roomId);
   //   this.setState({
   //     roomId: ParseRoomDetails(window.location.hash)
   //   });
 
-  //   console.log('roomid: ', this.state.roomId);
   // }
 
   currentPage() {
-
-    // console.log('route: ', this.state.route);
-    // console.log('roomId: ', this.state.roomId);
 
     const { path } = this.state.route;
     if (path === '') {
@@ -121,8 +114,6 @@ export default class App extends React.Component {
 
     if (path === 'participants') {
 
-      // console.log('listings in app.jsx: ', this.state.listings);
-
       return (
         <CatalogPage participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings}
         // currentListing={this.currentListing}
@@ -132,21 +123,14 @@ export default class App extends React.Component {
 
     if (path === 'catalog') {
 
-      // console.log('this.state.listings: ', this.state.listings);
-
       // TEST
-      // console.log('parser: ', ParseRoomDetails(window.location.hash));
       // this.setState({
       //   currentListing: ParseRoomDetails(window.location.hash)
       // });
 
-      // console.log('roomId: ', this.state.roomId);
-      // this.currentListing();
-      // console.log('listings in app.jsx: ', this.state.listings);
-
       // this.currentListing();
 
-      // console.log('current listing: ', this.state.currentListing);
+      // this.currentListing();
 
       // if (!this.state.listings) {
       //   return null;
@@ -197,10 +181,6 @@ export default class App extends React.Component {
   }
 
   render() {
-
-    // console.log('route: ', this.state.route);
-    // console.log('roomId: ', this.state.roomId.path);
-
     return (
       <div>
         {this.currentPage()}
