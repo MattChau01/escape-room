@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
+import esc from '../../server/public/escape.png';
 
 const drawerWidth = 240;
 
@@ -86,8 +87,7 @@ function Header(props) {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar className='drawer'>
-        <Toolbar style={{ backgroundColor: '#046290' }}>
-          {/* <div className='mx-2 my-2' style={{ backgroundColor: '#1976D2' }}> */}
+        <div className='mx-2 my-2' style={{ backgroundColor: '#1976D2' }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -100,14 +100,13 @@ function Header(props) {
           </IconButton>
 
           <a style={{
-            fontSize: '1.5rem',
-            fontWeight: 600
+            fontSize: '1.6rem',
+            fontWeight: 500
           }}>
-            ESC Room Finder
+            <span><img src={esc} alt='esc' style={{ width: '1.75rem', height: '1.75rem', marginBottom: '.25rem', marginLeft: '.5rem' }} /></span> Room Finder
           </a>
 
-          {/* </div> */}
-        </Toolbar>
+        </div>
       </AppBar>
       <Box
         component="nav"
