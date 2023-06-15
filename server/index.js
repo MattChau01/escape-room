@@ -178,6 +178,8 @@ app.get('/api/listings/vendor/:userId', (req, res, next) => {
 
 });
 
+// PATCH REQUEST
+
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {

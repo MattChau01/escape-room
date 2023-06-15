@@ -4,11 +4,15 @@ export default class VendorListings extends React.Component {
     super(props);
     this.state = {
       listings: [],
-      userId: window.localStorage.getItem('userId')
+      userId: window.localStorage.getItem('userId'),
+      editClick: false
     };
   }
 
   componentDidMount() {
+    // TEST
+    console.log('editClick state: ', this.state.editClick); //eslint-disable-line
+    // TEST
 
     const req = {
       headers: {
