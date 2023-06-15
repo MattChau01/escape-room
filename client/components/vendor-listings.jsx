@@ -7,11 +7,12 @@ export default class VendorListings extends React.Component {
       userId: window.localStorage.getItem('userId'),
       editClick: false
     };
+    this.editClicked = this.editClicked.bind(this);
   }
 
   componentDidMount() {
     // TEST
-    console.log('editClick state: ', this.state.editClick); //eslint-disable-line
+    // console.log('editClick state: ', this.state.editClick); //eslint-disable-line
     // TEST
 
     const req = {
@@ -31,6 +32,11 @@ export default class VendorListings extends React.Component {
       })
       .catch(err => console.error(err));
 
+  }
+
+  editClicked(event) {
+    event.preventDefault();
+    // console.log('editclicked: ', this.state.editClick);
   }
 
   render() {
@@ -85,7 +91,7 @@ export default class VendorListings extends React.Component {
                         <div className='justify-content-center'>
                           <i style={{
                             cursor: 'pointer'
-                          }} className="fa-regular fa-pen-to-square" />
+                          }} className="fa-regular fa-pen-to-square" onClick={this.editClicked}/>
                         </div>
 
                       </div>
