@@ -4,11 +4,17 @@ export default class VendorListings extends React.Component {
     super(props);
     this.state = {
       listings: [],
-      userId: window.localStorage.getItem('userId')
+      userId: window.localStorage.getItem('userId'),
+      editClick: false
     };
+    this.editClicked = this.editClicked.bind(this);
   }
 
   componentDidMount() {
+
+    // TEST
+    console.log('editClick state: ', this.state.editClick); //eslint-disable-line
+    // TEST
 
     const req = {
       headers: {
@@ -27,6 +33,11 @@ export default class VendorListings extends React.Component {
       })
       .catch(err => console.error(err));
 
+  }
+
+  editClicked(event) {
+    event.preventDefault();
+    // console.log('editclicked: ', this.state.editClick);
   }
 
   render() {
@@ -78,10 +89,10 @@ export default class VendorListings extends React.Component {
 
                         </div>
 
-                        <div className='justify-content-center'>
+                        <div className='justify-content-center' onClick={this.editClicked}>
                           <i style={{
                             cursor: 'pointer'
-                          }} className="fa-regular fa-pen-to-square" />
+                          }} className="fa-regular fa-pen-to-square"/>
                         </div>
 
                       </div>
