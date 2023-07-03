@@ -16,7 +16,8 @@ export default class VendorHome extends React.Component {
       timeLimit: '',
       phoneNumber: '',
       description: '',
-      newListingButton: false
+      newListingButton: false,
+      editClicked: false
     };
     this.roomName = this.roomName.bind(this);
     this.imageLink = this.imageLink.bind(this);
@@ -30,6 +31,7 @@ export default class VendorHome extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openForm = this.openForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
+    this.editClicked = this.editClicked.bind(this);
   }
 
   roomName(event) {
@@ -164,6 +166,11 @@ export default class VendorHome extends React.Component {
 
   }
 
+  editClicked(event) {
+    event.preventDefault();
+    // console.log('editclicked: ', this.state.editClicked);
+  }
+
   render() {
 
     return (
@@ -220,13 +227,15 @@ export default class VendorHome extends React.Component {
                />
             : (
               <div>
+
                 <div className='text-center mt-5' style={{
                   fontSize: '1.4rem'
                 }}>
                   Your listings here:
                 </div>
                 <div className='text-center mt-2'>
-                  <VendorListings />
+                  <VendorListings
+                    editClicked={this.editClicked} />
                   <div className='d-flex justify-content-center mt-3 mb-3 add-listing'>
                     <button style={{
                       backgroundColor: '#1976D2',
@@ -243,6 +252,43 @@ export default class VendorHome extends React.Component {
                     </button>
                   </div>
                 </div>
+
+                {/* <div style={{
+                  position: 'absolute',
+                  backgroundColor: '#ececec',
+                  width: '10rem',
+                  height: '10rem'
+                }}>
+
+                  {
+                    (this.state.editClicked === true)
+                      ? (
+                        <div className='text-center'
+                          style={{
+                            position: 'absolute',
+                            top: '0',
+                            right: '0',
+                            bottom: '0',
+                            left: '0'
+                          }}>
+                          EDIT CLICKED: TRUE
+                        </div>
+                        )
+                      : (
+                        <div className='text-center'
+                          style={{
+                            position: 'absolute',
+                            top: '0',
+                            right: '0',
+                            bottom: '0',
+                            left: '0'
+                          }}>
+                          EDIT CLICKED: FALSE
+                        </div>
+                        )
+                  }
+                </div> */}
+
               </div>
               )
         }

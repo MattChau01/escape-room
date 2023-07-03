@@ -84,7 +84,8 @@
 .add-listing,
 .new-listing-submit,
 .close-form,
-.room-name):active {
+.room-name,
+.edit-button):active {
   position: relative;
   bottom: 0.4rem;
 }
