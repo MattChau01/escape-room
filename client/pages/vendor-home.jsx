@@ -31,7 +31,7 @@ export default class VendorHome extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openForm = this.openForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
-    this.editClicked = this.editClicked.bind(this);
+    this.editClick = this.editClick.bind(this);
   }
 
   roomName(event) {
@@ -166,9 +166,13 @@ export default class VendorHome extends React.Component {
 
   }
 
-  editClicked(event) {
+  editClick(event) {
     event.preventDefault();
     // console.log('editclicked: ', this.state.editClicked);
+    this.setState({
+      editClicked: true
+    });
+    window.location.hash = 'edit-room';
   }
 
   render() {
@@ -179,7 +183,6 @@ export default class VendorHome extends React.Component {
           participants={this.props.participants}
           routeVSignin={this.props.routeVSignin}
           toHome={this.props.toHome} />
-
         <div className='d-flex mt-2'>
           <div className='col mt-2 text-left'>
             <h6>Current user: {window.localStorage.getItem('username')}</h6>
@@ -235,7 +238,8 @@ export default class VendorHome extends React.Component {
                 </div>
                 <div className='text-center mt-2'>
                   <VendorListings
-                    editClicked={this.editClicked} />
+                    editClick={this.editClick}
+                    editClicked={this.state.editClicked} />
                   <div className='d-flex justify-content-center mt-3 mb-3 add-listing'>
                     <button style={{
                       backgroundColor: '#1976D2',

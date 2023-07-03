@@ -9,6 +9,7 @@ import VendorSignin from './pages/vendor-signin';
 import VendorHome from './pages/vendor-home';
 import TokenRequired from './pages/token-required';
 import RoomDetails from './pages/room-details';
+import EditRoom from './pages/edit-room';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ export default class App extends React.Component {
     this.toHome = this.toHome.bind(this);
     this.participants = this.participants.bind(this);
     this.routeVSignup = this.routeVSignup.bind(this);
+    this.vendorHome = this.vendorHome.bind(this);
   }
 
   componentDidMount() {
@@ -100,39 +102,61 @@ export default class App extends React.Component {
     window.location.hash = 'vendor-signin';
   }
 
+  vendorHome() {
+    window.location.hash = 'vendor-home';
+  }
+
   currentPage() {
 
     const { path } = this.state.route;
     if (path === '') {
       return (
-        <Home routeVSignup={this.routeVSignup} participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
+        <Home
+          routeVSignup={this.routeVSignup}
+          participants={this.participants}
+          routeVSignin={this.routeVSignin}
+          toHome={this.toHome} />
       );
     }
 
     if (path === 'participants') {
 
       return (
-        <CatalogPage participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
+        <CatalogPage
+          participants={this.participants}
+          routeVSignin={this.routeVSignin}
+          toHome={this.toHome}
+          listings={this.state.listings} />
       );
     }
 
     if (path === 'catalog') {
 
       return (
-        <RoomDetails participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} listings={this.state.listings} />
+        <RoomDetails
+          participants={this.participants}
+          routeVSignin={this.routeVSignin}
+          toHome={this.toHome}
+          listings={this.state.listings} />
 
       );
     }
 
     if (path === 'vendor-signup') {
       return (
-        <VendorSignup participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
+        <VendorSignup
+          participants={this.participants}
+          routeVSignin={this.routeVSignin}
+          toHome={this.toHome} />
       );
     }
 
     if (path === 'vendor-success') {
       return (
-        <VendorSuccess participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
+        <VendorSuccess
+          participants={this.participants}
+          routeVSignin={this.routeVSignin}
+          toHome={this.toHome} />
       );
     }
 
@@ -140,18 +164,43 @@ export default class App extends React.Component {
       window.location.hash = 'vendor-home';
     } else if (path === 'vendor-signin' && (window.localStorage.getItem('Token') === null)) {
       return (
-        <VendorSignin onSignIn={this.handleSignIn} participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
+        <VendorSignin
+          onSignIn={this.handleSignIn}
+          participants={this.participants}
+          routeVSignin={this.routeVSignin}
+          toHome={this.toHome} />
       );
     }
 
     if (path === 'vendor-home' && (window.localStorage.getItem('Token') !== null)) {
 
       return (
-        <VendorHome isAuthorizing={this.state.isAuthorizing} handleSignOut={this.handleSignOut} user={this.state.user} participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} />
+        <VendorHome
+          isAuthorizing={this.state.isAuthorizing}
+          handleSignOut={this.handleSignOut}
+          user={this.state.user}
+          participants={this.participants}
+          routeVSignin={this.routeVSignin}
+          toHome={this.toHome} />
       );
     } else if (path === 'vendor-home' && (window.localStorage.getItem('Token') === null)) {
       return (
-        <TokenRequired participants={this.participants} routeVSignin={this.routeVSignin} toHome={this.toHome} routeVSignup={this.routeVSignup} />
+        <TokenRequired
+          participants={this.participants}
+          routeVSignin={this.routeVSignin}
+          toHome={this.toHome}
+          routeVSignup={this.routeVSignup} />
+      );
+    }
+
+    if (path === 'edit-room' && (window.localStorage.getItem('Token') !== null)) {
+      return (
+        <EditRoom
+          participants={this.participants}
+          routeVSignin={this.routeVSignin}
+          toHome={this.toHome}
+          routeVSignup={this.routeVSignup}
+          vendorHome={this.vendorHome} />
       );
     }
 

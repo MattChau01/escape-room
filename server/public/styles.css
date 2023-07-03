@@ -76,9 +76,13 @@
   border: none;
 }
 
-:is(.register,
+:is(
+.back,
+.home,
+.register,
 .viewer,
 .v-sign-up,
+.v-signup,
 .v-signout,
 .v-signin,
 .add-listing,

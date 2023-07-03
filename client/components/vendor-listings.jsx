@@ -41,6 +41,9 @@ export default class VendorListings extends React.Component {
   // }
 
   render() {
+
+    // console.log('is clicked: ', this.props.editClicked);
+
     return (
       <div>
 
@@ -57,7 +60,7 @@ export default class VendorListings extends React.Component {
               <div>
                 {this.state.listings.map(item => {
                   return (
-                    <div key={item.entryId} className='catalog-container'>
+                    <div key={item.entryId} className='catalog-container container'>
                       <div className='mt-3' style={{
                         backgroundColor: '#ececec',
                         width: '20rem',
@@ -90,15 +93,18 @@ export default class VendorListings extends React.Component {
                         </div>
 
                         <div className='justify-content-center'>
-                          <i style={{
-                            cursor: 'pointer'
-                          }}
-                          className="fa-regular fa-pen-to-square edit-button"
-                            onClick={this.props.editClicked} />
+
+                          <div>
+                            <i style={{
+                              cursor: 'pointer'
+                            }}
+                              className="fa-regular fa-pen-to-square edit-button"
+                              onClick={this.props.editClick} />
+                          </div>
+
                         </div>
 
                       </div>
-
                     </div>
                   );
                 })}
