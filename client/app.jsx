@@ -9,7 +9,7 @@ import VendorSignin from './pages/vendor-signin';
 import VendorHome from './pages/vendor-home';
 import TokenRequired from './pages/token-required';
 import RoomDetails from './pages/room-details';
-import EditRoom from './pages/edit-room';
+// import EditRoom from './pages/edit-room';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -193,16 +193,16 @@ export default class App extends React.Component {
       );
     }
 
-    if (path === 'edit-room' && (window.localStorage.getItem('Token') !== null)) {
-      return (
-        <EditRoom
-          participants={this.participants}
-          routeVSignin={this.routeVSignin}
-          toHome={this.toHome}
-          routeVSignup={this.routeVSignup}
-          vendorHome={this.vendorHome} />
-      );
-    }
+    // if (path === 'edit-room' && (window.localStorage.getItem('Token') !== null)) {
+    //   return (
+    //     <EditRoom
+    //       participants={this.participants}
+    //       routeVSignin={this.routeVSignin}
+    //       toHome={this.toHome}
+    //       routeVSignup={this.routeVSignup}
+    //       vendorHome={this.vendorHome} />
+    //   );
+    // }
 
   }
 

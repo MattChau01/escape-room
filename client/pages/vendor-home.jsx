@@ -32,6 +32,7 @@ export default class VendorHome extends React.Component {
     this.openForm = this.openForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
     this.editClick = this.editClick.bind(this);
+    this.closeEdit = this.closeEdit.bind(this);
   }
 
   roomName(event) {
@@ -172,7 +173,15 @@ export default class VendorHome extends React.Component {
     this.setState({
       editClicked: true
     });
-    window.location.hash = 'edit-room';
+    // ********** DO NOT DELETE BELOW - TESTING CONDITIONAL FORM ON SAME PAGE **********
+    // window.location.hash = 'edit-room';
+  }
+
+  closeEdit(event) {
+    event.preventDefault();
+    this.setState({
+      editClicked: false
+    });
   }
 
   render() {
@@ -237,9 +246,47 @@ export default class VendorHome extends React.Component {
                   Your listings here:
                 </div>
                 <div className='text-center mt-2'>
-                  <VendorListings
+                  {/* **********DO NOT DELETE - TESTING CONDITIONAL RENDER********** */}
+                  {/* <VendorListings
                     editClick={this.editClick}
-                    editClicked={this.state.editClicked} />
+                    editClicked={this.state.editClicked} /> */}
+
+                  {/* BELOW IS CONDITIONALLY HIDING ALL LISTINGS IF THE BUTTON IS CLICKED OR NOT */}
+                  {
+                    (this.state.editClicked === false)
+                      ? (
+                        <VendorListings
+                          editClick={this.editClick}
+                          editClicked={this.state.editClicked} />
+                        )
+                      : (
+                        <>
+                        &nbsp;
+                        </>
+                        )
+                  }
+
+                  {/* CONDITIONAL RENDER FORM IF BUTTON WAS CLICKED */}
+                  {
+                    (this.state.editClicked === true)
+                      ? (
+                        <div>
+                          <div>
+                            <button onClick={this.closeEdit}>Close</button>
+                          </div>
+                          <div>
+                            EDIT FORM HERE
+                          </div>
+                        </div>
+                        )
+                      : (
+                        <>
+                      &nbsp;
+                        </>
+                        )
+                  }
+
+                  {/* TESTING CONDITIONAL INFO ABOVE BUTTON */}
                   <div className='d-flex justify-content-center mt-3 mb-3 add-listing'>
                     <button style={{
                       backgroundColor: '#1976D2',
@@ -255,6 +302,7 @@ export default class VendorHome extends React.Component {
                       Add a listing
                     </button>
                   </div>
+
                 </div>
 
                 {/* <div style={{
