@@ -291,7 +291,7 @@ export default class VendorHome extends React.Component {
                             EDIT FORM HERE
                             <br />
                             <div>
-                              <div>
+                              {/* <div>
                                 <div className='d-flex justify-content-center mt-3 mb-3'>
                                   <form
                                     autoComplete='off'
@@ -429,7 +429,7 @@ export default class VendorHome extends React.Component {
 
                                   </form>
                                 </div>
-                              </div>
+                              </div> */}
                             </div>
 
                           </div>
