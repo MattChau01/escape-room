@@ -58,6 +58,25 @@ export default class VendorHome extends React.Component {
 
   }
 
+  componentDidUpdate() {
+    const req = {
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('Token')
+      }
+    };
+
+    fetch(`/api/listings/vendor/${this.state.userId}`, req)
+      .then(res => res.json())
+      .then(data => {
+
+        this.setState({
+          listings: data
+        });
+      })
+      .catch(err => console.error(err));
+  }
+
   roomName(event) {
 
     this.setState({
