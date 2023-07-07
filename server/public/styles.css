@@ -98,7 +98,8 @@
 
 .register:focus,
 .new-listing-submit:focus,
-.room-name:focus {
+.room-name:focus,
+.close-edit-form:focus {
   outline: none;
 }
 

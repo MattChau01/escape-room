@@ -4,8 +4,8 @@ export default class VendorListings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listings: [],
-      userId: window.localStorage.getItem('userId')
+      // listings: [],
+      // userId: window.localStorage.getItem('userId')
       // editClick: false
     };
     // this.editClicked = this.editClicked.bind(this);
@@ -17,22 +17,26 @@ export default class VendorListings extends React.Component {
     // console.log('editClick state: ', this.state.editClick); //eslint-disable-line
     // TEST
 
-    const req = {
-      headers: {
-        'Content-Type': 'application/json',
-        'x-access-token': window.localStorage.getItem('Token')
-      }
-    };
+    // Commenting out for test - migrating into parent component
+    // ********** DO NOT DELETE **********
+    // const req = {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'x-access-token': window.localStorage.getItem('Token')
+    //   }
+    // };
 
-    fetch(`/api/listings/vendor/${this.state.userId}`, req)
-      .then(res => res.json())
-      .then(data => {
+    // fetch(`/api/listings/vendor/${this.state.userId}`, req)
+    //   .then(res => res.json())
+    //   .then(data => {
 
-        this.setState({
-          listings: data
-        });
-      })
-      .catch(err => console.error(err));
+    //     this.setState({
+    //       listings: data
+    //     });
+    //   })
+    //   .catch(err => console.error(err));
+
+    // ********** DO NOT DELETE **********
 
   }
 
@@ -44,12 +48,13 @@ export default class VendorListings extends React.Component {
   render() {
 
     // console.log('is clicked: ', this.props.editClicked);
+    // console.log('props.listing: ', this.props.listings);
 
     return (
       <div>
 
         {
-          (this.state.listings.length === 0)
+          (this.props.listings.length === 0)
             ? (
               <div className='my-5 py-5'>
                 <h5>
@@ -59,13 +64,17 @@ export default class VendorListings extends React.Component {
               )
             : (
               <div>
-                {this.state.listings.map(item => {
+                {this.props.listings.map(item => {
+
                   return (
                     <div key={item.entryId} className='catalog-container container'>
+                      {/* {console.log('key: ', item.entryId)} */}
                       <div className='mt-3' style={{
                         backgroundColor: '#ececec',
                         width: '20rem',
-                        height: '19rem'
+                        height: '100%'
+
+                        // height: '19rem'
                       }}>
 
                         <div>
@@ -91,6 +100,11 @@ export default class VendorListings extends React.Component {
                             ${Number(item.price)} /person
                           </div>
 
+                        </div>
+
+                        {/* TESTING WITH ENTRY ID */}
+                        <div>
+                          CURRENT ENTRY ID: {item.entryId}
                         </div>
 
                         <div className='justify-content-center'>

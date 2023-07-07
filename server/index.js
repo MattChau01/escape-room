@@ -118,7 +118,7 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
 
 app.use(authorizationMiddleware);
 
-app.post('/api/listings', (req, res, next) => {
+app.post('/api/listings/post', (req, res, next) => {
 
   const { userId, roomName, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit, phoneNumber } = req.body;
 

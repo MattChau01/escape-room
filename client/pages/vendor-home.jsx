@@ -8,17 +8,19 @@ export default class VendorHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      roomName: '',
-      imageUrl: '',
-      address: '',
-      price: '',
-      minimumPlayers: '',
-      difficulty: '',
-      timeLimit: '',
-      phoneNumber: '',
-      description: '',
+      roomName: [],
+      imageUrl: [],
+      address: [],
+      price: [],
+      minimumPlayers: [],
+      difficulty: [],
+      timeLimit: [],
+      phoneNumber: [],
+      description: [],
       newListingButton: false,
-      editClicked: false
+      editClicked: false,
+      listings: [],
+      userId: window.localStorage.getItem('userId')
     };
     this.roomName = this.roomName.bind(this);
     this.imageLink = this.imageLink.bind(this);
@@ -34,6 +36,26 @@ export default class VendorHome extends React.Component {
     this.closeForm = this.closeForm.bind(this);
     this.editClick = this.editClick.bind(this);
     this.closeEdit = this.closeEdit.bind(this);
+  }
+
+  componentDidMount() {
+    const req = {
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('Token')
+      }
+    };
+
+    fetch(`/api/listings/vendor/${this.state.userId}`, req)
+      .then(res => res.json())
+      .then(data => {
+
+        this.setState({
+          listings: data
+        });
+      })
+      .catch(err => console.error(err));
+
   }
 
   roomName(event) {
@@ -144,7 +166,7 @@ export default class VendorHome extends React.Component {
         body: JSON.stringify(reqObj)
       };
 
-      fetch('/api/listings', req)
+      fetch('/api/listings/post', req)
         .then(res => res.json())
         .then(result => {
 
@@ -176,6 +198,9 @@ export default class VendorHome extends React.Component {
     });
     // ********** DO NOT DELETE BELOW - TESTING CONDITIONAL FORM ON SAME PAGE **********
     // window.location.hash = 'edit-room';
+
+    // console.log('TEST: ', this.state.description);
+
   }
 
   closeEdit(event) {
@@ -186,6 +211,8 @@ export default class VendorHome extends React.Component {
   }
 
   render() {
+
+    // console.log('TEST: ', this.state.description);
 
     return (
       <>
@@ -269,7 +296,8 @@ export default class VendorHome extends React.Component {
                       ? (
                         <VendorListings
                           editClick={this.editClick}
-                          editClicked={this.state.editClicked} />
+                          editClicked={this.state.editClicked}
+                          listings={this.state.listings} />
                         )
                       : (
                         <>
@@ -443,7 +471,10 @@ export default class VendorHome extends React.Component {
                           </div>
 
                           <div className='pt-5'>
-                            <button className='close-edit-form' onClick={this.closeEdit}>Close</button>
+                            <button className='close-edit-form' onClick={this.closeEdit}
+                              style={{
+                                cursor: 'pointer'
+                              }}>Close</button>
                           </div>
 
                         </div>
