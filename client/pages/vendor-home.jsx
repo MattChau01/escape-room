@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/header';
 import ListingForm from '../components/new-listing-form';
 import VendorListings from '../components/vendor-listings';
+import EditListing from '../components/edit-listing';
 
 export default class VendorHome extends React.Component {
   constructor(props) {
@@ -282,16 +283,23 @@ export default class VendorHome extends React.Component {
                     (this.state.editClicked === true)
                       ? (
                         <div>
-                          <div>
-                            <button onClick={this.closeEdit}>Close</button>
-                          </div>
 
                           {/* EDIT FORM BELOW */}
                           <div>
-                            EDIT FORM HERE
+                            <div style={{
+                              fontSize: '1.4rem'
+                            }}>
+                              Edit form here
+                            </div>
                             <br />
-                            <div>
-                              {/* <div>
+
+                            <EditListing
+                              difficulty={this.state.difficulty}
+                              difficultyChange={this.difficulty}
+                            />
+
+                            {/* <div>
+                              <div>
                                 <div className='d-flex justify-content-center mt-3 mb-3'>
                                   <form
                                     autoComplete='off'
@@ -429,10 +437,15 @@ export default class VendorHome extends React.Component {
 
                                   </form>
                                 </div>
-                              </div> */}
-                            </div>
+                              </div>
+                            </div> */}
 
                           </div>
+
+                          <div className='pt-5'>
+                            <button className='close-edit-form' onClick={this.closeEdit}>Close</button>
+                          </div>
+
                         </div>
                         )
                       : (

@@ -64,7 +64,8 @@
 .new-listing-submit,
 .v-signin,
 .v-signup,
-.home {
+.home,
+.close-edit-form {
   color: #fff;
   font-size: 1.2rem;
   width: 10rem;
@@ -89,7 +90,8 @@
 .new-listing-submit,
 .close-form,
 .room-name,
-.edit-button):active {
+.edit-button,
+.close-edit-form):active {
   position: relative;
   bottom: 0.4rem;
 }
