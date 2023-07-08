@@ -20,7 +20,9 @@ export default class VendorHome extends React.Component {
       newListingButton: false,
       editClicked: false,
       listings: [],
-      userId: window.localStorage.getItem('userId')
+      userId: window.localStorage.getItem('userId'),
+      // GATHER ENTRY ID
+      listingClicked: []
     };
     this.roomName = this.roomName.bind(this);
     this.imageLink = this.imageLink.bind(this);
@@ -36,6 +38,7 @@ export default class VendorHome extends React.Component {
     this.closeForm = this.closeForm.bind(this);
     this.editClick = this.editClick.bind(this);
     this.closeEdit = this.closeEdit.bind(this);
+    this.currentListing = this.currentListing.bind(this);
   }
 
   componentDidMount() {
@@ -59,6 +62,9 @@ export default class VendorHome extends React.Component {
   }
 
   componentDidUpdate() {
+
+    // console.log('currentListing: ', this.state.currentListing);
+
     const req = {
       headers: {
         'Content-Type': 'application/json',
@@ -209,8 +215,8 @@ export default class VendorHome extends React.Component {
 
   }
 
-  editClick(event) {
-    event.preventDefault();
+  editClick() {
+    // event.preventDefault();
     // console.log('editclicked: ', this.state.editClicked);
     this.setState({
       editClicked: true
@@ -219,7 +225,14 @@ export default class VendorHome extends React.Component {
     // window.location.hash = 'edit-room';
 
     // console.log('TEST: ', this.state.description);
+    // console.log('edit clicked');
 
+  }
+
+  currentListing(entryId) {
+    this.setState({
+      listingClicked: entryId
+    });
   }
 
   closeEdit(event) {
@@ -316,7 +329,9 @@ export default class VendorHome extends React.Component {
                         <VendorListings
                           editClick={this.editClick}
                           editClicked={this.state.editClicked}
-                          listings={this.state.listings} />
+                          listings={this.state.listings}
+                          currentListing={this.currentListing}
+                          />
                         )
                       : (
                         <>
@@ -343,6 +358,8 @@ export default class VendorHome extends React.Component {
                             <EditListing
                               difficulty={this.state.difficulty}
                               difficultyChange={this.difficulty}
+                              listings={this.state.listings}
+                              listingClicked={this.state.listingClicked}
                             />
 
                             {/* <div>

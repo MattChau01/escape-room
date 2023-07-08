@@ -1,7 +1,14 @@
 import React from 'react';
 
 export default class EditListing extends React.Component {
+  componentDidMount() {
+    // console.log('opened');
+    // console.log('listings: ', this.props.listings);
+    // console.log('listing id: ', this.props.listingClicked);
+  }
+
   render() {
+
     return (
       <div>
         <div className='d-flex justify-content-center mt-3 mb-3'>

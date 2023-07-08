@@ -7,6 +7,7 @@ export default class VendorListings extends React.Component {
       // listings: [],
       // userId: window.localStorage.getItem('userId')
       // editClick: false
+      // listingClicked: []
     };
     // this.editClicked = this.editClicked.bind(this);
   }
@@ -40,9 +41,10 @@ export default class VendorListings extends React.Component {
 
   }
 
-  // editClicked(event) {
-  //   event.preventDefault();
-  //   // console.log('editclicked: ', this.state.editClick);
+  // editClicked() {
+  //   // event.preventDefault();
+  //   console.log('editclicked: ', this.state.listingClicked);
+
   // }
 
   render() {
@@ -114,7 +116,14 @@ export default class VendorListings extends React.Component {
                               cursor: 'pointer'
                             }}
                               className="fa-regular fa-pen-to-square edit-button"
-                              onClick={this.props.editClick} />
+                              // onClick={this.props.editClick}
+                              onClick={() => {
+                                // this.editClicked();
+                                this.props.editClick();
+                                this.props.currentListing(item.entryId);
+                                // console.log('ID: ', item.entryId);
+                              }}
+                              />
                           </div>
 
                         </div>
