@@ -24,7 +24,7 @@ export default class VendorHome extends React.Component {
       // GATHER ENTRY ID
       listingClicked: [],
       // EDIT FORM DATA HERE
-      newRoomName: ''
+      currentListing: []
     };
     this.roomName = this.roomName.bind(this);
     this.imageLink = this.imageLink.bind(this);
@@ -237,6 +237,7 @@ export default class VendorHome extends React.Component {
     this.setState({
       listingClicked: entryId
     });
+    // console.log('this.state.listingClicked: ', this.state.listingClicked);
   }
 
   closeEdit(event) {

@@ -6,7 +6,16 @@ export default class EditListing extends React.Component {
     this.state = {
       list: this.props.listings,
       entryId: Number(this.props.listingClicked),
-      currentListing: []
+      currentListing: [],
+      roomName: '',
+      img: '',
+      address: '',
+      price: '',
+      minPlayers: '',
+      difficulty: '',
+      timeLimit: '',
+      phoneNumber: '',
+      description: ''
     };
     // this.selectedListing = this.selectedListing.bind(this);
   }
@@ -53,7 +62,16 @@ export default class EditListing extends React.Component {
     // console.log('indexOfList: ', indexOfList);
 
     this.setState({
-      currentListing: this.state.list[indexOfList]
+      currentListing: this.state.list[indexOfList],
+      roomName: this.state.list[indexOfList].roomName,
+      img: this.state.list[indexOfList].imageUrl,
+      address: this.state.list[indexOfList].address,
+      price: this.state.list[indexOfList].price,
+      minPlayers: this.state.list[indexOfList].minimumPlayers,
+      difficulty: this.state.list[indexOfList].difficulty,
+      timeLimit: this.state.list[indexOfList].timeLimit,
+      phoneNumber: this.state.list[indexOfList].phoneNumber,
+      description: this.state.list[indexOfList].description
     });
 
     // console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
@@ -73,6 +91,46 @@ export default class EditListing extends React.Component {
 
     return (
       <div>
+
+        {/* PREVIEW OF ROOM */}
+        <div className='container'>
+          <div className='col-md'>
+            <div className='row justify-content-center py-2' style={{
+              color: '#000',
+              fontSize: '1.1rem',
+              fontWeight: 600
+            }}>
+              {this.state.roomName}
+            </div>
+            <div className='row justify-content-center'>
+              <img src={this.state.img} style={{ width: '8rem', height: '10rem', objectFit: 'cover' }} />
+            </div>
+
+            <div>
+              Address: {this.state.address}
+            </div>
+            <div>
+              Price: ${this.state.price}
+            </div>
+            <div>
+              Minimum Players: {this.state.address}
+            </div>
+            <div>
+              Difficulty: {this.state.difficulty}
+            </div>
+            <div>
+              Time limit: {this.state.timeLimit}
+            </div>
+            <div>
+              Phone number: {this.state.phoneNumber}
+            </div>
+            <div>
+              Description: {this.state.description}
+            </div>
+
+          </div>
+        </div>
+
         <div className='d-flex justify-content-center mt-3 mb-3'>
           <form
             autoComplete='off'
@@ -97,7 +155,7 @@ export default class EditListing extends React.Component {
                   id='roomName'
                   type='text'
                   placeholder='Room name'
-                  value={this.state.currentListing.roomName}
+                  // value={this.state.roomName}
                   // ********** ERROR HAPPENING HERE **********
                   // onChange={this.props.handleNewRoomName}
                 />
@@ -110,7 +168,7 @@ export default class EditListing extends React.Component {
                   id='imageUrl'
                   type='text'
                   placeholder='Image link'
-                // value={props.imageUrl}
+                  // value={this.state.img}
                 // onChange={props.imageUrlChange}
                 />
               </label>
