@@ -1,13 +1,75 @@
 import React from 'react';
 
 export default class EditListing extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: this.props.listings,
+      entryId: Number(this.props.listingClicked),
+      currentListing: []
+    };
+    // this.selectedListing = this.selectedListing.bind(this);
+  }
+
+  // selectedListing() {
+  //   // console.log('function to select listing');
+
+  //   // const list = this.props.listings;
+  //   // const indexClicked = this.props.listingClicked;
+
+  //   // for (let i = 0; i < list.length; i++) {
+
+  //   //   // console.log('index of: ', list.indexOf(list[i].entryId === indexClicked));
+
+  //   //   // TEST ABOVE
+
+  //   //   console.log('looped entryIds: ', list[i].entryId);
+
+  //   //   if (list[i].entryId === indexClicked) {
+  //   //     this.setState({
+  //   //       listIndex: undefined
+  //   //     });
+  //   //   }
+
+  //   // }
+
+  //   const indexOfList = this.state.list.findIndex(index => index.entryId === this.state.index);
+
+  //   // console.log('indexOfList: ', indexOfList);
+
+  //   this.setState({
+  //     currentListing: [this.state.list[indexOfList]]
+  //   });
+
+  //   console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
+
+  // }
+
   componentDidMount() {
+    // this.selectedListing();
+
+    const indexOfList = this.state.list.findIndex(index => index.entryId === this.state.entryId);
+
+    // console.log('indexOfList: ', indexOfList);
+
+    this.setState({
+      currentListing: this.state.list[indexOfList]
+    });
+
+    // console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
+
     // console.log('opened');
     // console.log('listings: ', this.props.listings);
-    // console.log('listing id: ', this.props.listingClicked);
+    // console.log('list: ', this.state.list);
+    // console.log('index: ', this.state.listIndex);
+    // console.log('selected id: ', this.props.listingClicked);
+    // console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
   }
 
   render() {
+
+    // console.log('index: ', this.state.listIndex);
+    // console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
 
     return (
       <div>
@@ -35,8 +97,9 @@ export default class EditListing extends React.Component {
                   id='roomName'
                   type='text'
                   placeholder='Room name'
-                // value={props.roomName}
-                // onChange={props.roomNameChange}
+                  value={this.state.currentListing.roomName}
+                  // ********** ERROR HAPPENING HERE **********
+                  // onChange={this.props.handleNewRoomName}
                 />
               </label>
 

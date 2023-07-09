@@ -22,7 +22,9 @@ export default class VendorHome extends React.Component {
       listings: [],
       userId: window.localStorage.getItem('userId'),
       // GATHER ENTRY ID
-      listingClicked: []
+      listingClicked: [],
+      // EDIT FORM DATA HERE
+      newRoomName: ''
     };
     this.roomName = this.roomName.bind(this);
     this.imageLink = this.imageLink.bind(this);
@@ -39,6 +41,8 @@ export default class VendorHome extends React.Component {
     this.editClick = this.editClick.bind(this);
     this.closeEdit = this.closeEdit.bind(this);
     this.currentListing = this.currentListing.bind(this);
+    // EDIT FORM DATA HERE
+    this.handleNewRoomName = this.handleNewRoomName.bind(this);
   }
 
   componentDidMount() {
@@ -242,6 +246,14 @@ export default class VendorHome extends React.Component {
     });
   }
 
+  // EDIT FUNCTIONS HERE
+
+  handleNewRoomName(event) {
+    this.setState({
+      newRoomName: event.target.value
+    });
+  }
+
   render() {
 
     // console.log('TEST: ', this.state.description);
@@ -360,6 +372,7 @@ export default class VendorHome extends React.Component {
                               difficultyChange={this.difficulty}
                               listings={this.state.listings}
                               listingClicked={this.state.listingClicked}
+                              handleNewRoomName={this.handleNewRoomName}
                             />
 
                             {/* <div>
