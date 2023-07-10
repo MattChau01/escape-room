@@ -87,7 +87,7 @@ export default class EditListing extends React.Component {
       img: this.state.list[indexOfList].imageUrl,
       address: this.state.list[indexOfList].address,
       price: this.state.list[indexOfList].price,
-      minPlayers: this.state.list[indexOfList].minimumPlayers,
+      minimumPlayers: this.state.list[indexOfList].minimumPlayers,
       difficulty: this.state.list[indexOfList].difficulty,
       timeLimit: this.state.list[indexOfList].timeLimit,
       phoneNumber: this.state.list[indexOfList].phoneNumber,
@@ -121,7 +121,7 @@ export default class EditListing extends React.Component {
 
   handleAddress(event) {
     this.setState({
-      address: event.taget.value
+      address: event.target.value
     });
   }
 
@@ -162,6 +162,7 @@ export default class EditListing extends React.Component {
   }
 
   render() {
+    // console.log('difficulty: ', this.state.difficulty);
 
     // console.log('index: ', this.state.listIndex);
     // console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
@@ -170,9 +171,9 @@ export default class EditListing extends React.Component {
       <div>
 
         {/* PREVIEW OF ROOM */}
-        <div className='container'>
-          <div className='col-md'>
-            <div className='row justify-content-center py-2' style={{
+        <div className='container room-d' >
+          <div className='col-md py-3'>
+            <div className='row justify-content-center' style={{
               color: '#000',
               fontSize: '1.1rem',
               fontWeight: 600
@@ -184,25 +185,28 @@ export default class EditListing extends React.Component {
             </div>
 
             <div>
-              Address: {this.state.address}
-            </div>
-            <div>
-              Price: ${this.state.price}
-            </div>
-            <div>
-              Minimum Players: {this.state.address}
-            </div>
-            <div>
-              Difficulty: {this.state.difficulty}
-            </div>
-            <div>
-              Time limit: {this.state.timeLimit}
-            </div>
-            <div>
-              Phone number: {this.state.phoneNumber}
-            </div>
-            <div>
-              Description: {this.state.description}
+              <div className='py-1'>
+                <b>Address</b>: {this.state.address}
+              </div>
+              <div className='py-1'>
+                <b>Price</b>: ${this.state.price}
+              </div>
+              <div className='py-1'>
+                <b>Minimum Players</b>: {this.state.address}
+              </div>
+              <div className='py-1'>
+                <b>Difficulty</b>: {this.state.difficulty}
+              </div>
+              <div className='py-1'>
+                <b>Time limit</b>: {this.state.timeLimit}
+              </div>
+              <div className='py-1'>
+                <b>Phone number</b>: {this.state.phoneNumber}
+              </div>
+              <div className='py-1'>
+                <b>Description</b>: {this.state.description}
+              </div>
+
             </div>
 
           </div>
@@ -232,8 +236,8 @@ export default class EditListing extends React.Component {
                   name='roomName'
                   id='roomName'
                   type='text'
-                  placeholder='Room name'
-                  value={this.state.roomName}
+                  placeholder={this.state.roomName}
+                  // value={this.state.roomName}
                   // ********** ERROR HAPPENING HERE **********
                   onChange={this.handleNewName}
                 />
@@ -245,9 +249,9 @@ export default class EditListing extends React.Component {
                   name='imageUrl'
                   id='imageUrl'
                   type='text'
-                  placeholder='Image link'
-                  value={this.state.img}
-                // onChange={props.imageUrlChange}
+                  placeholder={this.state.img}
+                  // value={this.state.img}
+                  onChange={this.handleImg}
                 />
               </label>
 
@@ -257,9 +261,9 @@ export default class EditListing extends React.Component {
                   name='address'
                   id='address'
                   type='text'
-                  placeholder='Address'
-                  value={this.state.address}
-                // onChange={props.addressChange}
+                  placeholder={this.state.address}
+                  // value={this.state.address}
+                  onChange={this.handleAddress}
                 />
               </label>
 
@@ -269,9 +273,9 @@ export default class EditListing extends React.Component {
                   name='price'
                   id='price'
                   type='text'
-                  placeholder='Price ($ per person)'
-                  value={this.state.price}
-                  // onChange={props.priceChange}
+                  placeholder={this.state.price}
+                  // value={this.state.price}
+                  onChange={this.handlePrice}
                   maxLength={3} pattern='[0-9]*'
                 />
               </label>
@@ -282,9 +286,9 @@ export default class EditListing extends React.Component {
                   name='minimumPlayers'
                   id='minimumPlayers'
                   type='text'
-                  placeholder='Minimum players'
-                  value={this.state.minimumPlayers}
-                  // onChange={props.minimumPlayersChange}
+                  placeholder={this.state.minimumPlayers}
+                  // value={this.state.minimumPlayers}
+                  onChange={this.handleMinimumPlayers}
                   maxLength={2} />
               </label>
 
@@ -294,10 +298,10 @@ export default class EditListing extends React.Component {
                   className='dropdown'
                   name='difficulty'
                   id='difficulty'
-                  value={this.state.difficulty}
-                // onClick={props.difficultyChange}
+                  // placeholder={this.state.difficulty}
+                  onClick={this.handleDifficulty}
                 >
-                  <option value=''>Select a difficulty here</option>
+                  <option value=''>{this.state.difficulty}</option>
                   <option value='Easy'>Easy</option>
                   <option value='Medium'>Medium</option>
                   <option value='Hard'>Hard</option>
@@ -309,9 +313,9 @@ export default class EditListing extends React.Component {
                   className='new-listing-input'
                   name='timeLimit' id='timeLimit'
                   type='text'
-                  placeholder='Time limit (minutes)'
-                  value={this.state.timeLimit}
-                // onChange={props.timeLimitChange}
+                  placeholder={this.state.timeLimit}
+                  // value={this.state.timeLimit}
+                  onChange={this.handleTimeLimit}
                 />
               </label>
 
@@ -321,9 +325,9 @@ export default class EditListing extends React.Component {
                   name='phoneNumber'
                   id='phoneNumber'
                   type='text'
-                  placeholder='Phone number'
-                  value={this.state.phoneNumber}
-                  // onChange={props.phoneNumberChange}
+                  placeholder={this.state.phoneNumber}
+                  // value={this.state.phoneNumber}
+                  onChange={this.handlePhoneNumber}
                   maxLength={10}
                 />
               </label>
@@ -332,9 +336,9 @@ export default class EditListing extends React.Component {
                 <textarea
                   className='new-listin-desc'
                   name='description' id='description'
-                  placeholder='Description'
-                  value={this.state.description}
-                // onChange={props.descriptionChange}
+                  placeholder={this.state.description}
+                  // value={this.state.description}
+                  onChange={this.handleDescription}
                 />
               </label>
 

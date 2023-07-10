@@ -108,6 +108,13 @@
   text-decoration: none;
 }
 
+.room-d {
+  background-color: #ececec;
+
+  /* width: 15rem;
+  height: 100%; */
+}
+
 .new-listing {
   background-color: #ececec;
   width: 23rem;
