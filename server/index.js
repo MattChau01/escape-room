@@ -116,6 +116,11 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
   }
 });
 
+// **********
+// COMMENT OUT TO TEST IN TERMINAL
+// UNCOMMENT AUTHORIZATION BELOW WHEN DONE TESTING REQUESTS
+// **********
+
 app.use(authorizationMiddleware);
 
 app.post('/api/listings/post', (req, res, next) => {
@@ -178,7 +183,106 @@ app.get('/api/listings/vendor/:userId', (req, res, next) => {
 
 });
 
+// TEST WITH GET REQUEST TO SEARCH BY ENTRY ID
+app.get('/api/listings/findId/:entryId', (req, res, next) => {
+
+  const entryId = req.params.entryId;
+
+  const entryIdNum = Number(entryId);
+
+  if (!entryId) {
+    throw new ClientError(400, 'Invalid input');
+  } else {
+    const sql = `
+      select *
+      from "listings"
+      where "entryId" = $1
+    `;
+
+    const params = [entryIdNum];
+
+    db.query(sql, params)
+      .then(result => {
+        const listing = result.rows;
+        res.json(listing);
+      })
+      .catch(err => next(err));
+
+  }
+
+});
+
 // PATCH REQUEST
+app.patch('/api/listings/patch/:entryId', (req, res, next) => {
+
+  const entryId = req.params.entryId;
+  const entryIdNum = Number(entryId);
+
+  const {
+    roomName,
+    description,
+    imageUrl,
+    address,
+    price,
+    minimumPlayers,
+    difficulty,
+    timeLimit,
+    phoneNumber
+  } = req.body;
+
+  if (
+    !roomName ||
+    !description ||
+    !imageUrl ||
+    !address ||
+    !price ||
+    !minimumPlayers ||
+    !difficulty ||
+    !timeLimit ||
+    !phoneNumber
+  ) {
+    throw new ClientError(400, 'Invalid input');
+  } else if (Object.keys(req.body).length === 0) {
+    throw new ClientError(400, 'Invalid input');
+  } else {
+    const sql = `
+      update "listings"
+      set
+        "roomName" = $1,
+        "description" = $2,
+        "imageUrl" = $3,
+        "address" = $4,
+        "price" = $5,
+        "minimumPlayers" = $6,
+        "difficulty" = $7,
+        "timeLimit" = $8,
+        "phoneNumber" = $9,
+      where "entryId" = $10
+      returning *
+    `;
+
+    const params = [
+      roomName,
+      description,
+      imageUrl,
+      address,
+      price,
+      minimumPlayers,
+      difficulty,
+      timeLimit,
+      phoneNumber,
+      entryIdNum];
+
+    db.query(sql, params)
+      .then(result => {
+        const listing = result.rows;
+        res.json(listing);
+      })
+      .catch(err => next(err));
+
+  }
+
+});
 
 app.use(errorMiddleware);
 
