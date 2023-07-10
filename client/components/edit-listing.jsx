@@ -16,7 +16,27 @@ export default class EditListing extends React.Component {
       timeLimit: '',
       phoneNumber: '',
       description: ''
+      // NEW DATA
+      // newRoomName: '',
+      // newImg: '',
+      // newAddress: '',
+      // newPrice: '',
+      // newMinPlayers: '',
+      // newDifficulty: '',
+      // newTimeLimit: '',
+      // newPhoneNumber: '',
+      // newDescription: ''
     };
+    this.handleNewName = this.handleNewName.bind(this);
+    this.handleImg = this.handleImg.bind(this);
+    this.handleAddress = this.handleAddress.bind(this);
+    this.handlePrice = this.handlePrice.bind(this);
+    this.handleMinimumPlayers = this.handleMinimumPlayers.bind(this);
+    this.handleDifficulty = this.handleDifficulty.bind(this);
+    this.handleTimeLimit = this.handleTimeLimit.bind(this);
+    this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
+    this.handleDescription = this.handleDescription.bind(this);
+
     // this.selectedListing = this.selectedListing.bind(this);
   }
 
@@ -84,6 +104,63 @@ export default class EditListing extends React.Component {
     // console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
   }
 
+  handleNewName(event) {
+
+    // console.log('event value: ', event.target.value);
+
+    this.setState({
+      roomName: event.target.value
+    });
+  }
+
+  handleImg(event) {
+    this.setState({
+      img: event.target.value
+    });
+  }
+
+  handleAddress(event) {
+    this.setState({
+      address: event.taget.value
+    });
+  }
+
+  handlePrice(event) {
+    this.setState({
+      price: event.target.value
+    });
+  }
+
+  handleMinimumPlayers(event) {
+    this.setState({
+      minimumPlayers: event.target.value
+    });
+  }
+
+  handleDifficulty(event) {
+    this.setState({
+      difficulty: event.target.value
+    });
+  }
+
+  handleTimeLimit(event) {
+    this.setState({
+      timeLimit: event.target.value
+    });
+  }
+
+  handlePhoneNumber(event) {
+    this.setState({
+      phoneNumber: event.target.value
+    });
+  }
+
+  handleDescription(event) {
+    this.setState({
+      description: event.target.value
+    });
+  }
+
   render() {
 
     // console.log('index: ', this.state.listIndex);
@@ -131,6 +208,7 @@ export default class EditListing extends React.Component {
           </div>
         </div>
 
+        {/* CREATE A NEW COMPONENT TO IMPORT HERE */}
         <div className='d-flex justify-content-center mt-3 mb-3'>
           <form
             autoComplete='off'
@@ -155,9 +233,9 @@ export default class EditListing extends React.Component {
                   id='roomName'
                   type='text'
                   placeholder='Room name'
-                  // value={this.state.roomName}
+                  value={this.state.roomName}
                   // ********** ERROR HAPPENING HERE **********
-                  // onChange={this.props.handleNewRoomName}
+                  onChange={this.handleNewName}
                 />
               </label>
 
@@ -168,7 +246,7 @@ export default class EditListing extends React.Component {
                   id='imageUrl'
                   type='text'
                   placeholder='Image link'
-                  // value={this.state.img}
+                  value={this.state.img}
                 // onChange={props.imageUrlChange}
                 />
               </label>
@@ -180,7 +258,7 @@ export default class EditListing extends React.Component {
                   id='address'
                   type='text'
                   placeholder='Address'
-                // value={props.address}
+                  value={this.state.address}
                 // onChange={props.addressChange}
                 />
               </label>
@@ -192,7 +270,7 @@ export default class EditListing extends React.Component {
                   id='price'
                   type='text'
                   placeholder='Price ($ per person)'
-                  // value={props.price}
+                  value={this.state.price}
                   // onChange={props.priceChange}
                   maxLength={3} pattern='[0-9]*'
                 />
@@ -205,7 +283,7 @@ export default class EditListing extends React.Component {
                   id='minimumPlayers'
                   type='text'
                   placeholder='Minimum players'
-                  // value={props.minimumPlayers}
+                  value={this.state.minimumPlayers}
                   // onChange={props.minimumPlayersChange}
                   maxLength={2} />
               </label>
@@ -216,6 +294,7 @@ export default class EditListing extends React.Component {
                   className='dropdown'
                   name='difficulty'
                   id='difficulty'
+                  value={this.state.difficulty}
                 // onClick={props.difficultyChange}
                 >
                   <option value=''>Select a difficulty here</option>
@@ -231,7 +310,7 @@ export default class EditListing extends React.Component {
                   name='timeLimit' id='timeLimit'
                   type='text'
                   placeholder='Time limit (minutes)'
-                // value={props.timeLimit}
+                  value={this.state.timeLimit}
                 // onChange={props.timeLimitChange}
                 />
               </label>
@@ -243,7 +322,7 @@ export default class EditListing extends React.Component {
                   id='phoneNumber'
                   type='text'
                   placeholder='Phone number'
-                  // value={props.phoneNumber}
+                  value={this.state.phoneNumber}
                   // onChange={props.phoneNumberChange}
                   maxLength={10}
                 />
@@ -254,7 +333,7 @@ export default class EditListing extends React.Component {
                   className='new-listin-desc'
                   name='description' id='description'
                   placeholder='Description'
-                // value={props.description}
+                  value={this.state.description}
                 // onChange={props.descriptionChange}
                 />
               </label>

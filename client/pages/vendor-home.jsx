@@ -364,7 +364,7 @@ export default class VendorHome extends React.Component {
                             <div style={{
                               fontSize: '1.4rem'
                             }}>
-                              Edit form here
+                              Room details:
                             </div>
                             <br />
 
