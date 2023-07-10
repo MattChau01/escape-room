@@ -1,4 +1,5 @@
 import React from 'react';
+import EditForm from './edit-form';
 
 export default class EditListing extends React.Component {
   constructor(props) {
@@ -213,7 +214,27 @@ export default class EditListing extends React.Component {
         </div>
 
         {/* CREATE A NEW COMPONENT TO IMPORT HERE */}
-        <div className='d-flex justify-content-center mt-3 mb-3'>
+        <EditForm
+          roomName={this.state.roomName}
+          img={this.state.img}
+          address={this.state.address}
+          price={this.state.price}
+          minimumPlayers={this.state.minimumPlayers}
+          difficulty={this.state.difficulty}
+          timeLimit={this.state.timeLimit}
+          phoneNumber={this.state.phoneNumber}
+          description={this.state.description}
+          handleNewName={this.handleNewName}
+          handleImg={this.handleImg}
+          handleAddress={this.handleAddress}
+          handlePrice={this.handlePrice}
+          handleMinimumPlayers={this.handleMinimumPlayers}
+          handleDifficulty={this.handleDifficulty}
+          handleTimeLimit={this.handleTimeLimit}
+          handlePhoneNumber={this.handlePhoneNumber}
+          handleDescription={this.handleDescription}
+        />
+        {/* <div className='d-flex justify-content-center mt-3 mb-3'>
           <form
             autoComplete='off'
             className='new-listing'
@@ -351,7 +372,7 @@ export default class EditListing extends React.Component {
             </div>
 
           </form>
-        </div>
+        </div> */}
       </div>
     );
   }
