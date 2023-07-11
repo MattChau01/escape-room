@@ -73,7 +73,7 @@ export default class VendorListings extends React.Component {
                       {/* {console.log('key: ', item.entryId)} */}
                       <div className='mt-3' style={{
                         backgroundColor: '#ececec',
-                        width: '20rem',
+                        width: '21.25rem',
                         height: '100%'
 
                         // height: '19rem'
@@ -82,8 +82,8 @@ export default class VendorListings extends React.Component {
                         <div>
                           <div className='row justify-content-center py-2' style={{
                             color: '#000',
-                            fontSize: '1.1rem',
-                            fontWeight: 600
+                            fontSize: '1.1rem'
+                            // fontWeight: 600
                           }}>
                             {item.roomName}
                           </div>

@@ -1,3 +1,6 @@
+// WONT BE USING THIS
+// WILL DELETE AFTER FUNCTION IS COMPLETE
+
 import React from 'react';
 import Header from '../components/header';
 

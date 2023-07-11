@@ -16,17 +16,17 @@ export default class EditListing extends React.Component {
       difficulty: '',
       timeLimit: '',
       phoneNumber: '',
-      description: ''
-      // NEW DATA
-      // newRoomName: '',
-      // newImg: '',
-      // newAddress: '',
-      // newPrice: '',
-      // newMinPlayers: '',
-      // newDifficulty: '',
-      // newTimeLimit: '',
-      // newPhoneNumber: '',
-      // newDescription: ''
+      description: '',
+      // TEST PASSING ORIGINAL DATA
+      originalRoomName: '',
+      originalImg: '',
+      originalAddress: '',
+      originalPrice: '',
+      originalMinimumPlayers: '',
+      originalDifficulty: '',
+      originalTimeLimit: '',
+      originalPhoneNumber: '',
+      originalDescription: ''
     };
     this.handleNewName = this.handleNewName.bind(this);
     this.handleImg = this.handleImg.bind(this);
@@ -37,6 +37,7 @@ export default class EditListing extends React.Component {
     this.handleTimeLimit = this.handleTimeLimit.bind(this);
     this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
     this.handleDescription = this.handleDescription.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
 
     // this.selectedListing = this.selectedListing.bind(this);
   }
@@ -92,7 +93,17 @@ export default class EditListing extends React.Component {
       difficulty: this.state.list[indexOfList].difficulty,
       timeLimit: this.state.list[indexOfList].timeLimit,
       phoneNumber: this.state.list[indexOfList].phoneNumber,
-      description: this.state.list[indexOfList].description
+      description: this.state.list[indexOfList].description,
+      // PASSING ORIGINAL STATES TO COMPARE WITH UPDATED DATA
+      originalRoomName: this.state.list[indexOfList].roomName,
+      originalImg: this.state.list[indexOfList].imageUrl,
+      originalAddress: this.state.list[indexOfList].address,
+      originalPrice: this.state.list[indexOfList].price,
+      originalMinimumPlayers: this.state.list[indexOfList].minimumPlayers,
+      originalDifficulty: this.state.list[indexOfList].difficulty,
+      originalTimeLimit: this.state.list[indexOfList].timeLimit,
+      originalPhoneNumber: this.state.list[indexOfList].phoneNumber,
+      originalDescription: this.state.list[indexOfList].description
     });
 
     // console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
@@ -162,6 +173,12 @@ export default class EditListing extends React.Component {
     });
   }
 
+  // handleSubmit(event) {
+  //   event.preventDefault();
+
+  //   // console.log('submitted!');
+  // }
+
   render() {
     // console.log('difficulty: ', this.state.difficulty);
 
@@ -215,6 +232,16 @@ export default class EditListing extends React.Component {
 
         {/* CREATE A NEW COMPONENT TO IMPORT HERE */}
         <EditForm
+          closeEdit={this.props.closeEdit}
+          ogRoomName={this.state.originalRoomName}
+          ogImg={this.state.originalImg}
+          ogAddress={this.state.originalAddress}
+          ogPrice={this.state.originalPrice}
+          ogMinimumPlayers={this.state.originalMinimumPlayers}
+          ogDifficulty={this.state.originalDifficulty}
+          ogTimeLimit={this.state.originalTimeLimit}
+          ogPhoneNumber={this.state.originalPhoneNumber}
+          ogDescription={this.state.originalDescription}
           roomName={this.state.roomName}
           img={this.state.img}
           address={this.state.address}
@@ -233,6 +260,7 @@ export default class EditListing extends React.Component {
           handleTimeLimit={this.handleTimeLimit}
           handlePhoneNumber={this.handlePhoneNumber}
           handleDescription={this.handleDescription}
+          // handleSubmit={this.handleSubmit}
         />
         {/* <div className='d-flex justify-content-center mt-3 mb-3'>
           <form

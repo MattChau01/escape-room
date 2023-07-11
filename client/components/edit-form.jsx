@@ -4,8 +4,41 @@ export default class EditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      formCompleted: false
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    if (
+      this.props.roomName.length !== 0 || this.props.roomName === this.props.ogRoomName ||
+      this.props.img.length !== 0 || this.props.img === this.props.ogImg ||
+      this.props.address.length !== 0 || this.props.address === this.props.ogAddress ||
+      this.props.price.length !== 0 || this.props.price === this.props.ogPrice ||
+      this.props.minimumPlayers.length !== 0 || this.props.minimumPlayers === this.props.ogMinimumPlayers ||
+      this.props.difficulty.length !== 0 || this.props.difficulty === this.props.ogDifficulty ||
+      this.props.timeLimit.length !== 0 || this.props.timeLimit === this.props.ogTimeLimit ||
+      this.props.phoneNumber.length !== 0 || this.props.phoneNumber === this.props.ogPhoneNumber ||
+      this.props.description.length !== 0 || this.props.description === this.props.ogDescription
+    ) {
+      // console.log('ok');
+      this.props.closeEdit();
+    }
+
+    // console.log('submitted!');
+    // console.log('all inputs: ',
+    //   `${this.props.roomName},
+    //   ${this.props.img},
+    //   ${this.props.address},
+    //   ${this.props.price},
+    //   ${this.props.minimumPlayers},
+    //   ${this.props.difficulty},
+    //   ${this.props.timeLimit},
+    //   ${this.props.phoneNumber},
+    //   ${this.props.description}`
+    // );
   }
 
   render() {
@@ -14,7 +47,7 @@ export default class EditForm extends React.Component {
         <form
           autoComplete='off'
           className='new-listing'
-        // onSubmit={props.handleSubmit}
+          onSubmit={this.handleSubmit}
         >
           <label className='d-flex justify-content-center mt-3'
             style={{
@@ -91,14 +124,14 @@ export default class EditForm extends React.Component {
 
             <label htmlFor='difficulty'>
               <select
-                required
+                // required
                 className='dropdown'
                 name='difficulty'
                 id='difficulty'
                 // placeholder={this.state.difficulty}
                 onClick={this.props.handleDifficulty}
               >
-                <option value=''>{this.props.difficulty}</option>
+                <option value=''>Select an option</option>
                 <option value='Easy'>Easy</option>
                 <option value='Medium'>Medium</option>
                 <option value='Hard'>Hard</option>

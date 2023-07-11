@@ -240,8 +240,8 @@ export default class VendorHome extends React.Component {
     // console.log('this.state.listingClicked: ', this.state.listingClicked);
   }
 
-  closeEdit(event) {
-    event.preventDefault();
+  closeEdit() {
+    // event.preventDefault();
     this.setState({
       editClicked: false
     });
@@ -374,6 +374,7 @@ export default class VendorHome extends React.Component {
                               listings={this.state.listings}
                               listingClicked={this.state.listingClicked}
                               handleNewRoomName={this.handleNewRoomName}
+                              closeEdit={this.closeEdit}
                             />
 
                             {/* <div>
