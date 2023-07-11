@@ -210,7 +210,7 @@ export default class EditListing extends React.Component {
                 <b>Price</b>: ${this.state.price}
               </div>
               <div className='py-1'>
-                <b>Minimum Players</b>: {this.state.address}
+                <b>Minimum Players</b>: {this.state.minimumPlayers}
               </div>
               <div className='py-1'>
                 <b>Difficulty</b>: {this.state.difficulty}
@@ -232,6 +232,7 @@ export default class EditListing extends React.Component {
 
         {/* CREATE A NEW COMPONENT TO IMPORT HERE */}
         <EditForm
+          entryId={this.state.entryId}
           closeEdit={this.props.closeEdit}
           ogRoomName={this.state.originalRoomName}
           ogImg={this.state.originalImg}

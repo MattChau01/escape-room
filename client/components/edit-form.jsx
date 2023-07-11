@@ -10,7 +10,6 @@ export default class EditForm extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
 
     if (
       this.props.roomName.length !== 0 || this.props.roomName === this.props.ogRoomName ||
@@ -24,7 +23,45 @@ export default class EditForm extends React.Component {
       this.props.description.length !== 0 || this.props.description === this.props.ogDescription
     ) {
       // console.log('ok');
+      event.preventDefault();
       this.props.closeEdit();
+    } else {
+
+      event.preventDefault();
+
+      const reqObj = {};
+
+      // reqObj.entryId = this.props.entryId;
+      reqObj.roomName = this.props.roomName;
+      reqObj.imageUrl = this.props.img;
+      reqObj.description = this.props.description;
+      reqObj.address = this.props.address;
+      reqObj.price = this.props.price;
+      reqObj.minimumPlayers = this.props.minimumPlayers;
+      reqObj.difficulty = this.props.difficulty;
+      reqObj.timeLimit = this.props.timeLimit;
+      reqObj.phoneNumber = this.props.phoneNumber;
+
+      const req = {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-access-token': window.localStorage.getItem('Token')
+        },
+        body: JSON.stringify(reqObj)
+      };
+
+      fetch(`/api/listings/patch/${this.props.entryId}`, req)
+        .then(res => res.json())
+        .then(result => {
+          // this.setState({
+
+          // });
+        })
+        .catch(err => console.error(err));
+
+      this.props.closeEdit();
+
     }
 
     // console.log('submitted!');
@@ -42,6 +79,10 @@ export default class EditForm extends React.Component {
   }
 
   render() {
+
+    // console.log('this.props.entryId: ', this.props.entryId);
+    // console.log('type this.props.entryId: ', typeof this.props.entryId);
+
     return (
       <div className='d-flex justify-content-center mt-3 mb-3'>
         <form
