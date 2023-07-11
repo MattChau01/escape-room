@@ -230,6 +230,11 @@ app.patch('/api/listings/patch/:entryId', (req, res, next) => {
     phoneNumber
   } = req.body;
 
+  const priceNum = Number(price);
+  const minimumPlayersNum = Number(minimumPlayers);
+  const timeLimitNum = Number(timeLimit);
+  const phoneNumberNum = Number(phoneNumber);
+
   if (
     !roomName ||
     !description ||
@@ -256,7 +261,7 @@ app.patch('/api/listings/patch/:entryId', (req, res, next) => {
         "minimumPlayers" = $6,
         "difficulty" = $7,
         "timeLimit" = $8,
-        "phoneNumber" = $9,
+        "phoneNumber" = $9
       where "entryId" = $10
       returning *
     `;
@@ -266,12 +271,13 @@ app.patch('/api/listings/patch/:entryId', (req, res, next) => {
       description,
       imageUrl,
       address,
-      price,
-      minimumPlayers,
+      priceNum,
+      minimumPlayersNum,
       difficulty,
-      timeLimit,
-      phoneNumber,
-      entryIdNum];
+      timeLimitNum,
+      phoneNumberNum,
+      entryIdNum
+    ];
 
     db.query(sql, params)
       .then(result => {
