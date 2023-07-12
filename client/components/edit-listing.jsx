@@ -16,17 +16,18 @@ export default class EditListing extends React.Component {
       difficulty: '',
       timeLimit: '',
       phoneNumber: '',
-      description: '',
+      description: ''
       // TEST PASSING ORIGINAL DATA
-      originalRoomName: '',
-      originalImg: '',
-      originalAddress: '',
-      originalPrice: '',
-      originalMinimumPlayers: '',
-      originalDifficulty: '',
-      originalTimeLimit: '',
-      originalPhoneNumber: '',
-      originalDescription: ''
+      // NEED TO KEEP UPDATED ONE FROM UPDATING `ORIGINAL` value
+      // originalRoomName: '',
+      // originalImg: '',
+      // originalAddress: '',
+      // originalPrice: '',
+      // originalMinimumPlayers: '',
+      // originalDifficulty: '',
+      // originalTimeLimit: '',
+      // originalPhoneNumber: '',
+      // originalDescription: ''
     };
     this.handleNewName = this.handleNewName.bind(this);
     this.handleImg = this.handleImg.bind(this);
@@ -93,17 +94,17 @@ export default class EditListing extends React.Component {
       difficulty: this.state.list[indexOfList].difficulty,
       timeLimit: this.state.list[indexOfList].timeLimit,
       phoneNumber: this.state.list[indexOfList].phoneNumber,
-      description: this.state.list[indexOfList].description,
+      description: this.state.list[indexOfList].description
       // PASSING ORIGINAL STATES TO COMPARE WITH UPDATED DATA
-      originalRoomName: this.state.list[indexOfList].roomName,
-      originalImg: this.state.list[indexOfList].imageUrl,
-      originalAddress: this.state.list[indexOfList].address,
-      originalPrice: this.state.list[indexOfList].price,
-      originalMinimumPlayers: this.state.list[indexOfList].minimumPlayers,
-      originalDifficulty: this.state.list[indexOfList].difficulty,
-      originalTimeLimit: this.state.list[indexOfList].timeLimit,
-      originalPhoneNumber: this.state.list[indexOfList].phoneNumber,
-      originalDescription: this.state.list[indexOfList].description
+      // originalRoomName: this.state.list[indexOfList].roomName,
+      // originalImg: this.state.list[indexOfList].imageUrl,
+      // originalAddress: this.state.list[indexOfList].address,
+      // originalPrice: this.state.list[indexOfList].price,
+      // originalMinimumPlayers: this.state.list[indexOfList].minimumPlayers,
+      // originalDifficulty: this.state.list[indexOfList].difficulty,
+      // originalTimeLimit: this.state.list[indexOfList].timeLimit,
+      // originalPhoneNumber: this.state.list[indexOfList].phoneNumber,
+      // originalDescription: this.state.list[indexOfList].description
     });
 
     // console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
@@ -234,15 +235,15 @@ export default class EditListing extends React.Component {
         <EditForm
           entryId={this.state.entryId}
           closeEdit={this.props.closeEdit}
-          ogRoomName={this.state.originalRoomName}
-          ogImg={this.state.originalImg}
-          ogAddress={this.state.originalAddress}
-          ogPrice={this.state.originalPrice}
-          ogMinimumPlayers={this.state.originalMinimumPlayers}
-          ogDifficulty={this.state.originalDifficulty}
-          ogTimeLimit={this.state.originalTimeLimit}
-          ogPhoneNumber={this.state.originalPhoneNumber}
-          ogDescription={this.state.originalDescription}
+          // ogRoomName={this.state.originalRoomName}
+          // ogImg={this.state.originalImg}
+          // ogAddress={this.state.originalAddress}
+          // ogPrice={this.state.originalPrice}
+          // ogMinimumPlayers={this.state.originalMinimumPlayers}
+          // ogDifficulty={this.state.originalDifficulty}
+          // ogTimeLimit={this.state.originalTimeLimit}
+          // ogPhoneNumber={this.state.originalPhoneNumber}
+          // ogDescription={this.state.originalDescription}
           roomName={this.state.roomName}
           img={this.state.img}
           address={this.state.address}

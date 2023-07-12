@@ -4,23 +4,67 @@ export default class EditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formCompleted: false
+      // formCompleted: false
+      originalRoomName: '',
+      originalImg: '',
+      originalAddress: '',
+      originalPrice: '',
+      originalMinimumPlayers: '',
+      originalDifficulty: '',
+      originalTimeLimit: '',
+      originalPhoneNumber: '',
+      originalDescription: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      originalRoomName: this.props.roomName,
+      originalImg: this.props.img,
+      originalAddress: this.props.address,
+      originalPrice: this.props.price,
+      originalMinimumPlayers: this.props.minimumPlayers,
+      originalDifficulty: this.props.difficulty,
+      originalTimeLimit: this.props.timeLimit,
+      originalPhoneNumber: this.props.phoneNumber,
+      originalDescription: this.props.description
+    });
   }
 
   handleSubmit(event) {
 
     if (
-      this.props.roomName.length !== 0 || this.props.roomName === this.props.ogRoomName ||
-      this.props.img.length !== 0 || this.props.img === this.props.ogImg ||
-      this.props.address.length !== 0 || this.props.address === this.props.ogAddress ||
-      this.props.price.length !== 0 || this.props.price === this.props.ogPrice ||
-      this.props.minimumPlayers.length !== 0 || this.props.minimumPlayers === this.props.ogMinimumPlayers ||
-      this.props.difficulty.length !== 0 || this.props.difficulty === this.props.ogDifficulty ||
-      this.props.timeLimit.length !== 0 || this.props.timeLimit === this.props.ogTimeLimit ||
-      this.props.phoneNumber.length !== 0 || this.props.phoneNumber === this.props.ogPhoneNumber ||
-      this.props.description.length !== 0 || this.props.description === this.props.ogDescription
+
+      this.props.roomName === this.state.ogRoomName ||
+      this.props.img === this.state.ogImg ||
+      this.props.address === this.state.ogAddress ||
+      this.props.price === this.state.ogPrice ||
+      this.props.minimumPlayers === this.state.ogMinimumPlayers ||
+      this.props.difficulty === this.state.ogDifficulty ||
+      this.props.timeLimit === this.state.ogTimeLimit ||
+      this.props.phoneNumber === this.state.ogPhoneNumber ||
+      this.props.description === this.state.ogDescription
+
+    // this.props.roomName === this.props.ogRoomName ||
+    // this.props.img === this.props.ogImg ||
+    // this.props.address === this.props.ogAddress ||
+    // this.props.price === this.props.ogPrice ||
+    // this.props.minimumPlayers === this.props.ogMinimumPlayers ||
+    // this.props.difficulty === this.props.ogDifficulty ||
+    // this.props.timeLimit === this.props.ogTimeLimit ||
+    // this.props.phoneNumber === this.props.ogPhoneNumber ||
+    // this.props.description === this.props.ogDescription
+
+    // (this.props.roomName.length !== 0 && this.props.roomName === this.props.ogRoomName) ||
+    // (this.props.img.length !== 0 && this.props.img === this.props.ogImg) ||
+    // (this.props.address.length !== 0 && this.props.address === this.props.ogAddress) ||
+    // (this.props.price.length !== 0 && this.props.price === this.props.ogPrice) ||
+    // (this.props.minimumPlayers.length !== 0 && this.props.minimumPlayers === this.props.ogMinimumPlayers) ||
+    // (this.props.difficulty.length !== 0 && this.props.difficulty === this.props.ogDifficulty) ||
+    // (this.props.timeLimit.length !== 0 && this.props.timeLimit === this.props.ogTimeLimit) ||
+    // (this.props.phoneNumber.length !== 0 && this.props.phoneNumber === this.props.ogPhoneNumber) ||
+    // (this.props.description.length !== 0 && this.props.description === this.props.ogDescription)
     ) {
       // console.log('ok');
       event.preventDefault();
@@ -42,6 +86,8 @@ export default class EditForm extends React.Component {
       reqObj.timeLimit = this.props.timeLimit;
       reqObj.phoneNumber = this.props.phoneNumber;
 
+      // console.log('reqObj: ', reqObj);
+
       const req = {
         method: 'PATCH',
         headers: {
@@ -50,6 +96,8 @@ export default class EditForm extends React.Component {
         },
         body: JSON.stringify(reqObj)
       };
+
+      // console.log('before fetch request');
 
       fetch(`/api/listings/patch/${this.props.entryId}`, req)
         .then(res => res.json())
@@ -60,7 +108,7 @@ export default class EditForm extends React.Component {
         })
         .catch(err => console.error(err));
 
-      this.props.closeEdit();
+      // this.props.closeEdit();
 
     }
 
