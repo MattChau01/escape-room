@@ -11,7 +11,7 @@ export default function ListingsOverview(props) {
 
       <div className='mt-3' style={{
         backgroundColor: '#ececec',
-        width: '21.25rem',
+        width: '21.8rem',
         height: '17rem'
       }}>
 
@@ -19,7 +19,7 @@ export default function ListingsOverview(props) {
           <div className='row justify-content-center py-2'>
             <a className='room-name' style={{
               color: '#000',
-              fontSize: '1.25rem',
+              fontSize: '1rem',
               fontWeight: 600,
               cursor: 'pointer'
             }} onClick={roomDetails}>
