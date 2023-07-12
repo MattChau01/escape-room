@@ -15,7 +15,6 @@ export default class VendorListings extends React.Component {
   componentDidMount() {
 
     // TEST
-    // console.log('editClick state: ', this.state.editClick); //eslint-disable-line
     // TEST
 
     // Commenting out for test - migrating into parent component
@@ -43,14 +42,10 @@ export default class VendorListings extends React.Component {
 
   // editClicked() {
   //   // event.preventDefault();
-  //   console.log('editclicked: ', this.state.listingClicked);
 
   // }
 
   render() {
-
-    // console.log('is clicked: ', this.props.editClicked);
-    // console.log('props.listing: ', this.props.listings);
 
     return (
       <div>
@@ -70,7 +65,6 @@ export default class VendorListings extends React.Component {
 
                   return (
                     <div key={item.entryId} className='catalog-container container'>
-                      {/* {console.log('key: ', item.entryId)} */}
                       <div className='mt-3' style={{
                         backgroundColor: '#ececec',
                         width: '21.25rem',
@@ -121,7 +115,6 @@ export default class VendorListings extends React.Component {
                                 // this.editClicked();
                                 this.props.editClick();
                                 this.props.currentListing(item.entryId);
-                                // console.log('ID: ', item.entryId);
                               }}
                               />
                           </div>

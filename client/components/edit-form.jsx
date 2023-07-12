@@ -66,7 +66,6 @@ export default class EditForm extends React.Component {
     // (this.props.phoneNumber.length !== 0 && this.props.phoneNumber === this.props.ogPhoneNumber) ||
     // (this.props.description.length !== 0 && this.props.description === this.props.ogDescription)
     ) {
-      // console.log('ok');
       event.preventDefault();
       this.props.closeEdit();
     } else {
@@ -86,8 +85,6 @@ export default class EditForm extends React.Component {
       reqObj.timeLimit = this.props.timeLimit;
       reqObj.phoneNumber = this.props.phoneNumber;
 
-      // console.log('reqObj: ', reqObj);
-
       const req = {
         method: 'PATCH',
         headers: {
@@ -96,8 +93,6 @@ export default class EditForm extends React.Component {
         },
         body: JSON.stringify(reqObj)
       };
-
-      // console.log('before fetch request');
 
       fetch(`/api/listings/patch/${this.props.entryId}`, req)
         .then(res => res.json())
@@ -112,8 +107,6 @@ export default class EditForm extends React.Component {
 
     }
 
-    // console.log('submitted!');
-    // console.log('all inputs: ',
     //   `${this.props.roomName},
     //   ${this.props.img},
     //   ${this.props.address},
@@ -127,9 +120,6 @@ export default class EditForm extends React.Component {
   }
 
   render() {
-
-    // console.log('this.props.entryId: ', this.props.entryId);
-    // console.log('type this.props.entryId: ', typeof this.props.entryId);
 
     return (
       <div className='d-flex justify-content-center mt-3 mb-3'>

@@ -44,18 +44,13 @@ export default class EditListing extends React.Component {
   }
 
   // selectedListing() {
-  //   // console.log('function to select listing');
 
   //   // const list = this.props.listings;
   //   // const indexClicked = this.props.listingClicked;
 
   //   // for (let i = 0; i < list.length; i++) {
 
-  //   //   // console.log('index of: ', list.indexOf(list[i].entryId === indexClicked));
-
   //   //   // TEST ABOVE
-
-  //   //   console.log('looped entryIds: ', list[i].entryId);
 
   //   //   if (list[i].entryId === indexClicked) {
   //   //     this.setState({
@@ -67,13 +62,9 @@ export default class EditListing extends React.Component {
 
   //   const indexOfList = this.state.list.findIndex(index => index.entryId === this.state.index);
 
-  //   // console.log('indexOfList: ', indexOfList);
-
   //   this.setState({
   //     currentListing: [this.state.list[indexOfList]]
   //   });
-
-  //   console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
 
   // }
 
@@ -81,8 +72,6 @@ export default class EditListing extends React.Component {
     // this.selectedListing();
 
     const indexOfList = this.state.list.findIndex(index => index.entryId === this.state.entryId);
-
-    // console.log('indexOfList: ', indexOfList);
 
     this.setState({
       currentListing: this.state.list[indexOfList],
@@ -107,19 +96,9 @@ export default class EditListing extends React.Component {
       // originalDescription: this.state.list[indexOfList].description
     });
 
-    // console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
-
-    // console.log('opened');
-    // console.log('listings: ', this.props.listings);
-    // console.log('list: ', this.state.list);
-    // console.log('index: ', this.state.listIndex);
-    // console.log('selected id: ', this.props.listingClicked);
-    // console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
   }
 
   handleNewName(event) {
-
-    // console.log('event value: ', event.target.value);
 
     this.setState({
       roomName: event.target.value
@@ -177,14 +156,9 @@ export default class EditListing extends React.Component {
   // handleSubmit(event) {
   //   event.preventDefault();
 
-  //   // console.log('submitted!');
   // }
 
   render() {
-    // console.log('difficulty: ', this.state.difficulty);
-
-    // console.log('index: ', this.state.listIndex);
-    // console.log('CURRENT LISTING ARRAY : ', this.state.currentListing);
 
     return (
       <div>

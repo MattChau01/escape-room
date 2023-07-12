@@ -67,8 +67,6 @@ export default class VendorHome extends React.Component {
 
   componentDidUpdate() {
 
-    // console.log('currentListing: ', this.state.currentListing);
-
     const req = {
       headers: {
         'Content-Type': 'application/json',
@@ -221,15 +219,11 @@ export default class VendorHome extends React.Component {
 
   editClick() {
     // event.preventDefault();
-    // console.log('editclicked: ', this.state.editClicked);
     this.setState({
       editClicked: true
     });
     // ********** DO NOT DELETE BELOW - TESTING CONDITIONAL FORM ON SAME PAGE **********
     // window.location.hash = 'edit-room';
-
-    // console.log('TEST: ', this.state.description);
-    // console.log('edit clicked');
 
   }
 
@@ -237,7 +231,6 @@ export default class VendorHome extends React.Component {
     this.setState({
       listingClicked: entryId
     });
-    // console.log('this.state.listingClicked: ', this.state.listingClicked);
   }
 
   closeEdit() {
@@ -256,8 +249,6 @@ export default class VendorHome extends React.Component {
   }
 
   render() {
-
-    // console.log('TEST: ', this.state.description);
 
     return (
       <>
