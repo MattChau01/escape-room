@@ -118,7 +118,7 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
 
 app.use(authorizationMiddleware);
 
-app.post('/api/listings', (req, res, next) => {
+app.post('/api/listings/post', (req, res, next) => {
 
   const { userId, roomName, description, imageUrl, address, price, minimumPlayers, difficulty, timeLimit, phoneNumber } = req.body;
 
@@ -171,6 +171,111 @@ app.get('/api/listings/vendor/:userId', (req, res, next) => {
       .then(result => {
         const vendorListing = result.rows;
         res.json(vendorListing);
+      })
+      .catch(err => next(err));
+
+  }
+
+});
+
+app.get('/api/listings/findId/:entryId', (req, res, next) => {
+
+  const entryId = req.params.entryId;
+
+  const entryIdNum = Number(entryId);
+
+  if (!entryId) {
+    throw new ClientError(400, 'Invalid input');
+  } else {
+    const sql = `
+      select *
+      from "listings"
+      where "entryId" = $1
+    `;
+
+    const params = [entryIdNum];
+
+    db.query(sql, params)
+      .then(result => {
+        const listing = result.rows;
+        res.json(listing);
+      })
+      .catch(err => next(err));
+
+  }
+
+});
+
+app.patch('/api/listings/patch/:entryId', (req, res, next) => {
+
+  const entryId = req.params.entryId;
+  const entryIdNum = Number(entryId);
+
+  const {
+    roomName,
+    description,
+    imageUrl,
+    address,
+    price,
+    minimumPlayers,
+    difficulty,
+    timeLimit,
+    phoneNumber
+  } = req.body;
+
+  const priceNum = Number(price);
+  const minimumPlayersNum = Number(minimumPlayers);
+  const timeLimitNum = Number(timeLimit);
+  const phoneNumberNum = Number(phoneNumber);
+
+  if (
+    !roomName ||
+    !description ||
+    !imageUrl ||
+    !address ||
+    !price ||
+    !minimumPlayers ||
+    !difficulty ||
+    !timeLimit ||
+    !phoneNumber
+  ) {
+    throw new ClientError(400, 'Invalid input');
+  } else if (Object.keys(req.body).length === 0) {
+    throw new ClientError(400, 'Invalid input');
+  } else {
+    const sql = `
+      update "listings"
+      set
+        "roomName" = $1,
+        "description" = $2,
+        "imageUrl" = $3,
+        "address" = $4,
+        "price" = $5,
+        "minimumPlayers" = $6,
+        "difficulty" = $7,
+        "timeLimit" = $8,
+        "phoneNumber" = $9
+      where "entryId" = $10
+      returning *
+    `;
+
+    const params = [
+      roomName,
+      description,
+      imageUrl,
+      address,
+      priceNum,
+      minimumPlayersNum,
+      difficulty,
+      timeLimitNum,
+      phoneNumberNum,
+      entryIdNum
+    ];
+
+    db.query(sql, params)
+      .then(result => {
+        const listing = result.rows;
+        res.json(listing);
       })
       .catch(err => next(err));
 

@@ -26,7 +26,10 @@ export default class RoomDetails extends React.Component {
     if (!listings || !listings[currentListing]) {
       return (
         <>
-          <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
+          <Header
+            participants={this.props.participants}
+            routeVSignin={this.props.routeVSignin}
+            toHome={this.props.toHome} />
           <div className='text-center'>
             <div className='mt-5'>Loading...</div>
             <div className="lds-ring mt-5 pt-5"><div /><div /><div /><div /></div>
@@ -39,7 +42,10 @@ export default class RoomDetails extends React.Component {
 
       return (
         <>
-          <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
+          <Header
+            participants={this.props.participants}
+            routeVSignin={this.props.routeVSignin}
+            toHome={this.props.toHome} />
           <div className='container'>
 
             <div className='row justify-content-center'>
@@ -48,7 +54,6 @@ export default class RoomDetails extends React.Component {
                   color: '#000',
                   fontSize: '1.25rem',
                   fontWeight: 600
-                  // width: '8rem'
                 }} className='justify-content-center text-center'>
                   {currentRoom.roomName}
                 </div>

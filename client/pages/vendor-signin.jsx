@@ -91,7 +91,10 @@ export default class VendorSignin extends React.Component {
   render() {
     return (
       <>
-        <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
+        <Header
+          participants={this.props.participants}
+          routeVSignin={this.props.routeVSignin}
+          toHome={this.props.toHome} />
         <div className='d-flex justify-content-center mt-4 text-center'>
           <h4>
             Welcome back!
@@ -111,11 +114,25 @@ export default class VendorSignin extends React.Component {
               <div className='mt-3'>
 
                 <label htmlFor='username' className='row mt-3'>
-                  <input className='vsignin-input' name='username' id='username' type='text' placeholder='Username' value={this.state.username} onChange={this.handleUsername}/>
+                  <input
+                    className='vsignin-input'
+                    name='username'
+                    id='username'
+                    type='text'
+                    placeholder='Username'
+                    value={this.state.username}
+                    onChange={this.handleUsername}/>
                 </label>
 
                 <label htmlFor='password' className='row mt-3'>
-                  <input className='vsignin-input' name='password' id='password' type='password' placeholder='Password' value={this.state.password} onChange={this.handlePassword}/>
+                  <input
+                    className='vsignin-input'
+                    name='password'
+                    id='password'
+                    type='password'
+                    placeholder='Password'
+                    value={this.state.password}
+                    onChange={this.handlePassword}/>
                 </label>
 
                 <div className='text-center mt-5'>

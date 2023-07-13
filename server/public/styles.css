@@ -64,7 +64,8 @@
 .new-listing-submit,
 .v-signin,
 .v-signup,
-.home {
+.home,
+.close-edit-form {
   color: #fff;
   font-size: 1.2rem;
   width: 10rem;
@@ -76,28 +77,39 @@
   border: none;
 }
 
-:is(.register,
+:is(
+.back,
+.home,
+.register,
 .viewer,
 .v-sign-up,
+.v-signup,
 .v-signout,
 .v-signin,
 .add-listing,
 .new-listing-submit,
 .close-form,
-.room-name):active {
+.room-name,
+.edit-button,
+.close-edit-form):active {
   position: relative;
   bottom: 0.4rem;
 }
 
 .register:focus,
 .new-listing-submit:focus,
-.room-name:focus {
+.room-name:focus,
+.close-edit-form:focus {
   outline: none;
 }
 
 .room-name:hover {
   outline: none;
   text-decoration: none;
+}
+
+.room-d {
+  background-color: #ececec;
 }
 
 .new-listing {
