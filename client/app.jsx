@@ -90,9 +90,6 @@ export default class App extends React.Component {
   }
 
   routeVSignup() {
-    // window.location.hash = 'vendor-signup';
-
-    // TEST BY TOKEN
 
     if (window.localStorage.getItem('Token') !== null) {
       window.location.hash = 'vendor-home';

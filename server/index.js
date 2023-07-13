@@ -116,11 +116,6 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
   }
 });
 
-// **********
-// COMMENT OUT TO TEST IN TERMINAL
-// UNCOMMENT AUTHORIZATION BELOW WHEN DONE TESTING REQUESTS
-// **********
-
 app.use(authorizationMiddleware);
 
 app.post('/api/listings/post', (req, res, next) => {
@@ -183,7 +178,6 @@ app.get('/api/listings/vendor/:userId', (req, res, next) => {
 
 });
 
-// TEST WITH GET REQUEST TO SEARCH BY ENTRY ID
 app.get('/api/listings/findId/:entryId', (req, res, next) => {
 
   const entryId = req.params.entryId;
@@ -212,7 +206,6 @@ app.get('/api/listings/findId/:entryId', (req, res, next) => {
 
 });
 
-// PATCH REQUEST
 app.patch('/api/listings/patch/:entryId', (req, res, next) => {
 
   const entryId = req.params.entryId;

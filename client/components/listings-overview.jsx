@@ -11,7 +11,7 @@ export default function ListingsOverview(props) {
 
       <div className='mt-3' style={{
         backgroundColor: '#ececec',
-        width: '21.8rem',
+        width: '21.6rem',
         height: '17rem'
       }}>
 
@@ -20,8 +20,8 @@ export default function ListingsOverview(props) {
             <a className='room-name' style={{
               color: '#000',
               fontSize: '1rem',
-              fontWeight: 600,
-              cursor: 'pointer'
+              cursor: 'pointer',
+              textDecoration: 'underline'
             }} onClick={roomDetails}>
               {props.item.roomName}
             </a>

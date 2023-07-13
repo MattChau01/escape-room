@@ -48,7 +48,6 @@ export default class RoomDetails extends React.Component {
                   color: '#000',
                   fontSize: '1.25rem',
                   fontWeight: 600
-                  // width: '8rem'
                 }} className='justify-content-center text-center'>
                   {currentRoom.roomName}
                 </div>

@@ -4,7 +4,6 @@ export default class EditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // formCompleted: false
       originalRoomName: '',
       originalImg: '',
       originalAddress: '',
@@ -36,35 +35,16 @@ export default class EditForm extends React.Component {
 
     if (
 
-      this.props.roomName === this.state.ogRoomName ||
-      this.props.img === this.state.ogImg ||
-      this.props.address === this.state.ogAddress ||
-      this.props.price === this.state.ogPrice ||
-      this.props.minimumPlayers === this.state.ogMinimumPlayers ||
-      this.props.difficulty === this.state.ogDifficulty ||
-      this.props.timeLimit === this.state.ogTimeLimit ||
-      this.props.phoneNumber === this.state.ogPhoneNumber ||
-      this.props.description === this.state.ogDescription
+      this.props.roomName === this.state.originalRoomName ||
+      this.props.img === this.state.originalImg ||
+      this.props.address === this.state.originalAddress ||
+      this.props.price === this.state.originalPrice ||
+      this.props.minimumPlayers === this.state.originalMinimumPlayers ||
+      this.props.difficulty === this.state.originalDifficulty ||
+      this.props.timeLimit === this.state.originalTimeLimit ||
+      this.props.phoneNumber === this.state.originalPhoneNumber ||
+      this.props.description === this.state.originalDescription
 
-    // this.props.roomName === this.props.ogRoomName ||
-    // this.props.img === this.props.ogImg ||
-    // this.props.address === this.props.ogAddress ||
-    // this.props.price === this.props.ogPrice ||
-    // this.props.minimumPlayers === this.props.ogMinimumPlayers ||
-    // this.props.difficulty === this.props.ogDifficulty ||
-    // this.props.timeLimit === this.props.ogTimeLimit ||
-    // this.props.phoneNumber === this.props.ogPhoneNumber ||
-    // this.props.description === this.props.ogDescription
-
-    // (this.props.roomName.length !== 0 && this.props.roomName === this.props.ogRoomName) ||
-    // (this.props.img.length !== 0 && this.props.img === this.props.ogImg) ||
-    // (this.props.address.length !== 0 && this.props.address === this.props.ogAddress) ||
-    // (this.props.price.length !== 0 && this.props.price === this.props.ogPrice) ||
-    // (this.props.minimumPlayers.length !== 0 && this.props.minimumPlayers === this.props.ogMinimumPlayers) ||
-    // (this.props.difficulty.length !== 0 && this.props.difficulty === this.props.ogDifficulty) ||
-    // (this.props.timeLimit.length !== 0 && this.props.timeLimit === this.props.ogTimeLimit) ||
-    // (this.props.phoneNumber.length !== 0 && this.props.phoneNumber === this.props.ogPhoneNumber) ||
-    // (this.props.description.length !== 0 && this.props.description === this.props.ogDescription)
     ) {
       event.preventDefault();
       this.props.closeEdit();
@@ -74,7 +54,6 @@ export default class EditForm extends React.Component {
 
       const reqObj = {};
 
-      // reqObj.entryId = this.props.entryId;
       reqObj.roomName = this.props.roomName;
       reqObj.imageUrl = this.props.img;
       reqObj.description = this.props.description;
@@ -97,26 +76,13 @@ export default class EditForm extends React.Component {
       fetch(`/api/listings/patch/${this.props.entryId}`, req)
         .then(res => res.json())
         .then(result => {
-          // this.setState({
-
-          // });
         })
         .catch(err => console.error(err));
 
-      // this.props.closeEdit();
+      this.props.closeEdit();
 
     }
 
-    //   `${this.props.roomName},
-    //   ${this.props.img},
-    //   ${this.props.address},
-    //   ${this.props.price},
-    //   ${this.props.minimumPlayers},
-    //   ${this.props.difficulty},
-    //   ${this.props.timeLimit},
-    //   ${this.props.phoneNumber},
-    //   ${this.props.description}`
-    // );
   }
 
   render() {
@@ -146,8 +112,6 @@ export default class EditForm extends React.Component {
                 id='roomName'
                 type='text'
                 placeholder={this.props.roomName}
-                // value={this.state.roomName}
-                // ********** ERROR HAPPENING HERE **********
                 onChange={this.props.handleNewName}
               />
             </label>
@@ -159,7 +123,6 @@ export default class EditForm extends React.Component {
                 id='imageUrl'
                 type='text'
                 placeholder={this.props.img}
-                // value={this.state.img}
                 onChange={this.props.handleImg}
               />
             </label>
@@ -171,7 +134,6 @@ export default class EditForm extends React.Component {
                 id='address'
                 type='text'
                 placeholder={this.props.address}
-                // value={this.state.address}
                 onChange={this.props.handleAddress}
               />
             </label>
@@ -183,7 +145,6 @@ export default class EditForm extends React.Component {
                 id='price'
                 type='text'
                 placeholder={this.props.price}
-                // value={this.state.price}
                 onChange={this.props.handlePrice}
                 maxLength={3} pattern='[0-9]*'
               />
@@ -196,18 +157,15 @@ export default class EditForm extends React.Component {
                 id='minimumPlayers'
                 type='text'
                 placeholder={this.props.minimumPlayers}
-                // value={this.state.minimumPlayers}
                 onChange={this.props.handleMinimumPlayers}
                 maxLength={2} />
             </label>
 
             <label htmlFor='difficulty'>
               <select
-                // required
                 className='dropdown'
                 name='difficulty'
                 id='difficulty'
-                // placeholder={this.state.difficulty}
                 onClick={this.props.handleDifficulty}
               >
                 <option value=''>Select an option</option>
@@ -223,7 +181,6 @@ export default class EditForm extends React.Component {
                 name='timeLimit' id='timeLimit'
                 type='text'
                 placeholder={this.props.timeLimit}
-                // value={this.state.timeLimit}
                 onChange={this.props.handleTimeLimit}
               />
             </label>
@@ -235,7 +192,6 @@ export default class EditForm extends React.Component {
                 id='phoneNumber'
                 type='text'
                 placeholder={this.props.phoneNumber}
-                // value={this.state.phoneNumber}
                 onChange={this.props.handlePhoneNumber}
                 maxLength={10}
               />
@@ -246,7 +202,6 @@ export default class EditForm extends React.Component {
                 className='new-listin-desc'
                 name='description' id='description'
                 placeholder={this.props.description}
-                // value={this.state.description}
                 onChange={this.props.handleDescription}
               />
             </label>
@@ -258,7 +213,6 @@ export default class EditForm extends React.Component {
             </div>
 
           </div>
-
         </form>
       </div>
     );

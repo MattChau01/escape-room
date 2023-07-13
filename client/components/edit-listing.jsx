@@ -17,17 +17,6 @@ export default class EditListing extends React.Component {
       timeLimit: '',
       phoneNumber: '',
       description: ''
-      // TEST PASSING ORIGINAL DATA
-      // NEED TO KEEP UPDATED ONE FROM UPDATING `ORIGINAL` value
-      // originalRoomName: '',
-      // originalImg: '',
-      // originalAddress: '',
-      // originalPrice: '',
-      // originalMinimumPlayers: '',
-      // originalDifficulty: '',
-      // originalTimeLimit: '',
-      // originalPhoneNumber: '',
-      // originalDescription: ''
     };
     this.handleNewName = this.handleNewName.bind(this);
     this.handleImg = this.handleImg.bind(this);
@@ -38,38 +27,9 @@ export default class EditListing extends React.Component {
     this.handleTimeLimit = this.handleTimeLimit.bind(this);
     this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
     this.handleDescription = this.handleDescription.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-
-    // this.selectedListing = this.selectedListing.bind(this);
   }
 
-  // selectedListing() {
-
-  //   // const list = this.props.listings;
-  //   // const indexClicked = this.props.listingClicked;
-
-  //   // for (let i = 0; i < list.length; i++) {
-
-  //   //   // TEST ABOVE
-
-  //   //   if (list[i].entryId === indexClicked) {
-  //   //     this.setState({
-  //   //       listIndex: undefined
-  //   //     });
-  //   //   }
-
-  //   // }
-
-  //   const indexOfList = this.state.list.findIndex(index => index.entryId === this.state.index);
-
-  //   this.setState({
-  //     currentListing: [this.state.list[indexOfList]]
-  //   });
-
-  // }
-
   componentDidMount() {
-    // this.selectedListing();
 
     const indexOfList = this.state.list.findIndex(index => index.entryId === this.state.entryId);
 
@@ -84,16 +44,6 @@ export default class EditListing extends React.Component {
       timeLimit: this.state.list[indexOfList].timeLimit,
       phoneNumber: this.state.list[indexOfList].phoneNumber,
       description: this.state.list[indexOfList].description
-      // PASSING ORIGINAL STATES TO COMPARE WITH UPDATED DATA
-      // originalRoomName: this.state.list[indexOfList].roomName,
-      // originalImg: this.state.list[indexOfList].imageUrl,
-      // originalAddress: this.state.list[indexOfList].address,
-      // originalPrice: this.state.list[indexOfList].price,
-      // originalMinimumPlayers: this.state.list[indexOfList].minimumPlayers,
-      // originalDifficulty: this.state.list[indexOfList].difficulty,
-      // originalTimeLimit: this.state.list[indexOfList].timeLimit,
-      // originalPhoneNumber: this.state.list[indexOfList].phoneNumber,
-      // originalDescription: this.state.list[indexOfList].description
     });
 
   }
@@ -153,17 +103,11 @@ export default class EditListing extends React.Component {
     });
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
-
-  // }
-
   render() {
 
     return (
       <div>
 
-        {/* PREVIEW OF ROOM */}
         <div className='container room-d' >
           <div className='col-md py-3'>
             <div className='row justify-content-center' style={{
@@ -205,19 +149,9 @@ export default class EditListing extends React.Component {
           </div>
         </div>
 
-        {/* CREATE A NEW COMPONENT TO IMPORT HERE */}
         <EditForm
           entryId={this.state.entryId}
           closeEdit={this.props.closeEdit}
-          // ogRoomName={this.state.originalRoomName}
-          // ogImg={this.state.originalImg}
-          // ogAddress={this.state.originalAddress}
-          // ogPrice={this.state.originalPrice}
-          // ogMinimumPlayers={this.state.originalMinimumPlayers}
-          // ogDifficulty={this.state.originalDifficulty}
-          // ogTimeLimit={this.state.originalTimeLimit}
-          // ogPhoneNumber={this.state.originalPhoneNumber}
-          // ogDescription={this.state.originalDescription}
           roomName={this.state.roomName}
           img={this.state.img}
           address={this.state.address}
@@ -236,147 +170,8 @@ export default class EditListing extends React.Component {
           handleTimeLimit={this.handleTimeLimit}
           handlePhoneNumber={this.handlePhoneNumber}
           handleDescription={this.handleDescription}
-          // handleSubmit={this.handleSubmit}
         />
-        {/* <div className='d-flex justify-content-center mt-3 mb-3'>
-          <form
-            autoComplete='off'
-            className='new-listing'
-          // onSubmit={props.handleSubmit}
-          >
-            <label className='d-flex justify-content-center mt-3'
-              style={{
-                fontSize: '1.25rem',
-                fontWeight: 600,
-                color: '#5A5A5A'
-              }}>
-              Edit listing
-            </label>
 
-            <div>
-
-              <label htmlFor='roomName'>
-                <input
-                  className='new-listing-input'
-                  name='roomName'
-                  id='roomName'
-                  type='text'
-                  placeholder={this.state.roomName}
-                  // value={this.state.roomName}
-                  // ********** ERROR HAPPENING HERE **********
-                  onChange={this.handleNewName}
-                />
-              </label>
-
-              <label htmlFor='imageUrl'>
-                <input
-                  className='new-listing-input'
-                  name='imageUrl'
-                  id='imageUrl'
-                  type='text'
-                  placeholder={this.state.img}
-                  // value={this.state.img}
-                  onChange={this.handleImg}
-                />
-              </label>
-
-              <label htmlFor='address'>
-                <input
-                  className='new-listing-input'
-                  name='address'
-                  id='address'
-                  type='text'
-                  placeholder={this.state.address}
-                  // value={this.state.address}
-                  onChange={this.handleAddress}
-                />
-              </label>
-
-              <label htmlFor='price'>
-                <input
-                  className='new-listing-input'
-                  name='price'
-                  id='price'
-                  type='text'
-                  placeholder={this.state.price}
-                  // value={this.state.price}
-                  onChange={this.handlePrice}
-                  maxLength={3} pattern='[0-9]*'
-                />
-              </label>
-
-              <label htmlFor='minimumPlayers'>
-                <input
-                  className='new-listing-input'
-                  name='minimumPlayers'
-                  id='minimumPlayers'
-                  type='text'
-                  placeholder={this.state.minimumPlayers}
-                  // value={this.state.minimumPlayers}
-                  onChange={this.handleMinimumPlayers}
-                  maxLength={2} />
-              </label>
-
-              <label htmlFor='difficulty'>
-                <select
-                  required
-                  className='dropdown'
-                  name='difficulty'
-                  id='difficulty'
-                  // placeholder={this.state.difficulty}
-                  onClick={this.handleDifficulty}
-                >
-                  <option value=''>{this.state.difficulty}</option>
-                  <option value='Easy'>Easy</option>
-                  <option value='Medium'>Medium</option>
-                  <option value='Hard'>Hard</option>
-                </select>
-              </label>
-
-              <label htmlFor='timeLimit'>
-                <input
-                  className='new-listing-input'
-                  name='timeLimit' id='timeLimit'
-                  type='text'
-                  placeholder={this.state.timeLimit}
-                  // value={this.state.timeLimit}
-                  onChange={this.handleTimeLimit}
-                />
-              </label>
-
-              <label htmlFor='phoneNumber'>
-                <input
-                  className='new-listing-input'
-                  name='phoneNumber'
-                  id='phoneNumber'
-                  type='text'
-                  placeholder={this.state.phoneNumber}
-                  // value={this.state.phoneNumber}
-                  onChange={this.handlePhoneNumber}
-                  maxLength={10}
-                />
-              </label>
-
-              <label htmlFor='description'>
-                <textarea
-                  className='new-listin-desc'
-                  name='description' id='description'
-                  placeholder={this.state.description}
-                  // value={this.state.description}
-                  onChange={this.handleDescription}
-                />
-              </label>
-
-              <div className='mb-4'>
-                <button className='new-listing-submit' type='submit' style={{
-                  cursor: 'pointer'
-                }}>Submit</button>
-              </div>
-
-            </div>
-
-          </form>
-        </div> */}
       </div>
     );
   }

@@ -1,49 +1,6 @@
 import React from 'react';
 
 export default class VendorListings extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // listings: [],
-      // userId: window.localStorage.getItem('userId')
-      // editClick: false
-      // listingClicked: []
-    };
-    // this.editClicked = this.editClicked.bind(this);
-  }
-
-  componentDidMount() {
-
-    // TEST
-    // TEST
-
-    // Commenting out for test - migrating into parent component
-    // ********** DO NOT DELETE **********
-    // const req = {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'x-access-token': window.localStorage.getItem('Token')
-    //   }
-    // };
-
-    // fetch(`/api/listings/vendor/${this.state.userId}`, req)
-    //   .then(res => res.json())
-    //   .then(data => {
-
-    //     this.setState({
-    //       listings: data
-    //     });
-    //   })
-    //   .catch(err => console.error(err));
-
-    // ********** DO NOT DELETE **********
-
-  }
-
-  // editClicked() {
-  //   // event.preventDefault();
-
-  // }
 
   render() {
 
@@ -69,15 +26,12 @@ export default class VendorListings extends React.Component {
                         backgroundColor: '#ececec',
                         width: '21.25rem',
                         height: '100%'
-
-                        // height: '19rem'
                       }}>
 
                         <div>
                           <div className='row justify-content-center py-2' style={{
                             color: '#000',
                             fontSize: '1.1rem'
-                            // fontWeight: 600
                           }}>
                             {item.roomName}
                           </div>
@@ -86,7 +40,7 @@ export default class VendorListings extends React.Component {
                           </div>
                         </div>
 
-                        <div className='row py-4'>
+                        <div className='row py-3'>
 
                           <div className='col'>
                             Difficulty: {item.difficulty}
@@ -98,21 +52,14 @@ export default class VendorListings extends React.Component {
 
                         </div>
 
-                        {/* TESTING WITH ENTRY ID */}
-                        <div>
-                          CURRENT ENTRY ID: {item.entryId}
-                        </div>
-
-                        <div className='justify-content-center'>
+                        <div className='justify-content-center pb-3'>
 
                           <div>
                             <i style={{
                               cursor: 'pointer'
                             }}
                               className="fa-regular fa-pen-to-square edit-button"
-                              // onClick={this.props.editClick}
                               onClick={() => {
-                                // this.editClicked();
                                 this.props.editClick();
                                 this.props.currentListing(item.entryId);
                               }}
