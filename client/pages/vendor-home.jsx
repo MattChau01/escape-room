@@ -161,7 +161,15 @@ export default class VendorHome extends React.Component {
 
   handleSubmit(event) {
 
-    if (this.state.roomName === '' || this.state.imageUrl === '' || this.state.address === '' || this.state.price === '' || this.state.minimumPlayers === '' || this.state.difficulty === '' || this.state.timeLimit === '' || this.state.description === '') {
+    if (
+      this.state.roomName === '' ||
+      this.state.imageUrl === '' ||
+      this.state.address === '' ||
+      this.state.price === '' ||
+      this.state.minimumPlayers === '' ||
+      this.state.difficulty === '' ||
+      this.state.timeLimit === '' ||
+      this.state.description === '') {
       event.preventDefault();
       return false;
     } else {

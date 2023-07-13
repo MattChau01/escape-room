@@ -25,9 +25,11 @@ function Header(props) {
     <div>
       <Divider />
       <List>
-        <div className='text-center my-5' style={{
-          overflow: 'hidden'
-        }}>
+        <div
+          className='text-center my-5'
+          style={{
+            overflow: 'hidden'
+          }}>
 
           <div className='row my-2'>
             <div className='col-2'>
@@ -103,7 +105,9 @@ function Header(props) {
             fontSize: '1.6rem',
             fontWeight: 500
           }}>
-            <span><img src={esc} alt='esc' style={{ width: '1.75rem', height: '1.75rem', marginBottom: '.25rem', marginLeft: '.5rem' }} /></span> Room Finder
+            <span>
+              <img src={esc} alt='esc' style={{ width: '1.75rem', height: '1.75rem', marginBottom: '.25rem', marginLeft: '.5rem' }} />
+            </span> Room Finder
           </a>
 
         </div>

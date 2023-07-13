@@ -74,7 +74,10 @@ class VendorSignup extends React.Component {
   }
 
   verifyPasswords(event) {
-    if (this.state.passwordConfirmed === this.state.password && this.state.password !== '' && this.state.passwordConfirmed !== '') {
+    if (
+      this.state.passwordConfirmed === this.state.password &&
+      this.state.password !== '' &&
+      this.state.passwordConfirmed !== '') {
       return (
         <div style={{ color: '#00FF00', height: '2rem' }}>
           <i className="fa-solid fa-check" style={{ color: '#31c427', fontSize: '1.65rem' }} />
@@ -168,7 +171,10 @@ class VendorSignup extends React.Component {
 
     return (
       <>
-        <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
+        <Header
+          participants={this.props.participants}
+          routeVSignin={this.props.routeVSignin}
+          toHome={this.props.toHome} />
         <div className='d-flex justify-content-center mt-4 text-center'>
           <p style={{
             fontSize: '1.4rem'
@@ -190,23 +196,58 @@ class VendorSignup extends React.Component {
               <div className='mt-2'>
 
                 <label htmlFor='firstName' className='row mt-3'>
-                  <input className='vsignup-input' name='firstName' id='firstName' type='text' placeholder='First Name' value={this.state.firstName} onChange={this.handleFirstName} />
+                  <input
+                    className='vsignup-input'
+                    name='firstName'
+                    id='firstName'
+                    type='text'
+                    placeholder='First Name'
+                    value={this.state.firstName}
+                    onChange={this.handleFirstName} />
                 </label>
 
                 <label htmlFor='lastName' className='row mt-3'>
-                  <input className='vsignup-input' name='lastName' id='lastName' type='text' placeholder='Last Name' value={this.state.lastName} onChange={this.handleLastName} />
+                  <input
+                    className='vsignup-input'
+                    name='lastName'
+                    id='lastName'
+                    type='text'
+                    placeholder='Last Name'
+                    value={this.state.lastName}
+                    onChange={this.handleLastName} />
                 </label>
 
                 <label htmlFor='username' className='row mt-3'>
-                  <input className='vsignup-input' name='username' id='username' type='text' placeholder='Username' value={this.state.username} onChange={this.handleUsername} />
+                  <input
+                    className='vsignup-input'
+                    name='username'
+                    id='username'
+                    type='text'
+                    placeholder='Username'
+                    value={this.state.username}
+                    onChange={this.handleUsername} />
                 </label>
 
                 <label htmlFor='password' className='row mt-3'>
-                  <input className='vsignup-input' name='password' id='password' type='password' placeholder='Password' value={this.state.password} onChange={this.handlePassword} />
+                  <input
+                    className='vsignup-input'
+                    name='password'
+                    id='password'
+                    type='password'
+                    placeholder='Password'
+                    value={this.state.password}
+                    onChange={this.handlePassword} />
                 </label>
 
                 <label htmlFor='passwordConfirm' className='row mt-3'>
-                  <input className='vsignup-input' name='passwordConfirm' id='passwordConfirm' type='password' placeholder='Re-enter Password' value={this.state.passwordConfirmed} onChange={this.handlePasswordConfirm} />
+                  <input
+                    className='vsignup-input'
+                    name='passwordConfirm'
+                    id='passwordConfirm'
+                    type='password'
+                    placeholder='Re-enter Password'
+                    value={this.state.passwordConfirmed}
+                    onChange={this.handlePasswordConfirm} />
                 </label>
 
                 <div className='text-center mt-3'>
