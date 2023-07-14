@@ -40,6 +40,7 @@ export default class VendorHome extends React.Component {
     this.closeEdit = this.closeEdit.bind(this);
     this.currentListing = this.currentListing.bind(this);
     this.handleNewRoomName = this.handleNewRoomName.bind(this);
+    this.deleteListing = this.deleteListing.bind(this);
   }
 
   componentDidMount() {
@@ -246,6 +247,12 @@ export default class VendorHome extends React.Component {
     });
   }
 
+  deleteListing() {
+
+    // console.log('delete button clicked!');
+
+  }
+
   render() {
 
     return (
@@ -366,7 +373,9 @@ export default class VendorHome extends React.Component {
                               style={{
                                 fontSize: '1.5rem',
                                 cursor: 'pointer'
-                              }} />
+                              }}
+                                onClick={this.deleteListing}
+                              />
                             </button>
                           </div>
 
