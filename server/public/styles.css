@@ -77,6 +77,12 @@
   border: none;
 }
 
+/* Delete */
+.delete-button {
+  background-color: #fff;
+  border: none;
+}
+
 :is(
 .back,
 .home,
@@ -91,7 +97,8 @@
 .close-form,
 .room-name,
 .edit-button,
-.close-edit-form):active {
+.close-edit-form,
+.delete-button):active {
   position: relative;
   bottom: 0.4rem;
 }
@@ -99,7 +106,8 @@
 .register:focus,
 .new-listing-submit:focus,
 .room-name:focus,
-.close-edit-form:focus {
+.close-edit-form:focus,
+.delete-button:focus {
   outline: none;
 }
 
@@ -115,6 +123,12 @@
 .new-listing {
   background-color: #ececec;
   width: 23rem;
+  height: 100%;
+}
+
+.edit-form {
+  background-color: #ececec;
+  width: 24rem;
   height: 100%;
 }
 

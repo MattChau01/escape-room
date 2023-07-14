@@ -360,7 +360,17 @@ export default class VendorHome extends React.Component {
 
                           </div>
 
-                          <div className='pt-5'>
+                          <div>
+                            <button className='delete-button'>
+                              <i className="fa-regular fa-trash-can"
+                              style={{
+                                fontSize: '1.5rem',
+                                cursor: 'pointer'
+                              }} />
+                            </button>
+                          </div>
+
+                          <div className='pt-4'>
                             <button className='close-edit-form' onClick={this.closeEdit}
                               style={{
                                 cursor: 'pointer'

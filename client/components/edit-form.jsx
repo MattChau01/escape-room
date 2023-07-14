@@ -91,7 +91,7 @@ export default class EditForm extends React.Component {
       <div className='d-flex justify-content-center mt-3 mb-3'>
         <form
           autoComplete='off'
-          className='new-listing'
+          className='edit-form'
           onSubmit={this.handleSubmit}
         >
           <label className='d-flex justify-content-center mt-3'
