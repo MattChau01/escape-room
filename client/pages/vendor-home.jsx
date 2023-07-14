@@ -22,7 +22,8 @@ export default class VendorHome extends React.Component {
       listings: [],
       userId: window.localStorage.getItem('userId'),
       listingClicked: [],
-      currentListing: []
+      currentListing: [],
+      deleteClicked: false
     };
     this.roomName = this.roomName.bind(this);
     this.imageLink = this.imageLink.bind(this);
@@ -40,7 +41,7 @@ export default class VendorHome extends React.Component {
     this.closeEdit = this.closeEdit.bind(this);
     this.currentListing = this.currentListing.bind(this);
     this.handleNewRoomName = this.handleNewRoomName.bind(this);
-    this.deleteListing = this.deleteListing.bind(this);
+    this.deleteButton = this.deleteButton.bind(this);
   }
 
   componentDidMount() {
@@ -247,9 +248,12 @@ export default class VendorHome extends React.Component {
     });
   }
 
-  deleteListing() {
+  deleteButton() {
 
     // console.log('delete button clicked!');
+    this.setState({
+      deleteClicked: true
+    });
 
   }
 
@@ -367,6 +371,7 @@ export default class VendorHome extends React.Component {
 
                           </div>
 
+                          {/* `DELETE` function here */}
                           <div>
                             <button className='delete-button'>
                               <i className="fa-regular fa-trash-can"
@@ -374,7 +379,7 @@ export default class VendorHome extends React.Component {
                                 fontSize: '1.5rem',
                                 cursor: 'pointer'
                               }}
-                                onClick={this.deleteListing}
+                                onClick={this.deleteButton}
                               />
                             </button>
                           </div>
