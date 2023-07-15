@@ -42,6 +42,7 @@ export default class VendorHome extends React.Component {
     this.currentListing = this.currentListing.bind(this);
     this.handleNewRoomName = this.handleNewRoomName.bind(this);
     this.deleteButton = this.deleteButton.bind(this);
+    this.cancelDelete = this.cancelDelete.bind(this);
   }
 
   componentDidMount() {
@@ -257,6 +258,12 @@ export default class VendorHome extends React.Component {
 
   }
 
+  cancelDelete() {
+    this.setState({
+      deleteClicked: false
+    });
+  }
+
   render() {
 
     return (
@@ -372,19 +379,44 @@ export default class VendorHome extends React.Component {
                           </div>
 
                           {/* `DELETE` function here */}
-                          <div>
-                            <button className='delete-button'>
-                              <i className="fa-regular fa-trash-can"
-                              style={{
-                                fontSize: '1.5rem',
-                                cursor: 'pointer'
-                              }}
-                                onClick={this.deleteButton}
-                              />
-                            </button>
+                          <div className='pt-2'>
+                            <div>
+                              <button className='delete-button'>
+                                <i className="fa-regular fa-trash-can"
+                                  style={{
+                                    fontSize: '1.5rem',
+                                    cursor: 'pointer'
+                                  }}
+                                  onClick={this.deleteButton}
+                                />
+                              </button>
+                            </div>
+                            {
+                              (this.state.deleteClicked === false)
+                                ? (
+                                  <div>
+                                    &nbsp;
+                                  </div>
+                                  )
+                                : (
+                                  <div className='container'>
+                                    <div className='d-flex'>
+                                      <div className='col'>
+                                        <i
+                                        className="fa-solid fa-xmark cancel-delete"
+                                        onClick={this.cancelDelete} />
+                                      </div>
+                                      <div className='col'>
+                                        <i
+                                        className="fa-solid fa-check confirm-delete" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  )
+                            }
                           </div>
 
-                          <div className='pt-4'>
+                          <div className='pt-5'>
                             <button className='close-edit-form' onClick={this.closeEdit}
                               style={{
                                 cursor: 'pointer'

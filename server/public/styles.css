@@ -83,6 +83,18 @@
   border: none;
 }
 
+.cancel-delete {
+  color: #ef8181;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.confirm-delete {
+  color: #78e578;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
 :is(
 .back,
 .home,
@@ -98,7 +110,9 @@
 .room-name,
 .edit-button,
 .close-edit-form,
-.delete-button):active {
+.delete-button,
+.cancel-delete,
+.confirm-delete):active {
   position: relative;
   bottom: 0.4rem;
 }
@@ -107,7 +121,9 @@
 .new-listing-submit:focus,
 .room-name:focus,
 .close-edit-form:focus,
-.delete-button:focus {
+.delete-button:focus,
+.cancel-delete:focus,
+.confirm-delete:focus {
   outline: none;
 }
 
