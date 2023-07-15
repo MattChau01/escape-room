@@ -43,6 +43,7 @@ export default class VendorHome extends React.Component {
     this.handleNewRoomName = this.handleNewRoomName.bind(this);
     this.deleteButton = this.deleteButton.bind(this);
     this.cancelDelete = this.cancelDelete.bind(this);
+    this.confirmDelete = this.confirmDelete.bind(this);
   }
 
   componentDidMount() {
@@ -264,6 +265,12 @@ export default class VendorHome extends React.Component {
     });
   }
 
+  confirmDelete() {
+
+    // console.log('confirmed delete!');
+
+  }
+
   render() {
 
     return (
@@ -408,7 +415,8 @@ export default class VendorHome extends React.Component {
                                       </div>
                                       <div className='col'>
                                         <i
-                                        className="fa-solid fa-check confirm-delete" />
+                                        className="fa-solid fa-check confirm-delete"
+                                        onClick={this.confirmDelete}/>
                                       </div>
                                     </div>
                                   </div>
