@@ -268,6 +268,10 @@ export default class VendorHome extends React.Component {
   confirmDelete() {
 
     // console.log('confirmed delete!');
+    this.setState({
+      deleteClicked: false,
+      editClicked: false
+    });
 
   }
 
