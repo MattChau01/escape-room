@@ -180,6 +180,10 @@ export default class VendorHome extends React.Component {
 
       event.preventDefault();
 
+      this.setState({
+        deleteClicked: false
+      });
+
       const reqObj = {};
 
       reqObj.userId = window.localStorage.getItem('userId');
@@ -240,7 +244,8 @@ export default class VendorHome extends React.Component {
 
   closeEdit() {
     this.setState({
-      editClicked: false
+      editClicked: false,
+      deleteClicked: false
     });
   }
 

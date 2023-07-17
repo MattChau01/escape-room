@@ -130,18 +130,18 @@ export default class EditListing extends React.Component {
 
         <div className='container room-d' >
           <div className='col-md py-3'>
-            <div className='row justify-content-center' style={{
+            <div className='row justify-content-center pt-2' style={{
               color: '#000',
               fontSize: '1.1rem',
               fontWeight: 600
             }}>
               {this.state.originalRoomName}
             </div>
-            <div className='row justify-content-center'>
+            <div className='row justify-content-center pt-3'>
               <img src={this.state.img} style={{ width: '8rem', height: '10rem', objectFit: 'cover' }} />
             </div>
 
-            <div>
+            <div className='pt-3'>
               <div className='py-1'>
                 <b>Address</b>: {this.state.originalAddress}
               </div>
