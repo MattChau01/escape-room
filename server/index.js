@@ -6,7 +6,12 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const pg = require('pg');
 const staticMiddleware = require('./static-middleware');
-const authorizationMiddleware = require('./authorizationMiddleware');
+
+// ********** COMMENTING OUT FOR TESTING **********
+
+// const authorizationMiddleware = require('./authorizationMiddleware');
+
+// ********** DO NOT DELETE ABOVE **********
 
 const db = new pg.Pool({
   connectionString: `${process.env.DATABASE_URL}`,
@@ -116,7 +121,11 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
   }
 });
 
-app.use(authorizationMiddleware);
+// ********** COMMENTING OUT FOR TESTING **********
+
+// app.use(authorizationMiddleware);
+
+// ********** DO NOT DELETE ABOVE **********
 
 app.post('/api/listings/post', (req, res, next) => {
 
@@ -282,6 +291,20 @@ app.patch('/api/listings/patch/:entryId', (req, res, next) => {
   }
 
 });
+
+// DELETE REQUEST BELOW
+
+app.delete('/api/listings/delete/:entryId', (req, res, next) => {
+
+  const entryId = req.params.entryId;
+  const entryIdNum = Number(entryId);
+
+  // TESTING HTTP REQUEST
+  console.log('entryIdNum: ', entryIdNum); // eslint-disable-line
+
+});
+
+// DELETE REQUEST ABOVE
 
 app.use(errorMiddleware);
 
