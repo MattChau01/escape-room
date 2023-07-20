@@ -22,7 +22,8 @@ export default class VendorHome extends React.Component {
       listings: [],
       userId: window.localStorage.getItem('userId'),
       listingClicked: [],
-      currentListing: []
+      currentListing: [],
+      deleteClicked: false
     };
     this.roomName = this.roomName.bind(this);
     this.imageLink = this.imageLink.bind(this);
@@ -40,6 +41,9 @@ export default class VendorHome extends React.Component {
     this.closeEdit = this.closeEdit.bind(this);
     this.currentListing = this.currentListing.bind(this);
     this.handleNewRoomName = this.handleNewRoomName.bind(this);
+    this.deleteButton = this.deleteButton.bind(this);
+    this.cancelDelete = this.cancelDelete.bind(this);
+    this.confirmDelete = this.confirmDelete.bind(this);
   }
 
   componentDidMount() {
@@ -176,6 +180,10 @@ export default class VendorHome extends React.Component {
 
       event.preventDefault();
 
+      this.setState({
+        deleteClicked: false
+      });
+
       const reqObj = {};
 
       reqObj.userId = window.localStorage.getItem('userId');
@@ -236,7 +244,8 @@ export default class VendorHome extends React.Component {
 
   closeEdit() {
     this.setState({
-      editClicked: false
+      editClicked: false,
+      deleteClicked: false
     });
   }
 
@@ -244,6 +253,42 @@ export default class VendorHome extends React.Component {
     this.setState({
       newRoomName: event.target.value
     });
+  }
+
+  deleteButton() {
+
+    this.setState({
+      deleteClicked: true
+    });
+
+  }
+
+  cancelDelete() {
+    this.setState({
+      deleteClicked: false
+    });
+  }
+
+  confirmDelete() {
+
+    const req = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('Token')
+      }
+    };
+
+    fetch(`/api/listings/delete/${this.state.listingClicked}`, req)
+      .then(res => res.json())
+      .then(result => {
+        this.setState({
+          deleteClicked: false,
+          editClicked: false
+        });
+      })
+      .catch(err => console.error(err));
+
   }
 
   render() {
@@ -358,6 +403,44 @@ export default class VendorHome extends React.Component {
                               closeEdit={this.closeEdit}
                             />
 
+                          </div>
+
+                          <div className='pt-2'>
+                            <div>
+                              <button className='delete-button'>
+                                <i className="fa-regular fa-trash-can"
+                                  style={{
+                                    fontSize: '1.5rem',
+                                    cursor: 'pointer'
+                                  }}
+                                  onClick={this.deleteButton}
+                                />
+                              </button>
+                            </div>
+                            {
+                              (this.state.deleteClicked === false)
+                                ? (
+                                  <div>
+                                    &nbsp;
+                                  </div>
+                                  )
+                                : (
+                                  <div className='container'>
+                                    <div className='d-flex'>
+                                      <div className='col'>
+                                        <i
+                                        className="fa-solid fa-xmark cancel-delete"
+                                        onClick={this.cancelDelete} />
+                                      </div>
+                                      <div className='col'>
+                                        <i
+                                        className="fa-solid fa-check confirm-delete"
+                                        onClick={this.confirmDelete}/>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  )
+                            }
                           </div>
 
                           <div className='pt-5'>

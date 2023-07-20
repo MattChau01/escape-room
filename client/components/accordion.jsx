@@ -94,7 +94,7 @@ export default function HomeAccordion() {
             <Typography>
 
               If you are a vendor and would like to add your room as a listing on this site, take a look at our
-              guide on how to make your room available! Click on this link to get started!
+              guide on how to make your room available! Click on this link (ADD LINK HERE) to get started!
 
             </Typography>
           </AccordionDetails>

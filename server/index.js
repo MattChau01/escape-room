@@ -283,6 +283,36 @@ app.patch('/api/listings/patch/:entryId', (req, res, next) => {
 
 });
 
+app.delete('/api/listings/delete/:entryId', (req, res, next) => {
+
+  const entryId = req.params.entryId;
+  const entryIdNum = Number(entryId);
+
+  if (!entryId) {
+    throw new ClientError(400, 'Invalid input');
+  } else if (entryIdNum < 0) {
+    throw new ClientError(400, 'Invalid input');
+  } else {
+
+    const sql = `
+      delete from "listings"
+      where "entryId" = $1
+      returning *
+    `;
+
+    const params = [entryIdNum];
+
+    db.query(sql, params)
+      .then(result => {
+        const listing = result.rows[0];
+        res.json(listing);
+      })
+      .catch(err => next(err));
+
+  }
+
+});
+
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {

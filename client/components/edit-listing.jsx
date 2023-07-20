@@ -16,7 +16,16 @@ export default class EditListing extends React.Component {
       difficulty: '',
       timeLimit: '',
       phoneNumber: '',
-      description: ''
+      description: '',
+      originalRoomName: '',
+      originalImg: '',
+      originalAddress: '',
+      originalPrice: '',
+      originalMinimumPlayers: '',
+      originalDifficulty: '',
+      originalTimeLimit: '',
+      originalPhoneNumber: '',
+      originalDescription: ''
     };
     this.handleNewName = this.handleNewName.bind(this);
     this.handleImg = this.handleImg.bind(this);
@@ -43,7 +52,16 @@ export default class EditListing extends React.Component {
       difficulty: this.state.list[indexOfList].difficulty,
       timeLimit: this.state.list[indexOfList].timeLimit,
       phoneNumber: this.state.list[indexOfList].phoneNumber,
-      description: this.state.list[indexOfList].description
+      description: this.state.list[indexOfList].description,
+      originalRoomName: this.state.list[indexOfList].roomName,
+      originalImg: this.state.list[indexOfList].imageUrl,
+      originalAddress: this.state.list[indexOfList].address,
+      originalPrice: this.state.list[indexOfList].price,
+      originalMinimumPlayers: this.state.list[indexOfList].minimumPlayers,
+      originalDifficulty: this.state.list[indexOfList].difficulty,
+      originalTimeLimit: this.state.list[indexOfList].timeLimit,
+      originalPhoneNumber: this.state.list[indexOfList].phoneNumber,
+      originalDescription: this.state.list[indexOfList].description
     });
 
   }
@@ -110,38 +128,38 @@ export default class EditListing extends React.Component {
 
         <div className='container room-d' >
           <div className='col-md py-3'>
-            <div className='row justify-content-center' style={{
+            <div className='row justify-content-center pt-2' style={{
               color: '#000',
               fontSize: '1.1rem',
               fontWeight: 600
             }}>
-              {this.state.roomName}
+              {this.state.originalRoomName}
             </div>
-            <div className='row justify-content-center'>
+            <div className='row justify-content-center pt-3'>
               <img src={this.state.img} style={{ width: '8rem', height: '10rem', objectFit: 'cover' }} />
             </div>
 
-            <div>
+            <div className='pt-3'>
               <div className='py-1'>
-                <b>Address</b>: {this.state.address}
+                <b>Address</b>: {this.state.originalAddress}
               </div>
               <div className='py-1'>
-                <b>Price</b>: ${this.state.price}
+                <b>Price</b>: ${this.state.originalPrice}
               </div>
               <div className='py-1'>
-                <b>Minimum Players</b>: {this.state.minimumPlayers}
+                <b>Minimum Players</b>: {this.state.originalMinimumPlayers}
               </div>
               <div className='py-1'>
-                <b>Difficulty</b>: {this.state.difficulty}
+                <b>Difficulty</b>: {this.state.originalDifficulty}
               </div>
               <div className='py-1'>
-                <b>Time limit</b>: {this.state.timeLimit}
+                <b>Time limit</b>: {this.state.originalTimeLimit}
               </div>
               <div className='py-1'>
-                <b>Phone number</b>: {this.state.phoneNumber}
+                <b>Phone number</b>: {this.state.originalPhoneNumber}
               </div>
               <div className='py-1'>
-                <b>Description</b>: {this.state.description}
+                <b>Description</b>: {this.state.originalDescription}
               </div>
 
             </div>
