@@ -17,7 +17,6 @@ export default class EditListing extends React.Component {
       timeLimit: '',
       phoneNumber: '',
       description: '',
-      // ORIGINAL VALUES
       originalRoomName: '',
       originalImg: '',
       originalAddress: '',
@@ -54,7 +53,6 @@ export default class EditListing extends React.Component {
       timeLimit: this.state.list[indexOfList].timeLimit,
       phoneNumber: this.state.list[indexOfList].phoneNumber,
       description: this.state.list[indexOfList].description,
-      // ORIGINAL DATA
       originalRoomName: this.state.list[indexOfList].roomName,
       originalImg: this.state.list[indexOfList].imageUrl,
       originalAddress: this.state.list[indexOfList].address,

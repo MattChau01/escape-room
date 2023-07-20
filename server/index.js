@@ -6,12 +6,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const pg = require('pg');
 const staticMiddleware = require('./static-middleware');
-
-// ********** COMMENTING OUT FOR TESTING **********
-
 const authorizationMiddleware = require('./authorizationMiddleware');
-
-// ********** DO NOT DELETE ABOVE **********
 
 const db = new pg.Pool({
   connectionString: `${process.env.DATABASE_URL}`,
@@ -121,11 +116,7 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
   }
 });
 
-// ********** COMMENTING OUT FOR TESTING **********
-
 app.use(authorizationMiddleware);
-
-// ********** DO NOT DELETE ABOVE **********
 
 app.post('/api/listings/post', (req, res, next) => {
 
@@ -292,21 +283,17 @@ app.patch('/api/listings/patch/:entryId', (req, res, next) => {
 
 });
 
-// DELETE REQUEST BELOW
-
 app.delete('/api/listings/delete/:entryId', (req, res, next) => {
 
   const entryId = req.params.entryId;
   const entryIdNum = Number(entryId);
 
-  // TESTING HTTP REQUEST
   if (!entryId) {
     throw new ClientError(400, 'Invalid input');
   } else if (entryIdNum < 0) {
     throw new ClientError(400, 'Invalid input');
   } else {
 
-    // Inserting SQL query / params / database query here
     const sql = `
       delete from "listings"
       where "entryId" = $1
@@ -325,8 +312,6 @@ app.delete('/api/listings/delete/:entryId', (req, res, next) => {
   }
 
 });
-
-// DELETE REQUEST ABOVE
 
 app.use(errorMiddleware);
 

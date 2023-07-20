@@ -257,28 +257,6 @@ export default class VendorHome extends React.Component {
 
   deleteButton() {
 
-    // const reqObj = {};
-
-    // reqObj.entryId = this.state.currentListing;
-
-    // const req = {
-    //   method: 'DELETE',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'x-access-token': window.localStorage.getItem('Token')
-    //   }
-    //   // body: JSON.stringify(reqObj)
-    // };
-
-    // fetch(`/api/listings/delete/${this.state.currentListing}`, req)
-    //   .then(res => res.json())
-    //   .then(result => {
-    //     // this.setState({
-    //     //   deleteClicked: true
-    //     // });
-    //   })
-    //   .catch(err => console.error(err));
-
     this.setState({
       deleteClicked: true
     });
@@ -299,7 +277,6 @@ export default class VendorHome extends React.Component {
         'Content-Type': 'application/json',
         'x-access-token': window.localStorage.getItem('Token')
       }
-      // body: JSON.stringify(reqObj)
     };
 
     fetch(`/api/listings/delete/${this.state.listingClicked}`, req)
@@ -311,11 +288,6 @@ export default class VendorHome extends React.Component {
         });
       })
       .catch(err => console.error(err));
-
-    // this.setState({
-    //   deleteClicked: false,
-    //   editClicked: false
-    // });
 
   }
 
@@ -433,7 +405,6 @@ export default class VendorHome extends React.Component {
 
                           </div>
 
-                          {/* `DELETE` function here */}
                           <div className='pt-2'>
                             <div>
                               <button className='delete-button'>
