@@ -163,6 +163,9 @@ export default class EditForm extends React.Component {
 
             <label htmlFor='difficulty'>
               <select
+                style={{
+                  cursor: 'pointer'
+                }}
                 className='dropdown'
                 name='difficulty'
                 id='difficulty'

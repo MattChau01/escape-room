@@ -86,6 +86,9 @@ export default function ListingForm(props) {
 
                 <label htmlFor='difficulty'>
                   <select
+                    style={{
+                      cursor: 'pointer'
+                    }}
                     required
                     className='dropdown'
                     name='difficulty'
