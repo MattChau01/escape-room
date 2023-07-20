@@ -256,7 +256,6 @@ export default class VendorHome extends React.Component {
   }
 
   deleteButton() {
-    // console.log('listing clicked: ', this.state.listingClicked);
 
     // const reqObj = {};
 
@@ -280,7 +279,6 @@ export default class VendorHome extends React.Component {
     //   })
     //   .catch(err => console.error(err));
 
-    // console.log('delete button clicked!');
     this.setState({
       deleteClicked: true
     });
@@ -314,7 +312,6 @@ export default class VendorHome extends React.Component {
       })
       .catch(err => console.error(err));
 
-    // console.log('confirmed delete!');
     // this.setState({
     //   deleteClicked: false,
     //   editClicked: false

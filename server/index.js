@@ -300,7 +300,6 @@ app.delete('/api/listings/delete/:entryId', (req, res, next) => {
   const entryIdNum = Number(entryId);
 
   // TESTING HTTP REQUEST
-  // console.log('entryIdNum: ', entryIdNum); // eslint-disable-line
   if (!entryId) {
     throw new ClientError(400, 'Invalid input');
   } else if (entryIdNum < 0) {
