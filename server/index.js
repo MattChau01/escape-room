@@ -303,11 +303,25 @@ app.delete('/api/listings/delete/:entryId', (req, res, next) => {
   // console.log('entryIdNum: ', entryIdNum); // eslint-disable-line
   if (!entryId) {
     throw new ClientError(400, 'Invalid input');
-  } else if (entryIdNum % 2 !== 0 || entryIdNum < 0) {
+  } else if (entryIdNum < 0) {
     throw new ClientError(400, 'Invalid input');
   } else {
 
     // Inserting SQL query / params / database query here
+    const sql = `
+      delete from "listings"
+      where "entryId" = $1
+      returning *
+    `;
+
+    const params = [entryIdNum];
+
+    db.query(sql, params)
+      .then(result => {
+        const listing = result.rows[0];
+        res.json(listing);
+      })
+      .catch(err => next(err));
 
   }
 
