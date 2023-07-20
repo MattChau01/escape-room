@@ -9,7 +9,7 @@ const staticMiddleware = require('./static-middleware');
 
 // ********** COMMENTING OUT FOR TESTING **********
 
-// const authorizationMiddleware = require('./authorizationMiddleware');
+const authorizationMiddleware = require('./authorizationMiddleware');
 
 // ********** DO NOT DELETE ABOVE **********
 
@@ -123,7 +123,7 @@ app.post('/api/vendorAccounts/signin', (req, res, next) => {
 
 // ********** COMMENTING OUT FOR TESTING **********
 
-// app.use(authorizationMiddleware);
+app.use(authorizationMiddleware);
 
 // ********** DO NOT DELETE ABOVE **********
 

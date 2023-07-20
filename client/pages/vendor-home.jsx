@@ -256,6 +256,29 @@ export default class VendorHome extends React.Component {
   }
 
   deleteButton() {
+    // console.log('listing clicked: ', this.state.listingClicked);
+
+    // const reqObj = {};
+
+    // reqObj.entryId = this.state.currentListing;
+
+    // const req = {
+    //   method: 'DELETE',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'x-access-token': window.localStorage.getItem('Token')
+    //   }
+    //   // body: JSON.stringify(reqObj)
+    // };
+
+    // fetch(`/api/listings/delete/${this.state.currentListing}`, req)
+    //   .then(res => res.json())
+    //   .then(result => {
+    //     // this.setState({
+    //     //   deleteClicked: true
+    //     // });
+    //   })
+    //   .catch(err => console.error(err));
 
     // console.log('delete button clicked!');
     this.setState({
@@ -272,11 +295,30 @@ export default class VendorHome extends React.Component {
 
   confirmDelete() {
 
+    const req = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('Token')
+      }
+      // body: JSON.stringify(reqObj)
+    };
+
+    fetch(`/api/listings/delete/${this.state.listingClicked}`, req)
+      .then(res => res.json())
+      .then(result => {
+        this.setState({
+          deleteClicked: false,
+          editClicked: false
+        });
+      })
+      .catch(err => console.error(err));
+
     // console.log('confirmed delete!');
-    this.setState({
-      deleteClicked: false,
-      editClicked: false
-    });
+    // this.setState({
+    //   deleteClicked: false,
+    //   editClicked: false
+    // });
 
   }
 
