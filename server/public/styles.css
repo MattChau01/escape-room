@@ -6,6 +6,10 @@
   width: 14rem;
 }
 
+.new-vendor {
+  cursor: pointer;
+}
+
 .carousel-arrows {
   margin-top: 8.5rem;
   font-weight: 600;
@@ -111,7 +115,8 @@
 .close-edit-form,
 .delete-button,
 .cancel-delete,
-.confirm-delete):active {
+.confirm-delete,
+.new-vendor):active {
   position: relative;
   bottom: 0.4rem;
 }

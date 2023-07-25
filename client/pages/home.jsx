@@ -77,7 +77,9 @@ export default class Home extends React.Component {
             </div>
           </div>
         </div>
-        <HomeAccordion />
+        <HomeAccordion
+          routeVSignup={this.props.routeVSignup}
+        />
       </div>
 
     );

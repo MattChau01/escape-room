@@ -43,7 +43,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)'
 }));
 
-export default function HomeAccordion() {
+export default function HomeAccordion(props) {
   const [expanded, setExpanded] = React.useState('');
 
   const handleChange = panel => (event, newExpanded) => {
@@ -93,8 +93,9 @@ export default function HomeAccordion() {
           <AccordionDetails>
             <Typography>
 
-              If you are a vendor and would like to add your room as a listing on this site, take a look at our
-              guide on how to make your room available! Click on this link (ADD LINK HERE) to get started!
+              If you are a vendor and would like to add your room as a listing on this site, create an account
+              to add your listing to our catalog! Click on this link&nbsp;
+              <a className='new-vendor' style={{ textDecoration: 'underline' }} onClick={props.routeVSignup}>here</a> to get started!
 
             </Typography>
           </AccordionDetails>
