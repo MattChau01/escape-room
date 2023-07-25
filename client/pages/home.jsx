@@ -28,7 +28,11 @@ export default class Home extends React.Component {
 
     return (
       <div>
-        <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
+        <Header
+          participants={this.props.participants}
+          routeVSignin={this.props.routeVSignin}
+          toHome={this.props.toHome}
+          aboutUs={this.props.aboutUs} />
         <div className='mt-4'>
           <div className='d-flex justify-content-center align-items-center' style={{ fontFamily: 'tilt warp, cursive', fontSize: '1.25rem' }}>
             <p className='text-center'>Sign up today and <br /> find a room near you!</p>

@@ -61,7 +61,7 @@ function Header(props) {
               <i className="fa-solid fa-circle-info mx-2 mt-2" style={{ fontSize: '1rem' }} />
             </div>
             <div className='col'>
-              <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }}>About Us</a>
+              <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }} onClick={props.aboutUs} >About Us</a>
             </div>
           </div>
         </div>
