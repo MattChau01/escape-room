@@ -126,7 +126,7 @@ export default function HomeAccordion(props) {
               This site was created out of a hobby for escape rooms. Hopefully it can be yours too!
               There are many types and themes of escape rooms out there, find your first room here!
               Click <a
-                className='about-us'
+                className='about-us-a'
                 style={{ textDecoration: 'underline', color: 'inherit' }}
                 href='https://github.com/MattChau01/escape-room' target="_blank" rel="noreferrer">here</a> for a link to the project repository on GitHub.
 

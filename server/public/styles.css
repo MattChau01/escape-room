@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 
-.about-us {
+.about-us-a {
   cursor: pointer;
 }
 
@@ -121,7 +121,7 @@
 .cancel-delete,
 .confirm-delete,
 .new-vendor,
-.about-us,
+.about-us-a,
 .github,
 .wiki):active {
   position: relative;
@@ -135,7 +135,7 @@
 .delete-button:focus,
 .cancel-delete:focus,
 .confirm-delete:focus,
-.about-us:focus,
+.about-us-a:focus,
 .github:focus {
   outline: none;
 }
