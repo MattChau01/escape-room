@@ -74,7 +74,9 @@ function Header(props) {
             bottom: 0
           }}>
             <div className='text-center'>
-              <i className="fa-brands fa-github" style={{ fontSize: '1.5rem' }} />
+              <a className='github' href='https://github.com/MattChau01/escape-room' target='_blank' rel="noreferrer">
+                <i className="fa-brands fa-github" style={{ fontSize: '1.5rem', cursor: 'pointer', color: '#000' }} />
+              </a>
             </div>
             <p>Howdy inspectors!</p>
           </div>

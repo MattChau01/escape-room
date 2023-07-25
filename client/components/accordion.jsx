@@ -64,7 +64,8 @@ export default function HomeAccordion(props) {
               An escape room is a game in which a team of players discover clues,
               solve puzzles, and accomplish tasks in one or more
               rooms in order to accomplish a specific goal in a limited amount of time. The goal is
-              often to escape from the site of the game. <a href='https://en.wikipedia.org/wiki/Escape_room' target="_blank" rel="noreferrer">Learn more here!</a>
+              often to escape from the site of the game.&nbsp;
+              <a className='wiki' href='https://en.wikipedia.org/wiki/Escape_room' target="_blank" rel="noreferrer" style={{ color: '#000', textDecoration: 'underline' }}>Learn more here!</a>
 
             </Typography>
           </AccordionDetails>
@@ -124,6 +125,10 @@ export default function HomeAccordion(props) {
 
               This site was created out of a hobby for escape rooms. Hopefully it can be yours too!
               There are many types and themes of escape rooms out there, find your first room here!
+              Click <a
+                className='about-us'
+                style={{ textDecoration: 'underline', color: 'inherit' }}
+                href='https://github.com/MattChau01/escape-room' target="_blank" rel="noreferrer">here</a> for a link to the project repository on GitHub.
 
             </Typography>
           </AccordionDetails>
