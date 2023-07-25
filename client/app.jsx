@@ -9,6 +9,7 @@ import VendorSignin from './pages/vendor-signin';
 import VendorHome from './pages/vendor-home';
 import TokenRequired from './pages/token-required';
 import RoomDetails from './pages/room-details';
+// import AboutUs from './pages/about-us';
 
 export default class App extends React.Component {
   constructor(props) {
