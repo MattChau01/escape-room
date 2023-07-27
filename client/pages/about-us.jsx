@@ -9,7 +9,7 @@ export default function AboutUs(props) {
         routeVSignin={props.routeVSignin}
         toHome={props.toHome}
         aboutUs={props.aboutUs} />
-      <div className='mt-4 pl-2'>
+      <div className='mt-4 px-4'>
         <div className='container'>
 
           <div className='d-flex row justify-content-center'>
