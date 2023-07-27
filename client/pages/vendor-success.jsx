@@ -5,7 +5,11 @@ export default function VendorSuccess(props) {
 
   return (
     <div style={{ overflowX: 'hidden' }}>
-      <Header participants={props.participants} routeVSignin={props.routeVSignin} toHome={props.toHome} />
+      <Header
+        participants={props.participants}
+        routeVSignin={props.routeVSignin}
+        toHome={props.toHome}
+        aboutUs={props.aboutUs} />
       <div className='d-flex flex-column mt-5'>
         <div className='row justify-content-center'>
           <h2>

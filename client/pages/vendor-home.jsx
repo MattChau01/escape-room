@@ -298,7 +298,8 @@ export default class VendorHome extends React.Component {
         <Header
           participants={this.props.participants}
           routeVSignin={this.props.routeVSignin}
-          toHome={this.props.toHome} />
+          toHome={this.props.toHome}
+          aboutUs={this.props.aboutUs} />
         <div className='d-flex mt-2'>
           <div className='col mt-2 text-left'>
             <h6>Current user: {window.localStorage.getItem('username')}</h6>

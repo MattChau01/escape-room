@@ -45,7 +45,8 @@ export default class RoomDetails extends React.Component {
           <Header
             participants={this.props.participants}
             routeVSignin={this.props.routeVSignin}
-            toHome={this.props.toHome} />
+            toHome={this.props.toHome}
+            aboutUs={this.props.aboutUs} />
           <div className='container'>
 
             <div className='row justify-content-center'>

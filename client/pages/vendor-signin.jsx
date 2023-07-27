@@ -94,7 +94,8 @@ export default class VendorSignin extends React.Component {
         <Header
           participants={this.props.participants}
           routeVSignin={this.props.routeVSignin}
-          toHome={this.props.toHome} />
+          toHome={this.props.toHome}
+          aboutUs={this.props.aboutUs} />
         <div className='d-flex justify-content-center mt-4 text-center'>
           <h4>
             Welcome back!
