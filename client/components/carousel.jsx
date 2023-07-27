@@ -54,7 +54,8 @@ export default class Carousel extends React.Component {
           <div className='row justify-between'>
             <div style={{
               position: 'absolute',
-              left: '0'
+              left: '0',
+              top: '50'
             }}>
               <div>
                 <button className='carousel-arrows' onClick={this.prevImg} >
