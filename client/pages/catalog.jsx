@@ -14,8 +14,11 @@ export default class CatalogPage extends React.Component {
     return (
       <div>
 
-        <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
-
+        <Header
+          participants={this.props.participants}
+          routeVSignin={this.props.routeVSignin}
+          toHome={this.props.toHome}
+          aboutUs={this.props.aboutUs} />
         <div className='text-center mt-3'>
 
           <div className='mt-3 mb-3'>

@@ -9,6 +9,7 @@ import VendorSignin from './pages/vendor-signin';
 import VendorHome from './pages/vendor-home';
 import TokenRequired from './pages/token-required';
 import RoomDetails from './pages/room-details';
+import AboutUs from './pages/about-us';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ export default class App extends React.Component {
     this.participants = this.participants.bind(this);
     this.routeVSignup = this.routeVSignup.bind(this);
     this.vendorHome = this.vendorHome.bind(this);
+    this.aboutUs = this.aboutUs.bind(this);
   }
 
   componentDidMount() {
@@ -89,6 +91,10 @@ export default class App extends React.Component {
     window.location.hash = 'participants';
   }
 
+  aboutUs() {
+    window.location.hash = 'about';
+  }
+
   routeVSignup() {
 
     if (window.localStorage.getItem('Token') !== null) {
@@ -130,7 +136,8 @@ export default class App extends React.Component {
           routeVSignup={this.routeVSignup}
           participants={this.participants}
           routeVSignin={this.routeVSignin}
-          toHome={this.toHome} />
+          toHome={this.toHome}
+          aboutUs={this.aboutUs} />
       );
     }
 
@@ -141,7 +148,20 @@ export default class App extends React.Component {
           participants={this.participants}
           routeVSignin={this.routeVSignin}
           toHome={this.toHome}
-          listings={this.state.listings} />
+          listings={this.state.listings}
+          aboutUs={this.aboutUs} />
+      );
+    }
+
+    if (path === 'about') {
+
+      return (
+        <AboutUs
+          routeVSignup={this.routeVSignup}
+          participants={this.participants}
+          routeVSignin={this.routeVSignin}
+          toHome={this.toHome}
+          aboutUs={this.aboutUs} />
       );
     }
 
@@ -152,7 +172,8 @@ export default class App extends React.Component {
           participants={this.participants}
           routeVSignin={this.routeVSignin}
           toHome={this.toHome}
-          listings={this.state.listings} />
+          listings={this.state.listings}
+          aboutUs={this.aboutUs} />
 
       );
     }
@@ -162,7 +183,8 @@ export default class App extends React.Component {
         <VendorSignup
           participants={this.participants}
           routeVSignin={this.routeVSignin}
-          toHome={this.toHome} />
+          toHome={this.toHome}
+          aboutUs={this.aboutUs} />
       );
     }
 
@@ -171,7 +193,8 @@ export default class App extends React.Component {
         <VendorSuccess
           participants={this.participants}
           routeVSignin={this.routeVSignin}
-          toHome={this.toHome} />
+          toHome={this.toHome}
+          aboutUs={this.aboutUs} />
       );
     }
 
@@ -183,7 +206,8 @@ export default class App extends React.Component {
           onSignIn={this.handleSignIn}
           participants={this.participants}
           routeVSignin={this.routeVSignin}
-          toHome={this.toHome} />
+          toHome={this.toHome}
+          aboutUs={this.aboutUs} />
       );
     }
 
@@ -196,7 +220,8 @@ export default class App extends React.Component {
           user={this.state.user}
           participants={this.participants}
           routeVSignin={this.routeVSignin}
-          toHome={this.toHome} />
+          toHome={this.toHome}
+          aboutUs={this.aboutUs} />
       );
     } else if (path === 'vendor-home' && (window.localStorage.getItem('Token') === null)) {
       return (
@@ -204,7 +229,8 @@ export default class App extends React.Component {
           participants={this.participants}
           routeVSignin={this.routeVSignin}
           toHome={this.toHome}
-          routeVSignup={this.routeVSignup} />
+          routeVSignup={this.routeVSignup}
+          aboutUs={this.aboutUs} />
       );
     }
 

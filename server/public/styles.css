@@ -1,9 +1,17 @@
 .home-carousel {
-  margin: 0 30px auto;
+  width: 100%;
 }
 
 .home-carousel-img {
-  width: 14rem;
+  width: 100%;
+}
+
+.new-vendor {
+  cursor: pointer;
+}
+
+.about-us-a {
+  cursor: pointer;
 }
 
 .carousel-arrows {
@@ -12,7 +20,7 @@
   font-size: 1.5rem;
   border: none;
   cursor: pointer;
-  color: black;
+  color: #fff;
   background-color: transparent;
 }
 
@@ -111,7 +119,11 @@
 .close-edit-form,
 .delete-button,
 .cancel-delete,
-.confirm-delete):active {
+.confirm-delete,
+.new-vendor,
+.about-us-a,
+.github,
+.wiki):active {
   position: relative;
   bottom: 0.4rem;
 }
@@ -122,11 +134,16 @@
 .close-edit-form:focus,
 .delete-button:focus,
 .cancel-delete:focus,
-.confirm-delete:focus {
+.confirm-delete:focus,
+.about-us-a:focus,
+.github:focus,
+.carousel-arrows:focus {
   outline: none;
 }
 
-.room-name:hover {
+.room-name:hover,
+.github:hover,
+.carousel-arrows:hover {
   outline: none;
   text-decoration: none;
 }

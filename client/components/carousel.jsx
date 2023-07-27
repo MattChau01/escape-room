@@ -17,18 +17,18 @@ export default class Carousel extends React.Component {
 
   autoScroll() {
     this.timer = setInterval(() => {
-      if (this.state.count === 4) {
+      if (this.state.count === 3) {
         this.setState({ count: 0 });
       } else {
         this.setState({ count: this.state.count + 1 });
       }
-    }, 3000);
+    }, 3500);
   }
 
   prevImg() {
     if (this.state.count === 0) {
-      this.setState({ count: 4 });
-    } else if (this.state.count <= 4) {
+      this.setState({ count: 3 });
+    } else if (this.state.count <= 3) {
       this.setState({ count: this.state.count - 1 });
     }
 
@@ -37,7 +37,7 @@ export default class Carousel extends React.Component {
   }
 
   nextImg() {
-    if (this.state.count === 4) {
+    if (this.state.count === 3) {
       this.setState({ count: 0 });
     } else if (this.state.count >= 0) {
       this.setState({ count: this.state.count + 1 });
@@ -49,23 +49,32 @@ export default class Carousel extends React.Component {
 
   render() {
     return (
-      <div className='mt-3 d-flex justify-content-center align-items-center'>
-        <div className='row justify-between'>
-          <div >
-            <div>
-              <button className='carousel-arrows' onClick={this.prevImg} >
-                &lt;
-              </button>
+      <div style={{ overflow: 'hidden', marginTop: '-1rem', position: 'relative' }}>
+        <div className='d-flex justify-content-center align-items-center'>
+          <div className='row justify-between'>
+            <div style={{
+              position: 'absolute',
+              left: '0',
+              top: '50'
+            }}>
+              <div>
+                <button className='carousel-arrows' onClick={this.prevImg} >
+                  &lt;
+                </button>
+              </div>
             </div>
-          </div>
-          <div className='home-carousel'>
-            <img src={this.props.images[this.state.count].img} className='home-carousel-img' />
-          </div>
-          <div>
-            <div>
-              <button className='carousel-arrows' onClick={this.nextImg}>
-                &gt;
-              </button>
+            <div className='home-carousel'>
+              <img src={this.props.images[this.state.count].img} className='home-carousel-img' />
+            </div>
+            <div style={{
+              position: 'absolute',
+              right: '0'
+            }}>
+              <div>
+                <button className='carousel-arrows' onClick={this.nextImg}>
+                  &gt;
+                </button>
+              </div>
             </div>
           </div>
         </div>

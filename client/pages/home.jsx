@@ -2,18 +2,16 @@ import React from 'react';
 import Header from '../components/header';
 import HomeAccordion from '../components/accordion';
 import Carousel from '../components/carousel';
-import imgOne from '../../server/public/room-images/img-1.png';
-import imgTwo from '../../server/public/room-images/img-2.png';
-import imgThree from '../../server/public/room-images/img-3.png';
-import imgFour from '../../server/public/room-images/img-4.png';
-import imgFive from '../../server/public/room-images/img-5.png';
+import imgOne from '../../server/public/room-images/img-1.jpg';
+import imgTwo from '../../server/public/room-images/img-2.jpg';
+import imgThree from '../../server/public/room-images/img-3.jpg';
+import imgFour from '../../server/public/room-images/img-4.jpg';
 
 const images = [
   { id: 0, img: imgOne },
   { id: 1, img: imgTwo },
   { id: 2, img: imgThree },
-  { id: 3, img: imgFour },
-  { id: 4, img: imgFive }
+  { id: 3, img: imgFour }
 ];
 
 export default class Home extends React.Component {
@@ -28,13 +26,17 @@ export default class Home extends React.Component {
 
     return (
       <div>
-        <Header participants={this.props.participants} routeVSignin={this.props.routeVSignin} toHome={this.props.toHome} />
-        <div className='mt-4'>
+        <Header
+          participants={this.props.participants}
+          routeVSignin={this.props.routeVSignin}
+          toHome={this.props.toHome}
+          aboutUs={this.props.aboutUs} />
+        <Carousel images={images} />
+        <div className='mt-3'>
           <div className='d-flex justify-content-center align-items-center' style={{ fontFamily: 'tilt warp, cursive', fontSize: '1.25rem' }}>
             <p className='text-center'>Sign up today and <br /> find a room near you!</p>
           </div>
         </div>
-        <Carousel images={images} />
         <div className='d-flex justify-content-center mt-3'>
           <div>
             <p style={{
@@ -77,7 +79,9 @@ export default class Home extends React.Component {
             </div>
           </div>
         </div>
-        <HomeAccordion />
+        <HomeAccordion
+          routeVSignup={this.props.routeVSignup}
+        />
       </div>
 
     );

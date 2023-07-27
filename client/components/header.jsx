@@ -61,7 +61,7 @@ function Header(props) {
               <i className="fa-solid fa-circle-info mx-2 mt-2" style={{ fontSize: '1rem' }} />
             </div>
             <div className='col'>
-              <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }}>About Us</a>
+              <a className='mx-2' style={{ cursor: 'pointer', fontSize: '1.5rem' }} onClick={props.aboutUs} >About Us</a>
             </div>
           </div>
         </div>
@@ -74,7 +74,9 @@ function Header(props) {
             bottom: 0
           }}>
             <div className='text-center'>
-              <i className="fa-brands fa-github" style={{ fontSize: '1.5rem' }} />
+              <a className='github' href='https://github.com/MattChau01/escape-room' target='_blank' rel="noreferrer">
+                <i className="fa-brands fa-github" style={{ fontSize: '1.5rem', cursor: 'pointer', color: '#000' }} />
+              </a>
             </div>
             <p>Howdy inspectors!</p>
           </div>
