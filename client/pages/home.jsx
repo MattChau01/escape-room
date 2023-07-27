@@ -6,14 +6,12 @@ import imgOne from '../../server/public/room-images/img-1.jpg';
 import imgTwo from '../../server/public/room-images/img-2.jpg';
 import imgThree from '../../server/public/room-images/img-3.jpg';
 import imgFour from '../../server/public/room-images/img-4.jpg';
-// import imgFive from '../../server/public/room-images/img-5.png';
 
 const images = [
   { id: 0, img: imgOne },
   { id: 1, img: imgTwo },
   { id: 2, img: imgThree },
   { id: 3, img: imgFour }
-  // { id: 4, img: imgFive }
 ];
 
 export default class Home extends React.Component {

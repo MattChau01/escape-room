@@ -8,10 +8,18 @@
   .vsignup-c {
     width: 28rem;
   }
+
+  /* .carousel-arrows {
+    padding-top: 5rem;
+  } */
 }
 
 @media screen and (min-width: 1000px) {
   .vsignup-c {
     width: 40rem;
+  }
+
+  .carousel-arrows {
+    padding-top: 15rem;
   }
 }

@@ -50,16 +50,19 @@ export default class Carousel extends React.Component {
   render() {
     // console.log('images: ', this.props.images);
     return (
-      <div style={{ overflow: 'hidden', marginTop: '-1rem' }}>
+      <div style={{ overflow: 'hidden', marginTop: '-1rem', position: 'relative' }}>
         <div className='d-flex justify-content-center align-items-center'>
           <div className='row justify-between'>
-            {/* <div>
-            <div>
-              <button className='carousel-arrows' onClick={this.prevImg} >
-                &lt;
-              </button>
+            <div style={{
+              position: 'absolute',
+              left: '0'
+            }}>
+              <div>
+                <button className='carousel-arrows' onClick={this.prevImg} >
+                  &lt;
+                </button>
+              </div>
             </div>
-          </div> */}
             <div className='home-carousel'>
               <img src={this.props.images[this.state.count].img} className='home-carousel-img' />
               {/* <div style={{
@@ -68,13 +71,16 @@ export default class Carousel extends React.Component {
               backgroundRepeat: 'no-repeat'
             }} /> */}
             </div>
-            {/* <div>
-            <div>
-              <button className='carousel-arrows' onClick={this.nextImg}>
-                &gt;
-              </button>
+            <div style={{
+              position: 'absolute',
+              right: '0'
+            }}>
+              <div>
+                <button className='carousel-arrows' onClick={this.nextImg}>
+                  &gt;
+                </button>
+              </div>
             </div>
-          </div> */}
           </div>
         </div>
       </div>
