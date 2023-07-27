@@ -1,9 +1,11 @@
 .home-carousel {
-  margin: 0 30px auto;
+  /* margin: 0 30px auto; */
+  width: 100%;
 }
 
 .home-carousel-img {
-  width: 14rem;
+  /* margin-top: -1rem; */
+  width: 100%;
 }
 
 .new-vendor {
