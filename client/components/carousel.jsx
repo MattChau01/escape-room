@@ -48,7 +48,6 @@ export default class Carousel extends React.Component {
   }
 
   render() {
-    // console.log('images: ', this.props.images);
     return (
       <div style={{ overflow: 'hidden', marginTop: '-1rem', position: 'relative' }}>
         <div className='d-flex justify-content-center align-items-center'>
@@ -65,11 +64,6 @@ export default class Carousel extends React.Component {
             </div>
             <div className='home-carousel'>
               <img src={this.props.images[this.state.count].img} className='home-carousel-img' />
-              {/* <div style={{
-              backgroundImage: `url${this.props.images[this.state.count].img}`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat'
-            }} /> */}
             </div>
             <div style={{
               position: 'absolute',
