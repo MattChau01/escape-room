@@ -1,10 +1,17 @@
-import React from 'react';
+// import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function ListingsOverview(props) {
 
   function roomDetails() {
     window.location.hash = `catalog?roomId=${props.item.entryId}`;
   }
+
+  // console.log('entry id: ', props.item);
+  useEffect(() => {
+    // console.log('test');
+    // console.log('item: ', props.item);
+  });
 
   return (
     <div key={props.item.entryId} className='catalog-container'>

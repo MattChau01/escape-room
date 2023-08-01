@@ -11,6 +11,12 @@ export default class RoomDetails extends React.Component {
     };
   }
 
+  // TEST
+  componentDidMount() {
+    console.log('hash: ', this.state.currentListing); // eslint-disable-line
+
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.listings !== this.props.listings) {
       this.setState({
