@@ -38,11 +38,47 @@ app.get('/api/listings/catalog', (req, res, next) => {
 
 });
 
+// **********
+// NEW GET REQUEST FOR TARGET LISTING BELOW
+
+app.get('/api/listings/catalog-details/:entryId', (req, res, next) => {
+
+  const entryId = req.params.entryId;
+  const entryIdNum = Number(entryId);
+
+  if (!req.params.entryId) {
+    throw new ClientError(400, 'Invalid input');
+  } else if (typeof entryIdNum !== 'number') {
+    throw new ClientError(400, 'Invalid input');
+  } else {
+
+    const sql = `
+      select *
+      from "listings"
+      where "entryId" = $1
+    `;
+
+    const params = [entryIdNum];
+
+    db.query(sql, params)
+      .then(result => {
+        const listing = result.rows;
+        res.json(listing);
+      })
+      .catch(err => next(err));
+
+  }
+
+});
+
+// NEW GET REQUEST FOR TARGET LISTING ABOVE
+// **********
+
 app.post('/api/vendorAccounts/signup', (req, res, next) => {
   const { firstName, lastName, username, password } = req.body;
 
   if (!firstName || !lastName || !username || !password) {
-    throw new ClientError(400, 'Invalid Inputs');
+    throw new ClientError(400, 'Invalid inputs');
   } else {
 
     argon2
