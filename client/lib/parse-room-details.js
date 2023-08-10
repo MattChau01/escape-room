@@ -4,11 +4,13 @@ export default function ParseRoomDetails(hashRoute) {
   }
 
   const split = hashRoute.split('=');
+  // console.log('hashRoute: ', split);
+  // console.log('splitted num: ', (split[1]));
 
   // ORIGINAL:
-  // return (Number(split[1]));
+  return ((split[1]));
 
   // NEW:
-  return (Number(split[0]));
+  // return (Number(split[0]));
 
 }

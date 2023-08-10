@@ -148,7 +148,7 @@ export default class RoomDetails extends React.Component {
     super(props);
     this.state = {
       listings: this.props.listings,
-      currentListing: ParseRoomDetails(window.location.hash)
+      currentListing: Number(ParseRoomDetails(window.location.hash))
     };
   }
 
@@ -156,6 +156,7 @@ export default class RoomDetails extends React.Component {
   componentDidMount() {
     // console.log('actual hash: ', window.location.hash);
     console.log('current listing (entryId): ', this.state.currentListing); // eslint-disable-line
+    console.log('typeof current listing (entryId): ', typeof this.state.currentListing); // eslint-disable-line
 
     // BELOW IS A TEMPLATE OF GET REQUEST, WILL NEED TO UPDATE ACCORDING TO TARGETED ENTRY ID.
 
