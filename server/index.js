@@ -38,9 +38,6 @@ app.get('/api/listings/catalog', (req, res, next) => {
 
 });
 
-// **********
-// NEW GET REQUEST FOR TARGET LISTING BELOW
-
 app.get('/api/listings/catalog-details/:entryId', (req, res, next) => {
 
   const entryId = req.params.entryId;
@@ -70,9 +67,6 @@ app.get('/api/listings/catalog-details/:entryId', (req, res, next) => {
   }
 
 });
-
-// NEW GET REQUEST FOR TARGET LISTING ABOVE
-// **********
 
 app.post('/api/vendorAccounts/signup', (req, res, next) => {
   const { firstName, lastName, username, password } = req.body;
