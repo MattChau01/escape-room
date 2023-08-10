@@ -148,7 +148,8 @@ export default class RoomDetails extends React.Component {
     super(props);
     this.state = {
       listings: this.props.listings,
-      currentListing: Number(ParseRoomDetails(window.location.hash))
+      currentListing: Number(ParseRoomDetails(window.location.hash)),
+      currentView: []
     };
   }
 
@@ -160,37 +161,38 @@ export default class RoomDetails extends React.Component {
 
     // BELOW IS A TEMPLATE OF GET REQUEST, WILL NEED TO UPDATE ACCORDING TO TARGETED ENTRY ID.
 
-    // const req = {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // };
+    const req = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
 
-    // fetch('/api/listings/catalog', req)
-    //   .then(res => res.json())
-    //   .then(listings => {
-    //     this.setState({
-    //       listings
-    //     });
-    //   })
-    //   .catch(err => console.error(err));
+    fetch(`/api/listings/catalog-details/${this.state.currentListing}`, req)
+      .then(res => res.json())
+      .then(currentView => {
+        this.setState({
+          currentView
+        });
+      })
+      .catch(err => console.error(err));
 
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.listings !== this.props.listings) {
-      this.setState({
-        listings: this.props.listings
-      });
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.listings !== this.props.listings) {
+  //     this.setState({
+  //       listings: this.props.listings
+  //     });
+  //   }
+  // }
 
   render() {
+    // console.log('this.state.currentView: ', this.state.currentView);
 
-    const { listings, currentListing } = this.state;
+    // const { listings, currentListing } = this.state;
 
-    if (!listings || !listings[currentListing]) {
+    if (this.state.currentView === [] || this.state.currentView.length < 1) {
       return (
         <>
           <Header
@@ -205,7 +207,8 @@ export default class RoomDetails extends React.Component {
       );
     } else {
 
-      const currentRoom = listings[currentListing];
+      // const currentRoom = listings[currentListing];
+      const currentRoom = this.state.currentView[0];
 
       return (
         <>
@@ -223,6 +226,7 @@ export default class RoomDetails extends React.Component {
                   fontSize: '1.25rem',
                   fontWeight: 600
                 }} className='justify-content-center text-center'>
+                  {}
                   {currentRoom.roomName}
                 </div>
               </div>
