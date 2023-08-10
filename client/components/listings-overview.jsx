@@ -7,6 +7,7 @@ export default function ListingsOverview(props) {
     window.location.hash = `catalog?roomId=${props.item.entryId}`;
   }
 
+  // console.log('key: ', props.key);
   // console.log('entry id: ', props.item);
   useEffect(() => {
     // console.log('test');

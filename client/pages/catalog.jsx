@@ -10,6 +10,25 @@ export default class CatalogPage extends React.Component {
     };
   }
 
+  componentDidUpdate() {
+
+    const req = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    fetch('/api/listings/catalog', req)
+      .then(res => res.json())
+      .then(listings => {
+        this.setState({
+          listings
+        });
+      })
+      .catch(err => console.error(err));
+  }
+
   render() {
     return (
       <div>
@@ -28,7 +47,7 @@ export default class CatalogPage extends React.Component {
             </h5>
 
             {this.props.listings.map(item => {
-              // console.log('item: ', item);
+              // console.log('item (catalog.jsx): ', item);
               return (
 
                 <ListingsOverview key={item.entryId} item={item}/>

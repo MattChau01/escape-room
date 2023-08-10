@@ -5,5 +5,10 @@ export default function ParseRoomDetails(hashRoute) {
 
   const split = hashRoute.split('=');
 
-  return (Number(split[1]) - 1);
+  // ORIGINAL:
+  // return (Number(split[1]));
+
+  // NEW:
+  return (Number(split[0]));
+
 }

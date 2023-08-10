@@ -154,7 +154,27 @@ export default class RoomDetails extends React.Component {
 
   // TEST
   componentDidMount() {
-    console.log('hash: ', this.state.currentListing); // eslint-disable-line
+    // console.log('actual hash: ', window.location.hash);
+    console.log('current listing (entryId): ', this.state.currentListing); // eslint-disable-line
+
+    // BELOW IS A TEMPLATE OF GET REQUEST, WILL NEED TO UPDATE ACCORDING TO TARGETED ENTRY ID.
+
+    // const req = {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // };
+
+    // fetch('/api/listings/catalog', req)
+    //   .then(res => res.json())
+    //   .then(listings => {
+    //     this.setState({
+    //       listings
+    //     });
+    //   })
+    //   .catch(err => console.error(err));
+
   }
 
   componentDidUpdate(prevProps) {
