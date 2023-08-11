@@ -49,7 +49,7 @@ export default class Home extends React.Component {
         <div className='d-flex justify-content-center align-items'>
           <div className='row mt-3'>
             <div className='viewer' style={{
-              backgroundColor: '#1976D2',
+              backgroundColor: '#046290',
               color: '#fff',
               borderRadius: '5rem',
               width: '7rem',
@@ -65,7 +65,7 @@ export default class Home extends React.Component {
               <p>OR</p>
             </div>
             <div className='v-sign-up' style={{
-              backgroundColor: '#1976D2',
+              backgroundColor: '#046290',
               color: '#fff',
               borderRadius: '5rem',
               width: '7rem',

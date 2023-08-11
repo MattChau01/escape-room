@@ -306,7 +306,7 @@ export default class VendorHome extends React.Component {
           </div>
           <div className='col-4 mr-2 text-right v-signout'>
             <button style={{
-              backgroundColor: '#1976D2',
+              backgroundColor: '#046290',
               color: '#fff',
               borderRadius: '5rem',
               width: '7rem',
@@ -465,7 +465,7 @@ export default class VendorHome extends React.Component {
                       ? (
                         <div className='d-flex justify-content-center mt-3 mb-3 add-listing'>
                           <button style={{
-                            backgroundColor: '#1976D2',
+                            backgroundColor: '#046290',
                             color: '#fff',
                             borderRadius: '5rem',
                             width: '7.5rem',

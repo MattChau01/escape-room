@@ -10,6 +10,25 @@ export default class CatalogPage extends React.Component {
     };
   }
 
+  componentDidUpdate() {
+
+    const req = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    fetch('/api/listings/catalog', req)
+      .then(res => res.json())
+      .then(listings => {
+        this.setState({
+          listings
+        });
+      })
+      .catch(err => console.error(err));
+  }
+
   render() {
     return (
       <div>

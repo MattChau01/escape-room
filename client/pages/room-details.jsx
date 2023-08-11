@@ -7,23 +7,34 @@ export default class RoomDetails extends React.Component {
     super(props);
     this.state = {
       listings: this.props.listings,
-      currentListing: ParseRoomDetails(window.location.hash)
+      currentListing: Number(ParseRoomDetails(window.location.hash)),
+      currentView: []
     };
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.listings !== this.props.listings) {
-      this.setState({
-        listings: this.props.listings
-      });
-    }
+  componentDidMount() {
+
+    const req = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    fetch(`/api/listings/catalog-details/${this.state.currentListing}`, req)
+      .then(res => res.json())
+      .then(currentView => {
+        this.setState({
+          currentView
+        });
+      })
+      .catch(err => console.error(err));
+
   }
 
   render() {
 
-    const { listings, currentListing } = this.state;
-
-    if (!listings || !listings[currentListing]) {
+    if (this.state.currentView === [] || this.state.currentView.length < 1) {
       return (
         <>
           <Header
@@ -38,7 +49,7 @@ export default class RoomDetails extends React.Component {
       );
     } else {
 
-      const currentRoom = listings[currentListing];
+      const currentRoom = this.state.currentView[0];
 
       return (
         <>
@@ -56,6 +67,7 @@ export default class RoomDetails extends React.Component {
                   fontSize: '1.25rem',
                   fontWeight: 600
                 }} className='justify-content-center text-center'>
+                  {}
                   {currentRoom.roomName}
                 </div>
               </div>
@@ -71,7 +83,7 @@ export default class RoomDetails extends React.Component {
 
               <div className='rd-1'>
 
-                <div className='mt-3 pt-5'>
+                <div className='mt-3 pt-4'>
                   <div className='d-flex align-items-center justify-content-center text-center'>
                     <div style={{ width: '15rem' }}>
                       {currentRoom.description}
