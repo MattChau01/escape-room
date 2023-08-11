@@ -90,8 +90,9 @@ function Header(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar className='drawer'>
-        <div className='mx-2 my-2' style={{ backgroundColor: '#1976D2' }}>
+      <AppBar className='drawer' style={{ backgroundColor: '#046290' }}>
+        {/* <div style={{ backgroundColor: '#046290' }}> */}
+        <div className='mx-2 my-2' style={{ backgroundColor: '#046290' }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -114,6 +115,7 @@ function Header(props) {
 
         </div>
       </AppBar>
+      {/* </div> */}
       <Box
         component="nav"
         aria-label="mailbox folders">
