@@ -150,7 +150,7 @@ export default function ListingForm(props) {
 
         <div className='mt-5 mb-5'>
           <button className='close-form' style={{
-            backgroundColor: '#1976D2',
+            backgroundColor: '#046290',
             color: '#fff',
             borderRadius: '5rem',
             width: '7rem',
