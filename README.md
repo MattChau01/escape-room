@@ -26,19 +26,6 @@ This application is an online catalog that brings all escape room fanatics of al
 
 :lock: Authenticator: argon2, JSON Web Tokens, jwt-decode
 
-## Features
-
-- Users can navigate to an informational page to learn more about escape rooms
-- Users can create a vendor account with a unique username and password
-- Vendor users can sign into their account
-- Vendor users can sign out of their account
-- Vendor users can post a new listing on their account
-- Vendor users can view all created listings on their home page
-- Vendor users can edit their listing
-- Vendor users can delete their listing
-- General users can select and learn more about a specific room
-- General users can browse through a compiled list of rooms
-
 ## Getting started
 
 You may clone this repo with the following steps:
